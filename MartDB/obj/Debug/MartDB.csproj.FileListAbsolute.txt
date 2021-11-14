@@ -1,0 +1,10 @@
+D:\projects\source\repos\MartDB\MartDB\obj\Debug\MartDB.csprojAssemblyReference.cache
+D:\projects\source\repos\MartDB\MartDB\obj\Debug\MartDB.LoginForm.resources
+D:\projects\source\repos\MartDB\MartDB\obj\Debug\MartDB.Properties.Resources.resources
+D:\projects\source\repos\MartDB\MartDB\obj\Debug\MartDB.csproj.GenerateResource.cache
+D:\projects\source\repos\MartDB\MartDB\obj\Debug\MartDB.csproj.CoreCompileInputs.cache
+D:\projects\source\repos\MartDB\MartDB\bin\Debug\MartDB.exe.config
+D:\projects\source\repos\MartDB\MartDB\bin\Debug\MartDB.exe
+D:\projects\source\repos\MartDB\MartDB\bin\Debug\MartDB.pdb
+D:\projects\source\repos\MartDB\MartDB\obj\Debug\MartDB.exe
+D:\projects\source\repos\MartDB\MartDB\obj\Debug\MartDB.pdb
