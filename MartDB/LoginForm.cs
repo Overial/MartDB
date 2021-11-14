@@ -16,5 +16,11 @@ namespace MartDB
         {
             InitializeComponent();
         }
+
+        private void ExitButton_Click(object sender, EventArgs e)
+        {
+            // Close this form
+            this.Close();
+        }
     }
 }
