@@ -27,6 +27,12 @@ namespace MartDB
         public LoginForm()
         {
             InitializeComponent();
+
+            // Debugging
+            this.Visible = false;
+            MainForm mainForm = new MainForm();
+            mainForm.ShowDialog();
+            this.Close();
         }
 
         // Moving login window with mouse

@@ -136,9 +136,9 @@ namespace MartDB
             this.label4.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label4.Location = new System.Drawing.Point(12, 42);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(187, 32);
+            this.label4.Size = new System.Drawing.Size(445, 32);
             this.label4.TabIndex = 8;
-            this.label4.Text = "БД \"Тессеракт\"";
+            this.label4.Text = "Вас приветствует система \"Тессеракт\"";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // menuStrip1
@@ -158,7 +158,7 @@ namespace MartDB
             this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aboutToolStripMenuItem});
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
-            this.menuToolStripMenuItem.Size = new System.Drawing.Size(65, 24);
+            this.menuToolStripMenuItem.Size = new System.Drawing.Size(65, 26);
             this.menuToolStripMenuItem.Text = "Меню";
             // 
             // aboutToolStripMenuItem
