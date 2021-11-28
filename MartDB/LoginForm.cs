@@ -66,16 +66,17 @@ namespace MartDB
                                             "Password = '" + PasswordBox.Text + "'",
                                             sqlConnection);
 
-            // SqlDataAdapter da = new SqlDataAdapter(sqlCommand);
-            // DataTable dt = new DataTable();
-            // da.Fill(dt);
+            //SqlDataAdapter da = new SqlDataAdapter(sqlCommand);
+            //DataTable dt = new DataTable();
+            //da.Fill(dt);
 
-            // int id = 0;
-            // sqlCommand.Parameters.Add("Id", SqlDbType.Int).Value = id;
+            //int id = 0;
+            //sqlCommand.Parameters.Add("Id", SqlDbType.Int).Value = id;
 
             // Using SqlDataReader for opening proper form
             using (SqlDataReader reader = sqlCommand.ExecuteReader())
             {
+                // If found matches
                 if (reader.Read())
                 {
                     string role = reader.GetString(2);

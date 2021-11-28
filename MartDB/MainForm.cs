@@ -17,6 +17,12 @@ namespace MartDB
         // For panel list indexing
         int index = 0;
 
+        // Panels:
+        // 0: Main
+        // 1: Area
+        // 2: Booking
+        // ...
+
         public MainForm()
         {
             InitializeComponent();
@@ -25,12 +31,20 @@ namespace MartDB
             this.StartPosition = FormStartPosition.CenterScreen;
         }
 
-        // Save button of the form
+        // (area) Save button of the form
         private void areaBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             this.Validate();
             this.areaBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.martDBDataSet);
+            this.areaTableAdapterManager.UpdateAll(this.martDBDataSet);
+        }
+
+        // (booking) Save button of the form
+        private void bookingSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.bookingBindingSource.EndEdit();
+            this.bookingTableAdapterManager.UpdateAll(this.martDBDataSet);
         }
 
         // Actions on load
