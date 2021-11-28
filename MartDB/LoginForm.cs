@@ -16,6 +16,7 @@ namespace MartDB
 {
     public partial class LoginForm : Form
     {
+        // For moving form with mouse functionality
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
 
@@ -27,12 +28,6 @@ namespace MartDB
         public LoginForm()
         {
             InitializeComponent();
-
-            // Debugging
-            this.Visible = false;
-            MainForm mainForm = new MainForm();
-            mainForm.ShowDialog();
-            this.Close();
         }
 
         // Moving login window with mouse
