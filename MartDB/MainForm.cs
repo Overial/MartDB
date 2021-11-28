@@ -41,12 +41,8 @@ namespace MartDB
             this.listPanel.Add(this.panelArea);
             this.listPanel.Add(this.panelBooking);
             // Show first panel
-            this.panelMain.BringToFront();
+            this.listPanel[this.index].BringToFront();
 
-            // TODO: This line of code loads data into the 'martDBDataSet.Booking' table. You can move, or remove it, as needed.
-            this.bookingTableAdapter.Fill(this.martDBDataSet.Booking);
-            // TODO: This line of code loads data into the 'martDBDataSet.Booking' table. You can move, or remove it, as needed.
-            this.bookingTableAdapter.Fill(this.martDBDataSet.Booking);
             // TODO: This line of code loads data into the 'martDBDataSet.Area' table. You can move, or remove it, as needed.
             this.areaTableAdapter.Fill(this.martDBDataSet.Area);
         }
@@ -74,18 +70,21 @@ namespace MartDB
         // Move to main panel
         private void btnMoveToMain_Click(object sender, EventArgs e)
         {
+            this.index = 0;
             this.panelMain.BringToFront();
         }
 
         // Move to area panel
         private void btnMoveToPanelArea_Click(object sender, EventArgs e)
         {
+            this.index = 1;
             this.panelArea.BringToFront();
         }
 
         // Move to booking panel
         private void btnMoveToBookingArea_Click(object sender, EventArgs e)
         {
+            this.index = 2;
             this.panelBooking.BringToFront();
         }
     }
