@@ -45,6 +45,8 @@ namespace MartDB
 
             // TODO: This line of code loads data into the 'martDBDataSet.Area' table. You can move, or remove it, as needed.
             this.areaTableAdapter.Fill(this.martDBDataSet.Area);
+            // TODO: This line of code loads data into the 'martDBDataSet.Booking' table. You can move, or remove it, as needed.
+            this.bookingTableAdapter.Fill(this.martDBDataSet.Booking);
         }
 
         // Turn back
@@ -86,6 +88,23 @@ namespace MartDB
         {
             this.index = 2;
             this.panelBooking.BringToFront();
+        }
+
+        private void areaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.index = 1;
+            this.panelArea.BringToFront();
+        }
+
+        private void bookingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.index = 2;
+            this.panelBooking.BringToFront();
+        }
+
+        private void aboutToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("База данных \"Тессеракт\"", "О программе", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

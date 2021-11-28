@@ -131,7 +131,7 @@ namespace MartDB
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("База данных \"Тессеракт\"");
+            MessageBox.Show("База данных \"Тессеракт\"", "О программе", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

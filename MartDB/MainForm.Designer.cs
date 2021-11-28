@@ -34,7 +34,12 @@ namespace MartDB
             System.Windows.Forms.Label area_idLabel;
             System.Windows.Forms.Label area_squareLabel;
             System.Windows.Forms.Label floor_numberLabel;
-            this.label1 = new System.Windows.Forms.Label();
+            System.Windows.Forms.Label booking_idLabel;
+            System.Windows.Forms.Label org_idLabel;
+            System.Windows.Forms.Label area_idLabel1;
+            System.Windows.Forms.Label costLabel;
+            System.Windows.Forms.Label booking_start_dateLabel;
+            System.Windows.Forms.Label booking_end_dateLabel;
             this.panelArea = new System.Windows.Forms.Panel();
             this.martDBDataSet = new MartDB.MartDBDataSet();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -79,9 +84,43 @@ namespace MartDB
             this.floor_numberComboBox = new System.Windows.Forms.ComboBox();
             this.button2 = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.bookingBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bookingTableAdapter = new MartDB.MartDBDataSetTableAdapters.BookingTableAdapter();
+            this.booking_idTextBox = new System.Windows.Forms.TextBox();
+            this.org_idTextBox = new System.Windows.Forms.TextBox();
+            this.area_idTextBox = new System.Windows.Forms.TextBox();
+            this.costTextBox = new System.Windows.Forms.TextBox();
+            this.booking_start_dateDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.booking_end_dateDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bookingDataGridView = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.bookingbindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.bindingNavigatorMoveFirstItem1 = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMovePreviousItem1 = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorPositionItem1 = new System.Windows.Forms.ToolStripTextBox();
+            this.bindingNavigatorCountItem1 = new System.Windows.Forms.ToolStripLabel();
+            this.bindingNavigatorSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorMoveNextItem1 = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMoveLastItem1 = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorAddNewItem1 = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorDeleteItem1 = new System.Windows.Forms.ToolStripButton();
             area_idLabel = new System.Windows.Forms.Label();
             area_squareLabel = new System.Windows.Forms.Label();
             floor_numberLabel = new System.Windows.Forms.Label();
+            booking_idLabel = new System.Windows.Forms.Label();
+            org_idLabel = new System.Windows.Forms.Label();
+            area_idLabel1 = new System.Windows.Forms.Label();
+            costLabel = new System.Windows.Forms.Label();
+            booking_start_dateLabel = new System.Windows.Forms.Label();
+            booking_end_dateLabel = new System.Windows.Forms.Label();
             this.panelArea.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.martDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -94,17 +133,11 @@ namespace MartDB
             ((System.ComponentModel.ISupportInitialize)(this.areaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.areaDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.area_idNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bookingBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bookingDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bookingbindingNavigator)).BeginInit();
+            this.bookingbindingNavigator.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(316, 27);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(337, 32);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "База данных ТЦ \"Тессеракт\"";
             // 
             // panelArea
             // 
@@ -114,15 +147,16 @@ namespace MartDB
             this.panelArea.Controls.Add(floor_numberLabel);
             this.panelArea.Controls.Add(this.floor_numberComboBox);
             this.panelArea.Controls.Add(area_squareLabel);
+            this.panelArea.Controls.Add(this.areaBindingNavigator);
             this.panelArea.Controls.Add(this.area_squareTextBox);
             this.panelArea.Controls.Add(area_idLabel);
             this.panelArea.Controls.Add(this.area_idNumericUpDown);
             this.panelArea.Controls.Add(this.areaDataGridView);
             this.panelArea.Controls.Add(this.pictureBox1);
             this.panelArea.Controls.Add(this.label2);
-            this.panelArea.Location = new System.Drawing.Point(12, 75);
+            this.panelArea.Location = new System.Drawing.Point(12, 33);
             this.panelArea.Name = "panelArea";
-            this.panelArea.Size = new System.Drawing.Size(948, 437);
+            this.panelArea.Size = new System.Drawing.Size(948, 479);
             this.panelArea.TabIndex = 1;
             // 
             // martDBDataSet
@@ -145,7 +179,7 @@ namespace MartDB
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(16, 12);
+            this.label2.Location = new System.Drawing.Point(8, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(345, 28);
             this.label2.TabIndex = 6;
@@ -184,10 +218,25 @@ namespace MartDB
             // panelBooking
             // 
             this.panelBooking.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelBooking.Controls.Add(this.bookingbindingNavigator);
+            this.panelBooking.Controls.Add(this.label1);
+            this.panelBooking.Controls.Add(this.bookingDataGridView);
+            this.panelBooking.Controls.Add(booking_end_dateLabel);
+            this.panelBooking.Controls.Add(this.booking_end_dateDateTimePicker);
+            this.panelBooking.Controls.Add(booking_start_dateLabel);
+            this.panelBooking.Controls.Add(this.booking_start_dateDateTimePicker);
+            this.panelBooking.Controls.Add(costLabel);
+            this.panelBooking.Controls.Add(this.costTextBox);
+            this.panelBooking.Controls.Add(area_idLabel1);
+            this.panelBooking.Controls.Add(this.area_idTextBox);
+            this.panelBooking.Controls.Add(org_idLabel);
+            this.panelBooking.Controls.Add(this.org_idTextBox);
+            this.panelBooking.Controls.Add(booking_idLabel);
+            this.panelBooking.Controls.Add(this.booking_idTextBox);
             this.panelBooking.Controls.Add(this.pictureBox2);
-            this.panelBooking.Location = new System.Drawing.Point(12, 75);
+            this.panelBooking.Location = new System.Drawing.Point(12, 33);
             this.panelBooking.Name = "panelBooking";
-            this.panelBooking.Size = new System.Drawing.Size(948, 430);
+            this.panelBooking.Size = new System.Drawing.Size(948, 479);
             this.panelBooking.TabIndex = 11;
             // 
             // menuStrip1
@@ -216,12 +265,14 @@ namespace MartDB
             this.areaToolStripMenuItem.Name = "areaToolStripMenuItem";
             this.areaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.areaToolStripMenuItem.Text = "Помещение";
+            this.areaToolStripMenuItem.Click += new System.EventHandler(this.areaToolStripMenuItem_Click);
             // 
             // bookingToolStripMenuItem
             // 
             this.bookingToolStripMenuItem.Name = "bookingToolStripMenuItem";
             this.bookingToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.bookingToolStripMenuItem.Text = "Бронь";
+            this.bookingToolStripMenuItem.Click += new System.EventHandler(this.bookingToolStripMenuItem_Click);
             // 
             // menuToolStripMenuItem
             // 
@@ -236,6 +287,7 @@ namespace MartDB
             this.aboutToolStripMenuItem1.Name = "aboutToolStripMenuItem1";
             this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
             this.aboutToolStripMenuItem1.Text = "О программе";
+            this.aboutToolStripMenuItem1.Click += new System.EventHandler(this.aboutToolStripMenuItem1_Click);
             // 
             // panelMain
             // 
@@ -243,9 +295,9 @@ namespace MartDB
             this.panelMain.Controls.Add(this.btnMoveToPanelBooking);
             this.panelMain.Controls.Add(this.btnMoveToPanelArea);
             this.panelMain.Controls.Add(this.label3);
-            this.panelMain.Location = new System.Drawing.Point(12, 75);
+            this.panelMain.Location = new System.Drawing.Point(12, 33);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(948, 430);
+            this.panelMain.Size = new System.Drawing.Size(948, 479);
             this.panelMain.TabIndex = 13;
             // 
             // label3
@@ -281,7 +333,7 @@ namespace MartDB
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(537, 32);
+            this.pictureBox2.Location = new System.Drawing.Point(674, 10);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(255, 170);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -385,9 +437,11 @@ namespace MartDB
             // areaBindingNavigator
             // 
             this.areaBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
+            this.areaBindingNavigator.BackColor = System.Drawing.SystemColors.ControlDark;
             this.areaBindingNavigator.BindingSource = this.areaBindingSource;
             this.areaBindingNavigator.CountItem = this.bindingNavigatorCountItem;
             this.areaBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
+            this.areaBindingNavigator.Dock = System.Windows.Forms.DockStyle.None;
             this.areaBindingNavigator.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.areaBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem,
@@ -402,14 +456,14 @@ namespace MartDB
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem,
             this.areaBindingNavigatorSaveItem});
-            this.areaBindingNavigator.Location = new System.Drawing.Point(0, 28);
+            this.areaBindingNavigator.Location = new System.Drawing.Point(12, 52);
             this.areaBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.areaBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.areaBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
             this.areaBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.areaBindingNavigator.Name = "areaBindingNavigator";
             this.areaBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.areaBindingNavigator.Size = new System.Drawing.Size(971, 27);
+            this.areaBindingNavigator.Size = new System.Drawing.Size(331, 27);
             this.areaBindingNavigator.TabIndex = 2;
             this.areaBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -443,11 +497,11 @@ namespace MartDB
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3});
             this.areaDataGridView.DataSource = this.areaBindingSource;
-            this.areaDataGridView.Location = new System.Drawing.Point(12, 161);
+            this.areaDataGridView.Location = new System.Drawing.Point(12, 200);
             this.areaDataGridView.Name = "areaDataGridView";
             this.areaDataGridView.RowHeadersWidth = 51;
             this.areaDataGridView.RowTemplate.Height = 24;
-            this.areaDataGridView.Size = new System.Drawing.Size(491, 254);
+            this.areaDataGridView.Size = new System.Drawing.Size(491, 215);
             this.areaDataGridView.TabIndex = 12;
             // 
             // dataGridViewTextBoxColumn1
@@ -477,7 +531,7 @@ namespace MartDB
             // area_idLabel
             // 
             area_idLabel.AutoSize = true;
-            area_idLabel.Location = new System.Drawing.Point(18, 50);
+            area_idLabel.Location = new System.Drawing.Point(10, 96);
             area_idLabel.Name = "area_idLabel";
             area_idLabel.Size = new System.Drawing.Size(117, 17);
             area_idLabel.TabIndex = 12;
@@ -486,7 +540,7 @@ namespace MartDB
             // area_idNumericUpDown
             // 
             this.area_idNumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.areaBindingSource, "area_id", true));
-            this.area_idNumericUpDown.Location = new System.Drawing.Point(219, 48);
+            this.area_idNumericUpDown.Location = new System.Drawing.Point(211, 94);
             this.area_idNumericUpDown.Name = "area_idNumericUpDown";
             this.area_idNumericUpDown.Size = new System.Drawing.Size(120, 22);
             this.area_idNumericUpDown.TabIndex = 13;
@@ -494,7 +548,7 @@ namespace MartDB
             // area_squareLabel
             // 
             area_squareLabel.AutoSize = true;
-            area_squareLabel.Location = new System.Drawing.Point(18, 85);
+            area_squareLabel.Location = new System.Drawing.Point(10, 131);
             area_squareLabel.Name = "area_squareLabel";
             area_squareLabel.Size = new System.Drawing.Size(152, 17);
             area_squareLabel.TabIndex = 13;
@@ -503,7 +557,7 @@ namespace MartDB
             // area_squareTextBox
             // 
             this.area_squareTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.areaBindingSource, "area_square", true));
-            this.area_squareTextBox.Location = new System.Drawing.Point(219, 82);
+            this.area_squareTextBox.Location = new System.Drawing.Point(211, 128);
             this.area_squareTextBox.Name = "area_squareTextBox";
             this.area_squareTextBox.Size = new System.Drawing.Size(100, 22);
             this.area_squareTextBox.TabIndex = 14;
@@ -511,7 +565,7 @@ namespace MartDB
             // floor_numberLabel
             // 
             floor_numberLabel.AutoSize = true;
-            floor_numberLabel.Location = new System.Drawing.Point(18, 120);
+            floor_numberLabel.Location = new System.Drawing.Point(10, 166);
             floor_numberLabel.Name = "floor_numberLabel";
             floor_numberLabel.Size = new System.Drawing.Size(98, 17);
             floor_numberLabel.TabIndex = 14;
@@ -521,7 +575,7 @@ namespace MartDB
             // 
             this.floor_numberComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.areaBindingSource, "floor_number", true));
             this.floor_numberComboBox.FormattingEnabled = true;
-            this.floor_numberComboBox.Location = new System.Drawing.Point(219, 117);
+            this.floor_numberComboBox.Location = new System.Drawing.Point(211, 163);
             this.floor_numberComboBox.Name = "floor_numberComboBox";
             this.floor_numberComboBox.Size = new System.Drawing.Size(121, 24);
             this.floor_numberComboBox.TabIndex = 15;
@@ -544,20 +598,323 @@ namespace MartDB
             this.listBox1.Size = new System.Drawing.Size(120, 84);
             this.listBox1.TabIndex = 17;
             // 
+            // bookingBindingSource
+            // 
+            this.bookingBindingSource.DataMember = "Booking";
+            this.bookingBindingSource.DataSource = this.martDBDataSet;
+            // 
+            // bookingTableAdapter
+            // 
+            this.bookingTableAdapter.ClearBeforeFill = true;
+            // 
+            // booking_idLabel
+            // 
+            booking_idLabel.AutoSize = true;
+            booking_idLabel.Location = new System.Drawing.Point(10, 79);
+            booking_idLabel.Name = "booking_idLabel";
+            booking_idLabel.Size = new System.Drawing.Size(81, 17);
+            booking_idLabel.TabIndex = 13;
+            booking_idLabel.Text = "Код брони:";
+            // 
+            // booking_idTextBox
+            // 
+            this.booking_idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bookingBindingSource, "booking_id", true));
+            this.booking_idTextBox.Location = new System.Drawing.Point(203, 76);
+            this.booking_idTextBox.Name = "booking_idTextBox";
+            this.booking_idTextBox.Size = new System.Drawing.Size(100, 22);
+            this.booking_idTextBox.TabIndex = 14;
+            // 
+            // org_idLabel
+            // 
+            org_idLabel.AutoSize = true;
+            org_idLabel.Location = new System.Drawing.Point(10, 109);
+            org_idLabel.Name = "org_idLabel";
+            org_idLabel.Size = new System.Drawing.Size(125, 17);
+            org_idLabel.TabIndex = 14;
+            org_idLabel.Text = "Код организации:";
+            // 
+            // org_idTextBox
+            // 
+            this.org_idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bookingBindingSource, "org_id", true));
+            this.org_idTextBox.Location = new System.Drawing.Point(203, 106);
+            this.org_idTextBox.Name = "org_idTextBox";
+            this.org_idTextBox.Size = new System.Drawing.Size(100, 22);
+            this.org_idTextBox.TabIndex = 15;
+            // 
+            // area_idLabel1
+            // 
+            area_idLabel1.AutoSize = true;
+            area_idLabel1.Location = new System.Drawing.Point(10, 145);
+            area_idLabel1.Name = "area_idLabel1";
+            area_idLabel1.Size = new System.Drawing.Size(117, 17);
+            area_idLabel1.TabIndex = 15;
+            area_idLabel1.Text = "Код помещения:";
+            // 
+            // area_idTextBox
+            // 
+            this.area_idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bookingBindingSource, "area_id", true));
+            this.area_idTextBox.Location = new System.Drawing.Point(203, 142);
+            this.area_idTextBox.Name = "area_idTextBox";
+            this.area_idTextBox.Size = new System.Drawing.Size(100, 22);
+            this.area_idTextBox.TabIndex = 16;
+            // 
+            // costLabel
+            // 
+            costLabel.AutoSize = true;
+            costLabel.Location = new System.Drawing.Point(10, 179);
+            costLabel.Name = "costLabel";
+            costLabel.Size = new System.Drawing.Size(82, 17);
+            costLabel.TabIndex = 16;
+            costLabel.Text = "Стоимость:";
+            // 
+            // costTextBox
+            // 
+            this.costTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bookingBindingSource, "cost", true));
+            this.costTextBox.Location = new System.Drawing.Point(203, 176);
+            this.costTextBox.Name = "costTextBox";
+            this.costTextBox.Size = new System.Drawing.Size(100, 22);
+            this.costTextBox.TabIndex = 17;
+            // 
+            // booking_start_dateLabel
+            // 
+            booking_start_dateLabel.AutoSize = true;
+            booking_start_dateLabel.Location = new System.Drawing.Point(10, 213);
+            booking_start_dateLabel.Name = "booking_start_dateLabel";
+            booking_start_dateLabel.Size = new System.Drawing.Size(166, 17);
+            booking_start_dateLabel.TabIndex = 17;
+            booking_start_dateLabel.Text = "Начало периода брони:";
+            // 
+            // booking_start_dateDateTimePicker
+            // 
+            this.booking_start_dateDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.bookingBindingSource, "booking_start_date", true));
+            this.booking_start_dateDateTimePicker.Location = new System.Drawing.Point(203, 213);
+            this.booking_start_dateDateTimePicker.Name = "booking_start_dateDateTimePicker";
+            this.booking_start_dateDateTimePicker.Size = new System.Drawing.Size(200, 22);
+            this.booking_start_dateDateTimePicker.TabIndex = 18;
+            // 
+            // booking_end_dateLabel
+            // 
+            booking_end_dateLabel.AutoSize = true;
+            booking_end_dateLabel.Location = new System.Drawing.Point(10, 246);
+            booking_end_dateLabel.Name = "booking_end_dateLabel";
+            booking_end_dateLabel.Size = new System.Drawing.Size(157, 17);
+            booking_end_dateLabel.TabIndex = 18;
+            booking_end_dateLabel.Text = "Конец периода брони:";
+            // 
+            // booking_end_dateDateTimePicker
+            // 
+            this.booking_end_dateDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.bookingBindingSource, "booking_end_date", true));
+            this.booking_end_dateDateTimePicker.Location = new System.Drawing.Point(203, 246);
+            this.booking_end_dateDateTimePicker.Name = "booking_end_dateDateTimePicker";
+            this.booking_end_dateDateTimePicker.Size = new System.Drawing.Size(200, 22);
+            this.booking_end_dateDateTimePicker.TabIndex = 19;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "booking_end_date";
+            this.dataGridViewTextBoxColumn9.HeaderText = "booking_end_date";
+            this.dataGridViewTextBoxColumn9.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "booking_start_date";
+            this.dataGridViewTextBoxColumn8.HeaderText = "booking_start_date";
+            this.dataGridViewTextBoxColumn8.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "cost";
+            this.dataGridViewTextBoxColumn7.HeaderText = "cost";
+            this.dataGridViewTextBoxColumn7.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "area_id";
+            this.dataGridViewTextBoxColumn6.HeaderText = "area_id";
+            this.dataGridViewTextBoxColumn6.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "org_id";
+            this.dataGridViewTextBoxColumn5.HeaderText = "org_id";
+            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "booking_id";
+            this.dataGridViewTextBoxColumn4.HeaderText = "booking_id";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.Width = 125;
+            // 
+            // bookingDataGridView
+            // 
+            this.bookingDataGridView.AutoGenerateColumns = false;
+            this.bookingDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.bookingDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9});
+            this.bookingDataGridView.DataSource = this.bookingBindingSource;
+            this.bookingDataGridView.Location = new System.Drawing.Point(12, 290);
+            this.bookingDataGridView.Name = "bookingDataGridView";
+            this.bookingDataGridView.RowHeadersWidth = 51;
+            this.bookingDataGridView.RowTemplate.Height = 24;
+            this.bookingDataGridView.Size = new System.Drawing.Size(464, 178);
+            this.bookingDataGridView.TabIndex = 19;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(8, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(288, 28);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "Панель управления: \"Бронь\"";
+            // 
+            // bookingbindingNavigator
+            // 
+            this.bookingbindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem1;
+            this.bookingbindingNavigator.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.bookingbindingNavigator.BindingSource = this.bookingBindingSource;
+            this.bookingbindingNavigator.CountItem = this.bindingNavigatorCountItem1;
+            this.bookingbindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem1;
+            this.bookingbindingNavigator.Dock = System.Windows.Forms.DockStyle.None;
+            this.bookingbindingNavigator.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.bookingbindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bindingNavigatorMoveFirstItem1,
+            this.bindingNavigatorMovePreviousItem1,
+            this.bindingNavigatorSeparator3,
+            this.bindingNavigatorPositionItem1,
+            this.bindingNavigatorCountItem1,
+            this.bindingNavigatorSeparator4,
+            this.bindingNavigatorMoveNextItem1,
+            this.bindingNavigatorMoveLastItem1,
+            this.bindingNavigatorSeparator5,
+            this.bindingNavigatorAddNewItem1,
+            this.bindingNavigatorDeleteItem1});
+            this.bookingbindingNavigator.Location = new System.Drawing.Point(13, 41);
+            this.bookingbindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem1;
+            this.bookingbindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem1;
+            this.bookingbindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem1;
+            this.bookingbindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem1;
+            this.bookingbindingNavigator.Name = "bookingbindingNavigator";
+            this.bookingbindingNavigator.PositionItem = this.bindingNavigatorPositionItem1;
+            this.bookingbindingNavigator.Size = new System.Drawing.Size(302, 27);
+            this.bookingbindingNavigator.TabIndex = 21;
+            this.bookingbindingNavigator.Text = "bindingNavigator1";
+            // 
+            // bindingNavigatorMoveFirstItem1
+            // 
+            this.bindingNavigatorMoveFirstItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveFirstItem1.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem1.Image")));
+            this.bindingNavigatorMoveFirstItem1.Name = "bindingNavigatorMoveFirstItem";
+            this.bindingNavigatorMoveFirstItem1.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveFirstItem1.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMoveFirstItem1.Text = "Move first";
+            // 
+            // bindingNavigatorMovePreviousItem1
+            // 
+            this.bindingNavigatorMovePreviousItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMovePreviousItem1.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem1.Image")));
+            this.bindingNavigatorMovePreviousItem1.Name = "bindingNavigatorMovePreviousItem";
+            this.bindingNavigatorMovePreviousItem1.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMovePreviousItem1.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMovePreviousItem1.Text = "Move previous";
+            // 
+            // bindingNavigatorSeparator3
+            // 
+            this.bindingNavigatorSeparator3.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator3.Size = new System.Drawing.Size(6, 27);
+            // 
+            // bindingNavigatorPositionItem1
+            // 
+            this.bindingNavigatorPositionItem1.AccessibleName = "Position";
+            this.bindingNavigatorPositionItem1.AutoSize = false;
+            this.bindingNavigatorPositionItem1.Name = "bindingNavigatorPositionItem";
+            this.bindingNavigatorPositionItem1.Size = new System.Drawing.Size(50, 27);
+            this.bindingNavigatorPositionItem1.Text = "0";
+            this.bindingNavigatorPositionItem1.ToolTipText = "Current position";
+            // 
+            // bindingNavigatorCountItem1
+            // 
+            this.bindingNavigatorCountItem1.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem1.Size = new System.Drawing.Size(45, 24);
+            this.bindingNavigatorCountItem1.Text = "of {0}";
+            this.bindingNavigatorCountItem1.ToolTipText = "Total number of items";
+            // 
+            // bindingNavigatorSeparator4
+            // 
+            this.bindingNavigatorSeparator4.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator4.Size = new System.Drawing.Size(6, 27);
+            // 
+            // bindingNavigatorMoveNextItem1
+            // 
+            this.bindingNavigatorMoveNextItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveNextItem1.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem1.Image")));
+            this.bindingNavigatorMoveNextItem1.Name = "bindingNavigatorMoveNextItem";
+            this.bindingNavigatorMoveNextItem1.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveNextItem1.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMoveNextItem1.Text = "Move next";
+            // 
+            // bindingNavigatorMoveLastItem1
+            // 
+            this.bindingNavigatorMoveLastItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveLastItem1.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem1.Image")));
+            this.bindingNavigatorMoveLastItem1.Name = "bindingNavigatorMoveLastItem";
+            this.bindingNavigatorMoveLastItem1.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveLastItem1.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMoveLastItem1.Text = "Move last";
+            // 
+            // bindingNavigatorSeparator5
+            // 
+            this.bindingNavigatorSeparator5.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator5.Size = new System.Drawing.Size(6, 27);
+            // 
+            // bindingNavigatorAddNewItem1
+            // 
+            this.bindingNavigatorAddNewItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorAddNewItem1.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem1.Image")));
+            this.bindingNavigatorAddNewItem1.Name = "bindingNavigatorAddNewItem";
+            this.bindingNavigatorAddNewItem1.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorAddNewItem1.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorAddNewItem1.Text = "Add new";
+            // 
+            // bindingNavigatorDeleteItem1
+            // 
+            this.bindingNavigatorDeleteItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem1.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem1.Image")));
+            this.bindingNavigatorDeleteItem1.Name = "bindingNavigatorDeleteItem";
+            this.bindingNavigatorDeleteItem1.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorDeleteItem1.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorDeleteItem1.Text = "Delete";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(971, 605);
+            this.Controls.Add(this.panelMain);
             this.Controls.Add(this.panelBooking);
             this.Controls.Add(this.panelArea);
             this.Controls.Add(this.btnMoveToPanelMain);
             this.Controls.Add(this.btnNext);
-            this.Controls.Add(this.areaBindingNavigator);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.btnPrevious);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.panelMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
@@ -568,6 +925,7 @@ namespace MartDB
             ((System.ComponentModel.ISupportInitialize)(this.martDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelBooking.ResumeLayout(false);
+            this.panelBooking.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panelMain.ResumeLayout(false);
@@ -579,14 +937,17 @@ namespace MartDB
             ((System.ComponentModel.ISupportInitialize)(this.areaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.areaDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.area_idNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bookingBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bookingDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bookingbindingNavigator)).EndInit();
+            this.bookingbindingNavigator.ResumeLayout(false);
+            this.bookingbindingNavigator.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panelArea;
         private MartDBDataSet martDBDataSet;
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -631,5 +992,33 @@ namespace MartDB
         private System.Windows.Forms.NumericUpDown area_idNumericUpDown;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.BindingSource bookingBindingSource;
+        private MartDBDataSetTableAdapters.BookingTableAdapter bookingTableAdapter;
+        private System.Windows.Forms.DateTimePicker booking_end_dateDateTimePicker;
+        private System.Windows.Forms.DateTimePicker booking_start_dateDateTimePicker;
+        private System.Windows.Forms.TextBox costTextBox;
+        private System.Windows.Forms.TextBox area_idTextBox;
+        private System.Windows.Forms.TextBox org_idTextBox;
+        private System.Windows.Forms.TextBox booking_idTextBox;
+        private System.Windows.Forms.DataGridView bookingDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.BindingNavigator bookingbindingNavigator;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem1;
+        private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem1;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem1;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem1;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem1;
+        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator3;
+        private System.Windows.Forms.ToolStripTextBox bindingNavigatorPositionItem1;
+        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator4;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem1;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem1;
+        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator5;
+        private System.Windows.Forms.Label label1;
     }
 }
