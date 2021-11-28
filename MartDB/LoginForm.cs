@@ -28,6 +28,9 @@ namespace MartDB
         public LoginForm()
         {
             InitializeComponent();
+
+            // Set start position to center
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         // Moving login window with mouse

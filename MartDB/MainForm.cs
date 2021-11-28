@@ -20,6 +20,9 @@ namespace MartDB
         public MainForm()
         {
             InitializeComponent();
+
+            // Set start position to center
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         // Save button of the form
