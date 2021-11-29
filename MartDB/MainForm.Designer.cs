@@ -66,9 +66,6 @@ namespace MartDB
             this.areaBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.area_squareTextBox = new System.Windows.Forms.TextBox();
             this.areaDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnMoveToPanelMain = new System.Windows.Forms.Button();
@@ -160,6 +157,16 @@ namespace MartDB
             this.employeeMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.employeeSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.employeeSaveItem = new System.Windows.Forms.ToolStripButton();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.listBoxFieldsForSort = new System.Windows.Forms.ListBox();
+            this.radioButtonAsc = new System.Windows.Forms.RadioButton();
+            this.radioButtonDesc = new System.Windows.Forms.RadioButton();
+            this.btnSort = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.areaDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.areaDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.areaDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             area_idLabel = new System.Windows.Forms.Label();
             area_squareLabel = new System.Windows.Forms.Label();
             floor_numberLabel = new System.Windows.Forms.Label();
@@ -197,6 +204,7 @@ namespace MartDB
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeBindingNavigator)).BeginInit();
             this.employeeBindingNavigator.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // area_idLabel
@@ -283,6 +291,8 @@ namespace MartDB
             // panelArea
             // 
             this.panelArea.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelArea.Controls.Add(this.groupBox2);
+            this.panelArea.Controls.Add(this.groupBox1);
             this.panelArea.Controls.Add(this.area_idTextBox1);
             this.panelArea.Controls.Add(floor_numberLabel);
             this.panelArea.Controls.Add(this.floor_numberComboBox);
@@ -346,7 +356,7 @@ namespace MartDB
             this.areaBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.areaBindingNavigator.Name = "areaBindingNavigator";
             this.areaBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.areaBindingNavigator.Size = new System.Drawing.Size(370, 27);
+            this.areaBindingNavigator.Size = new System.Drawing.Size(331, 27);
             this.areaBindingNavigator.TabIndex = 2;
             this.areaBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -402,6 +412,7 @@ namespace MartDB
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Position";
             this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 27);
             this.bindingNavigatorPositionItem.Text = "0";
@@ -457,48 +468,24 @@ namespace MartDB
             this.areaDataGridView.AutoGenerateColumns = false;
             this.areaDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.areaDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3});
+            this.areaDataGridViewTextBoxColumn1,
+            this.areaDataGridViewTextBoxColumn2,
+            this.areaDataGridViewTextBoxColumn3});
             this.areaDataGridView.DataSource = this.areaBindingSource;
-            this.areaDataGridView.Location = new System.Drawing.Point(12, 200);
+            this.areaDataGridView.Location = new System.Drawing.Point(384, 15);
             this.areaDataGridView.Name = "areaDataGridView";
             this.areaDataGridView.RowHeadersWidth = 51;
             this.areaDataGridView.RowTemplate.Height = 24;
-            this.areaDataGridView.Size = new System.Drawing.Size(491, 215);
+            this.areaDataGridView.Size = new System.Drawing.Size(545, 269);
             this.areaDataGridView.TabIndex = 12;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "area_id";
-            this.dataGridViewTextBoxColumn1.HeaderText = "area_id";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "area_square";
-            this.dataGridViewTextBoxColumn2.HeaderText = "area_square";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "floor_number";
-            this.dataGridViewTextBoxColumn3.HeaderText = "floor_number";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Width = 125;
             // 
             // pictureBox1
             // 
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(586, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(13, 210);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(239, 180);
+            this.pictureBox1.Size = new System.Drawing.Size(333, 250);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
@@ -657,6 +644,7 @@ namespace MartDB
             // 
             this.bookingPositionItem.AccessibleName = "Position";
             this.bookingPositionItem.AutoSize = false;
+            this.bookingPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bookingPositionItem.Name = "bookingPositionItem";
             this.bookingPositionItem.Size = new System.Drawing.Size(50, 27);
             this.bookingPositionItem.Text = "0";
@@ -843,7 +831,7 @@ namespace MartDB
             this.menuToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(971, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(971, 30);
             this.menuStrip1.TabIndex = 12;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -1382,6 +1370,7 @@ namespace MartDB
             // 
             this.employeePositionItem.AccessibleName = "Position";
             this.employeePositionItem.AutoSize = false;
+            this.employeePositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.employeePositionItem.Name = "employeePositionItem";
             this.employeePositionItem.Size = new System.Drawing.Size(50, 27);
             this.employeePositionItem.Text = "0";
@@ -1424,15 +1413,118 @@ namespace MartDB
             this.employeeSaveItem.Text = "Save Data";
             this.employeeSaveItem.Click += new System.EventHandler(this.employeeSaveItem_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnSort);
+            this.groupBox1.Controls.Add(this.radioButtonDesc);
+            this.groupBox1.Controls.Add(this.radioButtonAsc);
+            this.groupBox1.Controls.Add(this.listBoxFieldsForSort);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Location = new System.Drawing.Point(657, 293);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(272, 175);
+            this.groupBox1.TabIndex = 17;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Сортировка";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 18);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(154, 17);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Поле для сортировки:";
+            // 
+            // listBoxFieldsForSort
+            // 
+            this.listBoxFieldsForSort.FormattingEnabled = true;
+            this.listBoxFieldsForSort.ItemHeight = 16;
+            this.listBoxFieldsForSort.Items.AddRange(new object[] {
+            "Код помещения",
+            "Площадь помещения",
+            "Номер этажа"});
+            this.listBoxFieldsForSort.Location = new System.Drawing.Point(9, 38);
+            this.listBoxFieldsForSort.Name = "listBoxFieldsForSort";
+            this.listBoxFieldsForSort.Size = new System.Drawing.Size(114, 132);
+            this.listBoxFieldsForSort.TabIndex = 1;
+            this.listBoxFieldsForSort.SelectedIndexChanged += new System.EventHandler(this.listBoxFieldsForSort_SelectedIndexChanged);
+            // 
+            // radioButtonAsc
+            // 
+            this.radioButtonAsc.AutoSize = true;
+            this.radioButtonAsc.Checked = true;
+            this.radioButtonAsc.Location = new System.Drawing.Point(129, 38);
+            this.radioButtonAsc.Name = "radioButtonAsc";
+            this.radioButtonAsc.Size = new System.Drawing.Size(137, 21);
+            this.radioButtonAsc.TabIndex = 2;
+            this.radioButtonAsc.TabStop = true;
+            this.radioButtonAsc.Text = "По возрастанию";
+            this.radioButtonAsc.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonDesc
+            // 
+            this.radioButtonDesc.AutoSize = true;
+            this.radioButtonDesc.Location = new System.Drawing.Point(129, 65);
+            this.radioButtonDesc.Name = "radioButtonDesc";
+            this.radioButtonDesc.Size = new System.Drawing.Size(117, 21);
+            this.radioButtonDesc.TabIndex = 3;
+            this.radioButtonDesc.Text = "По убыванию";
+            this.radioButtonDesc.UseVisualStyleBackColor = true;
+            // 
+            // btnSort
+            // 
+            this.btnSort.Enabled = false;
+            this.btnSort.Location = new System.Drawing.Point(138, 108);
+            this.btnSort.Name = "btnSort";
+            this.btnSort.Size = new System.Drawing.Size(119, 42);
+            this.btnSort.TabIndex = 4;
+            this.btnSort.Text = "Сортировать";
+            this.btnSort.UseVisualStyleBackColor = true;
+            this.btnSort.Click += new System.EventHandler(this.btnSort_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Location = new System.Drawing.Point(363, 293);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(199, 175);
+            this.groupBox2.TabIndex = 18;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Поиск";
+            // 
+            // areaDataGridViewTextBoxColumn1
+            // 
+            this.areaDataGridViewTextBoxColumn1.DataPropertyName = "area_id";
+            this.areaDataGridViewTextBoxColumn1.HeaderText = "Код помещения";
+            this.areaDataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.areaDataGridViewTextBoxColumn1.Name = "areaDataGridViewTextBoxColumn1";
+            this.areaDataGridViewTextBoxColumn1.Width = 125;
+            // 
+            // areaDataGridViewTextBoxColumn2
+            // 
+            this.areaDataGridViewTextBoxColumn2.DataPropertyName = "area_square";
+            this.areaDataGridViewTextBoxColumn2.HeaderText = "Площадь помещения";
+            this.areaDataGridViewTextBoxColumn2.MinimumWidth = 6;
+            this.areaDataGridViewTextBoxColumn2.Name = "areaDataGridViewTextBoxColumn2";
+            this.areaDataGridViewTextBoxColumn2.Width = 125;
+            // 
+            // areaDataGridViewTextBoxColumn3
+            // 
+            this.areaDataGridViewTextBoxColumn3.DataPropertyName = "floor_number";
+            this.areaDataGridViewTextBoxColumn3.HeaderText = "Номер этажа";
+            this.areaDataGridViewTextBoxColumn3.MinimumWidth = 6;
+            this.areaDataGridViewTextBoxColumn3.Name = "areaDataGridViewTextBoxColumn3";
+            this.areaDataGridViewTextBoxColumn3.Width = 125;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(971, 605);
+            this.Controls.Add(this.panelArea);
             this.Controls.Add(this.panelEmployee);
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.panelBooking);
-            this.Controls.Add(this.panelArea);
             this.Controls.Add(this.btnMoveToPanelMain);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.menuStrip1);
@@ -1471,6 +1563,8 @@ namespace MartDB
             ((System.ComponentModel.ISupportInitialize)(this.employeeBindingNavigator)).EndInit();
             this.employeeBindingNavigator.ResumeLayout(false);
             this.employeeBindingNavigator.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1513,9 +1607,6 @@ namespace MartDB
         private MartDBDataSetTableAdapters.TableAdapterManager areaTableAdapterManager;
         private MartDBDataSetTableAdapters.AreaTableAdapter areaTableAdapter;
         private System.Windows.Forms.DataGridView areaDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.ComboBox floor_numberComboBox;
         private System.Windows.Forms.TextBox area_squareTextBox;
         private System.Windows.Forms.BindingSource bookingBindingSource;
@@ -1590,5 +1681,15 @@ namespace MartDB
         private System.Windows.Forms.ToolStripButton employeeMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator employeeSeparator2;
         private System.Windows.Forms.ToolStripButton employeeSaveItem;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnSort;
+        private System.Windows.Forms.RadioButton radioButtonDesc;
+        private System.Windows.Forms.RadioButton radioButtonAsc;
+        private System.Windows.Forms.ListBox listBoxFieldsForSort;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn areaDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn areaDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn areaDataGridViewTextBoxColumn3;
     }
 }

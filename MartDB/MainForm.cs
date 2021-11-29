@@ -149,5 +149,42 @@ namespace MartDB
         {
             MessageBox.Show("База данных \"Тессеракт\"", "О программе", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        // Enable button only if field for sort is selected
+        private void listBoxFieldsForSort_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.btnSort.Enabled = true;
+        }
+
+        // Button to initiate sorting
+        private void btnSort_Click(object sender, EventArgs e)
+        {
+            // Col to sort
+            DataGridViewColumn Col = default;
+
+            // Get selected col to sort
+            switch (this.listBoxFieldsForSort.SelectedIndex)
+            {
+                case 0:
+                    Col = this.areaDataGridViewTextBoxColumn1;
+                    break;
+                case 1:
+                    Col = this.areaDataGridViewTextBoxColumn2;
+                    break;
+                case 2:
+                    Col = this.areaDataGridViewTextBoxColumn3;
+                    break;
+            }
+
+            // Get selected choice for sorting
+            if (this.radioButtonAsc.Checked)
+            {
+                areaDataGridView.Sort(Col, ListSortDirection.Ascending);
+            }
+            else if (this.radioButtonDesc.Checked)
+            {
+                areaDataGridView.Sort(Col, ListSortDirection.Descending);
+            }
+        }
     }
 }
