@@ -42,6 +42,7 @@ namespace MartDB
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loginAttemptsCountLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -100,7 +101,7 @@ namespace MartDB
             // 
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(594, 284);
+            this.button1.Location = new System.Drawing.Point(594, 312);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(146, 53);
             this.button1.TabIndex = 5;
@@ -112,7 +113,7 @@ namespace MartDB
             // 
             this.ExitButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ExitButton.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ExitButton.Location = new System.Drawing.Point(412, 284);
+            this.ExitButton.Location = new System.Drawing.Point(412, 312);
             this.ExitButton.Name = "ExitButton";
             this.ExitButton.Size = new System.Drawing.Size(146, 53);
             this.ExitButton.TabIndex = 6;
@@ -168,12 +169,23 @@ namespace MartDB
             this.aboutToolStripMenuItem.Text = "О программе";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
+            // loginAttemptsCountLabel
+            // 
+            this.loginAttemptsCountLabel.AutoSize = true;
+            this.loginAttemptsCountLabel.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.loginAttemptsCountLabel.Location = new System.Drawing.Point(439, 270);
+            this.loginAttemptsCountLabel.Name = "loginAttemptsCountLabel";
+            this.loginAttemptsCountLabel.Size = new System.Drawing.Size(284, 23);
+            this.loginAttemptsCountLabel.TabIndex = 10;
+            this.loginAttemptsCountLabel.Text = "Попыток авторизации осталось: 3";
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.loginAttemptsCountLabel);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.ExitButton);
@@ -210,5 +222,6 @@ namespace MartDB
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.Label loginAttemptsCountLabel;
     }
 }
