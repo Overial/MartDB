@@ -159,32 +159,83 @@ namespace MartDB
         // Button to initiate sorting
         private void btnSort_Click(object sender, EventArgs e)
         {
-            // Col to sort
-            DataGridViewColumn Col = default;
+            // col to sort
+            DataGridViewColumn col = default;
 
             // Get selected col to sort
             switch (this.listBoxFieldsForSort.SelectedIndex)
             {
                 case 0:
-                    Col = this.areaDataGridViewTextBoxColumn1;
+                    col = this.areaDataGridViewTextBoxColumn1;
                     break;
                 case 1:
-                    Col = this.areaDataGridViewTextBoxColumn2;
+                    col = this.areaDataGridViewTextBoxColumn2;
                     break;
                 case 2:
-                    Col = this.areaDataGridViewTextBoxColumn3;
+                    col = this.areaDataGridViewTextBoxColumn3;
                     break;
             }
 
             // Get selected choice for sorting
             if (this.radioButtonAsc.Checked)
             {
-                areaDataGridView.Sort(Col, ListSortDirection.Ascending);
+                areaDataGridView.Sort(col, ListSortDirection.Ascending);
             }
             else if (this.radioButtonDesc.Checked)
             {
-                areaDataGridView.Sort(Col, ListSortDirection.Descending);
+                areaDataGridView.Sort(col, ListSortDirection.Descending);
             }
+        }
+
+        // Enable button only if field for search is selected
+        private void listBoxFieldsForSearch_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.btnSearch.Enabled = true;
+        }
+
+        // Button to initiate searchin'
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            // Get field for search
+            //
+            // HeaderText and Name of the columns are different, so
+            // we need to get actual Name of selected column
+            //
+            string strFieldForSearch = this.listBoxFieldsForSearch.SelectedItem.ToString();
+            string colForSearch = "";
+            for (int i = 0; i < areaDataGridView.Columns.Count; ++i)
+            {
+                if (areaDataGridView.Columns[i].HeaderText == strFieldForSearch)
+                {
+                    colForSearch = areaDataGridView.Columns[i].DataPropertyName;
+                }
+            }
+
+            // Start searching only if user has entered query for search
+            if (this.queryForSearchTextBox.Text.Length > 0)
+            {
+                string queryForSearch = "";
+                try
+                {
+                    queryForSearch = Convert.ToString(this.queryForSearchTextBox.Text);
+                }
+                // Prevent invalid user input
+                catch
+                {
+                    MessageBox.Show("Введено некорректное значение запроса для поиска!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.queryForSearchTextBox.Clear();
+                }
+
+                // Filter data (approximate, not exact)
+                this.areaBindingSource.Filter = string.Format("CONVERT(" + colForSearch + ", 'System.String') LIKE '%{0}%' ",
+                                                              queryForSearch);
+            }
+        }
+
+        // Button to show all data
+        private void btnShowAll_Click(object sender, EventArgs e)
+        {
+            this.areaBindingSource.Filter = "";
         }
     }
 }

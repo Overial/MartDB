@@ -167,6 +167,12 @@ namespace MartDB
             this.areaDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.areaDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.areaDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.listBoxFieldsForSearch = new System.Windows.Forms.ListBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.queryForSearchTextBox = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btnShowAll = new System.Windows.Forms.Button();
             area_idLabel = new System.Windows.Forms.Label();
             area_squareLabel = new System.Windows.Forms.Label();
             floor_numberLabel = new System.Windows.Forms.Label();
@@ -205,6 +211,7 @@ namespace MartDB
             ((System.ComponentModel.ISupportInitialize)(this.employeeBindingNavigator)).BeginInit();
             this.employeeBindingNavigator.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // area_idLabel
@@ -831,7 +838,7 @@ namespace MartDB
             this.menuToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(971, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(971, 28);
             this.menuStrip1.TabIndex = 12;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -842,7 +849,7 @@ namespace MartDB
             this.bookingToolStripMenuItem,
             this.employeeToolStripMenuItem});
             this.pagesToolStripMenuItem.Name = "pagesToolStripMenuItem";
-            this.pagesToolStripMenuItem.Size = new System.Drawing.Size(93, 26);
+            this.pagesToolStripMenuItem.Size = new System.Drawing.Size(93, 24);
             this.pagesToolStripMenuItem.Text = "Страницы";
             // 
             // areaToolStripMenuItem
@@ -864,7 +871,7 @@ namespace MartDB
             this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aboutToolStripMenuItem1});
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
-            this.menuToolStripMenuItem.Size = new System.Drawing.Size(65, 26);
+            this.menuToolStripMenuItem.Size = new System.Drawing.Size(65, 24);
             this.menuToolStripMenuItem.Text = "Меню";
             // 
             // aboutToolStripMenuItem1
@@ -1485,9 +1492,15 @@ namespace MartDB
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnShowAll);
+            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.queryForSearchTextBox);
+            this.groupBox2.Controls.Add(this.btnSearch);
+            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Controls.Add(this.listBoxFieldsForSearch);
             this.groupBox2.Location = new System.Drawing.Point(363, 293);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(199, 175);
+            this.groupBox2.Size = new System.Drawing.Size(288, 175);
             this.groupBox2.TabIndex = 18;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Поиск";
@@ -1515,6 +1528,66 @@ namespace MartDB
             this.areaDataGridViewTextBoxColumn3.MinimumWidth = 6;
             this.areaDataGridViewTextBoxColumn3.Name = "areaDataGridViewTextBoxColumn3";
             this.areaDataGridViewTextBoxColumn3.Width = 125;
+            // 
+            // listBoxFieldsForSearch
+            // 
+            this.listBoxFieldsForSearch.FormattingEnabled = true;
+            this.listBoxFieldsForSearch.ItemHeight = 16;
+            this.listBoxFieldsForSearch.Items.AddRange(new object[] {
+            "Код помещения",
+            "Площадь помещения",
+            "Номер этажа"});
+            this.listBoxFieldsForSearch.Location = new System.Drawing.Point(9, 37);
+            this.listBoxFieldsForSearch.Name = "listBoxFieldsForSearch";
+            this.listBoxFieldsForSearch.Size = new System.Drawing.Size(121, 132);
+            this.listBoxFieldsForSearch.TabIndex = 5;
+            this.listBoxFieldsForSearch.SelectedIndexChanged += new System.EventHandler(this.listBoxFieldsForSearch_SelectedIndexChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 18);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(124, 17);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Поле для поиска:";
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Enabled = false;
+            this.btnSearch.Location = new System.Drawing.Point(146, 66);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(119, 42);
+            this.btnSearch.TabIndex = 5;
+            this.btnSearch.Text = "Найти";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // queryForSearchTextBox
+            // 
+            this.queryForSearchTextBox.Location = new System.Drawing.Point(146, 38);
+            this.queryForSearchTextBox.Name = "queryForSearchTextBox";
+            this.queryForSearchTextBox.Size = new System.Drawing.Size(119, 22);
+            this.queryForSearchTextBox.TabIndex = 6;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(148, 18);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(117, 17);
+            this.label7.TabIndex = 7;
+            this.label7.Text = "Введите запрос:";
+            // 
+            // btnShowAll
+            // 
+            this.btnShowAll.Location = new System.Drawing.Point(146, 114);
+            this.btnShowAll.Name = "btnShowAll";
+            this.btnShowAll.Size = new System.Drawing.Size(119, 42);
+            this.btnShowAll.TabIndex = 8;
+            this.btnShowAll.Text = "Показать все";
+            this.btnShowAll.UseVisualStyleBackColor = true;
+            this.btnShowAll.Click += new System.EventHandler(this.btnShowAll_Click);
             // 
             // MainForm
             // 
@@ -1565,6 +1638,8 @@ namespace MartDB
             this.employeeBindingNavigator.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1691,5 +1766,11 @@ namespace MartDB
         private System.Windows.Forms.DataGridViewTextBoxColumn areaDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn areaDataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn areaDataGridViewTextBoxColumn3;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ListBox listBoxFieldsForSearch;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox queryForSearchTextBox;
+        private System.Windows.Forms.Button btnShowAll;
     }
 }
