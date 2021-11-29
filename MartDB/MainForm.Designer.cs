@@ -173,6 +173,7 @@ namespace MartDB
             this.queryForSearchTextBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.btnShowAll = new System.Windows.Forms.Button();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             area_idLabel = new System.Windows.Forms.Label();
             area_squareLabel = new System.Windows.Forms.Label();
             floor_numberLabel = new System.Windows.Forms.Label();
@@ -212,6 +213,7 @@ namespace MartDB
             this.employeeBindingNavigator.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // area_idLabel
@@ -884,6 +886,7 @@ namespace MartDB
             // panelMain
             // 
             this.panelMain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelMain.Controls.Add(this.pictureBox4);
             this.panelMain.Controls.Add(this.button6);
             this.panelMain.Controls.Add(this.button5);
             this.panelMain.Controls.Add(this.button4);
@@ -900,7 +903,7 @@ namespace MartDB
             // 
             // btnMoveToPanelBooking
             // 
-            this.btnMoveToPanelBooking.Location = new System.Drawing.Point(265, 151);
+            this.btnMoveToPanelBooking.Location = new System.Drawing.Point(480, 191);
             this.btnMoveToPanelBooking.Name = "btnMoveToPanelBooking";
             this.btnMoveToPanelBooking.Size = new System.Drawing.Size(130, 53);
             this.btnMoveToPanelBooking.TabIndex = 2;
@@ -910,7 +913,7 @@ namespace MartDB
             // 
             // btnMoveToPanelArea
             // 
-            this.btnMoveToPanelArea.Location = new System.Drawing.Point(265, 84);
+            this.btnMoveToPanelArea.Location = new System.Drawing.Point(480, 124);
             this.btnMoveToPanelArea.Name = "btnMoveToPanelArea";
             this.btnMoveToPanelArea.Size = new System.Drawing.Size(130, 53);
             this.btnMoveToPanelArea.TabIndex = 1;
@@ -1239,7 +1242,7 @@ namespace MartDB
             // 
             // btnMoveToPanelEmployee
             // 
-            this.btnMoveToPanelEmployee.Location = new System.Drawing.Point(265, 220);
+            this.btnMoveToPanelEmployee.Location = new System.Drawing.Point(480, 260);
             this.btnMoveToPanelEmployee.Name = "btnMoveToPanelEmployee";
             this.btnMoveToPanelEmployee.Size = new System.Drawing.Size(130, 53);
             this.btnMoveToPanelEmployee.TabIndex = 3;
@@ -1249,7 +1252,7 @@ namespace MartDB
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(265, 285);
+            this.button2.Location = new System.Drawing.Point(480, 325);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(130, 53);
             this.button2.TabIndex = 4;
@@ -1258,7 +1261,7 @@ namespace MartDB
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(521, 84);
+            this.button3.Location = new System.Drawing.Point(736, 124);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(130, 53);
             this.button3.TabIndex = 5;
@@ -1267,7 +1270,7 @@ namespace MartDB
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(521, 151);
+            this.button4.Location = new System.Drawing.Point(736, 191);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(130, 53);
             this.button4.TabIndex = 6;
@@ -1276,7 +1279,7 @@ namespace MartDB
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(521, 220);
+            this.button5.Location = new System.Drawing.Point(736, 260);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(130, 53);
             this.button5.TabIndex = 7;
@@ -1285,7 +1288,7 @@ namespace MartDB
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(521, 285);
+            this.button6.Location = new System.Drawing.Point(736, 325);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(130, 53);
             this.button6.TabIndex = 8;
@@ -1589,14 +1592,25 @@ namespace MartDB
             this.btnShowAll.UseVisualStyleBackColor = true;
             this.btnShowAll.Click += new System.EventHandler(this.btnShowAll_Click);
             // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(41, 124);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(375, 250);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 9;
+            this.pictureBox4.TabStop = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(971, 605);
+            this.Controls.Add(this.panelMain);
             this.Controls.Add(this.panelArea);
             this.Controls.Add(this.panelEmployee);
-            this.Controls.Add(this.panelMain);
             this.Controls.Add(this.panelBooking);
             this.Controls.Add(this.btnMoveToPanelMain);
             this.Controls.Add(this.btnNext);
@@ -1640,6 +1654,7 @@ namespace MartDB
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1772,5 +1787,6 @@ namespace MartDB
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox queryForSearchTextBox;
         private System.Windows.Forms.Button btnShowAll;
+        private System.Windows.Forms.PictureBox pictureBox4;
     }
 }

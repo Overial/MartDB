@@ -16,6 +16,8 @@ namespace MartDB
 {
     public partial class LoginForm : Form
     {
+        int iLoginAttemptsCounter = 0;
+
         // For moving form with mouse functionality
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
@@ -102,8 +104,20 @@ namespace MartDB
                 {
                     // MessageBox.Show("Invalid login or password");
 
-                    // Display corresponding info
-                    MessageBox.Show("Неверный логин или пароль!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    // Increment failed login attempts counter
+                    ++this.iLoginAttemptsCounter;
+
+                    // Check for user surpassing login attempts max count
+                    if (this.iLoginAttemptsCounter > 3)
+                    {
+                        MessageBox.Show("Вы превысили максимальное количество попыток авторизации. Попробуйте позже.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        this.Close();
+                    }
+                    else
+                    {
+                        // Display corresponding info
+                        MessageBox.Show("Неверный логин или пароль!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
 
                 // It's obligatory to close reader
