@@ -38,6 +38,8 @@ namespace MartDB
             this.Validate();
             this.areaBindingSource.EndEdit();
             this.areaTableAdapterManager.UpdateAll(this.martDBDataSet);
+
+            MessageBox.Show("Данные успешно сохранены!", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         // (booking) Save button of the form
@@ -46,6 +48,8 @@ namespace MartDB
             this.Validate();
             this.bookingBindingSource.EndEdit();
             this.bookingTableAdapterManager.UpdateAll(this.martDBDataSet);
+
+            MessageBox.Show("Данные успешно сохранены!", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         // (employee) Save button of the form
@@ -54,6 +58,8 @@ namespace MartDB
             this.Validate();
             this.employeeBindingSource.EndEdit();
             this.employeeTableAdapterManager.UpdateAll(this.martDBDataSet);
+
+            MessageBox.Show("Данные успешно сохранены!", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         // Actions on load
@@ -141,7 +147,7 @@ namespace MartDB
         private void employeeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.index = 3;
-            this.panelBooking.BringToFront();
+            this.panelEmployee.BringToFront();
         }
 
         // About (menuStrip)
