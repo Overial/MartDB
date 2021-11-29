@@ -40,6 +40,13 @@ namespace MartDB
             System.Windows.Forms.Label booking_start_dateLabel;
             System.Windows.Forms.Label booking_end_dateLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            System.Windows.Forms.Label employee_idLabel;
+            System.Windows.Forms.Label org_idLabel1;
+            System.Windows.Forms.Label fioLabel;
+            System.Windows.Forms.Label genderLabel;
+            System.Windows.Forms.Label positionLabel;
+            System.Windows.Forms.Label phone_numberLabel;
+            System.Windows.Forms.Label emailLabel;
             this.panelArea = new System.Windows.Forms.Panel();
             this.floor_numberComboBox = new System.Windows.Forms.ComboBox();
             this.areaBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -58,7 +65,6 @@ namespace MartDB
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.areaBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.area_squareTextBox = new System.Windows.Forms.TextBox();
-            this.area_idNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.areaDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,7 +75,20 @@ namespace MartDB
             this.btnPrevious = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
             this.panelBooking = new System.Windows.Forms.Panel();
+            this.bookingBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.bookingAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bookingBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bookingCountItem = new System.Windows.Forms.ToolStripLabel();
+            this.bookingDeleteItem = new System.Windows.Forms.ToolStripButton();
+            this.bookingMoveFirstItem = new System.Windows.Forms.ToolStripButton();
+            this.bookingMovePreviousItem = new System.Windows.Forms.ToolStripButton();
+            this.bookingSeparator = new System.Windows.Forms.ToolStripSeparator();
+            this.bookingPositionItem = new System.Windows.Forms.ToolStripTextBox();
+            this.bookingSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.bookingMoveNextItem = new System.Windows.Forms.ToolStripButton();
+            this.bookingMoveLastItem = new System.Windows.Forms.ToolStripButton();
+            this.bookingSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.bookingSaveItem = new System.Windows.Forms.ToolStripButton();
             this.label1 = new System.Windows.Forms.Label();
             this.bookingDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -99,19 +118,48 @@ namespace MartDB
             this.areaTableAdapter = new MartDB.MartDBDataSetTableAdapters.AreaTableAdapter();
             this.bookingTableAdapter = new MartDB.MartDBDataSetTableAdapters.BookingTableAdapter();
             this.bookingTableAdapterManager = new MartDB.MartDBDataSetTableAdapters.TableAdapterManager();
-            this.bookingBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
-            this.bookingAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.CountItem = new System.Windows.Forms.ToolStripLabel();
-            this.bookingDeleteItem = new System.Windows.Forms.ToolStripButton();
-            this.bookingMoveFirstItem = new System.Windows.Forms.ToolStripButton();
-            this.bookingMovePreviousItem = new System.Windows.Forms.ToolStripButton();
-            this.bookingSeparator = new System.Windows.Forms.ToolStripSeparator();
-            this.bookingPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bookingSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.bookingMoveNextItem = new System.Windows.Forms.ToolStripButton();
-            this.bookingMoveLastItem = new System.Windows.Forms.ToolStripButton();
-            this.bookingSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.bookingSaveItem = new System.Windows.Forms.ToolStripButton();
+            this.area_idTextBox1 = new System.Windows.Forms.TextBox();
+            this.panelEmployee = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.employeeTableAdapter = new MartDB.MartDBDataSetTableAdapters.EmployeeTableAdapter();
+            this.employee_idTextBox = new System.Windows.Forms.TextBox();
+            this.org_idTextBox1 = new System.Windows.Forms.TextBox();
+            this.fioTextBox = new System.Windows.Forms.TextBox();
+            this.genderTextBox = new System.Windows.Forms.TextBox();
+            this.positionTextBox = new System.Windows.Forms.TextBox();
+            this.phone_numberTextBox = new System.Windows.Forms.TextBox();
+            this.emailTextBox = new System.Windows.Forms.TextBox();
+            this.employeeDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.employeeTableAdapterManager = new MartDB.MartDBDataSetTableAdapters.TableAdapterManager();
+            this.employeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnMoveToPanelEmployee = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.employeeBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.employeeAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.employeeCountItem = new System.Windows.Forms.ToolStripLabel();
+            this.employeeDeleteItem = new System.Windows.Forms.ToolStripButton();
+            this.employeeMoveFirstItem = new System.Windows.Forms.ToolStripButton();
+            this.employeeMovePreviousItem = new System.Windows.Forms.ToolStripButton();
+            this.employeeSeparator = new System.Windows.Forms.ToolStripSeparator();
+            this.employeePositionItem = new System.Windows.Forms.ToolStripTextBox();
+            this.employeeSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.employeeMoveNextItem = new System.Windows.Forms.ToolStripButton();
+            this.employeeMoveLastItem = new System.Windows.Forms.ToolStripButton();
+            this.employeeSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.employeeSaveItem = new System.Windows.Forms.ToolStripButton();
             area_idLabel = new System.Windows.Forms.Label();
             area_squareLabel = new System.Windows.Forms.Label();
             floor_numberLabel = new System.Windows.Forms.Label();
@@ -121,28 +169,40 @@ namespace MartDB
             costLabel = new System.Windows.Forms.Label();
             booking_start_dateLabel = new System.Windows.Forms.Label();
             booking_end_dateLabel = new System.Windows.Forms.Label();
+            employee_idLabel = new System.Windows.Forms.Label();
+            org_idLabel1 = new System.Windows.Forms.Label();
+            fioLabel = new System.Windows.Forms.Label();
+            genderLabel = new System.Windows.Forms.Label();
+            positionLabel = new System.Windows.Forms.Label();
+            phone_numberLabel = new System.Windows.Forms.Label();
+            emailLabel = new System.Windows.Forms.Label();
             this.panelArea.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.areaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.martDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.areaBindingNavigator)).BeginInit();
             this.areaBindingNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.area_idNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.areaDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelBooking.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bookingBindingNavigator)).BeginInit();
+            this.bookingBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bookingBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bookingDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.panelMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bookingBindingNavigator)).BeginInit();
-            this.bookingBindingNavigator.SuspendLayout();
+            this.panelEmployee.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingNavigator)).BeginInit();
+            this.employeeBindingNavigator.SuspendLayout();
             this.SuspendLayout();
             // 
             // area_idLabel
             // 
             area_idLabel.AutoSize = true;
-            area_idLabel.Location = new System.Drawing.Point(10, 96);
+            area_idLabel.Location = new System.Drawing.Point(10, 99);
             area_idLabel.Name = "area_idLabel";
             area_idLabel.Size = new System.Drawing.Size(117, 17);
             area_idLabel.TabIndex = 12;
@@ -223,13 +283,13 @@ namespace MartDB
             // panelArea
             // 
             this.panelArea.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelArea.Controls.Add(this.area_idTextBox1);
             this.panelArea.Controls.Add(floor_numberLabel);
             this.panelArea.Controls.Add(this.floor_numberComboBox);
             this.panelArea.Controls.Add(area_squareLabel);
             this.panelArea.Controls.Add(this.areaBindingNavigator);
             this.panelArea.Controls.Add(this.area_squareTextBox);
             this.panelArea.Controls.Add(area_idLabel);
-            this.panelArea.Controls.Add(this.area_idNumericUpDown);
             this.panelArea.Controls.Add(this.areaDataGridView);
             this.panelArea.Controls.Add(this.pictureBox1);
             this.panelArea.Controls.Add(this.label2);
@@ -242,7 +302,7 @@ namespace MartDB
             // 
             this.floor_numberComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.areaBindingSource, "floor_number", true));
             this.floor_numberComboBox.FormattingEnabled = true;
-            this.floor_numberComboBox.Location = new System.Drawing.Point(211, 163);
+            this.floor_numberComboBox.Location = new System.Drawing.Point(211, 166);
             this.floor_numberComboBox.Name = "floor_numberComboBox";
             this.floor_numberComboBox.Size = new System.Drawing.Size(121, 24);
             this.floor_numberComboBox.TabIndex = 15;
@@ -279,14 +339,14 @@ namespace MartDB
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem,
             this.areaBindingNavigatorSaveItem});
-            this.areaBindingNavigator.Location = new System.Drawing.Point(12, 52);
+            this.areaBindingNavigator.Location = new System.Drawing.Point(12, 40);
             this.areaBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.areaBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.areaBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
             this.areaBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.areaBindingNavigator.Name = "areaBindingNavigator";
             this.areaBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.areaBindingNavigator.Size = new System.Drawing.Size(331, 27);
+            this.areaBindingNavigator.Size = new System.Drawing.Size(370, 27);
             this.areaBindingNavigator.TabIndex = 2;
             this.areaBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -297,7 +357,7 @@ namespace MartDB
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 24);
-            this.bindingNavigatorAddNewItem.Text = "Add new";
+            this.bindingNavigatorAddNewItem.Text = "of {0}";
             // 
             // bindingNavigatorCountItem
             // 
@@ -342,7 +402,6 @@ namespace MartDB
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Position";
             this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 27);
             this.bindingNavigatorPositionItem.Text = "0";
@@ -388,18 +447,10 @@ namespace MartDB
             // area_squareTextBox
             // 
             this.area_squareTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.areaBindingSource, "area_square", true));
-            this.area_squareTextBox.Location = new System.Drawing.Point(211, 128);
+            this.area_squareTextBox.Location = new System.Drawing.Point(211, 131);
             this.area_squareTextBox.Name = "area_squareTextBox";
             this.area_squareTextBox.Size = new System.Drawing.Size(100, 22);
             this.area_squareTextBox.TabIndex = 14;
-            // 
-            // area_idNumericUpDown
-            // 
-            this.area_idNumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.areaBindingSource, "area_id", true));
-            this.area_idNumericUpDown.Location = new System.Drawing.Point(211, 94);
-            this.area_idNumericUpDown.Name = "area_idNumericUpDown";
-            this.area_idNumericUpDown.Size = new System.Drawing.Size(120, 22);
-            this.area_idNumericUpDown.TabIndex = 13;
             // 
             // areaDataGridView
             // 
@@ -516,10 +567,137 @@ namespace MartDB
             this.panelBooking.Size = new System.Drawing.Size(948, 479);
             this.panelBooking.TabIndex = 11;
             // 
+            // bookingBindingNavigator
+            // 
+            this.bookingBindingNavigator.AddNewItem = this.bookingAddNewItem;
+            this.bookingBindingNavigator.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.bookingBindingNavigator.BindingSource = this.bookingBindingSource;
+            this.bookingBindingNavigator.CountItem = this.bookingCountItem;
+            this.bookingBindingNavigator.DeleteItem = this.bookingDeleteItem;
+            this.bookingBindingNavigator.Dock = System.Windows.Forms.DockStyle.None;
+            this.bookingBindingNavigator.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.bookingBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bookingMoveFirstItem,
+            this.bookingMovePreviousItem,
+            this.bookingSeparator,
+            this.bookingPositionItem,
+            this.bookingCountItem,
+            this.bookingSeparator1,
+            this.bookingMoveNextItem,
+            this.bookingMoveLastItem,
+            this.bookingSeparator2,
+            this.bookingAddNewItem,
+            this.bookingDeleteItem,
+            this.bookingSaveItem});
+            this.bookingBindingNavigator.Location = new System.Drawing.Point(12, 40);
+            this.bookingBindingNavigator.MoveFirstItem = this.bookingMoveFirstItem;
+            this.bookingBindingNavigator.MoveLastItem = this.bookingMoveLastItem;
+            this.bookingBindingNavigator.MoveNextItem = this.bookingMoveNextItem;
+            this.bookingBindingNavigator.MovePreviousItem = this.bookingMovePreviousItem;
+            this.bookingBindingNavigator.Name = "bookingBindingNavigator";
+            this.bookingBindingNavigator.PositionItem = this.bookingPositionItem;
+            this.bookingBindingNavigator.Size = new System.Drawing.Size(331, 27);
+            this.bookingBindingNavigator.TabIndex = 21;
+            this.bookingBindingNavigator.Text = "bindingNavigator1";
+            // 
+            // bookingAddNewItem
+            // 
+            this.bookingAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bookingAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bookingAddNewItem.Image")));
+            this.bookingAddNewItem.Name = "bookingAddNewItem";
+            this.bookingAddNewItem.RightToLeftAutoMirrorImage = true;
+            this.bookingAddNewItem.Size = new System.Drawing.Size(29, 24);
+            this.bookingAddNewItem.Text = "Add new";
+            // 
             // bookingBindingSource
             // 
             this.bookingBindingSource.DataMember = "Booking";
             this.bookingBindingSource.DataSource = this.martDBDataSet;
+            // 
+            // bookingCountItem
+            // 
+            this.bookingCountItem.Name = "bookingCountItem";
+            this.bookingCountItem.Size = new System.Drawing.Size(45, 24);
+            this.bookingCountItem.Text = "of {0}";
+            this.bookingCountItem.ToolTipText = "Total number of items";
+            // 
+            // bookingDeleteItem
+            // 
+            this.bookingDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bookingDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bookingDeleteItem.Image")));
+            this.bookingDeleteItem.Name = "bookingDeleteItem";
+            this.bookingDeleteItem.RightToLeftAutoMirrorImage = true;
+            this.bookingDeleteItem.Size = new System.Drawing.Size(29, 24);
+            this.bookingDeleteItem.Text = "Delete";
+            // 
+            // bookingMoveFirstItem
+            // 
+            this.bookingMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bookingMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bookingMoveFirstItem.Image")));
+            this.bookingMoveFirstItem.Name = "bookingMoveFirstItem";
+            this.bookingMoveFirstItem.RightToLeftAutoMirrorImage = true;
+            this.bookingMoveFirstItem.Size = new System.Drawing.Size(29, 24);
+            this.bookingMoveFirstItem.Text = "Move first";
+            // 
+            // bookingMovePreviousItem
+            // 
+            this.bookingMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bookingMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bookingMovePreviousItem.Image")));
+            this.bookingMovePreviousItem.Name = "bookingMovePreviousItem";
+            this.bookingMovePreviousItem.RightToLeftAutoMirrorImage = true;
+            this.bookingMovePreviousItem.Size = new System.Drawing.Size(29, 24);
+            this.bookingMovePreviousItem.Text = "Move previous";
+            // 
+            // bookingSeparator
+            // 
+            this.bookingSeparator.Name = "bookingSeparator";
+            this.bookingSeparator.Size = new System.Drawing.Size(6, 27);
+            // 
+            // bookingPositionItem
+            // 
+            this.bookingPositionItem.AccessibleName = "Position";
+            this.bookingPositionItem.AutoSize = false;
+            this.bookingPositionItem.Name = "bookingPositionItem";
+            this.bookingPositionItem.Size = new System.Drawing.Size(50, 27);
+            this.bookingPositionItem.Text = "0";
+            this.bookingPositionItem.ToolTipText = "Current position";
+            // 
+            // bookingSeparator1
+            // 
+            this.bookingSeparator1.Name = "bookingSeparator1";
+            this.bookingSeparator1.Size = new System.Drawing.Size(6, 27);
+            // 
+            // bookingMoveNextItem
+            // 
+            this.bookingMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bookingMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bookingMoveNextItem.Image")));
+            this.bookingMoveNextItem.Name = "bookingMoveNextItem";
+            this.bookingMoveNextItem.RightToLeftAutoMirrorImage = true;
+            this.bookingMoveNextItem.Size = new System.Drawing.Size(29, 24);
+            this.bookingMoveNextItem.Text = "Move next";
+            // 
+            // bookingMoveLastItem
+            // 
+            this.bookingMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bookingMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bookingMoveLastItem.Image")));
+            this.bookingMoveLastItem.Name = "bookingMoveLastItem";
+            this.bookingMoveLastItem.RightToLeftAutoMirrorImage = true;
+            this.bookingMoveLastItem.Size = new System.Drawing.Size(29, 24);
+            this.bookingMoveLastItem.Text = "Move last";
+            // 
+            // bookingSeparator2
+            // 
+            this.bookingSeparator2.Name = "bookingSeparator2";
+            this.bookingSeparator2.Size = new System.Drawing.Size(6, 27);
+            // 
+            // bookingSaveItem
+            // 
+            this.bookingSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bookingSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("bookingSaveItem.Image")));
+            this.bookingSaveItem.Name = "bookingSaveItem";
+            this.bookingSaveItem.Size = new System.Drawing.Size(29, 24);
+            this.bookingSaveItem.Text = "Save Data";
+            this.bookingSaveItem.Click += new System.EventHandler(this.bookingSaveItem_Click);
             // 
             // label1
             // 
@@ -648,6 +826,7 @@ namespace MartDB
             // 
             // pictureBox2
             // 
+            this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(674, 10);
             this.pictureBox2.Name = "pictureBox2";
@@ -664,7 +843,7 @@ namespace MartDB
             this.menuToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(971, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(971, 28);
             this.menuStrip1.TabIndex = 12;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -672,22 +851,23 @@ namespace MartDB
             // 
             this.pagesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.areaToolStripMenuItem,
-            this.bookingToolStripMenuItem});
+            this.bookingToolStripMenuItem,
+            this.employeeToolStripMenuItem});
             this.pagesToolStripMenuItem.Name = "pagesToolStripMenuItem";
-            this.pagesToolStripMenuItem.Size = new System.Drawing.Size(93, 24);
+            this.pagesToolStripMenuItem.Size = new System.Drawing.Size(93, 26);
             this.pagesToolStripMenuItem.Text = "Страницы";
             // 
             // areaToolStripMenuItem
             // 
             this.areaToolStripMenuItem.Name = "areaToolStripMenuItem";
-            this.areaToolStripMenuItem.Size = new System.Drawing.Size(177, 26);
+            this.areaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.areaToolStripMenuItem.Text = "Помещение";
             this.areaToolStripMenuItem.Click += new System.EventHandler(this.areaToolStripMenuItem_Click);
             // 
             // bookingToolStripMenuItem
             // 
             this.bookingToolStripMenuItem.Name = "bookingToolStripMenuItem";
-            this.bookingToolStripMenuItem.Size = new System.Drawing.Size(177, 26);
+            this.bookingToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.bookingToolStripMenuItem.Text = "Бронь";
             this.bookingToolStripMenuItem.Click += new System.EventHandler(this.bookingToolStripMenuItem_Click);
             // 
@@ -696,7 +876,7 @@ namespace MartDB
             this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aboutToolStripMenuItem1});
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
-            this.menuToolStripMenuItem.Size = new System.Drawing.Size(65, 24);
+            this.menuToolStripMenuItem.Size = new System.Drawing.Size(65, 26);
             this.menuToolStripMenuItem.Text = "Меню";
             // 
             // aboutToolStripMenuItem1
@@ -709,6 +889,12 @@ namespace MartDB
             // panelMain
             // 
             this.panelMain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelMain.Controls.Add(this.button6);
+            this.panelMain.Controls.Add(this.button5);
+            this.panelMain.Controls.Add(this.button4);
+            this.panelMain.Controls.Add(this.button3);
+            this.panelMain.Controls.Add(this.button2);
+            this.panelMain.Controls.Add(this.btnMoveToPanelEmployee);
             this.panelMain.Controls.Add(this.btnMoveToPanelBooking);
             this.panelMain.Controls.Add(this.btnMoveToPanelArea);
             this.panelMain.Controls.Add(this.label3);
@@ -719,7 +905,7 @@ namespace MartDB
             // 
             // btnMoveToPanelBooking
             // 
-            this.btnMoveToPanelBooking.Location = new System.Drawing.Point(401, 161);
+            this.btnMoveToPanelBooking.Location = new System.Drawing.Point(265, 151);
             this.btnMoveToPanelBooking.Name = "btnMoveToPanelBooking";
             this.btnMoveToPanelBooking.Size = new System.Drawing.Size(130, 53);
             this.btnMoveToPanelBooking.TabIndex = 2;
@@ -729,7 +915,7 @@ namespace MartDB
             // 
             // btnMoveToPanelArea
             // 
-            this.btnMoveToPanelArea.Location = new System.Drawing.Point(401, 94);
+            this.btnMoveToPanelArea.Location = new System.Drawing.Point(265, 84);
             this.btnMoveToPanelArea.Name = "btnMoveToPanelArea";
             this.btnMoveToPanelArea.Size = new System.Drawing.Size(130, 53);
             this.btnMoveToPanelArea.TabIndex = 1;
@@ -779,142 +965,474 @@ namespace MartDB
             this.bookingTableAdapterManager.TradeProfileTableAdapter = null;
             this.bookingTableAdapterManager.UpdateOrder = MartDB.MartDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // bookingBindingNavigator
+            // area_idTextBox1
             // 
-            this.bookingBindingNavigator.AddNewItem = this.bookingAddNewItem;
-            this.bookingBindingNavigator.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.bookingBindingNavigator.BindingSource = this.bookingBindingSource;
-            this.bookingBindingNavigator.CountItem = this.CountItem;
-            this.bookingBindingNavigator.DeleteItem = this.bookingDeleteItem;
-            this.bookingBindingNavigator.Dock = System.Windows.Forms.DockStyle.None;
-            this.bookingBindingNavigator.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.bookingBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bookingMoveFirstItem,
-            this.bookingMovePreviousItem,
-            this.bookingSeparator,
-            this.bookingPositionItem,
-            this.CountItem,
-            this.bookingSeparator1,
-            this.bookingMoveNextItem,
-            this.bookingMoveLastItem,
-            this.bookingSeparator3,
-            this.bookingAddNewItem,
-            this.bookingDeleteItem,
-            this.bookingSaveItem});
-            this.bookingBindingNavigator.Location = new System.Drawing.Point(13, 42);
-            this.bookingBindingNavigator.MoveFirstItem = this.bookingMoveFirstItem;
-            this.bookingBindingNavigator.MoveLastItem = this.bookingMoveLastItem;
-            this.bookingBindingNavigator.MoveNextItem = this.bookingMoveNextItem;
-            this.bookingBindingNavigator.MovePreviousItem = this.bookingMovePreviousItem;
-            this.bookingBindingNavigator.Name = "bookingBindingNavigator";
-            this.bookingBindingNavigator.PositionItem = this.bookingPositionItem;
-            this.bookingBindingNavigator.Size = new System.Drawing.Size(331, 31);
-            this.bookingBindingNavigator.TabIndex = 21;
-            this.bookingBindingNavigator.Text = "bindingNavigator1";
+            this.area_idTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.areaBindingSource, "area_id", true));
+            this.area_idTextBox1.Location = new System.Drawing.Point(211, 99);
+            this.area_idTextBox1.Name = "area_idTextBox1";
+            this.area_idTextBox1.Size = new System.Drawing.Size(100, 22);
+            this.area_idTextBox1.TabIndex = 16;
             // 
-            // bookingAddNewItem
+            // panelEmployee
             // 
-            this.bookingAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bookingAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bookingAddNewItem.Image")));
-            this.bookingAddNewItem.Name = "bookingAddNewItem";
-            this.bookingAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bookingAddNewItem.Size = new System.Drawing.Size(29, 24);
-            this.bookingAddNewItem.Text = "Add new";
+            this.panelEmployee.Controls.Add(this.employeeBindingNavigator);
+            this.panelEmployee.Controls.Add(this.pictureBox3);
+            this.panelEmployee.Controls.Add(this.employeeDataGridView);
+            this.panelEmployee.Controls.Add(emailLabel);
+            this.panelEmployee.Controls.Add(this.emailTextBox);
+            this.panelEmployee.Controls.Add(phone_numberLabel);
+            this.panelEmployee.Controls.Add(this.phone_numberTextBox);
+            this.panelEmployee.Controls.Add(positionLabel);
+            this.panelEmployee.Controls.Add(this.positionTextBox);
+            this.panelEmployee.Controls.Add(genderLabel);
+            this.panelEmployee.Controls.Add(this.genderTextBox);
+            this.panelEmployee.Controls.Add(fioLabel);
+            this.panelEmployee.Controls.Add(this.fioTextBox);
+            this.panelEmployee.Controls.Add(org_idLabel1);
+            this.panelEmployee.Controls.Add(this.org_idTextBox1);
+            this.panelEmployee.Controls.Add(employee_idLabel);
+            this.panelEmployee.Controls.Add(this.employee_idTextBox);
+            this.panelEmployee.Controls.Add(this.label4);
+            this.panelEmployee.Location = new System.Drawing.Point(12, 33);
+            this.panelEmployee.Name = "panelEmployee";
+            this.panelEmployee.Size = new System.Drawing.Size(948, 485);
+            this.panelEmployee.TabIndex = 14;
             // 
-            // CountItem
+            // label4
             // 
-            this.CountItem.Name = "CountItem";
-            this.CountItem.Size = new System.Drawing.Size(45, 24);
-            this.CountItem.Text = "of {0}";
-            this.CountItem.ToolTipText = "Total number of items";
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.Location = new System.Drawing.Point(8, 9);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(331, 28);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Панель управления: \"Сотрудник\"";
             // 
-            // bookingDeleteItem
+            // employeeBindingSource
             // 
-            this.bookingDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bookingDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bookingDeleteItem.Image")));
-            this.bookingDeleteItem.Name = "bookingDeleteItem";
-            this.bookingDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bookingDeleteItem.Size = new System.Drawing.Size(29, 24);
-            this.bookingDeleteItem.Text = "Delete";
+            this.employeeBindingSource.DataMember = "Employee";
+            this.employeeBindingSource.DataSource = this.martDBDataSet;
             // 
-            // bookingMoveFirstItem
+            // employeeTableAdapter
             // 
-            this.bookingMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bookingMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bookingMoveFirstItem.Image")));
-            this.bookingMoveFirstItem.Name = "bookingMoveFirstItem";
-            this.bookingMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bookingMoveFirstItem.Size = new System.Drawing.Size(29, 24);
-            this.bookingMoveFirstItem.Text = "Move first";
+            this.employeeTableAdapter.ClearBeforeFill = true;
             // 
-            // bookingMovePreviousItem
+            // employee_idLabel
             // 
-            this.bookingMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bookingMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bookingMovePreviousItem.Image")));
-            this.bookingMovePreviousItem.Name = "bookingMovePreviousItem";
-            this.bookingMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bookingMovePreviousItem.Size = new System.Drawing.Size(29, 24);
-            this.bookingMovePreviousItem.Text = "Move previous";
+            employee_idLabel.AutoSize = true;
+            employee_idLabel.Location = new System.Drawing.Point(11, 97);
+            employee_idLabel.Name = "employee_idLabel";
+            employee_idLabel.Size = new System.Drawing.Size(117, 17);
+            employee_idLabel.TabIndex = 1;
+            employee_idLabel.Text = "Код сотрудника:";
             // 
-            // bookingSeparator
+            // employee_idTextBox
             // 
-            this.bookingSeparator.Name = "bookingSeparator";
-            this.bookingSeparator.Size = new System.Drawing.Size(6, 27);
+            this.employee_idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.employeeBindingSource, "employee_id", true));
+            this.employee_idTextBox.Location = new System.Drawing.Point(174, 97);
+            this.employee_idTextBox.Name = "employee_idTextBox";
+            this.employee_idTextBox.Size = new System.Drawing.Size(100, 22);
+            this.employee_idTextBox.TabIndex = 2;
             // 
-            // bookingPositionItem
+            // org_idLabel1
             // 
-            this.bookingPositionItem.AccessibleName = "Position";
-            this.bookingPositionItem.AutoSize = false;
-            this.bookingPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.bookingPositionItem.Name = "bookingPositionItem";
-            this.bookingPositionItem.Size = new System.Drawing.Size(50, 27);
-            this.bookingPositionItem.Text = "0";
-            this.bookingPositionItem.ToolTipText = "Current position";
+            org_idLabel1.AutoSize = true;
+            org_idLabel1.Location = new System.Drawing.Point(11, 129);
+            org_idLabel1.Name = "org_idLabel1";
+            org_idLabel1.Size = new System.Drawing.Size(125, 17);
+            org_idLabel1.TabIndex = 3;
+            org_idLabel1.Text = "Код организации:";
             // 
-            // bookingSeparator1
+            // org_idTextBox1
             // 
-            this.bookingSeparator1.Name = "bookingSeparator1";
-            this.bookingSeparator1.Size = new System.Drawing.Size(6, 27);
+            this.org_idTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.employeeBindingSource, "org_id", true));
+            this.org_idTextBox1.Location = new System.Drawing.Point(174, 129);
+            this.org_idTextBox1.Name = "org_idTextBox1";
+            this.org_idTextBox1.Size = new System.Drawing.Size(100, 22);
+            this.org_idTextBox1.TabIndex = 4;
             // 
-            // bookingMoveNextItem
+            // fioLabel
             // 
-            this.bookingMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bookingMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bookingMoveNextItem.Image")));
-            this.bookingMoveNextItem.Name = "bookingMoveNextItem";
-            this.bookingMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bookingMoveNextItem.Size = new System.Drawing.Size(29, 24);
-            this.bookingMoveNextItem.Text = "Move next";
+            fioLabel.AutoSize = true;
+            fioLabel.Location = new System.Drawing.Point(11, 163);
+            fioLabel.Name = "fioLabel";
+            fioLabel.Size = new System.Drawing.Size(46, 17);
+            fioLabel.TabIndex = 5;
+            fioLabel.Text = "ФИО:";
             // 
-            // bookingMoveLastItem
+            // fioTextBox
             // 
-            this.bookingMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bookingMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bookingMoveLastItem.Image")));
-            this.bookingMoveLastItem.Name = "bookingMoveLastItem";
-            this.bookingMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bookingMoveLastItem.Size = new System.Drawing.Size(29, 24);
-            this.bookingMoveLastItem.Text = "Move last";
+            this.fioTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.employeeBindingSource, "fio", true));
+            this.fioTextBox.Location = new System.Drawing.Point(174, 161);
+            this.fioTextBox.Name = "fioTextBox";
+            this.fioTextBox.Size = new System.Drawing.Size(100, 22);
+            this.fioTextBox.TabIndex = 6;
             // 
-            // bookingSeparator3
+            // genderLabel
             // 
-            this.bookingSeparator3.Name = "bookingSeparator3";
-            this.bookingSeparator3.Size = new System.Drawing.Size(6, 27);
+            genderLabel.AutoSize = true;
+            genderLabel.Location = new System.Drawing.Point(11, 196);
+            genderLabel.Name = "genderLabel";
+            genderLabel.Size = new System.Drawing.Size(38, 17);
+            genderLabel.TabIndex = 7;
+            genderLabel.Text = "Пол:";
             // 
-            // bookingSaveItem
+            // genderTextBox
             // 
-            this.bookingSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bookingSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("bookingSaveItem.Image")));
-            this.bookingSaveItem.Name = "bookingSaveItem";
-            this.bookingSaveItem.Size = new System.Drawing.Size(29, 24);
-            this.bookingSaveItem.Text = "Save Data";
-            this.bookingSaveItem.Click += new System.EventHandler(this.bookingSaveItem_Click);
+            this.genderTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.employeeBindingSource, "gender", true));
+            this.genderTextBox.Location = new System.Drawing.Point(174, 193);
+            this.genderTextBox.Name = "genderTextBox";
+            this.genderTextBox.Size = new System.Drawing.Size(100, 22);
+            this.genderTextBox.TabIndex = 8;
+            // 
+            // positionLabel
+            // 
+            positionLabel.AutoSize = true;
+            positionLabel.Location = new System.Drawing.Point(11, 226);
+            positionLabel.Name = "positionLabel";
+            positionLabel.Size = new System.Drawing.Size(85, 17);
+            positionLabel.TabIndex = 9;
+            positionLabel.Text = "Должность:";
+            // 
+            // positionTextBox
+            // 
+            this.positionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.employeeBindingSource, "position", true));
+            this.positionTextBox.Location = new System.Drawing.Point(174, 224);
+            this.positionTextBox.Name = "positionTextBox";
+            this.positionTextBox.Size = new System.Drawing.Size(100, 22);
+            this.positionTextBox.TabIndex = 10;
+            // 
+            // phone_numberLabel
+            // 
+            phone_numberLabel.AutoSize = true;
+            phone_numberLabel.Location = new System.Drawing.Point(11, 261);
+            phone_numberLabel.Name = "phone_numberLabel";
+            phone_numberLabel.Size = new System.Drawing.Size(125, 17);
+            phone_numberLabel.TabIndex = 11;
+            phone_numberLabel.Text = "Номер телефона:";
+            // 
+            // phone_numberTextBox
+            // 
+            this.phone_numberTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.employeeBindingSource, "phone_number", true));
+            this.phone_numberTextBox.Location = new System.Drawing.Point(174, 258);
+            this.phone_numberTextBox.Name = "phone_numberTextBox";
+            this.phone_numberTextBox.Size = new System.Drawing.Size(100, 22);
+            this.phone_numberTextBox.TabIndex = 12;
+            // 
+            // emailLabel
+            // 
+            emailLabel.AutoSize = true;
+            emailLabel.Location = new System.Drawing.Point(11, 294);
+            emailLabel.Name = "emailLabel";
+            emailLabel.Size = new System.Drawing.Size(142, 17);
+            emailLabel.TabIndex = 13;
+            emailLabel.Text = "Электронная почта:";
+            // 
+            // emailTextBox
+            // 
+            this.emailTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.employeeBindingSource, "email", true));
+            this.emailTextBox.Location = new System.Drawing.Point(174, 291);
+            this.emailTextBox.Name = "emailTextBox";
+            this.emailTextBox.Size = new System.Drawing.Size(100, 22);
+            this.emailTextBox.TabIndex = 14;
+            // 
+            // employeeDataGridView
+            // 
+            this.employeeDataGridView.AutoGenerateColumns = false;
+            this.employeeDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.employeeDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn10,
+            this.dataGridViewTextBoxColumn11,
+            this.dataGridViewTextBoxColumn12,
+            this.dataGridViewTextBoxColumn13,
+            this.dataGridViewTextBoxColumn14,
+            this.dataGridViewTextBoxColumn15,
+            this.dataGridViewTextBoxColumn16});
+            this.employeeDataGridView.DataSource = this.employeeBindingSource;
+            this.employeeDataGridView.Location = new System.Drawing.Point(402, 16);
+            this.employeeDataGridView.Name = "employeeDataGridView";
+            this.employeeDataGridView.RowHeadersWidth = 51;
+            this.employeeDataGridView.RowTemplate.Height = 24;
+            this.employeeDataGridView.Size = new System.Drawing.Size(528, 253);
+            this.employeeDataGridView.TabIndex = 15;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "employee_id";
+            this.dataGridViewTextBoxColumn10.HeaderText = "employee_id";
+            this.dataGridViewTextBoxColumn10.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "org_id";
+            this.dataGridViewTextBoxColumn11.HeaderText = "org_id";
+            this.dataGridViewTextBoxColumn11.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "fio";
+            this.dataGridViewTextBoxColumn12.HeaderText = "fio";
+            this.dataGridViewTextBoxColumn12.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "gender";
+            this.dataGridViewTextBoxColumn13.HeaderText = "gender";
+            this.dataGridViewTextBoxColumn13.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.DataPropertyName = "position";
+            this.dataGridViewTextBoxColumn14.HeaderText = "position";
+            this.dataGridViewTextBoxColumn14.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.DataPropertyName = "phone_number";
+            this.dataGridViewTextBoxColumn15.HeaderText = "phone_number";
+            this.dataGridViewTextBoxColumn15.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.DataPropertyName = "email";
+            this.dataGridViewTextBoxColumn16.HeaderText = "email";
+            this.dataGridViewTextBoxColumn16.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.dataGridViewTextBoxColumn16.Width = 125;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(13, 325);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(150, 150);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 16;
+            this.pictureBox3.TabStop = false;
+            // 
+            // employeeTableAdapterManager
+            // 
+            this.employeeTableAdapterManager.AreaTableAdapter = null;
+            this.employeeTableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.employeeTableAdapterManager.BookingTableAdapter = null;
+            this.employeeTableAdapterManager.EmployeeTableAdapter = this.employeeTableAdapter;
+            this.employeeTableAdapterManager.OrganisationTableAdapter = null;
+            this.employeeTableAdapterManager.OutletTableAdapter = null;
+            this.employeeTableAdapterManager.ReviewTableAdapter = null;
+            this.employeeTableAdapterManager.TradeProfileTableAdapter = null;
+            this.employeeTableAdapterManager.UpdateOrder = MartDB.MartDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // employeeToolStripMenuItem
+            // 
+            this.employeeToolStripMenuItem.Name = "employeeToolStripMenuItem";
+            this.employeeToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.employeeToolStripMenuItem.Text = "Сотрудник";
+            this.employeeToolStripMenuItem.Click += new System.EventHandler(this.employeeToolStripMenuItem_Click);
+            // 
+            // btnMoveToPanelEmployee
+            // 
+            this.btnMoveToPanelEmployee.Location = new System.Drawing.Point(265, 220);
+            this.btnMoveToPanelEmployee.Name = "btnMoveToPanelEmployee";
+            this.btnMoveToPanelEmployee.Size = new System.Drawing.Size(130, 53);
+            this.btnMoveToPanelEmployee.TabIndex = 3;
+            this.btnMoveToPanelEmployee.Text = "Сотрудник";
+            this.btnMoveToPanelEmployee.UseVisualStyleBackColor = true;
+            this.btnMoveToPanelEmployee.Click += new System.EventHandler(this.btnMoveToPanelEmployee_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(265, 285);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(130, 53);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "Организация";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(521, 84);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(130, 53);
+            this.button3.TabIndex = 5;
+            this.button3.Text = "Торговая точка";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(521, 151);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(130, 53);
+            this.button4.TabIndex = 6;
+            this.button4.Text = "Отзыв";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(521, 220);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(130, 53);
+            this.button5.TabIndex = 7;
+            this.button5.Text = "Торговый профиль";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(521, 285);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(130, 53);
+            this.button6.TabIndex = 8;
+            this.button6.Text = "Пользователи";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // employeeBindingNavigator
+            // 
+            this.employeeBindingNavigator.AddNewItem = this.employeeAddNewItem;
+            this.employeeBindingNavigator.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.employeeBindingNavigator.BindingSource = this.employeeBindingSource;
+            this.employeeBindingNavigator.CountItem = this.employeeCountItem;
+            this.employeeBindingNavigator.DeleteItem = this.employeeDeleteItem;
+            this.employeeBindingNavigator.Dock = System.Windows.Forms.DockStyle.None;
+            this.employeeBindingNavigator.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.employeeBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.employeeMoveFirstItem,
+            this.employeeMovePreviousItem,
+            this.employeeSeparator,
+            this.employeePositionItem,
+            this.employeeCountItem,
+            this.employeeSeparator1,
+            this.employeeMoveNextItem,
+            this.employeeMoveLastItem,
+            this.employeeSeparator2,
+            this.employeeAddNewItem,
+            this.employeeDeleteItem,
+            this.employeeSaveItem});
+            this.employeeBindingNavigator.Location = new System.Drawing.Point(13, 47);
+            this.employeeBindingNavigator.MoveFirstItem = this.employeeMoveFirstItem;
+            this.employeeBindingNavigator.MoveLastItem = this.employeeMoveLastItem;
+            this.employeeBindingNavigator.MoveNextItem = this.employeeMoveNextItem;
+            this.employeeBindingNavigator.MovePreviousItem = this.employeeMovePreviousItem;
+            this.employeeBindingNavigator.Name = "employeeBindingNavigator";
+            this.employeeBindingNavigator.PositionItem = this.employeePositionItem;
+            this.employeeBindingNavigator.Size = new System.Drawing.Size(331, 27);
+            this.employeeBindingNavigator.TabIndex = 22;
+            this.employeeBindingNavigator.Text = "bindingNavigator1";
+            // 
+            // employeeAddNewItem
+            // 
+            this.employeeAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.employeeAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("employeeAddNewItem.Image")));
+            this.employeeAddNewItem.Name = "employeeAddNewItem";
+            this.employeeAddNewItem.RightToLeftAutoMirrorImage = true;
+            this.employeeAddNewItem.Size = new System.Drawing.Size(29, 24);
+            this.employeeAddNewItem.Text = "Add new";
+            // 
+            // employeeCountItem
+            // 
+            this.employeeCountItem.Name = "employeeCountItem";
+            this.employeeCountItem.Size = new System.Drawing.Size(45, 24);
+            this.employeeCountItem.Text = "of {0}";
+            this.employeeCountItem.ToolTipText = "Total number of items";
+            // 
+            // employeeDeleteItem
+            // 
+            this.employeeDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.employeeDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("employeeDeleteItem.Image")));
+            this.employeeDeleteItem.Name = "employeeDeleteItem";
+            this.employeeDeleteItem.RightToLeftAutoMirrorImage = true;
+            this.employeeDeleteItem.Size = new System.Drawing.Size(29, 24);
+            this.employeeDeleteItem.Text = "Delete";
+            // 
+            // employeeMoveFirstItem
+            // 
+            this.employeeMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.employeeMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("employeeMoveFirstItem.Image")));
+            this.employeeMoveFirstItem.Name = "employeeMoveFirstItem";
+            this.employeeMoveFirstItem.RightToLeftAutoMirrorImage = true;
+            this.employeeMoveFirstItem.Size = new System.Drawing.Size(29, 24);
+            this.employeeMoveFirstItem.Text = "Move first";
+            // 
+            // employeeMovePreviousItem
+            // 
+            this.employeeMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.employeeMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("employeeMovePreviousItem.Image")));
+            this.employeeMovePreviousItem.Name = "employeeMovePreviousItem";
+            this.employeeMovePreviousItem.RightToLeftAutoMirrorImage = true;
+            this.employeeMovePreviousItem.Size = new System.Drawing.Size(29, 24);
+            this.employeeMovePreviousItem.Text = "Move previous";
+            // 
+            // employeeSeparator
+            // 
+            this.employeeSeparator.Name = "employeeSeparator";
+            this.employeeSeparator.Size = new System.Drawing.Size(6, 27);
+            // 
+            // employeePositionItem
+            // 
+            this.employeePositionItem.AccessibleName = "Position";
+            this.employeePositionItem.AutoSize = false;
+            this.employeePositionItem.Name = "employeePositionItem";
+            this.employeePositionItem.Size = new System.Drawing.Size(50, 27);
+            this.employeePositionItem.Text = "0";
+            this.employeePositionItem.ToolTipText = "Current position";
+            // 
+            // employeeSeparator1
+            // 
+            this.employeeSeparator1.Name = "employeeSeparator1";
+            this.employeeSeparator1.Size = new System.Drawing.Size(6, 27);
+            // 
+            // employeeMoveNextItem
+            // 
+            this.employeeMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.employeeMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("employeeMoveNextItem.Image")));
+            this.employeeMoveNextItem.Name = "employeeMoveNextItem";
+            this.employeeMoveNextItem.RightToLeftAutoMirrorImage = true;
+            this.employeeMoveNextItem.Size = new System.Drawing.Size(29, 24);
+            this.employeeMoveNextItem.Text = "Move next";
+            // 
+            // employeeMoveLastItem
+            // 
+            this.employeeMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.employeeMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("employeeMoveLastItem.Image")));
+            this.employeeMoveLastItem.Name = "employeeMoveLastItem";
+            this.employeeMoveLastItem.RightToLeftAutoMirrorImage = true;
+            this.employeeMoveLastItem.Size = new System.Drawing.Size(29, 24);
+            this.employeeMoveLastItem.Text = "Move last";
+            // 
+            // employeeSeparator2
+            // 
+            this.employeeSeparator2.Name = "employeeSeparator2";
+            this.employeeSeparator2.Size = new System.Drawing.Size(6, 27);
+            // 
+            // employeeSaveItem
+            // 
+            this.employeeSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.employeeSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("employeeSaveItem.Image")));
+            this.employeeSaveItem.Name = "employeeSaveItem";
+            this.employeeSaveItem.Size = new System.Drawing.Size(29, 24);
+            this.employeeSaveItem.Text = "Save Data";
+            this.employeeSaveItem.Click += new System.EventHandler(this.employeeSaveItem_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(971, 605);
-            this.Controls.Add(this.panelArea);
-            this.Controls.Add(this.panelBooking);
+            this.Controls.Add(this.panelEmployee);
             this.Controls.Add(this.panelMain);
+            this.Controls.Add(this.panelBooking);
+            this.Controls.Add(this.panelArea);
             this.Controls.Add(this.btnMoveToPanelMain);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.menuStrip1);
@@ -931,11 +1449,13 @@ namespace MartDB
             ((System.ComponentModel.ISupportInitialize)(this.areaBindingNavigator)).EndInit();
             this.areaBindingNavigator.ResumeLayout(false);
             this.areaBindingNavigator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.area_idNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.areaDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelBooking.ResumeLayout(false);
             this.panelBooking.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bookingBindingNavigator)).EndInit();
+            this.bookingBindingNavigator.ResumeLayout(false);
+            this.bookingBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bookingBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bookingDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -943,9 +1463,14 @@ namespace MartDB
             this.menuStrip1.PerformLayout();
             this.panelMain.ResumeLayout(false);
             this.panelMain.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bookingBindingNavigator)).EndInit();
-            this.bookingBindingNavigator.ResumeLayout(false);
-            this.bookingBindingNavigator.PerformLayout();
+            this.panelEmployee.ResumeLayout(false);
+            this.panelEmployee.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingNavigator)).EndInit();
+            this.employeeBindingNavigator.ResumeLayout(false);
+            this.employeeBindingNavigator.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -993,7 +1518,6 @@ namespace MartDB
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.ComboBox floor_numberComboBox;
         private System.Windows.Forms.TextBox area_squareTextBox;
-        private System.Windows.Forms.NumericUpDown area_idNumericUpDown;
         private System.Windows.Forms.BindingSource bookingBindingSource;
         private MartDBDataSetTableAdapters.BookingTableAdapter bookingTableAdapter;
         private System.Windows.Forms.DateTimePicker booking_end_dateDateTimePicker;
@@ -1013,7 +1537,7 @@ namespace MartDB
         private MartDBDataSetTableAdapters.TableAdapterManager bookingTableAdapterManager;
         private System.Windows.Forms.BindingNavigator bookingBindingNavigator;
         private System.Windows.Forms.ToolStripButton bookingAddNewItem;
-        private System.Windows.Forms.ToolStripLabel CountItem;
+        private System.Windows.Forms.ToolStripLabel bookingCountItem;
         private System.Windows.Forms.ToolStripButton bookingDeleteItem;
         private System.Windows.Forms.ToolStripButton bookingMoveFirstItem;
         private System.Windows.Forms.ToolStripButton bookingMovePreviousItem;
@@ -1022,7 +1546,49 @@ namespace MartDB
         private System.Windows.Forms.ToolStripSeparator bookingSeparator1;
         private System.Windows.Forms.ToolStripButton bookingMoveNextItem;
         private System.Windows.Forms.ToolStripButton bookingMoveLastItem;
-        private System.Windows.Forms.ToolStripSeparator bookingSeparator3;
+        private System.Windows.Forms.ToolStripSeparator bookingSeparator2;
         private System.Windows.Forms.ToolStripButton bookingSaveItem;
+        private System.Windows.Forms.TextBox area_idTextBox1;
+        private System.Windows.Forms.Panel panelEmployee;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.BindingSource employeeBindingSource;
+        private MartDBDataSetTableAdapters.EmployeeTableAdapter employeeTableAdapter;
+        private System.Windows.Forms.TextBox emailTextBox;
+        private System.Windows.Forms.TextBox phone_numberTextBox;
+        private System.Windows.Forms.TextBox positionTextBox;
+        private System.Windows.Forms.TextBox genderTextBox;
+        private System.Windows.Forms.TextBox fioTextBox;
+        private System.Windows.Forms.TextBox org_idTextBox1;
+        private System.Windows.Forms.TextBox employee_idTextBox;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.DataGridView employeeDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
+        private MartDBDataSetTableAdapters.TableAdapterManager employeeTableAdapterManager;
+        private System.Windows.Forms.ToolStripMenuItem employeeToolStripMenuItem;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnMoveToPanelEmployee;
+        private System.Windows.Forms.BindingNavigator employeeBindingNavigator;
+        private System.Windows.Forms.ToolStripButton employeeAddNewItem;
+        private System.Windows.Forms.ToolStripLabel employeeCountItem;
+        private System.Windows.Forms.ToolStripButton employeeDeleteItem;
+        private System.Windows.Forms.ToolStripButton employeeMoveFirstItem;
+        private System.Windows.Forms.ToolStripButton employeeMovePreviousItem;
+        private System.Windows.Forms.ToolStripSeparator employeeSeparator;
+        private System.Windows.Forms.ToolStripTextBox employeePositionItem;
+        private System.Windows.Forms.ToolStripSeparator employeeSeparator1;
+        private System.Windows.Forms.ToolStripButton employeeMoveNextItem;
+        private System.Windows.Forms.ToolStripButton employeeMoveLastItem;
+        private System.Windows.Forms.ToolStripSeparator employeeSeparator2;
+        private System.Windows.Forms.ToolStripButton employeeSaveItem;
     }
 }

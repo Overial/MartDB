@@ -21,6 +21,7 @@ namespace MartDB
         // 0: Main
         // 1: Area
         // 2: Booking
+        // 3: Employee
         // ...
 
         public MainForm()
@@ -47,13 +48,24 @@ namespace MartDB
             this.bookingTableAdapterManager.UpdateAll(this.martDBDataSet);
         }
 
+        // (employee) Save button of the form
+        private void employeeSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.employeeBindingSource.EndEdit();
+            this.employeeTableAdapterManager.UpdateAll(this.martDBDataSet);
+        }
+
         // Actions on load
         private void MainForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'martDBDataSet.Employee' table. You can move, or remove it, as needed.
+            this.employeeTableAdapter.Fill(this.martDBDataSet.Employee);
             // Turning pages functionality
             this.listPanel.Add(this.panelMain);
             this.listPanel.Add(this.panelArea);
             this.listPanel.Add(this.panelBooking);
+            this.listPanel.Add(this.panelEmployee);
             // Show first panel
             this.listPanel[this.index].BringToFront();
 
@@ -104,18 +116,35 @@ namespace MartDB
             this.panelBooking.BringToFront();
         }
 
+        // Move to employee panel
+        private void btnMoveToPanelEmployee_Click(object sender, EventArgs e)
+        {
+            this.index = 3;
+            this.panelEmployee.BringToFront();
+        }
+
+        // Move to area panel (menuStrip)
         private void areaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.index = 1;
             this.panelArea.BringToFront();
         }
 
+        // Move to booking panel (menuStrip)
         private void bookingToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.index = 2;
             this.panelBooking.BringToFront();
         }
 
+        // Move to booking panel (menuStrip)
+        private void employeeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.index = 3;
+            this.panelBooking.BringToFront();
+        }
+
+        // About (menuStrip)
         private void aboutToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             MessageBox.Show("База данных \"Тессеракт\"", "О программе", MessageBoxButtons.OK, MessageBoxIcon.Information);
