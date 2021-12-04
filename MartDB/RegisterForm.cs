@@ -50,6 +50,7 @@ namespace MartDB
             mySqlCommand.Parameters["@username"].Value = usernameTextBox.Text;
             mySqlCommand.Parameters["@password"].Value = passwordTextBox.Text;
 
+            // Parse role
             string role = roleComboBox.Text;
             switch (role)
             {
