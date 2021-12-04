@@ -16,6 +16,7 @@ namespace MartDB
 {
     public partial class LoginForm : Form
     {
+        // Constraint login attempts count
         int iLoginAttemptsCounter = 3;
 
         // For moving form with mouse functionality
@@ -160,7 +161,7 @@ namespace MartDB
                         else
                         {
                             // Display corresponding info
-                            MessageBox.Show("Неверный логин или пароль!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Неверный логин, пароль или роль!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
 
@@ -192,6 +193,13 @@ namespace MartDB
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("База данных \"Тессеракт\"", "О программе", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+            // Register form
+            Form registerForm = new RegisterForm();
+            registerForm.Show();
         }
     }
 }
