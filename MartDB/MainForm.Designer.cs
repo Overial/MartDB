@@ -39,7 +39,7 @@ namespace MartDB
             System.Windows.Forms.Label emailLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panelBookingHandling = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnCallHandleBookingForm = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -192,7 +192,7 @@ namespace MartDB
             // panelBookingHandling
             // 
             this.panelBookingHandling.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelBookingHandling.Controls.Add(this.button2);
+            this.panelBookingHandling.Controls.Add(this.btnCallHandleBookingForm);
             this.panelBookingHandling.Controls.Add(this.groupBox3);
             this.panelBookingHandling.Controls.Add(this.dgvBookingHandling);
             this.panelBookingHandling.Controls.Add(this.btnShowAll);
@@ -204,14 +204,15 @@ namespace MartDB
             this.panelBookingHandling.Size = new System.Drawing.Size(948, 479);
             this.panelBookingHandling.TabIndex = 1;
             // 
-            // button2
+            // btnCallHandleBookingForm
             // 
-            this.button2.Location = new System.Drawing.Point(585, 408);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(176, 57);
-            this.button2.TabIndex = 20;
-            this.button2.Text = "Оформить аренду";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnCallHandleBookingForm.Location = new System.Drawing.Point(585, 408);
+            this.btnCallHandleBookingForm.Name = "btnCallHandleBookingForm";
+            this.btnCallHandleBookingForm.Size = new System.Drawing.Size(176, 57);
+            this.btnCallHandleBookingForm.TabIndex = 20;
+            this.btnCallHandleBookingForm.Text = "Оформить аренду";
+            this.btnCallHandleBookingForm.UseVisualStyleBackColor = true;
+            this.btnCallHandleBookingForm.Click += new System.EventHandler(this.btnCallHandleBookingForm_Click);
             // 
             // groupBox3
             // 
@@ -890,7 +891,7 @@ namespace MartDB
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox leftFloorBoundTextBox;
         private System.Windows.Forms.Button btnFloorSearch;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnCallHandleBookingForm;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;

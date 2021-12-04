@@ -318,5 +318,11 @@ namespace MartDB
                 dgvBookingHandling.Rows[row.Index].Visible = true;
             }
         }
+
+        private void btnCallHandleBookingForm_Click(object sender, EventArgs e)
+        {
+            Form handleBookingForm = new HandleBookingForm();
+            handleBookingForm.Show();
+        }
     }
 }
