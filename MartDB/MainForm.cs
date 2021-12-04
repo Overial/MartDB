@@ -8,6 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+// Убрать навигаторы
+// Опираться не на таблицы, а на функционал!!!
+// Добавить различные функции и процедуры для функционала
+
 namespace MartDB
 {
     public partial class MainForm : Form
