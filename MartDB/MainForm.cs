@@ -251,14 +251,50 @@ namespace MartDB
                 //this.areaBindingSource.Filter = string.Format("CONVERT(" + colForSearch + ", 'System.String') LIKE '%{0}%' ",
                 //                                              queryForSearch);
 
-                // Filter data
+                // Filter area square data
                 foreach (DataGridViewRow row in this.dgvBookingHandling.Rows)
                 {
                     if (Convert.ToInt32(row.Cells[0].Value) >= Convert.ToInt32(leftBound) &&
                         Convert.ToInt32(row.Cells[0].Value) <= Convert.ToInt32(rightBound))
                     {
                         dgvBookingHandling.Rows[row.Index].Visible = true;
-                        dgvBookingHandling.Rows[row.Index].Selected = true;
+                        // dgvBookingHandling.Rows[row.Index].Selected = true;
+                    }
+                    else
+                    {
+                        dgvBookingHandling.CurrentCell = null;
+                        dgvBookingHandling.Rows[row.Index].Visible = false;
+                    }
+                }
+            }
+        }
+
+        private void btnFloorSearch_Click(object sender, EventArgs e)
+        {
+            // Start searching only if user has entered query for search
+            if (this.leftFloorBoundTextBox.Text.Length > 0 && this.rightFloorBoundTextBox.Text.Length > 0)
+            {
+                string leftBound = "";
+                string rightBound = "";
+                try
+                {
+                    leftBound = Convert.ToString(this.leftFloorBoundTextBox.Text);
+                    rightBound = Convert.ToString(this.rightFloorBoundTextBox.Text);
+                }
+                // Prevent invalid user input
+                catch
+                {
+                    MessageBox.Show("Введено некорректное значение запроса для поиска!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                // Filter area square data
+                foreach (DataGridViewRow row in this.dgvBookingHandling.Rows)
+                {
+                    if (Convert.ToInt32(row.Cells[1].Value) >= Convert.ToInt32(leftBound) &&
+                        Convert.ToInt32(row.Cells[1].Value) <= Convert.ToInt32(rightBound))
+                    {
+                        dgvBookingHandling.Rows[row.Index].Visible = true;
+                        // dgvBookingHandling.Rows[row.Index].Selected = true;
                     }
                     else
                     {
@@ -272,7 +308,15 @@ namespace MartDB
         // Button to show all data
         private void btnShowAll_Click(object sender, EventArgs e)
         {
-            this.areaBindingSource.Filter = "";
+            // this.areaBindingSource.Filter = "";
+
+            // dgvBookingHandling.Rows[0].Selected = true;
+
+            // Display every row
+            foreach (DataGridViewRow row in this.dgvBookingHandling.Rows)
+            {
+                dgvBookingHandling.Rows[row.Index].Visible = true;
+            }
         }
     }
 }

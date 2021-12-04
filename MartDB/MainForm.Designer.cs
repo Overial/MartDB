@@ -39,9 +39,20 @@ namespace MartDB
             System.Windows.Forms.Label emailLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panelBookingHandling = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.rightFloorBoundTextBox = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.leftFloorBoundTextBox = new System.Windows.Forms.TextBox();
+            this.btnFloorSearch = new System.Windows.Forms.Button();
             this.dgvBookingHandling = new System.Windows.Forms.DataGridView();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnShowAll = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.rightSquareBoundtextBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.leftSquareBoundTextBox = new System.Windows.Forms.TextBox();
             this.btnSearchSquare = new System.Windows.Forms.Button();
@@ -56,6 +67,7 @@ namespace MartDB
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.pagesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bookingHandlingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.label3 = new System.Windows.Forms.Label();
@@ -64,7 +76,6 @@ namespace MartDB
             this.btnMoveToPanelMain = new System.Windows.Forms.Button();
             this.btnPrevious = new System.Windows.Forms.Button();
             this.panelMain = new System.Windows.Forms.Panel();
-            this.bookingHandlingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label4 = new System.Windows.Forms.Label();
             this.employee_idTextBox = new System.Windows.Forms.TextBox();
             this.org_idTextBox1 = new System.Windows.Forms.TextBox();
@@ -74,28 +85,17 @@ namespace MartDB
             this.phone_numberTextBox = new System.Windows.Forms.TextBox();
             this.emailTextBox = new System.Windows.Forms.TextBox();
             this.employeeDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panelEmployee = new System.Windows.Forms.Panel();
-            this.rightSquareBoundtextBox = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.employeeTableAdapter = new MartDB.MartDBDataSetTableAdapters.EmployeeTableAdapter();
-            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bookingTableAdapterManager = new MartDB.MartDBDataSetTableAdapters.TableAdapterManager();
             this.bookingTableAdapter = new MartDB.MartDBDataSetTableAdapters.BookingTableAdapter();
             this.areaTableAdapter = new MartDB.MartDBDataSetTableAdapters.AreaTableAdapter();
@@ -111,6 +111,7 @@ namespace MartDB
             phone_numberLabel = new System.Windows.Forms.Label();
             emailLabel = new System.Windows.Forms.Label();
             this.panelBookingHandling.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBookingHandling)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -118,13 +119,75 @@ namespace MartDB
             this.menuStrip1.SuspendLayout();
             this.panelMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employeeDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panelEmployee.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bookingBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.areaBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // employee_idLabel
+            // 
+            employee_idLabel.AutoSize = true;
+            employee_idLabel.Location = new System.Drawing.Point(11, 97);
+            employee_idLabel.Name = "employee_idLabel";
+            employee_idLabel.Size = new System.Drawing.Size(117, 17);
+            employee_idLabel.TabIndex = 1;
+            employee_idLabel.Text = "Код сотрудника:";
+            // 
+            // org_idLabel1
+            // 
+            org_idLabel1.AutoSize = true;
+            org_idLabel1.Location = new System.Drawing.Point(11, 129);
+            org_idLabel1.Name = "org_idLabel1";
+            org_idLabel1.Size = new System.Drawing.Size(125, 17);
+            org_idLabel1.TabIndex = 3;
+            org_idLabel1.Text = "Код организации:";
+            // 
+            // fioLabel
+            // 
+            fioLabel.AutoSize = true;
+            fioLabel.Location = new System.Drawing.Point(11, 163);
+            fioLabel.Name = "fioLabel";
+            fioLabel.Size = new System.Drawing.Size(46, 17);
+            fioLabel.TabIndex = 5;
+            fioLabel.Text = "ФИО:";
+            // 
+            // genderLabel
+            // 
+            genderLabel.AutoSize = true;
+            genderLabel.Location = new System.Drawing.Point(11, 196);
+            genderLabel.Name = "genderLabel";
+            genderLabel.Size = new System.Drawing.Size(38, 17);
+            genderLabel.TabIndex = 7;
+            genderLabel.Text = "Пол:";
+            // 
+            // positionLabel
+            // 
+            positionLabel.AutoSize = true;
+            positionLabel.Location = new System.Drawing.Point(11, 226);
+            positionLabel.Name = "positionLabel";
+            positionLabel.Size = new System.Drawing.Size(85, 17);
+            positionLabel.TabIndex = 9;
+            positionLabel.Text = "Должность:";
+            // 
+            // phone_numberLabel
+            // 
+            phone_numberLabel.AutoSize = true;
+            phone_numberLabel.Location = new System.Drawing.Point(11, 261);
+            phone_numberLabel.Name = "phone_numberLabel";
+            phone_numberLabel.Size = new System.Drawing.Size(125, 17);
+            phone_numberLabel.TabIndex = 11;
+            phone_numberLabel.Text = "Номер телефона:";
+            // 
+            // emailLabel
+            // 
+            emailLabel.AutoSize = true;
+            emailLabel.Location = new System.Drawing.Point(11, 294);
+            emailLabel.Name = "emailLabel";
+            emailLabel.Size = new System.Drawing.Size(142, 17);
+            emailLabel.TabIndex = 13;
+            emailLabel.Text = "Электронная почта:";
             // 
             // panelBookingHandling
             // 
@@ -141,6 +204,81 @@ namespace MartDB
             this.panelBookingHandling.Size = new System.Drawing.Size(948, 479);
             this.panelBookingHandling.TabIndex = 1;
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(585, 408);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(176, 57);
+            this.button2.TabIndex = 20;
+            this.button2.Text = "Оформить аренду";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.label8);
+            this.groupBox3.Controls.Add(this.label9);
+            this.groupBox3.Controls.Add(this.rightFloorBoundTextBox);
+            this.groupBox3.Controls.Add(this.label10);
+            this.groupBox3.Controls.Add(this.leftFloorBoundTextBox);
+            this.groupBox3.Controls.Add(this.btnFloorSearch);
+            this.groupBox3.Location = new System.Drawing.Point(15, 162);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(397, 106);
+            this.groupBox3.TabIndex = 19;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Поиск по номеру этажа";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(21, 65);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(118, 17);
+            this.label8.TabIndex = 11;
+            this.label8.Text = "Правая граница:";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(21, 40);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(110, 17);
+            this.label9.TabIndex = 10;
+            this.label9.Text = "Левая граница:";
+            // 
+            // rightFloorBoundTextBox
+            // 
+            this.rightFloorBoundTextBox.Location = new System.Drawing.Point(147, 65);
+            this.rightFloorBoundTextBox.Name = "rightFloorBoundTextBox";
+            this.rightFloorBoundTextBox.Size = new System.Drawing.Size(119, 22);
+            this.rightFloorBoundTextBox.TabIndex = 9;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(6, 18);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(117, 17);
+            this.label10.TabIndex = 7;
+            this.label10.Text = "Введите запрос:";
+            // 
+            // leftFloorBoundTextBox
+            // 
+            this.leftFloorBoundTextBox.Location = new System.Drawing.Point(147, 37);
+            this.leftFloorBoundTextBox.Name = "leftFloorBoundTextBox";
+            this.leftFloorBoundTextBox.Size = new System.Drawing.Size(119, 22);
+            this.leftFloorBoundTextBox.TabIndex = 6;
+            // 
+            // btnFloorSearch
+            // 
+            this.btnFloorSearch.Location = new System.Drawing.Point(272, 40);
+            this.btnFloorSearch.Name = "btnFloorSearch";
+            this.btnFloorSearch.Size = new System.Drawing.Size(119, 42);
+            this.btnFloorSearch.TabIndex = 5;
+            this.btnFloorSearch.Text = "Найти";
+            this.btnFloorSearch.UseVisualStyleBackColor = true;
+            this.btnFloorSearch.Click += new System.EventHandler(this.btnFloorSearch_Click);
+            // 
             // dgvBookingHandling
             // 
             this.dgvBookingHandling.AllowUserToAddRows = false;
@@ -153,6 +291,16 @@ namespace MartDB
             this.dgvBookingHandling.RowTemplate.Height = 24;
             this.dgvBookingHandling.Size = new System.Drawing.Size(511, 380);
             this.dgvBookingHandling.TabIndex = 19;
+            // 
+            // btnShowAll
+            // 
+            this.btnShowAll.Location = new System.Drawing.Point(158, 276);
+            this.btnShowAll.Name = "btnShowAll";
+            this.btnShowAll.Size = new System.Drawing.Size(119, 42);
+            this.btnShowAll.TabIndex = 8;
+            this.btnShowAll.Text = "Показать все";
+            this.btnShowAll.UseVisualStyleBackColor = true;
+            this.btnShowAll.Click += new System.EventHandler(this.btnShowAll_Click);
             // 
             // groupBox2
             // 
@@ -169,15 +317,30 @@ namespace MartDB
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Поиск по площади";
             // 
-            // btnShowAll
+            // label6
             // 
-            this.btnShowAll.Location = new System.Drawing.Point(158, 276);
-            this.btnShowAll.Name = "btnShowAll";
-            this.btnShowAll.Size = new System.Drawing.Size(119, 42);
-            this.btnShowAll.TabIndex = 8;
-            this.btnShowAll.Text = "Показать все";
-            this.btnShowAll.UseVisualStyleBackColor = true;
-            this.btnShowAll.Click += new System.EventHandler(this.btnShowAll_Click);
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(21, 65);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(118, 17);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Правая граница:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(21, 40);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(110, 17);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Левая граница:";
+            // 
+            // rightSquareBoundtextBox
+            // 
+            this.rightSquareBoundtextBox.Location = new System.Drawing.Point(147, 65);
+            this.rightSquareBoundtextBox.Name = "rightSquareBoundtextBox";
+            this.rightSquareBoundtextBox.Size = new System.Drawing.Size(119, 22);
+            this.rightSquareBoundtextBox.TabIndex = 9;
             // 
             // label7
             // 
@@ -320,6 +483,13 @@ namespace MartDB
             this.mainToolStripMenuItem.Text = "Главная";
             this.mainToolStripMenuItem.Click += new System.EventHandler(this.mainToolStripMenuItem_Click);
             // 
+            // bookingHandlingToolStripMenuItem
+            // 
+            this.bookingHandlingToolStripMenuItem.Name = "bookingHandlingToolStripMenuItem";
+            this.bookingHandlingToolStripMenuItem.Size = new System.Drawing.Size(232, 26);
+            this.bookingHandlingToolStripMenuItem.Text = "Аренда помещений";
+            this.bookingHandlingToolStripMenuItem.Click += new System.EventHandler(this.bookingHandlingToolStripMenuItem_Click);
+            // 
             // menuToolStripMenuItem
             // 
             this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -331,7 +501,7 @@ namespace MartDB
             // aboutToolStripMenuItem1
             // 
             this.aboutToolStripMenuItem1.Name = "aboutToolStripMenuItem1";
-            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(187, 26);
             this.aboutToolStripMenuItem1.Text = "О программе";
             this.aboutToolStripMenuItem1.Click += new System.EventHandler(this.aboutToolStripMenuItem1_Click);
             // 
@@ -398,13 +568,6 @@ namespace MartDB
             this.panelMain.Size = new System.Drawing.Size(948, 560);
             this.panelMain.TabIndex = 13;
             // 
-            // bookingHandlingToolStripMenuItem
-            // 
-            this.bookingHandlingToolStripMenuItem.Name = "bookingHandlingToolStripMenuItem";
-            this.bookingHandlingToolStripMenuItem.Size = new System.Drawing.Size(232, 26);
-            this.bookingHandlingToolStripMenuItem.Text = "Аренда помещений";
-            this.bookingHandlingToolStripMenuItem.Click += new System.EventHandler(this.bookingHandlingToolStripMenuItem_Click);
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -422,30 +585,12 @@ namespace MartDB
             this.employee_idTextBox.Size = new System.Drawing.Size(100, 22);
             this.employee_idTextBox.TabIndex = 2;
             // 
-            // employee_idLabel
-            // 
-            employee_idLabel.AutoSize = true;
-            employee_idLabel.Location = new System.Drawing.Point(11, 97);
-            employee_idLabel.Name = "employee_idLabel";
-            employee_idLabel.Size = new System.Drawing.Size(117, 17);
-            employee_idLabel.TabIndex = 1;
-            employee_idLabel.Text = "Код сотрудника:";
-            // 
             // org_idTextBox1
             // 
             this.org_idTextBox1.Location = new System.Drawing.Point(174, 129);
             this.org_idTextBox1.Name = "org_idTextBox1";
             this.org_idTextBox1.Size = new System.Drawing.Size(100, 22);
             this.org_idTextBox1.TabIndex = 4;
-            // 
-            // org_idLabel1
-            // 
-            org_idLabel1.AutoSize = true;
-            org_idLabel1.Location = new System.Drawing.Point(11, 129);
-            org_idLabel1.Name = "org_idLabel1";
-            org_idLabel1.Size = new System.Drawing.Size(125, 17);
-            org_idLabel1.TabIndex = 3;
-            org_idLabel1.Text = "Код организации:";
             // 
             // fioTextBox
             // 
@@ -454,30 +599,12 @@ namespace MartDB
             this.fioTextBox.Size = new System.Drawing.Size(100, 22);
             this.fioTextBox.TabIndex = 6;
             // 
-            // fioLabel
-            // 
-            fioLabel.AutoSize = true;
-            fioLabel.Location = new System.Drawing.Point(11, 163);
-            fioLabel.Name = "fioLabel";
-            fioLabel.Size = new System.Drawing.Size(46, 17);
-            fioLabel.TabIndex = 5;
-            fioLabel.Text = "ФИО:";
-            // 
             // genderTextBox
             // 
             this.genderTextBox.Location = new System.Drawing.Point(174, 193);
             this.genderTextBox.Name = "genderTextBox";
             this.genderTextBox.Size = new System.Drawing.Size(100, 22);
             this.genderTextBox.TabIndex = 8;
-            // 
-            // genderLabel
-            // 
-            genderLabel.AutoSize = true;
-            genderLabel.Location = new System.Drawing.Point(11, 196);
-            genderLabel.Name = "genderLabel";
-            genderLabel.Size = new System.Drawing.Size(38, 17);
-            genderLabel.TabIndex = 7;
-            genderLabel.Text = "Пол:";
             // 
             // positionTextBox
             // 
@@ -486,15 +613,6 @@ namespace MartDB
             this.positionTextBox.Size = new System.Drawing.Size(100, 22);
             this.positionTextBox.TabIndex = 10;
             // 
-            // positionLabel
-            // 
-            positionLabel.AutoSize = true;
-            positionLabel.Location = new System.Drawing.Point(11, 226);
-            positionLabel.Name = "positionLabel";
-            positionLabel.Size = new System.Drawing.Size(85, 17);
-            positionLabel.TabIndex = 9;
-            positionLabel.Text = "Должность:";
-            // 
             // phone_numberTextBox
             // 
             this.phone_numberTextBox.Location = new System.Drawing.Point(174, 258);
@@ -502,30 +620,12 @@ namespace MartDB
             this.phone_numberTextBox.Size = new System.Drawing.Size(100, 22);
             this.phone_numberTextBox.TabIndex = 12;
             // 
-            // phone_numberLabel
-            // 
-            phone_numberLabel.AutoSize = true;
-            phone_numberLabel.Location = new System.Drawing.Point(11, 261);
-            phone_numberLabel.Name = "phone_numberLabel";
-            phone_numberLabel.Size = new System.Drawing.Size(125, 17);
-            phone_numberLabel.TabIndex = 11;
-            phone_numberLabel.Text = "Номер телефона:";
-            // 
             // emailTextBox
             // 
             this.emailTextBox.Location = new System.Drawing.Point(174, 291);
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.Size = new System.Drawing.Size(100, 22);
             this.emailTextBox.TabIndex = 14;
-            // 
-            // emailLabel
-            // 
-            emailLabel.AutoSize = true;
-            emailLabel.Location = new System.Drawing.Point(11, 294);
-            emailLabel.Name = "emailLabel";
-            emailLabel.Size = new System.Drawing.Size(142, 17);
-            emailLabel.TabIndex = 13;
-            emailLabel.Text = "Электронная почта:";
             // 
             // employeeDataGridView
             // 
@@ -546,6 +646,67 @@ namespace MartDB
             this.employeeDataGridView.RowTemplate.Height = 24;
             this.employeeDataGridView.Size = new System.Drawing.Size(528, 253);
             this.employeeDataGridView.TabIndex = 15;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "employee_id";
+            this.dataGridViewTextBoxColumn10.HeaderText = "employee_id";
+            this.dataGridViewTextBoxColumn10.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "org_id";
+            this.dataGridViewTextBoxColumn11.HeaderText = "org_id";
+            this.dataGridViewTextBoxColumn11.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "fio";
+            this.dataGridViewTextBoxColumn12.HeaderText = "fio";
+            this.dataGridViewTextBoxColumn12.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "gender";
+            this.dataGridViewTextBoxColumn13.HeaderText = "gender";
+            this.dataGridViewTextBoxColumn13.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.DataPropertyName = "position";
+            this.dataGridViewTextBoxColumn14.HeaderText = "position";
+            this.dataGridViewTextBoxColumn14.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.DataPropertyName = "phone_number";
+            this.dataGridViewTextBoxColumn15.HeaderText = "phone_number";
+            this.dataGridViewTextBoxColumn15.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.DataPropertyName = "email";
+            this.dataGridViewTextBoxColumn16.HeaderText = "email";
+            this.dataGridViewTextBoxColumn16.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.dataGridViewTextBoxColumn16.Width = 125;
+            // 
+            // employeeBindingSource
+            // 
+            this.employeeBindingSource.DataMember = "Employee";
+            this.employeeBindingSource.DataSource = this.martDBDataSet;
             // 
             // pictureBox3
             // 
@@ -582,169 +743,9 @@ namespace MartDB
             this.panelEmployee.Size = new System.Drawing.Size(948, 479);
             this.panelEmployee.TabIndex = 14;
             // 
-            // rightSquareBoundtextBox
-            // 
-            this.rightSquareBoundtextBox.Location = new System.Drawing.Point(147, 65);
-            this.rightSquareBoundtextBox.Name = "rightSquareBoundtextBox";
-            this.rightSquareBoundtextBox.Size = new System.Drawing.Size(119, 22);
-            this.rightSquareBoundtextBox.TabIndex = 9;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 40);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(110, 17);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "Левая граница:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(21, 65);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(118, 17);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "Правая граница:";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.label8);
-            this.groupBox3.Controls.Add(this.label9);
-            this.groupBox3.Controls.Add(this.textBox1);
-            this.groupBox3.Controls.Add(this.label10);
-            this.groupBox3.Controls.Add(this.textBox2);
-            this.groupBox3.Controls.Add(this.button1);
-            this.groupBox3.Location = new System.Drawing.Point(15, 162);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(397, 106);
-            this.groupBox3.TabIndex = 19;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Поиск по номеру этажа";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(21, 65);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(118, 17);
-            this.label8.TabIndex = 11;
-            this.label8.Text = "Правая граница:";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(21, 40);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(110, 17);
-            this.label9.TabIndex = 10;
-            this.label9.Text = "Левая граница:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(147, 65);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(119, 22);
-            this.textBox1.TabIndex = 9;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(6, 18);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(117, 17);
-            this.label10.TabIndex = 7;
-            this.label10.Text = "Введите запрос:";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(147, 37);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(119, 22);
-            this.textBox2.TabIndex = 6;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(272, 40);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(119, 42);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Найти";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(585, 408);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(176, 57);
-            this.button2.TabIndex = 20;
-            this.button2.Text = "Оформить аренду";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
             // employeeTableAdapter
             // 
             this.employeeTableAdapter.ClearBeforeFill = true;
-            // 
-            // dataGridViewTextBoxColumn16
-            // 
-            this.dataGridViewTextBoxColumn16.DataPropertyName = "email";
-            this.dataGridViewTextBoxColumn16.HeaderText = "email";
-            this.dataGridViewTextBoxColumn16.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-            this.dataGridViewTextBoxColumn16.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn15
-            // 
-            this.dataGridViewTextBoxColumn15.DataPropertyName = "phone_number";
-            this.dataGridViewTextBoxColumn15.HeaderText = "phone_number";
-            this.dataGridViewTextBoxColumn15.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-            this.dataGridViewTextBoxColumn15.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn14
-            // 
-            this.dataGridViewTextBoxColumn14.DataPropertyName = "position";
-            this.dataGridViewTextBoxColumn14.HeaderText = "position";
-            this.dataGridViewTextBoxColumn14.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-            this.dataGridViewTextBoxColumn14.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            this.dataGridViewTextBoxColumn13.DataPropertyName = "gender";
-            this.dataGridViewTextBoxColumn13.HeaderText = "gender";
-            this.dataGridViewTextBoxColumn13.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            this.dataGridViewTextBoxColumn13.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "fio";
-            this.dataGridViewTextBoxColumn12.HeaderText = "fio";
-            this.dataGridViewTextBoxColumn12.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "org_id";
-            this.dataGridViewTextBoxColumn11.HeaderText = "org_id";
-            this.dataGridViewTextBoxColumn11.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "employee_id";
-            this.dataGridViewTextBoxColumn10.HeaderText = "employee_id";
-            this.dataGridViewTextBoxColumn10.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.Width = 125;
-            // 
-            // employeeBindingSource
-            // 
-            this.employeeBindingSource.DataMember = "Employee";
-            this.employeeBindingSource.DataSource = this.martDBDataSet;
             // 
             // bookingTableAdapterManager
             // 
@@ -816,6 +817,8 @@ namespace MartDB
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.panelBookingHandling.ResumeLayout(false);
             this.panelBookingHandling.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBookingHandling)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -827,12 +830,10 @@ namespace MartDB
             this.panelMain.ResumeLayout(false);
             this.panelMain.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employeeDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panelEmployee.ResumeLayout(false);
             this.panelEmployee.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bookingBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.areaBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -885,10 +886,10 @@ namespace MartDB
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox rightFloorBoundTextBox;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox leftFloorBoundTextBox;
+        private System.Windows.Forms.Button btnFloorSearch;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
