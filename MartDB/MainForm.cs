@@ -742,5 +742,55 @@ namespace MartDB
                 dgvOutlet.Rows[row.Index].Visible = true;
             }
         }
+
+        private void sortColsOutletListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.btnSortOutlets.Enabled = true;
+        }
+
+        private void btnSortOutlets_Click(object sender, EventArgs e)
+        {
+            // col to sort
+            DataGridViewColumn col = default;
+
+            // Get selected col to sort
+            switch (this.sortColsOutletListBox.SelectedIndex)
+            {
+                case 0:
+                    col = this.dgvOutlet.Columns[0];
+                    break;
+                case 1:
+                    col = this.dgvOutlet.Columns[1];
+                    break;
+                case 2:
+                    col = this.dgvOutlet.Columns[2];
+                    break;
+                case 3:
+                    col = this.dgvOutlet.Columns[3];
+                    break;
+                case 4:
+                    col = this.dgvOutlet.Columns[4];
+                    break;
+                case 5:
+                    col = this.dgvOutlet.Columns[5];
+                    break;
+                case 6:
+                    col = this.dgvOutlet.Columns[6];
+                    break;
+                case 7:
+                    col = this.dgvOutlet.Columns[7];
+                    break;
+            }
+
+            // Get selected choice for sorting
+            if (this.ascOutletRadioButton.Checked)
+            {
+                dgvOutlet.Sort(col, ListSortDirection.Ascending);
+            }
+            else if (this.descOutletRadioButton.Checked)
+            {
+                dgvOutlet.Sort(col, ListSortDirection.Descending);
+            }
+        }
     }
 }

@@ -114,10 +114,10 @@ namespace MartDB
             this.panelOutlets = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.sortColsOutletListBox = new System.Windows.Forms.ListBox();
+            this.btnSortOutlets = new System.Windows.Forms.Button();
+            this.descOutletRadioButton = new System.Windows.Forms.RadioButton();
+            this.ascOutletRadioButton = new System.Windows.Forms.RadioButton();
             this.label14 = new System.Windows.Forms.Label();
             this.btnShowAllOutlets = new System.Windows.Forms.Button();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
@@ -997,10 +997,10 @@ namespace MartDB
             // 
             // groupBox8
             // 
-            this.groupBox8.Controls.Add(this.listBox1);
-            this.groupBox8.Controls.Add(this.button2);
-            this.groupBox8.Controls.Add(this.radioButton1);
-            this.groupBox8.Controls.Add(this.radioButton2);
+            this.groupBox8.Controls.Add(this.sortColsOutletListBox);
+            this.groupBox8.Controls.Add(this.btnSortOutlets);
+            this.groupBox8.Controls.Add(this.descOutletRadioButton);
+            this.groupBox8.Controls.Add(this.ascOutletRadioButton);
             this.groupBox8.Controls.Add(this.label14);
             this.groupBox8.Location = new System.Drawing.Point(14, 266);
             this.groupBox8.Name = "groupBox8";
@@ -1009,53 +1009,56 @@ namespace MartDB
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Сортировка";
             // 
-            // listBox1
+            // sortColsOutletListBox
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Items.AddRange(new object[] {
+            this.sortColsOutletListBox.FormattingEnabled = true;
+            this.sortColsOutletListBox.ItemHeight = 16;
+            this.sortColsOutletListBox.Items.AddRange(new object[] {
             "Организация",
-            "ФИО",
-            "Пол",
-            "Должность",
-            "Телефонный номер",
-            "Электронная почта"});
-            this.listBox1.Location = new System.Drawing.Point(7, 39);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(154, 116);
-            this.listBox1.TabIndex = 13;
+            "Код помещения",
+            "Название торговой точки",
+            "Тип торговой точки",
+            "Расписание",
+            "Рейтинг",
+            "Контактное лицо"});
+            this.sortColsOutletListBox.Location = new System.Drawing.Point(7, 39);
+            this.sortColsOutletListBox.Name = "sortColsOutletListBox";
+            this.sortColsOutletListBox.Size = new System.Drawing.Size(154, 116);
+            this.sortColsOutletListBox.TabIndex = 13;
+            this.sortColsOutletListBox.SelectedIndexChanged += new System.EventHandler(this.sortColsOutletListBox_SelectedIndexChanged);
             // 
-            // button2
+            // btnSortOutlets
             // 
-            this.button2.Enabled = false;
-            this.button2.Location = new System.Drawing.Point(174, 93);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(119, 42);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Сортировать";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnSortOutlets.Enabled = false;
+            this.btnSortOutlets.Location = new System.Drawing.Point(174, 93);
+            this.btnSortOutlets.Name = "btnSortOutlets";
+            this.btnSortOutlets.Size = new System.Drawing.Size(119, 42);
+            this.btnSortOutlets.TabIndex = 4;
+            this.btnSortOutlets.Text = "Сортировать";
+            this.btnSortOutlets.UseVisualStyleBackColor = true;
+            this.btnSortOutlets.Click += new System.EventHandler(this.btnSortOutlets_Click);
             // 
-            // radioButton1
+            // descOutletRadioButton
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(174, 66);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(117, 21);
-            this.radioButton1.TabIndex = 3;
-            this.radioButton1.Text = "По убыванию";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.descOutletRadioButton.AutoSize = true;
+            this.descOutletRadioButton.Location = new System.Drawing.Point(174, 66);
+            this.descOutletRadioButton.Name = "descOutletRadioButton";
+            this.descOutletRadioButton.Size = new System.Drawing.Size(117, 21);
+            this.descOutletRadioButton.TabIndex = 3;
+            this.descOutletRadioButton.Text = "По убыванию";
+            this.descOutletRadioButton.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // ascOutletRadioButton
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Checked = true;
-            this.radioButton2.Location = new System.Drawing.Point(174, 39);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(137, 21);
-            this.radioButton2.TabIndex = 2;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "По возрастанию";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.ascOutletRadioButton.AutoSize = true;
+            this.ascOutletRadioButton.Checked = true;
+            this.ascOutletRadioButton.Location = new System.Drawing.Point(174, 39);
+            this.ascOutletRadioButton.Name = "ascOutletRadioButton";
+            this.ascOutletRadioButton.Size = new System.Drawing.Size(137, 21);
+            this.ascOutletRadioButton.TabIndex = 2;
+            this.ascOutletRadioButton.TabStop = true;
+            this.ascOutletRadioButton.Text = "По возрастанию";
+            this.ascOutletRadioButton.UseVisualStyleBackColor = true;
             // 
             // label14
             // 
@@ -1329,10 +1332,10 @@ namespace MartDB
         private System.Windows.Forms.Panel panelOutlets;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox groupBox8;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.ListBox sortColsOutletListBox;
+        private System.Windows.Forms.Button btnSortOutlets;
+        private System.Windows.Forms.RadioButton descOutletRadioButton;
+        private System.Windows.Forms.RadioButton ascOutletRadioButton;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button btnShowAllOutlets;
         private System.Windows.Forms.GroupBox groupBox9;
