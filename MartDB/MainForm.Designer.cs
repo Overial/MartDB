@@ -80,6 +80,7 @@ namespace MartDB
             this.areaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.employeeTableAdapterManager = new MartDB.MartDBDataSetTableAdapters.TableAdapterManager();
             this.panelEmployees = new System.Windows.Forms.Panel();
+            this.btnMoveToHandleEmployeesForm = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.sortFieldsEmployeesListBox = new System.Windows.Forms.ListBox();
             this.btnSortEmployees = new System.Windows.Forms.Button();
@@ -95,7 +96,21 @@ namespace MartDB
             this.btnSearchEmployee = new System.Windows.Forms.Button();
             this.dgvEmployees = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
-            this.btnMoveToHandleEmployeesForm = new System.Windows.Forms.Button();
+            this.panelTradeProfiles = new System.Windows.Forms.Panel();
+            this.btnMoveToHandlingTradeProfilesForm = new System.Windows.Forms.Button();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.btnSortTradeProfile = new System.Windows.Forms.Button();
+            this.descTradeProfileRadioButton = new System.Windows.Forms.RadioButton();
+            this.ascTradeProfileRadioButton = new System.Windows.Forms.RadioButton();
+            this.btnShowAllTradeProfiles = new System.Windows.Forms.Button();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.queryTradeProfileTextBox = new System.Windows.Forms.TextBox();
+            this.btnSearchTradeProfile = new System.Windows.Forms.Button();
+            this.dgvTradeProfile = new System.Windows.Forms.DataGridView();
+            this.label17 = new System.Windows.Forms.Label();
+            this.tradeProfileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnTradeProfilePanel = new System.Windows.Forms.Button();
             this.panelBookingHandling.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBookingHandling)).BeginInit();
@@ -111,6 +126,10 @@ namespace MartDB
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployees)).BeginInit();
+            this.panelTradeProfiles.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            this.groupBox7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTradeProfile)).BeginInit();
             this.SuspendLayout();
             // 
             // panelBookingHandling
@@ -397,7 +416,8 @@ namespace MartDB
             this.pagesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mainToolStripMenuItem,
             this.bookingHandlingToolStripMenuItem,
-            this.employeesToolStripMenuItem});
+            this.employeesToolStripMenuItem,
+            this.tradeProfileToolStripMenuItem});
             this.pagesToolStripMenuItem.Name = "pagesToolStripMenuItem";
             this.pagesToolStripMenuItem.Size = new System.Drawing.Size(93, 24);
             this.pagesToolStripMenuItem.Text = "Страницы";
@@ -405,21 +425,21 @@ namespace MartDB
             // mainToolStripMenuItem
             // 
             this.mainToolStripMenuItem.Name = "mainToolStripMenuItem";
-            this.mainToolStripMenuItem.Size = new System.Drawing.Size(280, 26);
+            this.mainToolStripMenuItem.Size = new System.Drawing.Size(345, 26);
             this.mainToolStripMenuItem.Text = "Главная";
             this.mainToolStripMenuItem.Click += new System.EventHandler(this.mainToolStripMenuItem_Click);
             // 
             // bookingHandlingToolStripMenuItem
             // 
             this.bookingHandlingToolStripMenuItem.Name = "bookingHandlingToolStripMenuItem";
-            this.bookingHandlingToolStripMenuItem.Size = new System.Drawing.Size(280, 26);
+            this.bookingHandlingToolStripMenuItem.Size = new System.Drawing.Size(345, 26);
             this.bookingHandlingToolStripMenuItem.Text = "Аренда помещений";
             this.bookingHandlingToolStripMenuItem.Click += new System.EventHandler(this.bookingHandlingToolStripMenuItem_Click);
             // 
             // employeesToolStripMenuItem
             // 
             this.employeesToolStripMenuItem.Name = "employeesToolStripMenuItem";
-            this.employeesToolStripMenuItem.Size = new System.Drawing.Size(280, 26);
+            this.employeesToolStripMenuItem.Size = new System.Drawing.Size(345, 26);
             this.employeesToolStripMenuItem.Text = "Управление сотрудниками";
             this.employeesToolStripMenuItem.Click += new System.EventHandler(this.employeesToolStripMenuItem_Click);
             // 
@@ -491,6 +511,7 @@ namespace MartDB
             // panelMain
             // 
             this.panelMain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelMain.Controls.Add(this.btnTradeProfilePanel);
             this.panelMain.Controls.Add(this.btnEmployeePanel);
             this.panelMain.Controls.Add(this.btnPrevious);
             this.panelMain.Controls.Add(this.btnMoveToPanelMain);
@@ -587,6 +608,16 @@ namespace MartDB
             this.panelEmployees.Name = "panelEmployees";
             this.panelEmployees.Size = new System.Drawing.Size(948, 479);
             this.panelEmployees.TabIndex = 14;
+            // 
+            // btnMoveToHandleEmployeesForm
+            // 
+            this.btnMoveToHandleEmployeesForm.Location = new System.Drawing.Point(524, 385);
+            this.btnMoveToHandleEmployeesForm.Name = "btnMoveToHandleEmployeesForm";
+            this.btnMoveToHandleEmployeesForm.Size = new System.Drawing.Size(208, 60);
+            this.btnMoveToHandleEmployeesForm.TabIndex = 14;
+            this.btnMoveToHandleEmployeesForm.Text = "Управление сотрудниками";
+            this.btnMoveToHandleEmployeesForm.UseVisualStyleBackColor = true;
+            this.btnMoveToHandleEmployeesForm.Click += new System.EventHandler(this.btnMoveToHandleEmployeesForm_Click);
             // 
             // groupBox5
             // 
@@ -760,24 +791,172 @@ namespace MartDB
             this.label4.TabIndex = 21;
             this.label4.Text = "Панель управления: \"Сотрудники\"";
             // 
-            // btnMoveToHandleEmployeesForm
+            // panelTradeProfiles
             // 
-            this.btnMoveToHandleEmployeesForm.Location = new System.Drawing.Point(524, 385);
-            this.btnMoveToHandleEmployeesForm.Name = "btnMoveToHandleEmployeesForm";
-            this.btnMoveToHandleEmployeesForm.Size = new System.Drawing.Size(208, 60);
-            this.btnMoveToHandleEmployeesForm.TabIndex = 14;
-            this.btnMoveToHandleEmployeesForm.Text = "Управление сотрудниками";
-            this.btnMoveToHandleEmployeesForm.UseVisualStyleBackColor = true;
-            this.btnMoveToHandleEmployeesForm.Click += new System.EventHandler(this.btnMoveToHandleEmployeesForm_Click);
+            this.panelTradeProfiles.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelTradeProfiles.Controls.Add(this.btnMoveToHandlingTradeProfilesForm);
+            this.panelTradeProfiles.Controls.Add(this.groupBox6);
+            this.panelTradeProfiles.Controls.Add(this.btnShowAllTradeProfiles);
+            this.panelTradeProfiles.Controls.Add(this.groupBox7);
+            this.panelTradeProfiles.Controls.Add(this.dgvTradeProfile);
+            this.panelTradeProfiles.Controls.Add(this.label17);
+            this.panelTradeProfiles.Location = new System.Drawing.Point(12, 33);
+            this.panelTradeProfiles.Name = "panelTradeProfiles";
+            this.panelTradeProfiles.Size = new System.Drawing.Size(948, 479);
+            this.panelTradeProfiles.TabIndex = 15;
+            // 
+            // btnMoveToHandlingTradeProfilesForm
+            // 
+            this.btnMoveToHandlingTradeProfilesForm.Location = new System.Drawing.Point(524, 385);
+            this.btnMoveToHandlingTradeProfilesForm.Name = "btnMoveToHandlingTradeProfilesForm";
+            this.btnMoveToHandlingTradeProfilesForm.Size = new System.Drawing.Size(208, 60);
+            this.btnMoveToHandlingTradeProfilesForm.TabIndex = 14;
+            this.btnMoveToHandlingTradeProfilesForm.Text = "Управление торговыми профилями";
+            this.btnMoveToHandlingTradeProfilesForm.UseVisualStyleBackColor = true;
+            this.btnMoveToHandlingTradeProfilesForm.Click += new System.EventHandler(this.btnMoveToHandlingTradeProfilesForm_Click);
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.btnSortTradeProfile);
+            this.groupBox6.Controls.Add(this.descTradeProfileRadioButton);
+            this.groupBox6.Controls.Add(this.ascTradeProfileRadioButton);
+            this.groupBox6.Location = new System.Drawing.Point(14, 266);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(264, 165);
+            this.groupBox6.TabIndex = 24;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Сортировка";
+            // 
+            // btnSortTradeProfile
+            // 
+            this.btnSortTradeProfile.Location = new System.Drawing.Point(68, 93);
+            this.btnSortTradeProfile.Name = "btnSortTradeProfile";
+            this.btnSortTradeProfile.Size = new System.Drawing.Size(119, 42);
+            this.btnSortTradeProfile.TabIndex = 4;
+            this.btnSortTradeProfile.Text = "Сортировать";
+            this.btnSortTradeProfile.UseVisualStyleBackColor = true;
+            this.btnSortTradeProfile.Click += new System.EventHandler(this.btnSortTradeProfile_Click);
+            // 
+            // descTradeProfileRadioButton
+            // 
+            this.descTradeProfileRadioButton.AutoSize = true;
+            this.descTradeProfileRadioButton.Location = new System.Drawing.Point(70, 59);
+            this.descTradeProfileRadioButton.Name = "descTradeProfileRadioButton";
+            this.descTradeProfileRadioButton.Size = new System.Drawing.Size(117, 21);
+            this.descTradeProfileRadioButton.TabIndex = 3;
+            this.descTradeProfileRadioButton.Text = "По убыванию";
+            this.descTradeProfileRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // ascTradeProfileRadioButton
+            // 
+            this.ascTradeProfileRadioButton.AutoSize = true;
+            this.ascTradeProfileRadioButton.Checked = true;
+            this.ascTradeProfileRadioButton.Location = new System.Drawing.Point(70, 32);
+            this.ascTradeProfileRadioButton.Name = "ascTradeProfileRadioButton";
+            this.ascTradeProfileRadioButton.Size = new System.Drawing.Size(137, 21);
+            this.ascTradeProfileRadioButton.TabIndex = 2;
+            this.ascTradeProfileRadioButton.TabStop = true;
+            this.ascTradeProfileRadioButton.Text = "По возрастанию";
+            this.ascTradeProfileRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // btnShowAllTradeProfiles
+            // 
+            this.btnShowAllTradeProfiles.Location = new System.Drawing.Point(84, 208);
+            this.btnShowAllTradeProfiles.Name = "btnShowAllTradeProfiles";
+            this.btnShowAllTradeProfiles.Size = new System.Drawing.Size(119, 42);
+            this.btnShowAllTradeProfiles.TabIndex = 23;
+            this.btnShowAllTradeProfiles.Text = "Показать все";
+            this.btnShowAllTradeProfiles.UseVisualStyleBackColor = true;
+            this.btnShowAllTradeProfiles.Click += new System.EventHandler(this.btnShowAllTradeProfiles_Click);
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.label15);
+            this.groupBox7.Controls.Add(this.queryTradeProfileTextBox);
+            this.groupBox7.Controls.Add(this.btnSearchTradeProfile);
+            this.groupBox7.Location = new System.Drawing.Point(13, 45);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(265, 149);
+            this.groupBox7.TabIndex = 20;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Поиск";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(73, 21);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(117, 17);
+            this.label15.TabIndex = 12;
+            this.label15.Text = "Введите запрос:";
+            // 
+            // queryTradeProfileTextBox
+            // 
+            this.queryTradeProfileTextBox.Location = new System.Drawing.Point(71, 49);
+            this.queryTradeProfileTextBox.Name = "queryTradeProfileTextBox";
+            this.queryTradeProfileTextBox.Size = new System.Drawing.Size(119, 22);
+            this.queryTradeProfileTextBox.TabIndex = 6;
+            // 
+            // btnSearchTradeProfile
+            // 
+            this.btnSearchTradeProfile.Location = new System.Drawing.Point(71, 90);
+            this.btnSearchTradeProfile.Name = "btnSearchTradeProfile";
+            this.btnSearchTradeProfile.Size = new System.Drawing.Size(119, 42);
+            this.btnSearchTradeProfile.TabIndex = 5;
+            this.btnSearchTradeProfile.Text = "Найти";
+            this.btnSearchTradeProfile.UseVisualStyleBackColor = true;
+            this.btnSearchTradeProfile.Click += new System.EventHandler(this.btnSearchTradeProfile_Click);
+            // 
+            // dgvTradeProfile
+            // 
+            this.dgvTradeProfile.AllowUserToAddRows = false;
+            this.dgvTradeProfile.AllowUserToDeleteRows = false;
+            this.dgvTradeProfile.AllowUserToOrderColumns = true;
+            this.dgvTradeProfile.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTradeProfile.Location = new System.Drawing.Point(352, 43);
+            this.dgvTradeProfile.Name = "dgvTradeProfile";
+            this.dgvTradeProfile.ReadOnly = true;
+            this.dgvTradeProfile.RowHeadersWidth = 51;
+            this.dgvTradeProfile.RowTemplate.Height = 24;
+            this.dgvTradeProfile.Size = new System.Drawing.Size(578, 318);
+            this.dgvTradeProfile.TabIndex = 22;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label17.Location = new System.Drawing.Point(8, 9);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(413, 28);
+            this.label17.TabIndex = 21;
+            this.label17.Text = "Панель управления: \"Торговые профили\"";
+            // 
+            // tradeProfileToolStripMenuItem
+            // 
+            this.tradeProfileToolStripMenuItem.Name = "tradeProfileToolStripMenuItem";
+            this.tradeProfileToolStripMenuItem.Size = new System.Drawing.Size(345, 26);
+            this.tradeProfileToolStripMenuItem.Text = "Управление торговыми профилями";
+            this.tradeProfileToolStripMenuItem.Click += new System.EventHandler(this.tradeProfileToolStripMenuItem_Click);
+            // 
+            // btnTradeProfilePanel
+            // 
+            this.btnTradeProfilePanel.Location = new System.Drawing.Point(401, 93);
+            this.btnTradeProfilePanel.Name = "btnTradeProfilePanel";
+            this.btnTradeProfilePanel.Size = new System.Drawing.Size(286, 83);
+            this.btnTradeProfilePanel.TabIndex = 12;
+            this.btnTradeProfilePanel.Text = "Панель управления торговыми профилями";
+            this.btnTradeProfilePanel.UseVisualStyleBackColor = true;
+            this.btnTradeProfilePanel.Click += new System.EventHandler(this.btnTradeProfilePanel_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(983, 605);
+            this.Controls.Add(this.panelTradeProfiles);
+            this.Controls.Add(this.panelMain);
             this.Controls.Add(this.panelEmployees);
             this.Controls.Add(this.panelBookingHandling);
-            this.Controls.Add(this.panelMain);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MainMenuStrip = this.menuStrip1;
@@ -810,6 +989,13 @@ namespace MartDB
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployees)).EndInit();
+            this.panelTradeProfiles.ResumeLayout(false);
+            this.panelTradeProfiles.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTradeProfile)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -882,5 +1068,20 @@ namespace MartDB
         private System.Windows.Forms.RadioButton ascEmployeeRadioButton;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button btnMoveToHandleEmployeesForm;
+        private System.Windows.Forms.Panel panelTradeProfiles;
+        private System.Windows.Forms.Button btnMoveToHandlingTradeProfilesForm;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.Button btnSortTradeProfile;
+        private System.Windows.Forms.RadioButton descTradeProfileRadioButton;
+        private System.Windows.Forms.RadioButton ascTradeProfileRadioButton;
+        private System.Windows.Forms.Button btnShowAllTradeProfiles;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox queryTradeProfileTextBox;
+        private System.Windows.Forms.Button btnSearchTradeProfile;
+        private System.Windows.Forms.DataGridView dgvTradeProfile;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.ToolStripMenuItem tradeProfileToolStripMenuItem;
+        private System.Windows.Forms.Button btnTradeProfilePanel;
     }
 }

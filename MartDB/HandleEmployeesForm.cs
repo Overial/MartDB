@@ -18,6 +18,7 @@ namespace MartDB
             InitializeComponent();
         }
 
+        // Set organisation constraint
         private void HandleEmployeesForm_Load(object sender, EventArgs e)
         {
             if (UserData.UserRole == "organisation")
@@ -28,6 +29,7 @@ namespace MartDB
             }
         }
 
+        // Add employee
         private void btnAddEmployee_Click(object sender, EventArgs e)
         {
             // Open DB connection
@@ -48,10 +50,17 @@ namespace MartDB
                 sqlCmdAddEmployee.Parameters["@email"].Value = Convert.ToString(emailTextBox.Text);
 
                 // Call proc
-                sqlCmdAddEmployee.ExecuteNonQuery();
+                int iAffectedRowsCount = sqlCmdAddEmployee.ExecuteNonQuery();
 
                 // Show corresponding information
-                MessageBox.Show("Данные успешно сохранены!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (iAffectedRowsCount == 0)
+                {
+                    MessageBox.Show("Добавление данных завершилось с ошибкой!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show("Данные успешно добавлены!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
             catch (FormatException)
             {
@@ -66,6 +75,7 @@ namespace MartDB
             sqlConnection.Close();
         }
 
+        // Delete employee
         private void btnDeleteEmployee_Click(object sender, EventArgs e)
         {
             // Open DB connection
@@ -82,10 +92,10 @@ namespace MartDB
                 sqlCmdDeleteEmployee.Parameters["@email"].Value = Convert.ToString(emailTextBox.Text);
 
                 // Call proc
-                int iAffectedRowCount = sqlCmdDeleteEmployee.ExecuteNonQuery();
+                int iAffectedRowsCount = sqlCmdDeleteEmployee.ExecuteNonQuery();
 
                 // Show corresponding information
-                if (iAffectedRowCount == 0)
+                if (iAffectedRowsCount == 0)
                 {
                     MessageBox.Show("Удаление данных завершилось с ошибкой!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }

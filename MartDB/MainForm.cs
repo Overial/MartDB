@@ -40,6 +40,7 @@ namespace MartDB
             this.listPanel.Add(this.panelMain);
             this.listPanel.Add(this.panelBookingHandling);
             this.listPanel.Add(this.panelEmployees);
+            this.listPanel.Add(this.panelTradeProfiles);
             
             // Show first panel
             this.listPanel[this.index].BringToFront();
@@ -55,6 +56,9 @@ namespace MartDB
 
             // Fill employees data grid view
             FillEmployeesDGV();
+
+            // Fill trade profiles data grid view
+            FillTradeProfileDGV();
 
             // TODO: This line of code loads data into the 'martDBDataSet.Area' table. You can move, or remove it, as needed.
             this.areaTableAdapter.Fill(this.martDBDataSet.Area);
@@ -142,6 +146,25 @@ namespace MartDB
             this.btnPrevious.Visible = true;
         }
 
+        private void btnTradeProfilePanel_Click(object sender, EventArgs e)
+        {
+            // Set panel index
+            this.index = 3;
+
+            // Bring booking handling panel to front
+            this.panelTradeProfiles.BringToFront();
+
+            // Bring nav buttons to front
+            this.btnMoveToPanelMain.BringToFront();
+            this.btnNext.BringToFront();
+            this.btnPrevious.BringToFront();
+
+            // Show nav buttons
+            this.btnMoveToPanelMain.Visible = true;
+            this.btnNext.Visible = true;
+            this.btnPrevious.Visible = true;
+        }
+
         ////// Menu strip //////
 
         private void mainToolStripMenuItem_Click(object sender, EventArgs e)
@@ -160,6 +183,12 @@ namespace MartDB
         {
             this.index = 2;
             this.panelEmployees.BringToFront();
+        }
+
+        private void tradeProfileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.index = 3;
+            this.panelTradeProfiles.BringToFront();
         }
 
         // About (menuStrip)
@@ -508,6 +537,95 @@ namespace MartDB
         private void btnMoveToHandleEmployeesForm_Click(object sender, EventArgs e)
         {
             Form form = new HandleEmployeesForm();
+            form.Show();
+        }
+
+        ////// Trade profile panel //////
+        
+        // Get info about employees
+        private void FillTradeProfileDGV()
+        {
+            // Establish connection
+            SqlConnection sqlConnection = new SqlConnection();
+            sqlConnection.ConnectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=MartDB;Integrated Security=True";
+            sqlConnection.Open();
+
+            // Create query
+            string selectQuery = "SELECT trade_profile_name FROM TradeProfile";
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(selectQuery, sqlConnection);
+
+            // Set command builder
+            // SqlCommandBuilder commandBuilder = new SqlCommandBuilder(sqlDataAdapter);
+
+            // Fill data set
+            DataSet dataSet = new DataSet();
+            sqlDataAdapter.Fill(dataSet);
+
+            // Fill DGV
+            dgvTradeProfile.ReadOnly = true;
+            dgvTradeProfile.DataSource = dataSet.Tables[0];
+        }
+
+        private void btnSearchTradeProfile_Click(object sender, EventArgs e)
+        {
+            // Start searching only if user has entered query for search
+            if (this.queryTradeProfileTextBox.Text.Length > 0)
+            {
+                string query = "";
+                try
+                {
+                    query = Convert.ToString(this.queryTradeProfileTextBox.Text);
+                }
+                // Prevent invalid user input
+                catch
+                {
+                    MessageBox.Show("Введено некорректное значение запроса для поиска!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                // Filter area square data
+                foreach (DataGridViewRow row in this.dgvTradeProfile.Rows)
+                {
+                    if (row.Cells[0].Value.ToString().Contains(query))
+                    {
+                        dgvTradeProfile.Rows[row.Index].Visible = true;
+                    }
+                    else
+                    {
+                        dgvTradeProfile.CurrentCell = null;
+                        dgvTradeProfile.Rows[row.Index].Visible = false;
+                    }
+                }
+            }
+        }
+
+        private void btnShowAllTradeProfiles_Click(object sender, EventArgs e)
+        {
+            // Display every row
+            foreach (DataGridViewRow row in this.dgvTradeProfile.Rows)
+            {
+                dgvTradeProfile.Rows[row.Index].Visible = true;
+            }
+        }
+
+        private void btnSortTradeProfile_Click(object sender, EventArgs e)
+        {
+            // col to sort
+            DataGridViewColumn col = this.dgvTradeProfile.Columns[0];
+
+            // Get selected choice for sorting
+            if (this.ascTradeProfileRadioButton.Checked)
+            {
+                dgvTradeProfile.Sort(col, ListSortDirection.Ascending);
+            }
+            else if (this.descTradeProfileRadioButton.Checked)
+            {
+                dgvTradeProfile.Sort(col, ListSortDirection.Descending);
+            }
+        }
+
+        private void btnMoveToHandlingTradeProfilesForm_Click(object sender, EventArgs e)
+        {
+            Form form = new HandleTradeProfilesForm();
             form.Show();
         }
     }
