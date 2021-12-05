@@ -30,14 +30,6 @@ namespace MartDB
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.Label employee_idLabel;
-            System.Windows.Forms.Label org_idLabel1;
-            System.Windows.Forms.Label fioLabel;
-            System.Windows.Forms.Label genderLabel;
-            System.Windows.Forms.Label positionLabel;
-            System.Windows.Forms.Label phone_numberLabel;
-            System.Windows.Forms.Label emailLabel;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panelBookingHandling = new System.Windows.Forms.Panel();
             this.btnCallHandleBookingForm = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -68,6 +60,7 @@ namespace MartDB
             this.pagesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bookingHandlingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.employeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.label3 = new System.Windows.Forms.Label();
@@ -76,25 +69,8 @@ namespace MartDB
             this.btnMoveToPanelMain = new System.Windows.Forms.Button();
             this.btnPrevious = new System.Windows.Forms.Button();
             this.panelMain = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.employee_idTextBox = new System.Windows.Forms.TextBox();
-            this.org_idTextBox1 = new System.Windows.Forms.TextBox();
-            this.fioTextBox = new System.Windows.Forms.TextBox();
-            this.genderTextBox = new System.Windows.Forms.TextBox();
-            this.positionTextBox = new System.Windows.Forms.TextBox();
-            this.phone_numberTextBox = new System.Windows.Forms.TextBox();
-            this.emailTextBox = new System.Windows.Forms.TextBox();
-            this.employeeDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnEmployeePanel = new System.Windows.Forms.Button();
             this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.panelEmployee = new System.Windows.Forms.Panel();
             this.employeeTableAdapter = new MartDB.MartDBDataSetTableAdapters.EmployeeTableAdapter();
             this.bookingTableAdapterManager = new MartDB.MartDBDataSetTableAdapters.TableAdapterManager();
             this.bookingTableAdapter = new MartDB.MartDBDataSetTableAdapters.BookingTableAdapter();
@@ -103,13 +79,16 @@ namespace MartDB
             this.bookingBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.areaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.employeeTableAdapterManager = new MartDB.MartDBDataSetTableAdapters.TableAdapterManager();
-            employee_idLabel = new System.Windows.Forms.Label();
-            org_idLabel1 = new System.Windows.Forms.Label();
-            fioLabel = new System.Windows.Forms.Label();
-            genderLabel = new System.Windows.Forms.Label();
-            positionLabel = new System.Windows.Forms.Label();
-            phone_numberLabel = new System.Windows.Forms.Label();
-            emailLabel = new System.Windows.Forms.Label();
+            this.panelEmployees = new System.Windows.Forms.Panel();
+            this.btnShowAllEmployees = new System.Windows.Forms.Button();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.queryEmployeeColListBox = new System.Windows.Forms.ListBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.queryEmployeeTextBox = new System.Windows.Forms.TextBox();
+            this.btnSearchEmployee = new System.Windows.Forms.Button();
+            this.dgvEmployees = new System.Windows.Forms.DataGridView();
+            this.label4 = new System.Windows.Forms.Label();
             this.panelBookingHandling.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBookingHandling)).BeginInit();
@@ -118,76 +97,13 @@ namespace MartDB
             ((System.ComponentModel.ISupportInitialize)(this.martDBDataSet)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.panelMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            this.panelEmployee.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bookingBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.areaBindingSource)).BeginInit();
+            this.panelEmployees.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEmployees)).BeginInit();
             this.SuspendLayout();
-            // 
-            // employee_idLabel
-            // 
-            employee_idLabel.AutoSize = true;
-            employee_idLabel.Location = new System.Drawing.Point(11, 97);
-            employee_idLabel.Name = "employee_idLabel";
-            employee_idLabel.Size = new System.Drawing.Size(117, 17);
-            employee_idLabel.TabIndex = 1;
-            employee_idLabel.Text = "Код сотрудника:";
-            // 
-            // org_idLabel1
-            // 
-            org_idLabel1.AutoSize = true;
-            org_idLabel1.Location = new System.Drawing.Point(11, 129);
-            org_idLabel1.Name = "org_idLabel1";
-            org_idLabel1.Size = new System.Drawing.Size(125, 17);
-            org_idLabel1.TabIndex = 3;
-            org_idLabel1.Text = "Код организации:";
-            // 
-            // fioLabel
-            // 
-            fioLabel.AutoSize = true;
-            fioLabel.Location = new System.Drawing.Point(11, 163);
-            fioLabel.Name = "fioLabel";
-            fioLabel.Size = new System.Drawing.Size(46, 17);
-            fioLabel.TabIndex = 5;
-            fioLabel.Text = "ФИО:";
-            // 
-            // genderLabel
-            // 
-            genderLabel.AutoSize = true;
-            genderLabel.Location = new System.Drawing.Point(11, 196);
-            genderLabel.Name = "genderLabel";
-            genderLabel.Size = new System.Drawing.Size(38, 17);
-            genderLabel.TabIndex = 7;
-            genderLabel.Text = "Пол:";
-            // 
-            // positionLabel
-            // 
-            positionLabel.AutoSize = true;
-            positionLabel.Location = new System.Drawing.Point(11, 226);
-            positionLabel.Name = "positionLabel";
-            positionLabel.Size = new System.Drawing.Size(85, 17);
-            positionLabel.TabIndex = 9;
-            positionLabel.Text = "Должность:";
-            // 
-            // phone_numberLabel
-            // 
-            phone_numberLabel.AutoSize = true;
-            phone_numberLabel.Location = new System.Drawing.Point(11, 261);
-            phone_numberLabel.Name = "phone_numberLabel";
-            phone_numberLabel.Size = new System.Drawing.Size(125, 17);
-            phone_numberLabel.TabIndex = 11;
-            phone_numberLabel.Text = "Номер телефона:";
-            // 
-            // emailLabel
-            // 
-            emailLabel.AutoSize = true;
-            emailLabel.Location = new System.Drawing.Point(11, 294);
-            emailLabel.Name = "emailLabel";
-            emailLabel.Size = new System.Drawing.Size(142, 17);
-            emailLabel.TabIndex = 13;
-            emailLabel.Text = "Электронная почта:";
             // 
             // panelBookingHandling
             // 
@@ -301,7 +217,7 @@ namespace MartDB
             this.btnShowAll.TabIndex = 8;
             this.btnShowAll.Text = "Показать все";
             this.btnShowAll.UseVisualStyleBackColor = true;
-            this.btnShowAll.Click += new System.EventHandler(this.btnShowAll_Click);
+            this.btnShowAll.Click += new System.EventHandler(this.btnShowAllBookings_Click);
             // 
             // groupBox2
             // 
@@ -464,7 +380,7 @@ namespace MartDB
             this.menuToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(971, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(983, 28);
             this.menuStrip1.TabIndex = 12;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -472,7 +388,8 @@ namespace MartDB
             // 
             this.pagesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mainToolStripMenuItem,
-            this.bookingHandlingToolStripMenuItem});
+            this.bookingHandlingToolStripMenuItem,
+            this.employeesToolStripMenuItem});
             this.pagesToolStripMenuItem.Name = "pagesToolStripMenuItem";
             this.pagesToolStripMenuItem.Size = new System.Drawing.Size(93, 24);
             this.pagesToolStripMenuItem.Text = "Страницы";
@@ -480,16 +397,23 @@ namespace MartDB
             // mainToolStripMenuItem
             // 
             this.mainToolStripMenuItem.Name = "mainToolStripMenuItem";
-            this.mainToolStripMenuItem.Size = new System.Drawing.Size(232, 26);
+            this.mainToolStripMenuItem.Size = new System.Drawing.Size(280, 26);
             this.mainToolStripMenuItem.Text = "Главная";
             this.mainToolStripMenuItem.Click += new System.EventHandler(this.mainToolStripMenuItem_Click);
             // 
             // bookingHandlingToolStripMenuItem
             // 
             this.bookingHandlingToolStripMenuItem.Name = "bookingHandlingToolStripMenuItem";
-            this.bookingHandlingToolStripMenuItem.Size = new System.Drawing.Size(232, 26);
+            this.bookingHandlingToolStripMenuItem.Size = new System.Drawing.Size(280, 26);
             this.bookingHandlingToolStripMenuItem.Text = "Аренда помещений";
             this.bookingHandlingToolStripMenuItem.Click += new System.EventHandler(this.bookingHandlingToolStripMenuItem_Click);
+            // 
+            // employeesToolStripMenuItem
+            // 
+            this.employeesToolStripMenuItem.Name = "employeesToolStripMenuItem";
+            this.employeesToolStripMenuItem.Size = new System.Drawing.Size(280, 26);
+            this.employeesToolStripMenuItem.Text = "Управление сотрудниками";
+            this.employeesToolStripMenuItem.Click += new System.EventHandler(this.employeesToolStripMenuItem_Click);
             // 
             // menuToolStripMenuItem
             // 
@@ -524,7 +448,7 @@ namespace MartDB
             this.btnBookingHandlingPanel.TabIndex = 1;
             this.btnBookingHandlingPanel.Text = "Панель управления помещениями";
             this.btnBookingHandlingPanel.UseVisualStyleBackColor = true;
-            this.btnBookingHandlingPanel.Click += new System.EventHandler(this.btnMoveToPanelArea_Click);
+            this.btnBookingHandlingPanel.Click += new System.EventHandler(this.btnBookingHandling_Click);
             // 
             // btnNext
             // 
@@ -559,6 +483,7 @@ namespace MartDB
             // panelMain
             // 
             this.panelMain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelMain.Controls.Add(this.btnEmployeePanel);
             this.panelMain.Controls.Add(this.btnPrevious);
             this.panelMain.Controls.Add(this.btnMoveToPanelMain);
             this.panelMain.Controls.Add(this.btnNext);
@@ -569,180 +494,20 @@ namespace MartDB
             this.panelMain.Size = new System.Drawing.Size(948, 560);
             this.panelMain.TabIndex = 13;
             // 
-            // label4
+            // btnEmployeePanel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(8, 9);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(331, 28);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Панель управления: \"Сотрудник\"";
-            // 
-            // employee_idTextBox
-            // 
-            this.employee_idTextBox.Location = new System.Drawing.Point(174, 97);
-            this.employee_idTextBox.Name = "employee_idTextBox";
-            this.employee_idTextBox.Size = new System.Drawing.Size(100, 22);
-            this.employee_idTextBox.TabIndex = 2;
-            // 
-            // org_idTextBox1
-            // 
-            this.org_idTextBox1.Location = new System.Drawing.Point(174, 129);
-            this.org_idTextBox1.Name = "org_idTextBox1";
-            this.org_idTextBox1.Size = new System.Drawing.Size(100, 22);
-            this.org_idTextBox1.TabIndex = 4;
-            // 
-            // fioTextBox
-            // 
-            this.fioTextBox.Location = new System.Drawing.Point(174, 161);
-            this.fioTextBox.Name = "fioTextBox";
-            this.fioTextBox.Size = new System.Drawing.Size(100, 22);
-            this.fioTextBox.TabIndex = 6;
-            // 
-            // genderTextBox
-            // 
-            this.genderTextBox.Location = new System.Drawing.Point(174, 193);
-            this.genderTextBox.Name = "genderTextBox";
-            this.genderTextBox.Size = new System.Drawing.Size(100, 22);
-            this.genderTextBox.TabIndex = 8;
-            // 
-            // positionTextBox
-            // 
-            this.positionTextBox.Location = new System.Drawing.Point(174, 224);
-            this.positionTextBox.Name = "positionTextBox";
-            this.positionTextBox.Size = new System.Drawing.Size(100, 22);
-            this.positionTextBox.TabIndex = 10;
-            // 
-            // phone_numberTextBox
-            // 
-            this.phone_numberTextBox.Location = new System.Drawing.Point(174, 258);
-            this.phone_numberTextBox.Name = "phone_numberTextBox";
-            this.phone_numberTextBox.Size = new System.Drawing.Size(100, 22);
-            this.phone_numberTextBox.TabIndex = 12;
-            // 
-            // emailTextBox
-            // 
-            this.emailTextBox.Location = new System.Drawing.Point(174, 291);
-            this.emailTextBox.Name = "emailTextBox";
-            this.emailTextBox.Size = new System.Drawing.Size(100, 22);
-            this.emailTextBox.TabIndex = 14;
-            // 
-            // employeeDataGridView
-            // 
-            this.employeeDataGridView.AutoGenerateColumns = false;
-            this.employeeDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.employeeDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn10,
-            this.dataGridViewTextBoxColumn11,
-            this.dataGridViewTextBoxColumn12,
-            this.dataGridViewTextBoxColumn13,
-            this.dataGridViewTextBoxColumn14,
-            this.dataGridViewTextBoxColumn15,
-            this.dataGridViewTextBoxColumn16});
-            this.employeeDataGridView.DataSource = this.employeeBindingSource;
-            this.employeeDataGridView.Location = new System.Drawing.Point(402, 16);
-            this.employeeDataGridView.Name = "employeeDataGridView";
-            this.employeeDataGridView.RowHeadersWidth = 51;
-            this.employeeDataGridView.RowTemplate.Height = 24;
-            this.employeeDataGridView.Size = new System.Drawing.Size(528, 253);
-            this.employeeDataGridView.TabIndex = 15;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "employee_id";
-            this.dataGridViewTextBoxColumn10.HeaderText = "employee_id";
-            this.dataGridViewTextBoxColumn10.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "org_id";
-            this.dataGridViewTextBoxColumn11.HeaderText = "org_id";
-            this.dataGridViewTextBoxColumn11.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "fio";
-            this.dataGridViewTextBoxColumn12.HeaderText = "fio";
-            this.dataGridViewTextBoxColumn12.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            this.dataGridViewTextBoxColumn13.DataPropertyName = "gender";
-            this.dataGridViewTextBoxColumn13.HeaderText = "gender";
-            this.dataGridViewTextBoxColumn13.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            this.dataGridViewTextBoxColumn13.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn14
-            // 
-            this.dataGridViewTextBoxColumn14.DataPropertyName = "position";
-            this.dataGridViewTextBoxColumn14.HeaderText = "position";
-            this.dataGridViewTextBoxColumn14.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-            this.dataGridViewTextBoxColumn14.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn15
-            // 
-            this.dataGridViewTextBoxColumn15.DataPropertyName = "phone_number";
-            this.dataGridViewTextBoxColumn15.HeaderText = "phone_number";
-            this.dataGridViewTextBoxColumn15.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-            this.dataGridViewTextBoxColumn15.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn16
-            // 
-            this.dataGridViewTextBoxColumn16.DataPropertyName = "email";
-            this.dataGridViewTextBoxColumn16.HeaderText = "email";
-            this.dataGridViewTextBoxColumn16.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-            this.dataGridViewTextBoxColumn16.Width = 125;
+            this.btnEmployeePanel.Location = new System.Drawing.Point(21, 202);
+            this.btnEmployeePanel.Name = "btnEmployeePanel";
+            this.btnEmployeePanel.Size = new System.Drawing.Size(286, 83);
+            this.btnEmployeePanel.TabIndex = 11;
+            this.btnEmployeePanel.Text = "Панель управления сотрудниками";
+            this.btnEmployeePanel.UseVisualStyleBackColor = true;
+            this.btnEmployeePanel.Click += new System.EventHandler(this.btnEmployeePanel_Click);
             // 
             // employeeBindingSource
             // 
             this.employeeBindingSource.DataMember = "Employee";
             this.employeeBindingSource.DataSource = this.martDBDataSet;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(13, 325);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(150, 150);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 16;
-            this.pictureBox3.TabStop = false;
-            // 
-            // panelEmployee
-            // 
-            this.panelEmployee.Controls.Add(this.pictureBox3);
-            this.panelEmployee.Controls.Add(this.employeeDataGridView);
-            this.panelEmployee.Controls.Add(emailLabel);
-            this.panelEmployee.Controls.Add(this.emailTextBox);
-            this.panelEmployee.Controls.Add(phone_numberLabel);
-            this.panelEmployee.Controls.Add(this.phone_numberTextBox);
-            this.panelEmployee.Controls.Add(positionLabel);
-            this.panelEmployee.Controls.Add(this.positionTextBox);
-            this.panelEmployee.Controls.Add(genderLabel);
-            this.panelEmployee.Controls.Add(this.genderTextBox);
-            this.panelEmployee.Controls.Add(fioLabel);
-            this.panelEmployee.Controls.Add(this.fioTextBox);
-            this.panelEmployee.Controls.Add(org_idLabel1);
-            this.panelEmployee.Controls.Add(this.org_idTextBox1);
-            this.panelEmployee.Controls.Add(employee_idLabel);
-            this.panelEmployee.Controls.Add(this.employee_idTextBox);
-            this.panelEmployee.Controls.Add(this.label4);
-            this.panelEmployee.Location = new System.Drawing.Point(12, 33);
-            this.panelEmployee.Name = "panelEmployee";
-            this.panelEmployee.Size = new System.Drawing.Size(948, 479);
-            this.panelEmployee.TabIndex = 14;
             // 
             // employeeTableAdapter
             // 
@@ -802,17 +567,129 @@ namespace MartDB
             this.employeeTableAdapterManager.TradeProfileTableAdapter = null;
             this.employeeTableAdapterManager.UpdateOrder = MartDB.MartDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
+            // panelEmployees
+            // 
+            this.panelEmployees.Controls.Add(this.btnShowAllEmployees);
+            this.panelEmployees.Controls.Add(this.groupBox4);
+            this.panelEmployees.Controls.Add(this.dgvEmployees);
+            this.panelEmployees.Controls.Add(this.label4);
+            this.panelEmployees.Location = new System.Drawing.Point(12, 33);
+            this.panelEmployees.Name = "panelEmployees";
+            this.panelEmployees.Size = new System.Drawing.Size(948, 479);
+            this.panelEmployees.TabIndex = 14;
+            // 
+            // btnShowAllEmployees
+            // 
+            this.btnShowAllEmployees.Location = new System.Drawing.Point(114, 190);
+            this.btnShowAllEmployees.Name = "btnShowAllEmployees";
+            this.btnShowAllEmployees.Size = new System.Drawing.Size(119, 42);
+            this.btnShowAllEmployees.TabIndex = 23;
+            this.btnShowAllEmployees.Text = "Показать все";
+            this.btnShowAllEmployees.UseVisualStyleBackColor = true;
+            this.btnShowAllEmployees.Click += new System.EventHandler(this.btnShowAllEmployees_Click);
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.label11);
+            this.groupBox4.Controls.Add(this.queryEmployeeColListBox);
+            this.groupBox4.Controls.Add(this.label13);
+            this.groupBox4.Controls.Add(this.queryEmployeeTextBox);
+            this.groupBox4.Controls.Add(this.btnSearchEmployee);
+            this.groupBox4.Location = new System.Drawing.Point(13, 45);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(317, 133);
+            this.groupBox4.TabIndex = 20;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Поиск";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(178, 18);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(117, 17);
+            this.label11.TabIndex = 12;
+            this.label11.Text = "Введите запрос:";
+            // 
+            // queryEmployeeColListBox
+            // 
+            this.queryEmployeeColListBox.FormattingEnabled = true;
+            this.queryEmployeeColListBox.ItemHeight = 16;
+            this.queryEmployeeColListBox.Items.AddRange(new object[] {
+            "Организация",
+            "ФИО",
+            "Пол",
+            "Должность",
+            "Телефонный номер",
+            "Электронная почта"});
+            this.queryEmployeeColListBox.Location = new System.Drawing.Point(7, 38);
+            this.queryEmployeeColListBox.Name = "queryEmployeeColListBox";
+            this.queryEmployeeColListBox.Size = new System.Drawing.Size(154, 84);
+            this.queryEmployeeColListBox.TabIndex = 11;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(6, 18);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(164, 17);
+            this.label13.TabIndex = 7;
+            this.label13.Text = "Выберите поле поиска:";
+            // 
+            // queryEmployeeTextBox
+            // 
+            this.queryEmployeeTextBox.Location = new System.Drawing.Point(181, 38);
+            this.queryEmployeeTextBox.Name = "queryEmployeeTextBox";
+            this.queryEmployeeTextBox.Size = new System.Drawing.Size(119, 22);
+            this.queryEmployeeTextBox.TabIndex = 6;
+            // 
+            // btnSearchEmployee
+            // 
+            this.btnSearchEmployee.Location = new System.Drawing.Point(181, 80);
+            this.btnSearchEmployee.Name = "btnSearchEmployee";
+            this.btnSearchEmployee.Size = new System.Drawing.Size(119, 42);
+            this.btnSearchEmployee.TabIndex = 5;
+            this.btnSearchEmployee.Text = "Найти";
+            this.btnSearchEmployee.UseVisualStyleBackColor = true;
+            this.btnSearchEmployee.Click += new System.EventHandler(this.btnSearchEmployee_Click);
+            // 
+            // dgvEmployees
+            // 
+            this.dgvEmployees.AllowUserToAddRows = false;
+            this.dgvEmployees.AllowUserToDeleteRows = false;
+            this.dgvEmployees.AllowUserToOrderColumns = true;
+            this.dgvEmployees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEmployees.Location = new System.Drawing.Point(494, 43);
+            this.dgvEmployees.Name = "dgvEmployees";
+            this.dgvEmployees.ReadOnly = true;
+            this.dgvEmployees.RowHeadersWidth = 51;
+            this.dgvEmployees.RowTemplate.Height = 24;
+            this.dgvEmployees.Size = new System.Drawing.Size(436, 415);
+            this.dgvEmployees.TabIndex = 22;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.Location = new System.Drawing.Point(8, 9);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(343, 28);
+            this.label4.TabIndex = 21;
+            this.label4.Text = "Панель управления: \"Сотрудники\"";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(971, 605);
+            this.ClientSize = new System.Drawing.Size(983, 605);
+            this.Controls.Add(this.panelEmployees);
             this.Controls.Add(this.panelBookingHandling);
             this.Controls.Add(this.panelMain);
-            this.Controls.Add(this.panelEmployee);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "MainForm";
             this.Text = "БД ТЦ \"Тессеракт\"";
             this.Load += new System.EventHandler(this.MainForm_Load);
@@ -830,13 +707,14 @@ namespace MartDB
             this.menuStrip1.PerformLayout();
             this.panelMain.ResumeLayout(false);
             this.panelMain.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            this.panelEmployee.ResumeLayout(false);
-            this.panelEmployee.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bookingBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.areaBindingSource)).EndInit();
+            this.panelEmployees.ResumeLayout(false);
+            this.panelEmployees.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEmployees)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -870,17 +748,6 @@ namespace MartDB
         private System.Windows.Forms.Button btnPrevious;
         private System.Windows.Forms.Panel panelMain;
         private System.Windows.Forms.ToolStripMenuItem bookingHandlingToolStripMenuItem;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox employee_idTextBox;
-        private System.Windows.Forms.TextBox org_idTextBox1;
-        private System.Windows.Forms.TextBox fioTextBox;
-        private System.Windows.Forms.TextBox genderTextBox;
-        private System.Windows.Forms.TextBox positionTextBox;
-        private System.Windows.Forms.TextBox phone_numberTextBox;
-        private System.Windows.Forms.TextBox emailTextBox;
-        private System.Windows.Forms.DataGridView employeeDataGridView;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Panel panelEmployee;
         private System.Windows.Forms.TextBox rightSquareBoundtextBox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label1;
@@ -892,13 +759,6 @@ namespace MartDB
         private System.Windows.Forms.TextBox leftFloorBoundTextBox;
         private System.Windows.Forms.Button btnFloorSearch;
         private System.Windows.Forms.Button btnCallHandleBookingForm;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
         private System.Windows.Forms.BindingSource employeeBindingSource;
         private MartDBDataSetTableAdapters.EmployeeTableAdapter employeeTableAdapter;
         private MartDBDataSetTableAdapters.TableAdapterManager bookingTableAdapterManager;
@@ -908,5 +768,17 @@ namespace MartDB
         private System.Windows.Forms.BindingSource bookingBindingSource;
         private System.Windows.Forms.BindingSource areaBindingSource;
         private MartDBDataSetTableAdapters.TableAdapterManager employeeTableAdapterManager;
+        private System.Windows.Forms.Panel panelEmployees;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox queryEmployeeTextBox;
+        private System.Windows.Forms.Button btnSearchEmployee;
+        private System.Windows.Forms.DataGridView dgvEmployees;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ListBox queryEmployeeColListBox;
+        private System.Windows.Forms.ToolStripMenuItem employeesToolStripMenuItem;
+        private System.Windows.Forms.Button btnEmployeePanel;
+        private System.Windows.Forms.Button btnShowAllEmployees;
     }
 }

@@ -91,6 +91,9 @@ namespace MartDB
                     break;
             }
 
+            // Set global user role
+            UserRole.role = role;
+
             // Initialize SQL connection to database
             SqlConnection sqlConnection = new SqlConnection();
             sqlConnection.ConnectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=MartDB;Integrated Security=True";
