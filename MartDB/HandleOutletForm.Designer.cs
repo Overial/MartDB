@@ -47,7 +47,8 @@ namespace MartDB
             this.contactPersonTextBox = new System.Windows.Forms.TextBox();
             this.areaIdComboBox = new System.Windows.Forms.ComboBox();
             this.btnAddOutlet = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnDeleteOutlet = new System.Windows.Forms.Button();
+            this.sqlCmdDeleteOutlet = new System.Data.SqlClient.SqlCommand();
             this.SuspendLayout();
             // 
             // sqlConnection
@@ -202,21 +203,36 @@ namespace MartDB
             this.btnAddOutlet.UseVisualStyleBackColor = true;
             this.btnAddOutlet.Click += new System.EventHandler(this.btnAddOutlet_Click);
             // 
-            // button2
+            // btnDeleteOutlet
             // 
-            this.button2.Location = new System.Drawing.Point(263, 276);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(127, 52);
-            this.button2.TabIndex = 16;
-            this.button2.Text = "Удалить торговую точку";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnDeleteOutlet.Location = new System.Drawing.Point(263, 276);
+            this.btnDeleteOutlet.Name = "btnDeleteOutlet";
+            this.btnDeleteOutlet.Size = new System.Drawing.Size(127, 52);
+            this.btnDeleteOutlet.TabIndex = 16;
+            this.btnDeleteOutlet.Text = "Удалить торговую точку";
+            this.btnDeleteOutlet.UseVisualStyleBackColor = true;
+            this.btnDeleteOutlet.Click += new System.EventHandler(this.btnDeleteOutlet_Click);
+            // 
+            // sqlCmdDeleteOutlet
+            // 
+            this.sqlCmdDeleteOutlet.CommandText = "ProcDeleteOutlet";
+            this.sqlCmdDeleteOutlet.CommandType = System.Data.CommandType.StoredProcedure;
+            this.sqlCmdDeleteOutlet.Connection = this.sqlConnection;
+            this.sqlCmdDeleteOutlet.Parameters.AddRange(new System.Data.SqlClient.SqlParameter[] {
+            new System.Data.SqlClient.SqlParameter("@org_name", System.Data.SqlDbType.VarChar, 50),
+            new System.Data.SqlClient.SqlParameter("@area_id", System.Data.SqlDbType.Int),
+            new System.Data.SqlClient.SqlParameter("@outlet_name", System.Data.SqlDbType.VarChar, 50),
+            new System.Data.SqlClient.SqlParameter("@outlet_type", System.Data.SqlDbType.VarChar, 50),
+            new System.Data.SqlClient.SqlParameter("@timetable", System.Data.SqlDbType.VarChar, 50),
+            new System.Data.SqlClient.SqlParameter("@rating", System.Data.SqlDbType.Float),
+            new System.Data.SqlClient.SqlParameter("@contact_person", System.Data.SqlDbType.VarChar, 50)});
             // 
             // HandleOutletForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(485, 358);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnDeleteOutlet);
             this.Controls.Add(this.btnAddOutlet);
             this.Controls.Add(this.areaIdComboBox);
             this.Controls.Add(this.contactPersonTextBox);
@@ -265,6 +281,7 @@ namespace MartDB
         private System.Windows.Forms.TextBox contactPersonTextBox;
         private System.Windows.Forms.ComboBox areaIdComboBox;
         private System.Windows.Forms.Button btnAddOutlet;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnDeleteOutlet;
+        private System.Data.SqlClient.SqlCommand sqlCmdDeleteOutlet;
     }
 }
