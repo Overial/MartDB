@@ -44,11 +44,12 @@ namespace MartDB
             this.sqlCmdDeleteBooking = new System.Data.SqlClient.SqlCommand();
             this.dtpBookingStartDate = new System.Windows.Forms.DateTimePicker();
             this.dtpBookingEndDate = new System.Windows.Forms.DateTimePicker();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnCreateBooking
             // 
-            this.btnCreateBooking.Location = new System.Drawing.Point(41, 248);
+            this.btnCreateBooking.Location = new System.Drawing.Point(44, 262);
             this.btnCreateBooking.Name = "btnCreateBooking";
             this.btnCreateBooking.Size = new System.Drawing.Size(146, 45);
             this.btnCreateBooking.TabIndex = 10;
@@ -59,7 +60,7 @@ namespace MartDB
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(62, 37);
+            this.label1.Location = new System.Drawing.Point(65, 67);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(125, 17);
             this.label1.TabIndex = 11;
@@ -67,7 +68,7 @@ namespace MartDB
             // 
             // orgIdTextBox
             // 
-            this.orgIdTextBox.Location = new System.Drawing.Point(244, 37);
+            this.orgIdTextBox.Location = new System.Drawing.Point(247, 67);
             this.orgIdTextBox.Name = "orgIdTextBox";
             this.orgIdTextBox.Size = new System.Drawing.Size(100, 22);
             this.orgIdTextBox.TabIndex = 12;
@@ -75,7 +76,7 @@ namespace MartDB
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(62, 71);
+            this.label2.Location = new System.Drawing.Point(65, 101);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(117, 17);
             this.label2.TabIndex = 13;
@@ -84,7 +85,7 @@ namespace MartDB
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(62, 106);
+            this.label3.Location = new System.Drawing.Point(65, 136);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(136, 17);
             this.label3.TabIndex = 14;
@@ -93,7 +94,7 @@ namespace MartDB
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(62, 142);
+            this.label4.Location = new System.Drawing.Point(65, 172);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(176, 17);
             this.label4.TabIndex = 15;
@@ -101,14 +102,14 @@ namespace MartDB
             // 
             // areaIdTextBox
             // 
-            this.areaIdTextBox.Location = new System.Drawing.Point(244, 71);
+            this.areaIdTextBox.Location = new System.Drawing.Point(247, 101);
             this.areaIdTextBox.Name = "areaIdTextBox";
             this.areaIdTextBox.Size = new System.Drawing.Size(100, 22);
             this.areaIdTextBox.TabIndex = 17;
             // 
             // costTextBox
             // 
-            this.costTextBox.Location = new System.Drawing.Point(244, 106);
+            this.costTextBox.Location = new System.Drawing.Point(247, 136);
             this.costTextBox.Name = "costTextBox";
             this.costTextBox.Size = new System.Drawing.Size(100, 22);
             this.costTextBox.TabIndex = 18;
@@ -116,7 +117,7 @@ namespace MartDB
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(62, 174);
+            this.label5.Location = new System.Drawing.Point(65, 204);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(167, 17);
             this.label5.TabIndex = 20;
@@ -141,7 +142,7 @@ namespace MartDB
             // 
             // btnDeleteBooking
             // 
-            this.btnDeleteBooking.Location = new System.Drawing.Point(271, 248);
+            this.btnDeleteBooking.Location = new System.Drawing.Point(274, 262);
             this.btnDeleteBooking.Name = "btnDeleteBooking";
             this.btnDeleteBooking.Size = new System.Drawing.Size(146, 45);
             this.btnDeleteBooking.TabIndex = 22;
@@ -163,23 +164,34 @@ namespace MartDB
             // 
             // dtpBookingStartDate
             // 
-            this.dtpBookingStartDate.Location = new System.Drawing.Point(244, 142);
+            this.dtpBookingStartDate.Location = new System.Drawing.Point(247, 172);
             this.dtpBookingStartDate.Name = "dtpBookingStartDate";
             this.dtpBookingStartDate.Size = new System.Drawing.Size(200, 22);
             this.dtpBookingStartDate.TabIndex = 23;
             // 
             // dtpBookingEndDate
             // 
-            this.dtpBookingEndDate.Location = new System.Drawing.Point(244, 174);
+            this.dtpBookingEndDate.Location = new System.Drawing.Point(247, 204);
             this.dtpBookingEndDate.Name = "dtpBookingEndDate";
             this.dtpBookingEndDate.Size = new System.Drawing.Size(200, 22);
             this.dtpBookingEndDate.TabIndex = 24;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label6.Location = new System.Drawing.Point(31, 21);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(416, 23);
+            this.label6.TabIndex = 25;
+            this.label6.Text = "Введите данные и нажмите необходимую кнопку:";
             // 
             // HandleBookingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(475, 346);
+            this.ClientSize = new System.Drawing.Size(499, 346);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.dtpBookingEndDate);
             this.Controls.Add(this.dtpBookingStartDate);
             this.Controls.Add(this.btnDeleteBooking);
@@ -192,7 +204,11 @@ namespace MartDB
             this.Controls.Add(this.orgIdTextBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCreateBooking);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "HandleBookingForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Управление арендами";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -215,5 +231,6 @@ namespace MartDB
         private System.Data.SqlClient.SqlCommand sqlCmdDeleteBooking;
         private System.Windows.Forms.DateTimePicker dtpBookingStartDate;
         private System.Windows.Forms.DateTimePicker dtpBookingEndDate;
+        private System.Windows.Forms.Label label6;
     }
 }
