@@ -60,7 +60,8 @@ namespace MartDB
             this.pagesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bookingHandlingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.employeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.employeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tradeProfileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.label3 = new System.Windows.Forms.Label();
@@ -69,6 +70,7 @@ namespace MartDB
             this.btnMoveToPanelMain = new System.Windows.Forms.Button();
             this.btnPrevious = new System.Windows.Forms.Button();
             this.panelMain = new System.Windows.Forms.Panel();
+            this.btnTradeProfilePanel = new System.Windows.Forms.Button();
             this.btnEmployeePanel = new System.Windows.Forms.Button();
             this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.employeeTableAdapter = new MartDB.MartDBDataSetTableAdapters.EmployeeTableAdapter();
@@ -109,8 +111,25 @@ namespace MartDB
             this.btnSearchTradeProfile = new System.Windows.Forms.Button();
             this.dgvTradeProfile = new System.Windows.Forms.DataGridView();
             this.label17 = new System.Windows.Forms.Label();
-            this.tradeProfileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnTradeProfilePanel = new System.Windows.Forms.Button();
+            this.panelOutlets = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.label14 = new System.Windows.Forms.Label();
+            this.btnShowAllOutlets = new System.Windows.Forms.Button();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.queryOutletFieldColBox = new System.Windows.Forms.ListBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.queryOutletTextBox = new System.Windows.Forms.TextBox();
+            this.btnSearchOutlet = new System.Windows.Forms.Button();
+            this.dgvOutlet = new System.Windows.Forms.DataGridView();
+            this.label19 = new System.Windows.Forms.Label();
+            this.btnOutletPanel = new System.Windows.Forms.Button();
+            this.outletToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelBookingHandling.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBookingHandling)).BeginInit();
@@ -130,6 +149,10 @@ namespace MartDB
             this.groupBox6.SuspendLayout();
             this.groupBox7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTradeProfile)).BeginInit();
+            this.panelOutlets.SuspendLayout();
+            this.groupBox8.SuspendLayout();
+            this.groupBox9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOutlet)).BeginInit();
             this.SuspendLayout();
             // 
             // panelBookingHandling
@@ -407,7 +430,7 @@ namespace MartDB
             this.menuToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(983, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(983, 30);
             this.menuStrip1.TabIndex = 12;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -416,10 +439,11 @@ namespace MartDB
             this.pagesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mainToolStripMenuItem,
             this.bookingHandlingToolStripMenuItem,
-            this.employeesToolStripMenuItem,
-            this.tradeProfileToolStripMenuItem});
+            this.employeeToolStripMenuItem,
+            this.tradeProfileToolStripMenuItem,
+            this.outletToolStripMenuItem});
             this.pagesToolStripMenuItem.Name = "pagesToolStripMenuItem";
-            this.pagesToolStripMenuItem.Size = new System.Drawing.Size(93, 24);
+            this.pagesToolStripMenuItem.Size = new System.Drawing.Size(93, 26);
             this.pagesToolStripMenuItem.Text = "Страницы";
             // 
             // mainToolStripMenuItem
@@ -433,22 +457,29 @@ namespace MartDB
             // 
             this.bookingHandlingToolStripMenuItem.Name = "bookingHandlingToolStripMenuItem";
             this.bookingHandlingToolStripMenuItem.Size = new System.Drawing.Size(345, 26);
-            this.bookingHandlingToolStripMenuItem.Text = "Аренда помещений";
+            this.bookingHandlingToolStripMenuItem.Text = "Управление арендами";
             this.bookingHandlingToolStripMenuItem.Click += new System.EventHandler(this.bookingHandlingToolStripMenuItem_Click);
             // 
-            // employeesToolStripMenuItem
+            // employeeToolStripMenuItem
             // 
-            this.employeesToolStripMenuItem.Name = "employeesToolStripMenuItem";
-            this.employeesToolStripMenuItem.Size = new System.Drawing.Size(345, 26);
-            this.employeesToolStripMenuItem.Text = "Управление сотрудниками";
-            this.employeesToolStripMenuItem.Click += new System.EventHandler(this.employeesToolStripMenuItem_Click);
+            this.employeeToolStripMenuItem.Name = "employeeToolStripMenuItem";
+            this.employeeToolStripMenuItem.Size = new System.Drawing.Size(345, 26);
+            this.employeeToolStripMenuItem.Text = "Управление сотрудниками";
+            this.employeeToolStripMenuItem.Click += new System.EventHandler(this.employeesToolStripMenuItem_Click);
+            // 
+            // tradeProfileToolStripMenuItem
+            // 
+            this.tradeProfileToolStripMenuItem.Name = "tradeProfileToolStripMenuItem";
+            this.tradeProfileToolStripMenuItem.Size = new System.Drawing.Size(345, 26);
+            this.tradeProfileToolStripMenuItem.Text = "Управление торговыми профилями";
+            this.tradeProfileToolStripMenuItem.Click += new System.EventHandler(this.tradeProfileToolStripMenuItem_Click);
             // 
             // menuToolStripMenuItem
             // 
             this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aboutToolStripMenuItem1});
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
-            this.menuToolStripMenuItem.Size = new System.Drawing.Size(65, 24);
+            this.menuToolStripMenuItem.Size = new System.Drawing.Size(65, 26);
             this.menuToolStripMenuItem.Text = "Меню";
             // 
             // aboutToolStripMenuItem1
@@ -511,6 +542,7 @@ namespace MartDB
             // panelMain
             // 
             this.panelMain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelMain.Controls.Add(this.btnOutletPanel);
             this.panelMain.Controls.Add(this.btnTradeProfilePanel);
             this.panelMain.Controls.Add(this.btnEmployeePanel);
             this.panelMain.Controls.Add(this.btnPrevious);
@@ -522,6 +554,16 @@ namespace MartDB
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(948, 560);
             this.panelMain.TabIndex = 13;
+            // 
+            // btnTradeProfilePanel
+            // 
+            this.btnTradeProfilePanel.Location = new System.Drawing.Point(401, 93);
+            this.btnTradeProfilePanel.Name = "btnTradeProfilePanel";
+            this.btnTradeProfilePanel.Size = new System.Drawing.Size(286, 83);
+            this.btnTradeProfilePanel.TabIndex = 12;
+            this.btnTradeProfilePanel.Text = "Панель управления торговыми профилями";
+            this.btnTradeProfilePanel.UseVisualStyleBackColor = true;
+            this.btnTradeProfilePanel.Click += new System.EventHandler(this.btnTradeProfilePanel_Click);
             // 
             // btnEmployeePanel
             // 
@@ -931,31 +973,225 @@ namespace MartDB
             this.label17.TabIndex = 21;
             this.label17.Text = "Панель управления: \"Торговые профили\"";
             // 
-            // tradeProfileToolStripMenuItem
+            // panelOutlets
             // 
-            this.tradeProfileToolStripMenuItem.Name = "tradeProfileToolStripMenuItem";
-            this.tradeProfileToolStripMenuItem.Size = new System.Drawing.Size(345, 26);
-            this.tradeProfileToolStripMenuItem.Text = "Управление торговыми профилями";
-            this.tradeProfileToolStripMenuItem.Click += new System.EventHandler(this.tradeProfileToolStripMenuItem_Click);
+            this.panelOutlets.Controls.Add(this.button1);
+            this.panelOutlets.Controls.Add(this.groupBox8);
+            this.panelOutlets.Controls.Add(this.btnShowAllOutlets);
+            this.panelOutlets.Controls.Add(this.groupBox9);
+            this.panelOutlets.Controls.Add(this.dgvOutlet);
+            this.panelOutlets.Controls.Add(this.label19);
+            this.panelOutlets.Location = new System.Drawing.Point(12, 33);
+            this.panelOutlets.Name = "panelOutlets";
+            this.panelOutlets.Size = new System.Drawing.Size(948, 479);
+            this.panelOutlets.TabIndex = 16;
             // 
-            // btnTradeProfilePanel
+            // button1
             // 
-            this.btnTradeProfilePanel.Location = new System.Drawing.Point(401, 93);
-            this.btnTradeProfilePanel.Name = "btnTradeProfilePanel";
-            this.btnTradeProfilePanel.Size = new System.Drawing.Size(286, 83);
-            this.btnTradeProfilePanel.TabIndex = 12;
-            this.btnTradeProfilePanel.Text = "Панель управления торговыми профилями";
-            this.btnTradeProfilePanel.UseVisualStyleBackColor = true;
-            this.btnTradeProfilePanel.Click += new System.EventHandler(this.btnTradeProfilePanel_Click);
+            this.button1.Location = new System.Drawing.Point(524, 385);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(208, 60);
+            this.button1.TabIndex = 14;
+            this.button1.Text = "Управление сотрудниками";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.listBox1);
+            this.groupBox8.Controls.Add(this.button2);
+            this.groupBox8.Controls.Add(this.radioButton1);
+            this.groupBox8.Controls.Add(this.radioButton2);
+            this.groupBox8.Controls.Add(this.label14);
+            this.groupBox8.Location = new System.Drawing.Point(14, 266);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(317, 188);
+            this.groupBox8.TabIndex = 24;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Сортировка";
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 16;
+            this.listBox1.Items.AddRange(new object[] {
+            "Организация",
+            "ФИО",
+            "Пол",
+            "Должность",
+            "Телефонный номер",
+            "Электронная почта"});
+            this.listBox1.Location = new System.Drawing.Point(7, 39);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(154, 116);
+            this.listBox1.TabIndex = 13;
+            // 
+            // button2
+            // 
+            this.button2.Enabled = false;
+            this.button2.Location = new System.Drawing.Point(174, 93);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(119, 42);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "Сортировать";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(174, 66);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(117, 21);
+            this.radioButton1.TabIndex = 3;
+            this.radioButton1.Text = "По убыванию";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Checked = true;
+            this.radioButton2.Location = new System.Drawing.Point(174, 39);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(137, 21);
+            this.radioButton2.TabIndex = 2;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "По возрастанию";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(6, 18);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(154, 17);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "Поле для сортировки:";
+            // 
+            // btnShowAllOutlets
+            // 
+            this.btnShowAllOutlets.Location = new System.Drawing.Point(118, 218);
+            this.btnShowAllOutlets.Name = "btnShowAllOutlets";
+            this.btnShowAllOutlets.Size = new System.Drawing.Size(119, 42);
+            this.btnShowAllOutlets.TabIndex = 23;
+            this.btnShowAllOutlets.Text = "Показать все";
+            this.btnShowAllOutlets.UseVisualStyleBackColor = true;
+            this.btnShowAllOutlets.Click += new System.EventHandler(this.btnShowAllOutlets_Click);
+            // 
+            // groupBox9
+            // 
+            this.groupBox9.Controls.Add(this.label16);
+            this.groupBox9.Controls.Add(this.queryOutletFieldColBox);
+            this.groupBox9.Controls.Add(this.label18);
+            this.groupBox9.Controls.Add(this.queryOutletTextBox);
+            this.groupBox9.Controls.Add(this.btnSearchOutlet);
+            this.groupBox9.Location = new System.Drawing.Point(13, 45);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(317, 161);
+            this.groupBox9.TabIndex = 20;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "Поиск";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(178, 43);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(117, 17);
+            this.label16.TabIndex = 12;
+            this.label16.Text = "Введите запрос:";
+            // 
+            // queryOutletFieldColBox
+            // 
+            this.queryOutletFieldColBox.FormattingEnabled = true;
+            this.queryOutletFieldColBox.ItemHeight = 16;
+            this.queryOutletFieldColBox.Items.AddRange(new object[] {
+            "Организация",
+            "Код помещения",
+            "Название торговой точки",
+            "Тип торговой точки",
+            "Расписание",
+            "Рейтинг",
+            "Контактное лицо"});
+            this.queryOutletFieldColBox.Location = new System.Drawing.Point(7, 38);
+            this.queryOutletFieldColBox.Name = "queryOutletFieldColBox";
+            this.queryOutletFieldColBox.Size = new System.Drawing.Size(154, 116);
+            this.queryOutletFieldColBox.TabIndex = 11;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(6, 18);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(164, 17);
+            this.label18.TabIndex = 7;
+            this.label18.Text = "Выберите поле поиска:";
+            // 
+            // queryOutletTextBox
+            // 
+            this.queryOutletTextBox.Location = new System.Drawing.Point(181, 63);
+            this.queryOutletTextBox.Name = "queryOutletTextBox";
+            this.queryOutletTextBox.Size = new System.Drawing.Size(119, 22);
+            this.queryOutletTextBox.TabIndex = 6;
+            // 
+            // btnSearchOutlet
+            // 
+            this.btnSearchOutlet.Location = new System.Drawing.Point(181, 91);
+            this.btnSearchOutlet.Name = "btnSearchOutlet";
+            this.btnSearchOutlet.Size = new System.Drawing.Size(119, 42);
+            this.btnSearchOutlet.TabIndex = 5;
+            this.btnSearchOutlet.Text = "Найти";
+            this.btnSearchOutlet.UseVisualStyleBackColor = true;
+            this.btnSearchOutlet.Click += new System.EventHandler(this.btnSearchOutlet_Click);
+            // 
+            // dgvOutlet
+            // 
+            this.dgvOutlet.AllowUserToAddRows = false;
+            this.dgvOutlet.AllowUserToDeleteRows = false;
+            this.dgvOutlet.AllowUserToOrderColumns = true;
+            this.dgvOutlet.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvOutlet.Location = new System.Drawing.Point(352, 43);
+            this.dgvOutlet.Name = "dgvOutlet";
+            this.dgvOutlet.ReadOnly = true;
+            this.dgvOutlet.RowHeadersWidth = 51;
+            this.dgvOutlet.RowTemplate.Height = 24;
+            this.dgvOutlet.Size = new System.Drawing.Size(578, 318);
+            this.dgvOutlet.TabIndex = 22;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label19.Location = new System.Drawing.Point(8, 9);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(383, 28);
+            this.label19.TabIndex = 21;
+            this.label19.Text = "Панель управления: \"Торговые точки\"";
+            // 
+            // btnOutletPanel
+            // 
+            this.btnOutletPanel.Location = new System.Drawing.Point(401, 202);
+            this.btnOutletPanel.Name = "btnOutletPanel";
+            this.btnOutletPanel.Size = new System.Drawing.Size(286, 83);
+            this.btnOutletPanel.TabIndex = 13;
+            this.btnOutletPanel.Text = "Панель управления торговыми точками";
+            this.btnOutletPanel.UseVisualStyleBackColor = true;
+            this.btnOutletPanel.Click += new System.EventHandler(this.btnOutletPanel_Click);
+            // 
+            // outletToolStripMenuItem
+            // 
+            this.outletToolStripMenuItem.Name = "outletToolStripMenuItem";
+            this.outletToolStripMenuItem.Size = new System.Drawing.Size(345, 26);
+            this.outletToolStripMenuItem.Text = "Управление торговыми точками";
+            this.outletToolStripMenuItem.Click += new System.EventHandler(this.outletToolStripMenuItem_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(983, 605);
-            this.Controls.Add(this.panelTradeProfiles);
+            this.Controls.Add(this.panelOutlets);
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.panelEmployees);
+            this.Controls.Add(this.panelTradeProfiles);
             this.Controls.Add(this.panelBookingHandling);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -996,6 +1232,13 @@ namespace MartDB
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTradeProfile)).EndInit();
+            this.panelOutlets.ResumeLayout(false);
+            this.panelOutlets.PerformLayout();
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox8.PerformLayout();
+            this.groupBox9.ResumeLayout(false);
+            this.groupBox9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOutlet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1058,7 +1301,7 @@ namespace MartDB
         private System.Windows.Forms.DataGridView dgvEmployees;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ListBox queryEmployeeColListBox;
-        private System.Windows.Forms.ToolStripMenuItem employeesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem employeeToolStripMenuItem;
         private System.Windows.Forms.Button btnEmployeePanel;
         private System.Windows.Forms.Button btnShowAllEmployees;
         private System.Windows.Forms.GroupBox groupBox5;
@@ -1083,5 +1326,24 @@ namespace MartDB
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.ToolStripMenuItem tradeProfileToolStripMenuItem;
         private System.Windows.Forms.Button btnTradeProfilePanel;
+        private System.Windows.Forms.Panel panelOutlets;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Button btnShowAllOutlets;
+        private System.Windows.Forms.GroupBox groupBox9;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.ListBox queryOutletFieldColBox;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox queryOutletTextBox;
+        private System.Windows.Forms.Button btnSearchOutlet;
+        private System.Windows.Forms.DataGridView dgvOutlet;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Button btnOutletPanel;
+        private System.Windows.Forms.ToolStripMenuItem outletToolStripMenuItem;
     }
 }

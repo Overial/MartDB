@@ -60,6 +60,9 @@ namespace MartDB
             // Fill trade profiles data grid view
             FillTradeProfileDGV();
 
+            // Fill outlet data grid view
+            FillOutletDGV();
+
             // TODO: This line of code loads data into the 'martDBDataSet.Area' table. You can move, or remove it, as needed.
             this.areaTableAdapter.Fill(this.martDBDataSet.Area);
             // TODO: This line of code loads data into the 'martDBDataSet.Booking' table. You can move, or remove it, as needed.
@@ -165,6 +168,25 @@ namespace MartDB
             this.btnPrevious.Visible = true;
         }
 
+        private void btnOutletPanel_Click(object sender, EventArgs e)
+        {
+            // Set panel index
+            this.index = 4;
+
+            // Bring booking handling panel to front
+            this.panelOutlets.BringToFront();
+
+            // Bring nav buttons to front
+            this.btnMoveToPanelMain.BringToFront();
+            this.btnNext.BringToFront();
+            this.btnPrevious.BringToFront();
+
+            // Show nav buttons
+            this.btnMoveToPanelMain.Visible = true;
+            this.btnNext.Visible = true;
+            this.btnPrevious.Visible = true;
+        }
+
         ////// Menu strip //////
 
         private void mainToolStripMenuItem_Click(object sender, EventArgs e)
@@ -189,6 +211,12 @@ namespace MartDB
         {
             this.index = 3;
             this.panelTradeProfiles.BringToFront();
+        }
+
+        private void outletToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.index = 4;
+            this.panelOutlets.BringToFront();
         }
 
         // About (menuStrip)
@@ -627,6 +655,92 @@ namespace MartDB
         {
             Form form = new HandleTradeProfilesForm();
             form.Show();
+        }
+
+        ////// Outlet panel //////
+        
+        // Get info about employees
+        private void FillOutletDGV()
+        {
+            // Establish connection
+            SqlConnection sqlConnection = new SqlConnection();
+            sqlConnection.ConnectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=MartDB;Integrated Security=True";
+            sqlConnection.Open();
+
+            // Create query
+            string selectQuery = "SELECT Organisation.org_name AS [Организация]," +
+                                 "Outlet.area_id AS [Код помещения]," +
+                                 "Outlet.outlet_name AS [Название торговой точки]," +
+                                 "Outlet.outlet_type AS [Тип торговой точки]," +
+                                 "Outlet.timetable AS [Расписание]," +
+                                 "Outlet.rating AS [Рейтинг]," +
+                                 "Outlet.contact_person AS [Контактное лицо] " +
+                                 "FROM Outlet " +
+                                 "JOIN Organisation ON Outlet.org_id = Organisation.org_id";
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(selectQuery, sqlConnection);
+
+            // Set command builder
+            // SqlCommandBuilder commandBuilder = new SqlCommandBuilder(sqlDataAdapter);
+
+            // Fill data set
+            DataSet dataSet = new DataSet();
+            sqlDataAdapter.Fill(dataSet);
+
+            // Fill DGV
+            dgvOutlet.ReadOnly = true;
+            dgvOutlet.DataSource = dataSet.Tables[0];
+        }
+
+        private void btnSearchOutlet_Click(object sender, EventArgs e)
+        {
+            // Field parser
+            string strFieldForSearch = this.queryOutletFieldColBox.SelectedItem.ToString();
+            int iColIndex = 0;
+            for (int i = 0; i < dgvOutlet.Columns.Count; ++i)
+            {
+                if (dgvOutlet.Columns[i].HeaderText == strFieldForSearch)
+                {
+                    iColIndex = i;
+                }
+            }
+
+            // Start searching only if user has entered query for search
+            if (this.queryOutletTextBox.Text.Length > 0)
+            {
+                string query = "";
+                try
+                {
+                    query = Convert.ToString(this.queryOutletTextBox.Text);
+                }
+                // Prevent invalid user input
+                catch
+                {
+                    MessageBox.Show("Введено некорректное значение запроса для поиска!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                // Filter area square data
+                foreach (DataGridViewRow row in this.dgvOutlet.Rows)
+                {
+                    if (row.Cells[iColIndex].Value.ToString().Contains(query))
+                    {
+                        dgvOutlet.Rows[row.Index].Visible = true;
+                    }
+                    else
+                    {
+                        dgvOutlet.CurrentCell = null;
+                        dgvOutlet.Rows[row.Index].Visible = false;
+                    }
+                }
+            }
+        }
+
+        private void btnShowAllOutlets_Click(object sender, EventArgs e)
+        {
+            // Display every row
+            foreach (DataGridViewRow row in this.dgvOutlet.Rows)
+            {
+                dgvOutlet.Rows[row.Index].Visible = true;
+            }
         }
     }
 }
