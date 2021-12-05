@@ -165,7 +165,7 @@ namespace MartDB
             this.mySqlCommand.Parameters.AddRange(new System.Data.SqlClient.SqlParameter[] {
             new System.Data.SqlClient.SqlParameter("@username", System.Data.SqlDbType.VarChar, 100),
             new System.Data.SqlClient.SqlParameter("@password", System.Data.SqlDbType.VarChar, 100),
-            new System.Data.SqlClient.SqlParameter("@role", System.Data.SqlDbType.VarChar, 100),
+            new System.Data.SqlClient.SqlParameter("@UserRole", System.Data.SqlDbType.VarChar, 100),
             new System.Data.SqlClient.SqlParameter("@flag", System.Data.SqlDbType.Int, 0, System.Data.ParameterDirection.Output, false, ((byte)(0)), ((byte)(0)), "", System.Data.DataRowVersion.Current, null)});
             // 
             // RegisterForm

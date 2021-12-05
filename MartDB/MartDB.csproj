@@ -89,7 +89,7 @@
     <Compile Include="UserForm.Designer.cs">
       <DependentUpon>UserForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserRole.cs" />
+    <Compile Include="UserData.cs" />
     <EmbeddedResource Include="HandleBookingForm.resx">
       <DependentUpon>HandleBookingForm.cs</DependentUpon>
     </EmbeddedResource>

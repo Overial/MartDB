@@ -50,7 +50,7 @@ namespace MartDB
             mySqlCommand.Parameters["@username"].Value = usernameTextBox.Text;
             mySqlCommand.Parameters["@password"].Value = passwordTextBox.Text;
 
-            // Parse role
+            // Parse UserRole
             string role = roleComboBox.Text;
             switch (role)
             {
@@ -70,7 +70,7 @@ namespace MartDB
                     MessageBox.Show("Введена некорректная роль пользователя!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
             }
-            mySqlCommand.Parameters["@role"].Value = role;
+            mySqlCommand.Parameters["@UserRole"].Value = role;
 
             mySqlCommand.Parameters["@flag"].Value = flag;
 

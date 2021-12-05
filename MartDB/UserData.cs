@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace MartDB
 {
-    static class UserRole
+    static class UserData
     {
-        public static string role = "";
+        public static string UserName = "";
+        public static string UserRole = "";
     }
 }

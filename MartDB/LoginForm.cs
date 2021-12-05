@@ -91,8 +91,10 @@ namespace MartDB
                     break;
             }
 
-            // Set global user role
-            UserRole.role = role;
+            // Set global user UserName
+            UserData.UserName = login;
+            // Set global user UserRole
+            UserData.UserRole = role;
 
             // Initialize SQL connection to database
             SqlConnection sqlConnection = new SqlConnection();

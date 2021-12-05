@@ -45,7 +45,7 @@ namespace MartDB
             this.listPanel[this.index].BringToFront();
 
             // Adjust form for organisations
-            if (UserRole.role == "organisation")
+            if (UserData.UserRole == "organisation")
             {
                 this.btnCallHandleBookingForm.Enabled = false;
             }

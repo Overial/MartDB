@@ -236,6 +236,7 @@ namespace MartDB
             this.Name = "HandleEmployeesForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Управление сотрудниками";
+            this.Load += new System.EventHandler(this.HandleEmployeesForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

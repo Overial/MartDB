@@ -18,6 +18,16 @@ namespace MartDB
             InitializeComponent();
         }
 
+        private void HandleEmployeesForm_Load(object sender, EventArgs e)
+        {
+            if (UserData.UserRole == "organisation")
+            {
+                orgNameTextBox.Enabled = false;
+                orgNameTextBox.Text = UserData.UserName;
+                sqlCmdAddEmployee.Parameters["@org_name"].Value = UserData.UserName;
+            }
+        }
+
         private void btnAddEmployee_Click(object sender, EventArgs e)
         {
             // Open DB connection
@@ -26,7 +36,11 @@ namespace MartDB
             // Initialize params
             try
             {
-                sqlCmdAddEmployee.Parameters["@org_name"].Value = Convert.ToString(orgNameTextBox.Text);
+                if (UserData.UserRole == "admin")
+                {
+                    sqlCmdAddEmployee.Parameters["@org_name"].Value = Convert.ToString(orgNameTextBox.Text);
+                }
+
                 sqlCmdAddEmployee.Parameters["@fio"].Value = Convert.ToString(fioTextBox.Text);
                 sqlCmdAddEmployee.Parameters["@gender"].Value = Convert.ToString(genderComboBox.Text);
                 sqlCmdAddEmployee.Parameters["@position"].Value = Convert.ToString(positionTextBox.Text);
