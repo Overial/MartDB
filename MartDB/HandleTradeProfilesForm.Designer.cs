@@ -35,7 +35,8 @@ namespace MartDB
             this.tradeProfileNameTextBox = new System.Windows.Forms.TextBox();
             this.btnAddTradeProfile = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnDeleteTradeProfile = new System.Windows.Forms.Button();
+            this.sqlCmdDeleteTradeProfile = new System.Data.SqlClient.SqlCommand();
             this.SuspendLayout();
             // 
             // sqlConnection
@@ -87,21 +88,30 @@ namespace MartDB
             this.label2.TabIndex = 3;
             this.label2.Text = "Название торгового профиля:";
             // 
-            // button2
+            // btnDeleteTradeProfile
             // 
-            this.button2.Location = new System.Drawing.Point(253, 163);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(149, 76);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Удалить торговый профиль";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnDeleteTradeProfile.Location = new System.Drawing.Point(253, 163);
+            this.btnDeleteTradeProfile.Name = "btnDeleteTradeProfile";
+            this.btnDeleteTradeProfile.Size = new System.Drawing.Size(149, 76);
+            this.btnDeleteTradeProfile.TabIndex = 4;
+            this.btnDeleteTradeProfile.Text = "Удалить торговый профиль";
+            this.btnDeleteTradeProfile.UseVisualStyleBackColor = true;
+            this.btnDeleteTradeProfile.Click += new System.EventHandler(this.btnDeleteTradeProfile_Click);
+            // 
+            // sqlCmdDeleteTradeProfile
+            // 
+            this.sqlCmdDeleteTradeProfile.CommandText = "ProcDeleteTradeProfile";
+            this.sqlCmdDeleteTradeProfile.CommandType = System.Data.CommandType.StoredProcedure;
+            this.sqlCmdDeleteTradeProfile.Connection = this.sqlConnection;
+            this.sqlCmdDeleteTradeProfile.Parameters.AddRange(new System.Data.SqlClient.SqlParameter[] {
+            new System.Data.SqlClient.SqlParameter("@trade_profile_name", System.Data.SqlDbType.VarChar, 50)});
             // 
             // HandleTradeProfilesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(472, 276);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnDeleteTradeProfile);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnAddTradeProfile);
             this.Controls.Add(this.tradeProfileNameTextBox);
@@ -125,6 +135,7 @@ namespace MartDB
         private System.Windows.Forms.TextBox tradeProfileNameTextBox;
         private System.Windows.Forms.Button btnAddTradeProfile;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnDeleteTradeProfile;
+        private System.Data.SqlClient.SqlCommand sqlCmdDeleteTradeProfile;
     }
 }
