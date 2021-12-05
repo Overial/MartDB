@@ -29,30 +29,32 @@ namespace MartDB
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnHandleBooking = new System.Windows.Forms.Button();
+            this.btnCreateBooking = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.bookingIdTextBox = new System.Windows.Forms.TextBox();
+            this.orgIdTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.areaIdTextBox = new System.Windows.Forms.TextBox();
             this.costTextBox = new System.Windows.Forms.TextBox();
-            this.bookingStartDateTextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.bookingEndDateTextBox = new System.Windows.Forms.TextBox();
             this.mySqlConnection = new System.Data.SqlClient.SqlConnection();
-            this.mySqlCommand = new System.Data.SqlClient.SqlCommand();
+            this.sqlCmdCreateBooking = new System.Data.SqlClient.SqlCommand();
+            this.btnDeleteBooking = new System.Windows.Forms.Button();
+            this.sqlCmdDeleteBooking = new System.Data.SqlClient.SqlCommand();
+            this.dtpBookingStartDate = new System.Windows.Forms.DateTimePicker();
+            this.dtpBookingEndDate = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
-            // btnHandleBooking
+            // btnCreateBooking
             // 
-            this.btnHandleBooking.Location = new System.Drawing.Point(157, 247);
-            this.btnHandleBooking.Name = "btnHandleBooking";
-            this.btnHandleBooking.Size = new System.Drawing.Size(146, 45);
-            this.btnHandleBooking.TabIndex = 10;
-            this.btnHandleBooking.Text = "Оформить аренду";
-            this.btnHandleBooking.UseVisualStyleBackColor = true;
-            this.btnHandleBooking.Click += new System.EventHandler(this.btnHandleBooking_Click);
+            this.btnCreateBooking.Location = new System.Drawing.Point(41, 248);
+            this.btnCreateBooking.Name = "btnCreateBooking";
+            this.btnCreateBooking.Size = new System.Drawing.Size(146, 45);
+            this.btnCreateBooking.TabIndex = 10;
+            this.btnCreateBooking.Text = "Оформить аренду";
+            this.btnCreateBooking.UseVisualStyleBackColor = true;
+            this.btnCreateBooking.Click += new System.EventHandler(this.btnCreateBooking_Click);
             // 
             // label1
             // 
@@ -63,12 +65,12 @@ namespace MartDB
             this.label1.TabIndex = 11;
             this.label1.Text = "Код организации:";
             // 
-            // bookingIdTextBox
+            // orgIdTextBox
             // 
-            this.bookingIdTextBox.Location = new System.Drawing.Point(244, 37);
-            this.bookingIdTextBox.Name = "bookingIdTextBox";
-            this.bookingIdTextBox.Size = new System.Drawing.Size(100, 22);
-            this.bookingIdTextBox.TabIndex = 12;
+            this.orgIdTextBox.Location = new System.Drawing.Point(244, 37);
+            this.orgIdTextBox.Name = "orgIdTextBox";
+            this.orgIdTextBox.Size = new System.Drawing.Size(100, 22);
+            this.orgIdTextBox.TabIndex = 12;
             // 
             // label2
             // 
@@ -111,13 +113,6 @@ namespace MartDB
             this.costTextBox.Size = new System.Drawing.Size(100, 22);
             this.costTextBox.TabIndex = 18;
             // 
-            // bookingStartDateTextBox
-            // 
-            this.bookingStartDateTextBox.Location = new System.Drawing.Point(244, 142);
-            this.bookingStartDateTextBox.Name = "bookingStartDateTextBox";
-            this.bookingStartDateTextBox.Size = new System.Drawing.Size(100, 22);
-            this.bookingStartDateTextBox.TabIndex = 19;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -127,66 +122,98 @@ namespace MartDB
             this.label5.TabIndex = 20;
             this.label5.Text = "Конец периода аренды:";
             // 
-            // bookingEndDateTextBox
-            // 
-            this.bookingEndDateTextBox.Location = new System.Drawing.Point(244, 174);
-            this.bookingEndDateTextBox.Name = "bookingEndDateTextBox";
-            this.bookingEndDateTextBox.Size = new System.Drawing.Size(100, 22);
-            this.bookingEndDateTextBox.TabIndex = 21;
-            // 
             // mySqlConnection
             // 
             this.mySqlConnection.ConnectionString = "Data Source=.\\SQLEXPRESS;Initial Catalog=MartDB;Integrated Security=True";
             this.mySqlConnection.FireInfoMessageEventOnUserErrors = false;
             // 
-            // mySqlCommand
+            // sqlCmdCreateBooking
             // 
-            this.mySqlCommand.CommandText = "ProcHandleBooking";
-            this.mySqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
-            this.mySqlCommand.Connection = this.mySqlConnection;
-            this.mySqlCommand.Parameters.AddRange(new System.Data.SqlClient.SqlParameter[] {
-            new System.Data.SqlClient.SqlParameter("@booking_id", System.Data.SqlDbType.Int),
+            this.sqlCmdCreateBooking.CommandText = "ProcCreateBooking";
+            this.sqlCmdCreateBooking.CommandType = System.Data.CommandType.StoredProcedure;
+            this.sqlCmdCreateBooking.Connection = this.mySqlConnection;
+            this.sqlCmdCreateBooking.Parameters.AddRange(new System.Data.SqlClient.SqlParameter[] {
+            new System.Data.SqlClient.SqlParameter("@org_id", System.Data.SqlDbType.Int),
             new System.Data.SqlClient.SqlParameter("@area_id", System.Data.SqlDbType.Int),
             new System.Data.SqlClient.SqlParameter("@cost", System.Data.SqlDbType.Int),
             new System.Data.SqlClient.SqlParameter("@booking_start_date", System.Data.SqlDbType.Date),
             new System.Data.SqlClient.SqlParameter("@booking_end_date", System.Data.SqlDbType.Date)});
+            // 
+            // btnDeleteBooking
+            // 
+            this.btnDeleteBooking.Location = new System.Drawing.Point(271, 248);
+            this.btnDeleteBooking.Name = "btnDeleteBooking";
+            this.btnDeleteBooking.Size = new System.Drawing.Size(146, 45);
+            this.btnDeleteBooking.TabIndex = 22;
+            this.btnDeleteBooking.Text = "Удалить аренду";
+            this.btnDeleteBooking.UseVisualStyleBackColor = true;
+            this.btnDeleteBooking.Click += new System.EventHandler(this.btnDeleteBooking_Click);
+            // 
+            // sqlCmdDeleteBooking
+            // 
+            this.sqlCmdDeleteBooking.CommandText = "ProcDeleteBooking";
+            this.sqlCmdDeleteBooking.CommandType = System.Data.CommandType.StoredProcedure;
+            this.sqlCmdDeleteBooking.Connection = this.mySqlConnection;
+            this.sqlCmdDeleteBooking.Parameters.AddRange(new System.Data.SqlClient.SqlParameter[] {
+            new System.Data.SqlClient.SqlParameter("@org_id", System.Data.SqlDbType.Int),
+            new System.Data.SqlClient.SqlParameter("@area_id", System.Data.SqlDbType.Int),
+            new System.Data.SqlClient.SqlParameter("@cost", System.Data.SqlDbType.Int),
+            new System.Data.SqlClient.SqlParameter("@booking_start_date", System.Data.SqlDbType.Date),
+            new System.Data.SqlClient.SqlParameter("@booking_end_date", System.Data.SqlDbType.Date)});
+            // 
+            // dtpBookingStartDate
+            // 
+            this.dtpBookingStartDate.Location = new System.Drawing.Point(244, 142);
+            this.dtpBookingStartDate.Name = "dtpBookingStartDate";
+            this.dtpBookingStartDate.Size = new System.Drawing.Size(200, 22);
+            this.dtpBookingStartDate.TabIndex = 23;
+            // 
+            // dtpBookingEndDate
+            // 
+            this.dtpBookingEndDate.Location = new System.Drawing.Point(244, 174);
+            this.dtpBookingEndDate.Name = "dtpBookingEndDate";
+            this.dtpBookingEndDate.Size = new System.Drawing.Size(200, 22);
+            this.dtpBookingEndDate.TabIndex = 24;
             // 
             // HandleBookingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(475, 346);
-            this.Controls.Add(this.bookingEndDateTextBox);
+            this.Controls.Add(this.dtpBookingEndDate);
+            this.Controls.Add(this.dtpBookingStartDate);
+            this.Controls.Add(this.btnDeleteBooking);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.bookingStartDateTextBox);
             this.Controls.Add(this.costTextBox);
             this.Controls.Add(this.areaIdTextBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.bookingIdTextBox);
+            this.Controls.Add(this.orgIdTextBox);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnHandleBooking);
+            this.Controls.Add(this.btnCreateBooking);
             this.Name = "HandleBookingForm";
-            this.Text = "Оформление аренды";
+            this.Text = "Управление арендами";
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Button btnHandleBooking;
+        private System.Windows.Forms.Button btnCreateBooking;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox bookingIdTextBox;
+        private System.Windows.Forms.TextBox orgIdTextBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox areaIdTextBox;
         private System.Windows.Forms.TextBox costTextBox;
-        private System.Windows.Forms.TextBox bookingStartDateTextBox;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox bookingEndDateTextBox;
         private System.Data.SqlClient.SqlConnection mySqlConnection;
-        private System.Data.SqlClient.SqlCommand mySqlCommand;
+        private System.Data.SqlClient.SqlCommand sqlCmdCreateBooking;
+        private System.Windows.Forms.Button btnDeleteBooking;
+        private System.Data.SqlClient.SqlCommand sqlCmdDeleteBooking;
+        private System.Windows.Forms.DateTimePicker dtpBookingStartDate;
+        private System.Windows.Forms.DateTimePicker dtpBookingEndDate;
     }
 }

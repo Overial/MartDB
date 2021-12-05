@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace MartDB
 {
@@ -17,25 +18,68 @@ namespace MartDB
             InitializeComponent();
         }
 
-        private void btnHandleBooking_Click(object sender, EventArgs e)
+        private void btnCreateBooking_Click(object sender, EventArgs e)
         {
-            // Initialize params
-            mySqlCommand.Parameters["@booking_id"].Value = bookingIdTextBox.Text;
-            mySqlCommand.Parameters["@area_id"].Value = areaIdTextBox.Text;
-            mySqlCommand.Parameters["@cost"].Value = costTextBox.Text;
-            mySqlCommand.Parameters["@booking_start_date"].Value = bookingStartDateTextBox.Text;
-            mySqlCommand.Parameters["@booking_end_date"].Value = bookingEndDateTextBox.Text;
-
             // Open DB connection
             mySqlConnection.Open();
 
-            // Implement exception handling
+            // Initialize params
+            try
+            {
+                sqlCmdCreateBooking.Parameters["@org_id"].Value = Convert.ToInt32(orgIdTextBox.Text);
+                sqlCmdCreateBooking.Parameters["@area_id"].Value = Convert.ToInt32(areaIdTextBox.Text);
+                sqlCmdCreateBooking.Parameters["@cost"].Value = Convert.ToInt32(costTextBox.Text);
+                sqlCmdCreateBooking.Parameters["@booking_start_date"].Value = dtpBookingStartDate.Text;
+                sqlCmdCreateBooking.Parameters["@booking_end_date"].Value = dtpBookingEndDate.Text;
+
+                // Call proc
+                sqlCmdCreateBooking.ExecuteNonQuery();
+
+                // Show corresponding information
+                MessageBox.Show("Данные успешно сохранены!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Введены некорректные значения!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Добавление данных завершилось с ошибкой!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            // Close DB connection
+            mySqlConnection.Close();
+        }
+
+        private void btnDeleteBooking_Click(object sender, EventArgs e)
+        {
+            // Open DB connection
+            mySqlConnection.Open();
 
             // Call proc
-            mySqlCommand.ExecuteNonQuery();
+            try
+            {
+                // Initialize params
+                sqlCmdDeleteBooking.Parameters["@org_id"].Value = orgIdTextBox.Text;
+                sqlCmdDeleteBooking.Parameters["@area_id"].Value = areaIdTextBox.Text;
+                sqlCmdDeleteBooking.Parameters["@cost"].Value = costTextBox.Text;
+                sqlCmdDeleteBooking.Parameters["@booking_start_date"].Value = dtpBookingStartDate.Text;
+                sqlCmdDeleteBooking.Parameters["@booking_end_date"].Value = dtpBookingEndDate.Text;
 
-            // Show corresponding information
-            MessageBox.Show("Данные успешно сохранены!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // Call proc
+                sqlCmdDeleteBooking.ExecuteNonQuery();
+
+                // Show corresponding information
+                MessageBox.Show("Данные успешно удалены!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Введены некорректные значения!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Удаление данных завершилась с ошибкой!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
             // Close DB connection
             mySqlConnection.Close();
