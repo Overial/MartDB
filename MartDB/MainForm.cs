@@ -504,5 +504,11 @@ namespace MartDB
                 dgvEmployees.Sort(col, ListSortDirection.Descending);
             }
         }
+
+        private void btnMoveToHandleEmployeesForm_Click(object sender, EventArgs e)
+        {
+            Form form = new HandleEmployeesForm();
+            form.Show();
+        }
     }
 }
