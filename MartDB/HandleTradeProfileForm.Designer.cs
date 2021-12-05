@@ -1,7 +1,7 @@
 ﻿
 namespace MartDB
 {
-    partial class HandleTradeProfilesForm
+    partial class HandleTradeProfileForm
     {
         /// <summary>
         /// Required designer variable.

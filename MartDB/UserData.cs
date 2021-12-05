@@ -8,7 +8,7 @@ namespace MartDB
 {
     static class UserData
     {
-        public static string UserName = "";
-        public static string UserRole = "";
+        public static string UserName = "admin";
+        public static string UserRole = "admin";
     }
 }

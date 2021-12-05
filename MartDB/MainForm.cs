@@ -564,7 +564,7 @@ namespace MartDB
 
         private void btnMoveToHandleEmployeesForm_Click(object sender, EventArgs e)
         {
-            Form form = new HandleEmployeesForm();
+            Form form = new HandleEmployeeForm();
             form.Show();
         }
 
@@ -653,7 +653,7 @@ namespace MartDB
 
         private void btnMoveToHandlingTradeProfilesForm_Click(object sender, EventArgs e)
         {
-            Form form = new HandleTradeProfilesForm();
+            Form form = new HandleTradeProfileForm();
             form.Show();
         }
 
@@ -791,6 +791,12 @@ namespace MartDB
             {
                 dgvOutlet.Sort(col, ListSortDirection.Descending);
             }
+        }
+
+        private void btnShowHandleOutletForm_Click(object sender, EventArgs e)
+        {
+            Form form = new HandleOutletForm();
+            form.Show();
         }
     }
 }

@@ -11,9 +11,9 @@ using System.Data.SqlClient;
 
 namespace MartDB
 {
-    public partial class HandleEmployeesForm : Form
+    public partial class HandleEmployeeForm : Form
     {
-        public HandleEmployeesForm()
+        public HandleEmployeeForm()
         {
             InitializeComponent();
         }

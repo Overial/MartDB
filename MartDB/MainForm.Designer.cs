@@ -112,7 +112,7 @@ namespace MartDB
             this.dgvTradeProfile = new System.Windows.Forms.DataGridView();
             this.label17 = new System.Windows.Forms.Label();
             this.panelOutlets = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnShowHandleOutletForm = new System.Windows.Forms.Button();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.sortColsOutletListBox = new System.Windows.Forms.ListBox();
             this.btnSortOutlets = new System.Windows.Forms.Button();
@@ -975,7 +975,7 @@ namespace MartDB
             // 
             // panelOutlets
             // 
-            this.panelOutlets.Controls.Add(this.button1);
+            this.panelOutlets.Controls.Add(this.btnShowHandleOutletForm);
             this.panelOutlets.Controls.Add(this.groupBox8);
             this.panelOutlets.Controls.Add(this.btnShowAllOutlets);
             this.panelOutlets.Controls.Add(this.groupBox9);
@@ -986,14 +986,15 @@ namespace MartDB
             this.panelOutlets.Size = new System.Drawing.Size(948, 479);
             this.panelOutlets.TabIndex = 16;
             // 
-            // button1
+            // btnShowHandleOutletForm
             // 
-            this.button1.Location = new System.Drawing.Point(524, 385);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(208, 60);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "Управление сотрудниками";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnShowHandleOutletForm.Location = new System.Drawing.Point(524, 385);
+            this.btnShowHandleOutletForm.Name = "btnShowHandleOutletForm";
+            this.btnShowHandleOutletForm.Size = new System.Drawing.Size(208, 60);
+            this.btnShowHandleOutletForm.TabIndex = 14;
+            this.btnShowHandleOutletForm.Text = "Управление торговыми точками";
+            this.btnShowHandleOutletForm.UseVisualStyleBackColor = true;
+            this.btnShowHandleOutletForm.Click += new System.EventHandler(this.btnShowHandleOutletForm_Click);
             // 
             // groupBox8
             // 
@@ -1330,7 +1331,7 @@ namespace MartDB
         private System.Windows.Forms.ToolStripMenuItem tradeProfileToolStripMenuItem;
         private System.Windows.Forms.Button btnTradeProfilePanel;
         private System.Windows.Forms.Panel panelOutlets;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnShowHandleOutletForm;
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.ListBox sortColsOutletListBox;
         private System.Windows.Forms.Button btnSortOutlets;
