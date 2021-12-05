@@ -177,6 +177,7 @@ namespace MartDB
             this.btnDeleteEmployee.TabIndex = 14;
             this.btnDeleteEmployee.Text = "Удалить сотрудника";
             this.btnDeleteEmployee.UseVisualStyleBackColor = true;
+            this.btnDeleteEmployee.Click += new System.EventHandler(this.btnDeleteEmployee_Click);
             // 
             // sqlConnection
             // 
@@ -189,6 +190,19 @@ namespace MartDB
             this.sqlCmdAddEmployee.CommandType = System.Data.CommandType.StoredProcedure;
             this.sqlCmdAddEmployee.Connection = this.sqlConnection;
             this.sqlCmdAddEmployee.Parameters.AddRange(new System.Data.SqlClient.SqlParameter[] {
+            new System.Data.SqlClient.SqlParameter("@org_name", System.Data.SqlDbType.VarChar, 50),
+            new System.Data.SqlClient.SqlParameter("@fio", System.Data.SqlDbType.VarChar, 50),
+            new System.Data.SqlClient.SqlParameter("@gender", System.Data.SqlDbType.VarChar, 1),
+            new System.Data.SqlClient.SqlParameter("@position", System.Data.SqlDbType.VarChar, 50),
+            new System.Data.SqlClient.SqlParameter("@phone_number", System.Data.SqlDbType.VarChar, 50),
+            new System.Data.SqlClient.SqlParameter("@email", System.Data.SqlDbType.VarChar, 50)});
+            // 
+            // sqlCmdDeleteEmployee
+            // 
+            this.sqlCmdDeleteEmployee.CommandText = "ProcDeleteEmployee";
+            this.sqlCmdDeleteEmployee.CommandType = System.Data.CommandType.StoredProcedure;
+            this.sqlCmdDeleteEmployee.Connection = this.sqlConnection;
+            this.sqlCmdDeleteEmployee.Parameters.AddRange(new System.Data.SqlClient.SqlParameter[] {
             new System.Data.SqlClient.SqlParameter("@org_name", System.Data.SqlDbType.VarChar, 50),
             new System.Data.SqlClient.SqlParameter("@fio", System.Data.SqlDbType.VarChar, 50),
             new System.Data.SqlClient.SqlParameter("@gender", System.Data.SqlDbType.VarChar, 1),
