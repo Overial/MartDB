@@ -80,6 +80,12 @@ namespace MartDB
             this.areaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.employeeTableAdapterManager = new MartDB.MartDBDataSetTableAdapters.TableAdapterManager();
             this.panelEmployees = new System.Windows.Forms.Panel();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.sortFieldsEmployeesListBox = new System.Windows.Forms.ListBox();
+            this.btnSortEmployees = new System.Windows.Forms.Button();
+            this.descEmployeeRadioButton = new System.Windows.Forms.RadioButton();
+            this.ascEmployeeRadioButton = new System.Windows.Forms.RadioButton();
+            this.label12 = new System.Windows.Forms.Label();
             this.btnShowAllEmployees = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -101,6 +107,7 @@ namespace MartDB
             ((System.ComponentModel.ISupportInitialize)(this.bookingBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.areaBindingSource)).BeginInit();
             this.panelEmployees.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployees)).BeginInit();
             this.SuspendLayout();
@@ -308,7 +315,7 @@ namespace MartDB
             this.btnSort.TabIndex = 4;
             this.btnSort.Text = "Сортировать";
             this.btnSort.UseVisualStyleBackColor = true;
-            this.btnSort.Click += new System.EventHandler(this.btnSort_Click);
+            this.btnSort.Click += new System.EventHandler(this.btnSortBookings_Click);
             // 
             // radioButtonDesc
             // 
@@ -569,6 +576,7 @@ namespace MartDB
             // 
             // panelEmployees
             // 
+            this.panelEmployees.Controls.Add(this.groupBox5);
             this.panelEmployees.Controls.Add(this.btnShowAllEmployees);
             this.panelEmployees.Controls.Add(this.groupBox4);
             this.panelEmployees.Controls.Add(this.dgvEmployees);
@@ -577,6 +585,79 @@ namespace MartDB
             this.panelEmployees.Name = "panelEmployees";
             this.panelEmployees.Size = new System.Drawing.Size(948, 479);
             this.panelEmployees.TabIndex = 14;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.sortFieldsEmployeesListBox);
+            this.groupBox5.Controls.Add(this.btnSortEmployees);
+            this.groupBox5.Controls.Add(this.descEmployeeRadioButton);
+            this.groupBox5.Controls.Add(this.ascEmployeeRadioButton);
+            this.groupBox5.Controls.Add(this.label12);
+            this.groupBox5.Location = new System.Drawing.Point(13, 259);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(317, 147);
+            this.groupBox5.TabIndex = 24;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Сортировка";
+            // 
+            // sortFieldsEmployeesListBox
+            // 
+            this.sortFieldsEmployeesListBox.FormattingEnabled = true;
+            this.sortFieldsEmployeesListBox.ItemHeight = 16;
+            this.sortFieldsEmployeesListBox.Items.AddRange(new object[] {
+            "Организация",
+            "ФИО",
+            "Пол",
+            "Должность",
+            "Телефонный номер",
+            "Электронная почта"});
+            this.sortFieldsEmployeesListBox.Location = new System.Drawing.Point(7, 39);
+            this.sortFieldsEmployeesListBox.Name = "sortFieldsEmployeesListBox";
+            this.sortFieldsEmployeesListBox.Size = new System.Drawing.Size(154, 84);
+            this.sortFieldsEmployeesListBox.TabIndex = 13;
+            this.sortFieldsEmployeesListBox.SelectedIndexChanged += new System.EventHandler(this.sortFieldsEmployeesListBox_SelectedIndexChanged);
+            // 
+            // btnSortEmployees
+            // 
+            this.btnSortEmployees.Enabled = false;
+            this.btnSortEmployees.Location = new System.Drawing.Point(176, 81);
+            this.btnSortEmployees.Name = "btnSortEmployees";
+            this.btnSortEmployees.Size = new System.Drawing.Size(119, 42);
+            this.btnSortEmployees.TabIndex = 4;
+            this.btnSortEmployees.Text = "Сортировать";
+            this.btnSortEmployees.UseVisualStyleBackColor = true;
+            this.btnSortEmployees.Click += new System.EventHandler(this.btnSortEmployees_Click);
+            // 
+            // descEmployeeRadioButton
+            // 
+            this.descEmployeeRadioButton.AutoSize = true;
+            this.descEmployeeRadioButton.Location = new System.Drawing.Point(176, 54);
+            this.descEmployeeRadioButton.Name = "descEmployeeRadioButton";
+            this.descEmployeeRadioButton.Size = new System.Drawing.Size(117, 21);
+            this.descEmployeeRadioButton.TabIndex = 3;
+            this.descEmployeeRadioButton.Text = "По убыванию";
+            this.descEmployeeRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // ascEmployeeRadioButton
+            // 
+            this.ascEmployeeRadioButton.AutoSize = true;
+            this.ascEmployeeRadioButton.Checked = true;
+            this.ascEmployeeRadioButton.Location = new System.Drawing.Point(176, 27);
+            this.ascEmployeeRadioButton.Name = "ascEmployeeRadioButton";
+            this.ascEmployeeRadioButton.Size = new System.Drawing.Size(137, 21);
+            this.ascEmployeeRadioButton.TabIndex = 2;
+            this.ascEmployeeRadioButton.TabStop = true;
+            this.ascEmployeeRadioButton.Text = "По возрастанию";
+            this.ascEmployeeRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(6, 18);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(154, 17);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "Поле для сортировки:";
             // 
             // btnShowAllEmployees
             // 
@@ -659,12 +740,12 @@ namespace MartDB
             this.dgvEmployees.AllowUserToDeleteRows = false;
             this.dgvEmployees.AllowUserToOrderColumns = true;
             this.dgvEmployees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEmployees.Location = new System.Drawing.Point(494, 43);
+            this.dgvEmployees.Location = new System.Drawing.Point(352, 43);
             this.dgvEmployees.Name = "dgvEmployees";
             this.dgvEmployees.ReadOnly = true;
             this.dgvEmployees.RowHeadersWidth = 51;
             this.dgvEmployees.RowTemplate.Height = 24;
-            this.dgvEmployees.Size = new System.Drawing.Size(436, 415);
+            this.dgvEmployees.Size = new System.Drawing.Size(578, 363);
             this.dgvEmployees.TabIndex = 22;
             // 
             // label4
@@ -712,6 +793,8 @@ namespace MartDB
             ((System.ComponentModel.ISupportInitialize)(this.areaBindingSource)).EndInit();
             this.panelEmployees.ResumeLayout(false);
             this.panelEmployees.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployees)).EndInit();
@@ -780,5 +863,11 @@ namespace MartDB
         private System.Windows.Forms.ToolStripMenuItem employeesToolStripMenuItem;
         private System.Windows.Forms.Button btnEmployeePanel;
         private System.Windows.Forms.Button btnShowAllEmployees;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.ListBox sortFieldsEmployeesListBox;
+        private System.Windows.Forms.Button btnSortEmployees;
+        private System.Windows.Forms.RadioButton descEmployeeRadioButton;
+        private System.Windows.Forms.RadioButton ascEmployeeRadioButton;
+        private System.Windows.Forms.Label label12;
     }
 }

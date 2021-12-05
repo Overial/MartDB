@@ -208,7 +208,7 @@ namespace MartDB
         }
 
         // Button to initiate sorting
-        private void btnSort_Click(object sender, EventArgs e)
+        private void btnSortBookings_Click(object sender, EventArgs e)
         {
             // col to sort
             DataGridViewColumn col = default;
@@ -456,6 +456,52 @@ namespace MartDB
             foreach (DataGridViewRow row in this.dgvEmployees.Rows)
             {
                 dgvEmployees.Rows[row.Index].Visible = true;
+            }
+        }
+
+        // Enable sort button
+        private void sortFieldsEmployeesListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.btnSortEmployees.Enabled = true;
+        }
+
+        // Get field for employee sorting
+        private void btnSortEmployees_Click(object sender, EventArgs e)
+        {
+            // col to sort
+            DataGridViewColumn col = default;
+
+            // Get selected col to sort
+            switch (this.sortFieldsEmployeesListBox.SelectedIndex)
+            {
+                case 0:
+                    col = this.dgvEmployees.Columns[0];
+                    break;
+                case 1:
+                    col = this.dgvEmployees.Columns[1];
+                    break;
+                case 2:
+                    col = this.dgvEmployees.Columns[2];
+                    break;
+                case 3:
+                    col = this.dgvEmployees.Columns[3];
+                    break;
+                case 4:
+                    col = this.dgvEmployees.Columns[4];
+                    break;
+                case 5:
+                    col = this.dgvEmployees.Columns[5];
+                    break;
+            }
+
+            // Get selected choice for sorting
+            if (this.ascEmployeeRadioButton.Checked)
+            {
+                dgvEmployees.Sort(col, ListSortDirection.Ascending);
+            }
+            else if (this.descEmployeeRadioButton.Checked)
+            {
+                dgvEmployees.Sort(col, ListSortDirection.Descending);
             }
         }
     }
