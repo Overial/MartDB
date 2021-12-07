@@ -134,6 +134,8 @@ namespace MartDB
             this.btnSearchOutlet = new System.Windows.Forms.Button();
             this.dgvOutlet = new System.Windows.Forms.DataGridView();
             this.label19 = new System.Windows.Forms.Label();
+            this.currentUserNameLabel = new System.Windows.Forms.Label();
+            this.currentUserRoleLabel = new System.Windows.Forms.Label();
             this.panelBooking.SuspendLayout();
             this.bookingSearchFloorGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBooking)).BeginInit();
@@ -444,7 +446,7 @@ namespace MartDB
             this.menuToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(983, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(983, 28);
             this.menuStrip1.TabIndex = 12;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -457,7 +459,7 @@ namespace MartDB
             this.tradeProfileToolStripMenuItem,
             this.outletToolStripMenuItem});
             this.panelsToolStripMenuItem.Name = "panelsToolStripMenuItem";
-            this.panelsToolStripMenuItem.Size = new System.Drawing.Size(93, 26);
+            this.panelsToolStripMenuItem.Size = new System.Drawing.Size(93, 24);
             this.panelsToolStripMenuItem.Text = "Страницы";
             // 
             // mainToolStripMenuItem
@@ -500,7 +502,7 @@ namespace MartDB
             this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aboutToolStripMenuItem1});
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
-            this.menuToolStripMenuItem.Size = new System.Drawing.Size(65, 26);
+            this.menuToolStripMenuItem.Size = new System.Drawing.Size(65, 24);
             this.menuToolStripMenuItem.Text = "Меню";
             // 
             // aboutToolStripMenuItem1
@@ -553,6 +555,8 @@ namespace MartDB
             // panelMain
             // 
             this.panelMain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelMain.Controls.Add(this.currentUserRoleLabel);
+            this.panelMain.Controls.Add(this.currentUserNameLabel);
             this.panelMain.Controls.Add(this.btnPanelBooking);
             this.panelMain.Controls.Add(this.btnPanelOutlet);
             this.panelMain.Controls.Add(this.btnPanelTradeProfile);
@@ -574,6 +578,7 @@ namespace MartDB
             this.btnPanelBooking.TabIndex = 14;
             this.btnPanelBooking.Text = "Панель управления арендами";
             this.btnPanelBooking.UseVisualStyleBackColor = true;
+            this.btnPanelBooking.Click += new System.EventHandler(this.btnPanelBooking_Click);
             // 
             // btnPanelOutlet
             // 
@@ -1234,16 +1239,34 @@ namespace MartDB
             this.label19.TabIndex = 21;
             this.label19.Text = "Панель управления: \"Торговые точки\"";
             // 
+            // currentUserNameLabel
+            // 
+            this.currentUserNameLabel.AutoSize = true;
+            this.currentUserNameLabel.Location = new System.Drawing.Point(8, 9);
+            this.currentUserNameLabel.Name = "currentUserNameLabel";
+            this.currentUserNameLabel.Size = new System.Drawing.Size(165, 17);
+            this.currentUserNameLabel.TabIndex = 17;
+            this.currentUserNameLabel.Text = "Текущий пользователь:";
+            // 
+            // currentUserRoleLabel
+            // 
+            this.currentUserRoleLabel.AutoSize = true;
+            this.currentUserRoleLabel.Location = new System.Drawing.Point(8, 36);
+            this.currentUserRoleLabel.Name = "currentUserRoleLabel";
+            this.currentUserRoleLabel.Size = new System.Drawing.Size(105, 17);
+            this.currentUserRoleLabel.TabIndex = 18;
+            this.currentUserRoleLabel.Text = "Текущая роль:";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(983, 605);
-            this.Controls.Add(this.panelBooking);
             this.Controls.Add(this.panelMain);
+            this.Controls.Add(this.panelOutlet);
+            this.Controls.Add(this.panelBooking);
             this.Controls.Add(this.panelEmployee);
             this.Controls.Add(this.panelTradeProfile);
-            this.Controls.Add(this.panelOutlet);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MainMenuStrip = this.menuStrip1;
@@ -1251,7 +1274,7 @@ namespace MartDB
             this.MinimizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "БД ТЦ \"Тессеракт\"";
+            this.Text = "БД ТЦ \"Тессеракт\" – Навигатор менеджера";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.panelBooking.ResumeLayout(false);
             this.panelBooking.PerformLayout();
@@ -1401,5 +1424,7 @@ namespace MartDB
         private System.Windows.Forms.Button btnUpdateTradeProfileDGV;
         private System.Windows.Forms.Button btnPanelBooking;
         private System.Windows.Forms.Button btnHandleBookingForm;
+        private System.Windows.Forms.Label currentUserRoleLabel;
+        private System.Windows.Forms.Label currentUserNameLabel;
     }
 }

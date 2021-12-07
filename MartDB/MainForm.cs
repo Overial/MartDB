@@ -37,6 +37,25 @@ namespace MartDB
         // Actions on load
         private void MainForm_Load(object sender, EventArgs e)
         {
+            ////// Display info about user //////
+            
+            // Display user name
+            this.currentUserNameLabel.Text = "Текущий пользователь: " + UserData.UserName;
+
+            // Parse user role and display it
+            switch (UserData.UserRole)
+            {
+                case "admin":
+                    this.currentUserRoleLabel.Text = "Текущая роль: Администратор";
+                    break;
+                case "organisation":
+                    this.currentUserRoleLabel.Text = "Текущая роль: Организация";
+                    break;
+                default:
+                    this.currentUserRoleLabel.Text = "Текущая роль: ?";
+                    break;
+            }
+
             // Turning pages functionality
             this.listPanel.Add(this.panelMain);
             this.listPanel.Add(this.panelBooking);
@@ -66,6 +85,11 @@ namespace MartDB
 
             // Fill outlet data grid view
             FillOutletsDGV();
+
+            // Hide nav buttons
+            this.btnPanelMain.Visible = false;
+            this.btnNextPanel.Visible = false;
+            this.btnPreviousPanel.Visible = false;
 
             // TODO: This line of code loads data into the 'martDBDataSet.Area' table. You can move, or remove it, as needed.
             this.areaTableAdapter.Fill(this.martDBDataSet.Area);
@@ -115,7 +139,7 @@ namespace MartDB
         ////// Main panel buttons //////
 
         // Move to booking panel
-        private void btnBookingPanel_Click(object sender, EventArgs e)
+        private void btnPanelBooking_Click(object sender, EventArgs e)
         {
             // Set panel index
             this.index = 1;
@@ -197,30 +221,80 @@ namespace MartDB
         {
             this.index = 0;
             this.panelMain.BringToFront();
+
+            // Bring nav buttons to front
+            this.btnPanelMain.BringToFront();
+            this.btnNextPanel.BringToFront();
+            this.btnPreviousPanel.BringToFront();
+
+            // Hide nav buttons
+            this.btnPanelMain.Visible = false;
+            this.btnNextPanel.Visible = false;
+            this.btnPreviousPanel.Visible = false;
         }
 
         private void bookingPanelToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.index = 1;
             this.panelBooking.BringToFront();
+
+            // Bring nav buttons to front
+            this.btnPanelMain.BringToFront();
+            this.btnNextPanel.BringToFront();
+            this.btnPreviousPanel.BringToFront();
+
+            // Show nav buttons
+            this.btnPanelMain.Visible = true;
+            this.btnNextPanel.Visible = true;
+            this.btnPreviousPanel.Visible = true;
         }
 
         private void employeePanelToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.index = 2;
             this.panelEmployee.BringToFront();
+
+            // Bring nav buttons to front
+            this.btnPanelMain.BringToFront();
+            this.btnNextPanel.BringToFront();
+            this.btnPreviousPanel.BringToFront();
+
+            // Show nav buttons
+            this.btnPanelMain.Visible = true;
+            this.btnNextPanel.Visible = true;
+            this.btnPreviousPanel.Visible = true;
         }
 
         private void tradeProfilePanelToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.index = 3;
             this.panelTradeProfile.BringToFront();
+
+            // Bring nav buttons to front
+            this.btnPanelMain.BringToFront();
+            this.btnNextPanel.BringToFront();
+            this.btnPreviousPanel.BringToFront();
+
+            // Show nav buttons
+            this.btnPanelMain.Visible = true;
+            this.btnNextPanel.Visible = true;
+            this.btnPreviousPanel.Visible = true;
         }
 
         private void outletPanelToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.index = 4;
             this.panelOutlet.BringToFront();
+
+            // Bring nav buttons to front
+            this.btnPanelMain.BringToFront();
+            this.btnNextPanel.BringToFront();
+            this.btnPreviousPanel.BringToFront();
+
+            // Show nav buttons
+            this.btnPanelMain.Visible = true;
+            this.btnNextPanel.Visible = true;
+            this.btnPreviousPanel.Visible = true;
         }
 
         private void aboutToolStripMenuItem1_Click(object sender, EventArgs e)
