@@ -133,7 +133,6 @@ namespace MartDB
             // 
             this.roleComboBox.FormattingEnabled = true;
             this.roleComboBox.Items.AddRange(new object[] {
-            "Администратор",
             "Организация",
             "Посетитель"});
             this.roleComboBox.Location = new System.Drawing.Point(174, 208);

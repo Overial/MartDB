@@ -31,17 +31,17 @@ namespace MartDB
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.panelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panelMainToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelOutletToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelReviewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panelMainToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelMain = new System.Windows.Forms.Panel();
-            this.btnPanelOutlet = new System.Windows.Forms.Button();
-            this.btnPanelMain = new System.Windows.Forms.Button();
-            this.btnPreviousPanel = new System.Windows.Forms.Button();
-            this.btnNextPanel = new System.Windows.Forms.Button();
             this.panelMainLabel = new System.Windows.Forms.Label();
+            this.btnNextPanel = new System.Windows.Forms.Button();
+            this.btnPreviousPanel = new System.Windows.Forms.Button();
+            this.btnPanelMain = new System.Windows.Forms.Button();
+            this.btnPanelOutlet = new System.Windows.Forms.Button();
             this.panelOutlet = new System.Windows.Forms.Panel();
             this.btnUpdateDGVOutlet = new System.Windows.Forms.Button();
             this.btnShowOutletDetailsForm = new System.Windows.Forms.Button();
@@ -90,20 +90,12 @@ namespace MartDB
             this.panelsToolStripMenuItem.Size = new System.Drawing.Size(93, 24);
             this.panelsToolStripMenuItem.Text = "Страницы";
             // 
-            // menuToolStripMenuItem
+            // panelMainToolStripMenuItem
             // 
-            this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutToolStripMenuItem});
-            this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
-            this.menuToolStripMenuItem.Size = new System.Drawing.Size(65, 24);
-            this.menuToolStripMenuItem.Text = "Меню";
-            // 
-            // aboutToolStripMenuItem
-            // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.aboutToolStripMenuItem.Text = "О программе";
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            this.panelMainToolStripMenuItem.Name = "panelMainToolStripMenuItem";
+            this.panelMainToolStripMenuItem.Size = new System.Drawing.Size(281, 26);
+            this.panelMainToolStripMenuItem.Text = "Главная";
+            this.panelMainToolStripMenuItem.Click += new System.EventHandler(this.panelMainToolStripMenuItem_Click);
             // 
             // panelOutletToolStripMenuItem
             // 
@@ -118,12 +110,20 @@ namespace MartDB
             this.panelReviewToolStripMenuItem.Size = new System.Drawing.Size(281, 26);
             this.panelReviewToolStripMenuItem.Text = "Просмотр личных отзывов";
             // 
-            // panelMainToolStripMenuItem
+            // menuToolStripMenuItem
             // 
-            this.panelMainToolStripMenuItem.Name = "panelMainToolStripMenuItem";
-            this.panelMainToolStripMenuItem.Size = new System.Drawing.Size(281, 26);
-            this.panelMainToolStripMenuItem.Text = "Главная";
-            this.panelMainToolStripMenuItem.Click += new System.EventHandler(this.panelMainToolStripMenuItem_Click);
+            this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutToolStripMenuItem});
+            this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
+            this.menuToolStripMenuItem.Size = new System.Drawing.Size(65, 24);
+            this.menuToolStripMenuItem.Text = "Меню";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(187, 26);
+            this.aboutToolStripMenuItem.Text = "О программе";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // panelMain
             // 
@@ -138,35 +138,15 @@ namespace MartDB
             this.panelMain.Size = new System.Drawing.Size(948, 560);
             this.panelMain.TabIndex = 1;
             // 
-            // btnPanelOutlet
+            // panelMainLabel
             // 
-            this.btnPanelOutlet.Location = new System.Drawing.Point(112, 130);
-            this.btnPanelOutlet.Name = "btnPanelOutlet";
-            this.btnPanelOutlet.Size = new System.Drawing.Size(196, 75);
-            this.btnPanelOutlet.TabIndex = 0;
-            this.btnPanelOutlet.Text = "Просмотр торговых точек";
-            this.btnPanelOutlet.UseVisualStyleBackColor = true;
-            this.btnPanelOutlet.Click += new System.EventHandler(this.btnPanelOutlet_Click);
-            // 
-            // btnPanelMain
-            // 
-            this.btnPanelMain.Location = new System.Drawing.Point(13, 484);
-            this.btnPanelMain.Name = "btnPanelMain";
-            this.btnPanelMain.Size = new System.Drawing.Size(290, 59);
-            this.btnPanelMain.TabIndex = 1;
-            this.btnPanelMain.Text = "На главную";
-            this.btnPanelMain.UseVisualStyleBackColor = true;
-            this.btnPanelMain.Click += new System.EventHandler(this.btnPanelMain_Click);
-            // 
-            // btnPreviousPanel
-            // 
-            this.btnPreviousPanel.Location = new System.Drawing.Point(493, 488);
-            this.btnPreviousPanel.Name = "btnPreviousPanel";
-            this.btnPreviousPanel.Size = new System.Drawing.Size(135, 51);
-            this.btnPreviousPanel.TabIndex = 2;
-            this.btnPreviousPanel.Text = "Предыдущая страница";
-            this.btnPreviousPanel.UseVisualStyleBackColor = true;
-            this.btnPreviousPanel.Click += new System.EventHandler(this.btnPreviousPanel_Click);
+            this.panelMainLabel.AutoSize = true;
+            this.panelMainLabel.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.panelMainLabel.Location = new System.Drawing.Point(290, 9);
+            this.panelMainLabel.Name = "panelMainLabel";
+            this.panelMainLabel.Size = new System.Drawing.Size(338, 46);
+            this.panelMainLabel.TabIndex = 4;
+            this.panelMainLabel.Text = "Добро пожаловать!";
             // 
             // btnNextPanel
             // 
@@ -178,15 +158,35 @@ namespace MartDB
             this.btnNextPanel.UseVisualStyleBackColor = true;
             this.btnNextPanel.Click += new System.EventHandler(this.btnNextPanel_Click);
             // 
-            // panelMainLabel
+            // btnPreviousPanel
             // 
-            this.panelMainLabel.AutoSize = true;
-            this.panelMainLabel.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.panelMainLabel.Location = new System.Drawing.Point(290, 9);
-            this.panelMainLabel.Name = "panelMainLabel";
-            this.panelMainLabel.Size = new System.Drawing.Size(338, 46);
-            this.panelMainLabel.TabIndex = 4;
-            this.panelMainLabel.Text = "Добро пожаловать!";
+            this.btnPreviousPanel.Location = new System.Drawing.Point(493, 488);
+            this.btnPreviousPanel.Name = "btnPreviousPanel";
+            this.btnPreviousPanel.Size = new System.Drawing.Size(135, 51);
+            this.btnPreviousPanel.TabIndex = 2;
+            this.btnPreviousPanel.Text = "Предыдущая страница";
+            this.btnPreviousPanel.UseVisualStyleBackColor = true;
+            this.btnPreviousPanel.Click += new System.EventHandler(this.btnPreviousPanel_Click);
+            // 
+            // btnPanelMain
+            // 
+            this.btnPanelMain.Location = new System.Drawing.Point(13, 484);
+            this.btnPanelMain.Name = "btnPanelMain";
+            this.btnPanelMain.Size = new System.Drawing.Size(290, 59);
+            this.btnPanelMain.TabIndex = 1;
+            this.btnPanelMain.Text = "На главную";
+            this.btnPanelMain.UseVisualStyleBackColor = true;
+            this.btnPanelMain.Click += new System.EventHandler(this.btnPanelMain_Click);
+            // 
+            // btnPanelOutlet
+            // 
+            this.btnPanelOutlet.Location = new System.Drawing.Point(112, 130);
+            this.btnPanelOutlet.Name = "btnPanelOutlet";
+            this.btnPanelOutlet.Size = new System.Drawing.Size(196, 75);
+            this.btnPanelOutlet.TabIndex = 0;
+            this.btnPanelOutlet.Text = "Просмотр торговых точек";
+            this.btnPanelOutlet.UseVisualStyleBackColor = true;
+            this.btnPanelOutlet.Click += new System.EventHandler(this.btnPanelOutlet_Click);
             // 
             // panelOutlet
             // 
@@ -205,7 +205,7 @@ namespace MartDB
             // 
             // btnUpdateDGVOutlet
             // 
-            this.btnUpdateDGVOutlet.Location = new System.Drawing.Point(666, 403);
+            this.btnUpdateDGVOutlet.Location = new System.Drawing.Point(666, 397);
             this.btnUpdateDGVOutlet.Name = "btnUpdateDGVOutlet";
             this.btnUpdateDGVOutlet.Size = new System.Drawing.Size(208, 60);
             this.btnUpdateDGVOutlet.TabIndex = 32;
@@ -241,16 +241,15 @@ namespace MartDB
             this.sortColsOutletListBox.ItemHeight = 16;
             this.sortColsOutletListBox.Items.AddRange(new object[] {
             "Организация",
-            "Код помещения",
             "Название торговой точки",
             "Тип торговой точки",
             "Расписание",
-            "Рейтинг",
-            "Контактное лицо"});
+            "Рейтинг"});
             this.sortColsOutletListBox.Location = new System.Drawing.Point(7, 39);
             this.sortColsOutletListBox.Name = "sortColsOutletListBox";
             this.sortColsOutletListBox.Size = new System.Drawing.Size(154, 116);
             this.sortColsOutletListBox.TabIndex = 13;
+            this.sortColsOutletListBox.SelectedIndexChanged += new System.EventHandler(this.sortColsOutletListBox_SelectedIndexChanged);
             // 
             // btnSortOutlet
             // 
@@ -261,6 +260,7 @@ namespace MartDB
             this.btnSortOutlet.TabIndex = 4;
             this.btnSortOutlet.Text = "Сортировать";
             this.btnSortOutlet.UseVisualStyleBackColor = true;
+            this.btnSortOutlet.Click += new System.EventHandler(this.btnSortOutlet_Click);
             // 
             // descOutletRadioButton
             // 
@@ -301,6 +301,7 @@ namespace MartDB
             this.btnOutletShowAll.TabIndex = 30;
             this.btnOutletShowAll.Text = "Показать все";
             this.btnOutletShowAll.UseVisualStyleBackColor = true;
+            this.btnOutletShowAll.Click += new System.EventHandler(this.btnOutletShowAll_Click);
             // 
             // searchOutletGroupBox
             // 
@@ -331,16 +332,15 @@ namespace MartDB
             this.searchColsOutletListBox.ItemHeight = 16;
             this.searchColsOutletListBox.Items.AddRange(new object[] {
             "Организация",
-            "Код помещения",
             "Название торговой точки",
             "Тип торговой точки",
             "Расписание",
-            "Рейтинг",
-            "Контактное лицо"});
+            "Рейтинг"});
             this.searchColsOutletListBox.Location = new System.Drawing.Point(7, 38);
             this.searchColsOutletListBox.Name = "searchColsOutletListBox";
             this.searchColsOutletListBox.Size = new System.Drawing.Size(154, 116);
             this.searchColsOutletListBox.TabIndex = 11;
+            this.searchColsOutletListBox.SelectedIndexChanged += new System.EventHandler(this.searchColsOutletListBox_SelectedIndexChanged);
             // 
             // searchOutletLabel
             // 
@@ -360,12 +360,14 @@ namespace MartDB
             // 
             // btnSearchOutlet
             // 
+            this.btnSearchOutlet.Enabled = false;
             this.btnSearchOutlet.Location = new System.Drawing.Point(181, 91);
             this.btnSearchOutlet.Name = "btnSearchOutlet";
             this.btnSearchOutlet.Size = new System.Drawing.Size(119, 42);
             this.btnSearchOutlet.TabIndex = 5;
             this.btnSearchOutlet.Text = "Найти";
             this.btnSearchOutlet.UseVisualStyleBackColor = true;
+            this.btnSearchOutlet.Click += new System.EventHandler(this.btnSearchOutlet_Click);
             // 
             // dgvOutlet
             // 

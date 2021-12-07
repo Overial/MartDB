@@ -29,135 +29,119 @@ namespace MartDB
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.panelBooking = new System.Windows.Forms.Panel();
             this.btnHandleBookingForm = new System.Windows.Forms.Button();
-            this.btnUpdateBookingDGV = new System.Windows.Forms.Button();
             this.bookingSearchFloorGroupBox = new System.Windows.Forms.GroupBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.rightFloorBoundTextBox = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.leftFloorBoundTextBox = new System.Windows.Forms.TextBox();
+            this.bookingSearchFloorRightBoundLabel = new System.Windows.Forms.Label();
+            this.bookingSearchFloorLeftBoundLabel = new System.Windows.Forms.Label();
+            this.bookingSearchFloorRightBoundTextBox = new System.Windows.Forms.TextBox();
+            this.bookingSearchFloorQueryLabel = new System.Windows.Forms.Label();
+            this.bookingSearchFloorLeftBoundTextBox = new System.Windows.Forms.TextBox();
             this.btnFloorSearch = new System.Windows.Forms.Button();
             this.dgvBooking = new System.Windows.Forms.DataGridView();
-            this.btnShowAllBookings = new System.Windows.Forms.Button();
-            this.bookingSquareSearchGroupBox = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.rightSquareBoundtextBox = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.leftSquareBoundTextBox = new System.Windows.Forms.TextBox();
-            this.btnSearchSquare = new System.Windows.Forms.Button();
-            this.bookingSortColGroupBox = new System.Windows.Forms.GroupBox();
-            this.btnSort = new System.Windows.Forms.Button();
-            this.radioButtonDesc = new System.Windows.Forms.RadioButton();
-            this.radioButtonAsc = new System.Windows.Forms.RadioButton();
-            this.listBoxFieldsForSort = new System.Windows.Forms.ListBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.btnBookingShowAll = new System.Windows.Forms.Button();
+            this.bookingSearchSquareGroupBox = new System.Windows.Forms.GroupBox();
+            this.bookingSearchSquareRightBoundLabel = new System.Windows.Forms.Label();
+            this.bookingSearchSquareLeftBoundLabel = new System.Windows.Forms.Label();
+            this.bookingSearchSquareRightBoundTextBox = new System.Windows.Forms.TextBox();
+            this.bookingSearchSquareQueryLabel = new System.Windows.Forms.Label();
+            this.bookingSearchSquareLeftBoundTextBox = new System.Windows.Forms.TextBox();
+            this.btnSquareSearch = new System.Windows.Forms.Button();
+            this.bookingSortGroupBox = new System.Windows.Forms.GroupBox();
+            this.btnBookingSort = new System.Windows.Forms.Button();
+            this.descBookingRadioButton = new System.Windows.Forms.RadioButton();
+            this.ascBookingRadioButton = new System.Windows.Forms.RadioButton();
+            this.bookingSortColsListBox = new System.Windows.Forms.ListBox();
+            this.bookingSortLabel = new System.Windows.Forms.Label();
             this.bookingPanelLabel = new System.Windows.Forms.Label();
-            this.martDBDataSet = new MartDB.MartDBDataSet();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.panelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bookingHandlingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bookingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.employeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tradeProfileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.outletToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelMainLabel = new System.Windows.Forms.Label();
             this.btnNextPanel = new System.Windows.Forms.Button();
             this.btnPanelMain = new System.Windows.Forms.Button();
             this.btnPreviousPanel = new System.Windows.Forms.Button();
             this.panelMain = new System.Windows.Forms.Panel();
+            this.panelUser = new System.Windows.Forms.Panel();
+            this.currentUserNameLabel = new System.Windows.Forms.Label();
+            this.btnChangeUser = new System.Windows.Forms.Button();
+            this.currentUserRoleLabel = new System.Windows.Forms.Label();
             this.btnPanelBooking = new System.Windows.Forms.Button();
             this.btnPanelOutlet = new System.Windows.Forms.Button();
             this.btnPanelTradeProfile = new System.Windows.Forms.Button();
             this.btnPanelEmployee = new System.Windows.Forms.Button();
-            this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.employeeTableAdapter = new MartDB.MartDBDataSetTableAdapters.EmployeeTableAdapter();
-            this.bookingTableAdapterManager = new MartDB.MartDBDataSetTableAdapters.TableAdapterManager();
-            this.bookingTableAdapter = new MartDB.MartDBDataSetTableAdapters.BookingTableAdapter();
-            this.areaTableAdapter = new MartDB.MartDBDataSetTableAdapters.AreaTableAdapter();
-            this.areaTableAdapterManager = new MartDB.MartDBDataSetTableAdapters.TableAdapterManager();
-            this.bookingBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.areaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.employeeTableAdapterManager = new MartDB.MartDBDataSetTableAdapters.TableAdapterManager();
             this.panelEmployee = new System.Windows.Forms.Panel();
-            this.btnUpdateEmployeeDGV = new System.Windows.Forms.Button();
             this.btnHandleEmployeeForm = new System.Windows.Forms.Button();
             this.employeeSortGroupBox = new System.Windows.Forms.GroupBox();
-            this.employeeSortColListBox = new System.Windows.Forms.ListBox();
-            this.btnSortEmployees = new System.Windows.Forms.Button();
+            this.employeeSortColsListBox = new System.Windows.Forms.ListBox();
+            this.btnEmployeeSort = new System.Windows.Forms.Button();
             this.descEmployeeRadioButton = new System.Windows.Forms.RadioButton();
             this.ascEmployeeRadioButton = new System.Windows.Forms.RadioButton();
-            this.employeeSortColLabel = new System.Windows.Forms.Label();
-            this.btnShowAllEmployees = new System.Windows.Forms.Button();
+            this.employeeSortLabel = new System.Windows.Forms.Label();
+            this.btnEmployeeShowAll = new System.Windows.Forms.Button();
             this.employeeSearchGroupBox = new System.Windows.Forms.GroupBox();
-            this.employeeQueryLabel = new System.Windows.Forms.Label();
-            this.employeeSearchColListBox = new System.Windows.Forms.ListBox();
-            this.employeeSearchColLabel = new System.Windows.Forms.Label();
-            this.employeeQueryTextBox = new System.Windows.Forms.TextBox();
-            this.btnSearchEmployee = new System.Windows.Forms.Button();
+            this.employeeSearchQueryLabel = new System.Windows.Forms.Label();
+            this.employeeSearchColsListBox = new System.Windows.Forms.ListBox();
+            this.employeeSearchColsLabel = new System.Windows.Forms.Label();
+            this.employeeSearchQueryTextBox = new System.Windows.Forms.TextBox();
+            this.btnEmployeeSearch = new System.Windows.Forms.Button();
             this.dgvEmployee = new System.Windows.Forms.DataGridView();
-            this.label4 = new System.Windows.Forms.Label();
+            this.employeePanelLabel = new System.Windows.Forms.Label();
             this.panelTradeProfile = new System.Windows.Forms.Panel();
-            this.btnUpdateTradeProfileDGV = new System.Windows.Forms.Button();
             this.btnHandleTradeProfileForm = new System.Windows.Forms.Button();
             this.tradeProfileSortGroupBox = new System.Windows.Forms.GroupBox();
-            this.btnSortTradeProfile = new System.Windows.Forms.Button();
+            this.btnTradeProfileSort = new System.Windows.Forms.Button();
             this.descTradeProfileRadioButton = new System.Windows.Forms.RadioButton();
             this.ascTradeProfileRadioButton = new System.Windows.Forms.RadioButton();
-            this.btnShowAllTradeProfiles = new System.Windows.Forms.Button();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.tradeProfileQueryLabel = new System.Windows.Forms.Label();
-            this.queryTradeProfileTextBox = new System.Windows.Forms.TextBox();
-            this.btnSearchTradeProfile = new System.Windows.Forms.Button();
+            this.btnTradeProfileShowAll = new System.Windows.Forms.Button();
+            this.tradeProfileSearchGroupBox = new System.Windows.Forms.GroupBox();
+            this.tradeProfileSearchQueryLabel = new System.Windows.Forms.Label();
+            this.tradeProfileSearchQueryTextBox = new System.Windows.Forms.TextBox();
+            this.btnTradeProfileSearch = new System.Windows.Forms.Button();
             this.dgvTradeProfile = new System.Windows.Forms.DataGridView();
-            this.employeePanelLabel = new System.Windows.Forms.Label();
+            this.tradeProfilePanelLabel = new System.Windows.Forms.Label();
             this.panelOutlet = new System.Windows.Forms.Panel();
-            this.btnUpdateOutletDGV = new System.Windows.Forms.Button();
-            this.btnShowHandleOutletForm = new System.Windows.Forms.Button();
-            this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.sortColsOutletListBox = new System.Windows.Forms.ListBox();
-            this.btnSortOutlets = new System.Windows.Forms.Button();
+            this.btnHandleOutletForm = new System.Windows.Forms.Button();
+            this.outletSortGroupBox = new System.Windows.Forms.GroupBox();
+            this.outletSortColsListBox = new System.Windows.Forms.ListBox();
+            this.btnOutletSort = new System.Windows.Forms.Button();
             this.descOutletRadioButton = new System.Windows.Forms.RadioButton();
             this.ascOutletRadioButton = new System.Windows.Forms.RadioButton();
-            this.label14 = new System.Windows.Forms.Label();
-            this.btnShowAllOutlets = new System.Windows.Forms.Button();
-            this.groupBox9 = new System.Windows.Forms.GroupBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.queryOutletFieldColBox = new System.Windows.Forms.ListBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.queryOutletTextBox = new System.Windows.Forms.TextBox();
-            this.btnSearchOutlet = new System.Windows.Forms.Button();
+            this.outletSortLabel = new System.Windows.Forms.Label();
+            this.btnOutletShowAll = new System.Windows.Forms.Button();
+            this.outletSearchGroupBox = new System.Windows.Forms.GroupBox();
+            this.outletSearchQueryLabel = new System.Windows.Forms.Label();
+            this.outletSearchColsListBox = new System.Windows.Forms.ListBox();
+            this.outletSearchColsLabel = new System.Windows.Forms.Label();
+            this.outletSearchQueryTextBox = new System.Windows.Forms.TextBox();
+            this.btnOutletSearch = new System.Windows.Forms.Button();
             this.dgvOutlet = new System.Windows.Forms.DataGridView();
-            this.label19 = new System.Windows.Forms.Label();
-            this.currentUserNameLabel = new System.Windows.Forms.Label();
-            this.currentUserRoleLabel = new System.Windows.Forms.Label();
+            this.outletPanelLabel = new System.Windows.Forms.Label();
             this.panelBooking.SuspendLayout();
             this.bookingSearchFloorGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBooking)).BeginInit();
-            this.bookingSquareSearchGroupBox.SuspendLayout();
-            this.bookingSortColGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.martDBDataSet)).BeginInit();
+            this.bookingSearchSquareGroupBox.SuspendLayout();
+            this.bookingSortGroupBox.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.panelMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bookingBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.areaBindingSource)).BeginInit();
+            this.panelUser.SuspendLayout();
             this.panelEmployee.SuspendLayout();
             this.employeeSortGroupBox.SuspendLayout();
             this.employeeSearchGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployee)).BeginInit();
             this.panelTradeProfile.SuspendLayout();
             this.tradeProfileSortGroupBox.SuspendLayout();
-            this.groupBox7.SuspendLayout();
+            this.tradeProfileSearchGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTradeProfile)).BeginInit();
             this.panelOutlet.SuspendLayout();
-            this.groupBox8.SuspendLayout();
-            this.groupBox9.SuspendLayout();
+            this.outletSortGroupBox.SuspendLayout();
+            this.outletSearchGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOutlet)).BeginInit();
             this.SuspendLayout();
             // 
@@ -165,12 +149,11 @@ namespace MartDB
             // 
             this.panelBooking.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelBooking.Controls.Add(this.btnHandleBookingForm);
-            this.panelBooking.Controls.Add(this.btnUpdateBookingDGV);
             this.panelBooking.Controls.Add(this.bookingSearchFloorGroupBox);
             this.panelBooking.Controls.Add(this.dgvBooking);
-            this.panelBooking.Controls.Add(this.btnShowAllBookings);
-            this.panelBooking.Controls.Add(this.bookingSquareSearchGroupBox);
-            this.panelBooking.Controls.Add(this.bookingSortColGroupBox);
+            this.panelBooking.Controls.Add(this.btnBookingShowAll);
+            this.panelBooking.Controls.Add(this.bookingSearchSquareGroupBox);
+            this.panelBooking.Controls.Add(this.bookingSortGroupBox);
             this.panelBooking.Controls.Add(this.bookingPanelLabel);
             this.panelBooking.Location = new System.Drawing.Point(12, 33);
             this.panelBooking.Name = "panelBooking";
@@ -185,24 +168,15 @@ namespace MartDB
             this.btnHandleBookingForm.TabIndex = 22;
             this.btnHandleBookingForm.Text = "Управление арендами";
             this.btnHandleBookingForm.UseVisualStyleBackColor = true;
-            // 
-            // btnUpdateBookingDGV
-            // 
-            this.btnUpdateBookingDGV.Location = new System.Drawing.Point(714, 408);
-            this.btnUpdateBookingDGV.Name = "btnUpdateBookingDGV";
-            this.btnUpdateBookingDGV.Size = new System.Drawing.Size(176, 57);
-            this.btnUpdateBookingDGV.TabIndex = 21;
-            this.btnUpdateBookingDGV.Text = "Обновить таблицу";
-            this.btnUpdateBookingDGV.UseVisualStyleBackColor = true;
-            this.btnUpdateBookingDGV.Click += new System.EventHandler(this.btnUpdateBookingDGV_Click);
+            this.btnHandleBookingForm.Click += new System.EventHandler(this.btnHandleBookingForm_Click);
             // 
             // bookingSearchFloorGroupBox
             // 
-            this.bookingSearchFloorGroupBox.Controls.Add(this.label8);
-            this.bookingSearchFloorGroupBox.Controls.Add(this.label9);
-            this.bookingSearchFloorGroupBox.Controls.Add(this.rightFloorBoundTextBox);
-            this.bookingSearchFloorGroupBox.Controls.Add(this.label10);
-            this.bookingSearchFloorGroupBox.Controls.Add(this.leftFloorBoundTextBox);
+            this.bookingSearchFloorGroupBox.Controls.Add(this.bookingSearchFloorRightBoundLabel);
+            this.bookingSearchFloorGroupBox.Controls.Add(this.bookingSearchFloorLeftBoundLabel);
+            this.bookingSearchFloorGroupBox.Controls.Add(this.bookingSearchFloorRightBoundTextBox);
+            this.bookingSearchFloorGroupBox.Controls.Add(this.bookingSearchFloorQueryLabel);
+            this.bookingSearchFloorGroupBox.Controls.Add(this.bookingSearchFloorLeftBoundTextBox);
             this.bookingSearchFloorGroupBox.Controls.Add(this.btnFloorSearch);
             this.bookingSearchFloorGroupBox.Location = new System.Drawing.Point(15, 162);
             this.bookingSearchFloorGroupBox.Name = "bookingSearchFloorGroupBox";
@@ -211,46 +185,46 @@ namespace MartDB
             this.bookingSearchFloorGroupBox.TabStop = false;
             this.bookingSearchFloorGroupBox.Text = "Поиск по номеру этажа";
             // 
-            // label8
+            // bookingSearchFloorRightBoundLabel
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(21, 65);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(118, 17);
-            this.label8.TabIndex = 11;
-            this.label8.Text = "Правая граница:";
+            this.bookingSearchFloorRightBoundLabel.AutoSize = true;
+            this.bookingSearchFloorRightBoundLabel.Location = new System.Drawing.Point(21, 65);
+            this.bookingSearchFloorRightBoundLabel.Name = "bookingSearchFloorRightBoundLabel";
+            this.bookingSearchFloorRightBoundLabel.Size = new System.Drawing.Size(118, 17);
+            this.bookingSearchFloorRightBoundLabel.TabIndex = 11;
+            this.bookingSearchFloorRightBoundLabel.Text = "Правая граница:";
             // 
-            // label9
+            // bookingSearchFloorLeftBoundLabel
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(21, 40);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(110, 17);
-            this.label9.TabIndex = 10;
-            this.label9.Text = "Левая граница:";
+            this.bookingSearchFloorLeftBoundLabel.AutoSize = true;
+            this.bookingSearchFloorLeftBoundLabel.Location = new System.Drawing.Point(21, 40);
+            this.bookingSearchFloorLeftBoundLabel.Name = "bookingSearchFloorLeftBoundLabel";
+            this.bookingSearchFloorLeftBoundLabel.Size = new System.Drawing.Size(110, 17);
+            this.bookingSearchFloorLeftBoundLabel.TabIndex = 10;
+            this.bookingSearchFloorLeftBoundLabel.Text = "Левая граница:";
             // 
-            // rightFloorBoundTextBox
+            // bookingSearchFloorRightBoundTextBox
             // 
-            this.rightFloorBoundTextBox.Location = new System.Drawing.Point(147, 65);
-            this.rightFloorBoundTextBox.Name = "rightFloorBoundTextBox";
-            this.rightFloorBoundTextBox.Size = new System.Drawing.Size(119, 22);
-            this.rightFloorBoundTextBox.TabIndex = 9;
+            this.bookingSearchFloorRightBoundTextBox.Location = new System.Drawing.Point(147, 65);
+            this.bookingSearchFloorRightBoundTextBox.Name = "bookingSearchFloorRightBoundTextBox";
+            this.bookingSearchFloorRightBoundTextBox.Size = new System.Drawing.Size(119, 22);
+            this.bookingSearchFloorRightBoundTextBox.TabIndex = 9;
             // 
-            // label10
+            // bookingSearchFloorQueryLabel
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(6, 18);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(117, 17);
-            this.label10.TabIndex = 7;
-            this.label10.Text = "Введите запрос:";
+            this.bookingSearchFloorQueryLabel.AutoSize = true;
+            this.bookingSearchFloorQueryLabel.Location = new System.Drawing.Point(6, 18);
+            this.bookingSearchFloorQueryLabel.Name = "bookingSearchFloorQueryLabel";
+            this.bookingSearchFloorQueryLabel.Size = new System.Drawing.Size(117, 17);
+            this.bookingSearchFloorQueryLabel.TabIndex = 7;
+            this.bookingSearchFloorQueryLabel.Text = "Введите запрос:";
             // 
-            // leftFloorBoundTextBox
+            // bookingSearchFloorLeftBoundTextBox
             // 
-            this.leftFloorBoundTextBox.Location = new System.Drawing.Point(147, 37);
-            this.leftFloorBoundTextBox.Name = "leftFloorBoundTextBox";
-            this.leftFloorBoundTextBox.Size = new System.Drawing.Size(119, 22);
-            this.leftFloorBoundTextBox.TabIndex = 6;
+            this.bookingSearchFloorLeftBoundTextBox.Location = new System.Drawing.Point(147, 37);
+            this.bookingSearchFloorLeftBoundTextBox.Name = "bookingSearchFloorLeftBoundTextBox";
+            this.bookingSearchFloorLeftBoundTextBox.Size = new System.Drawing.Size(119, 22);
+            this.bookingSearchFloorLeftBoundTextBox.TabIndex = 6;
             // 
             // btnFloorSearch
             // 
@@ -260,7 +234,7 @@ namespace MartDB
             this.btnFloorSearch.TabIndex = 5;
             this.btnFloorSearch.Text = "Найти";
             this.btnFloorSearch.UseVisualStyleBackColor = true;
-            this.btnFloorSearch.Click += new System.EventHandler(this.btnSearchFloors_Click);
+            this.btnFloorSearch.Click += new System.EventHandler(this.btnFloorSearch_Click);
             // 
             // dgvBooking
             // 
@@ -275,153 +249,153 @@ namespace MartDB
             this.dgvBooking.Size = new System.Drawing.Size(511, 380);
             this.dgvBooking.TabIndex = 19;
             // 
-            // btnShowAllBookings
+            // btnBookingShowAll
             // 
-            this.btnShowAllBookings.Location = new System.Drawing.Point(158, 276);
-            this.btnShowAllBookings.Name = "btnShowAllBookings";
-            this.btnShowAllBookings.Size = new System.Drawing.Size(119, 42);
-            this.btnShowAllBookings.TabIndex = 8;
-            this.btnShowAllBookings.Text = "Показать все";
-            this.btnShowAllBookings.UseVisualStyleBackColor = true;
-            this.btnShowAllBookings.Click += new System.EventHandler(this.btnShowAllBookings_Click);
+            this.btnBookingShowAll.Location = new System.Drawing.Point(158, 276);
+            this.btnBookingShowAll.Name = "btnBookingShowAll";
+            this.btnBookingShowAll.Size = new System.Drawing.Size(119, 42);
+            this.btnBookingShowAll.TabIndex = 8;
+            this.btnBookingShowAll.Text = "Показать все";
+            this.btnBookingShowAll.UseVisualStyleBackColor = true;
+            this.btnBookingShowAll.Click += new System.EventHandler(this.btnBookingShowAll_Click);
             // 
-            // bookingSquareSearchGroupBox
+            // bookingSearchSquareGroupBox
             // 
-            this.bookingSquareSearchGroupBox.Controls.Add(this.label6);
-            this.bookingSquareSearchGroupBox.Controls.Add(this.label1);
-            this.bookingSquareSearchGroupBox.Controls.Add(this.rightSquareBoundtextBox);
-            this.bookingSquareSearchGroupBox.Controls.Add(this.label7);
-            this.bookingSquareSearchGroupBox.Controls.Add(this.leftSquareBoundTextBox);
-            this.bookingSquareSearchGroupBox.Controls.Add(this.btnSearchSquare);
-            this.bookingSquareSearchGroupBox.Location = new System.Drawing.Point(13, 42);
-            this.bookingSquareSearchGroupBox.Name = "bookingSquareSearchGroupBox";
-            this.bookingSquareSearchGroupBox.Size = new System.Drawing.Size(399, 108);
-            this.bookingSquareSearchGroupBox.TabIndex = 18;
-            this.bookingSquareSearchGroupBox.TabStop = false;
-            this.bookingSquareSearchGroupBox.Text = "Поиск по площади";
+            this.bookingSearchSquareGroupBox.Controls.Add(this.bookingSearchSquareRightBoundLabel);
+            this.bookingSearchSquareGroupBox.Controls.Add(this.bookingSearchSquareLeftBoundLabel);
+            this.bookingSearchSquareGroupBox.Controls.Add(this.bookingSearchSquareRightBoundTextBox);
+            this.bookingSearchSquareGroupBox.Controls.Add(this.bookingSearchSquareQueryLabel);
+            this.bookingSearchSquareGroupBox.Controls.Add(this.bookingSearchSquareLeftBoundTextBox);
+            this.bookingSearchSquareGroupBox.Controls.Add(this.btnSquareSearch);
+            this.bookingSearchSquareGroupBox.Location = new System.Drawing.Point(13, 42);
+            this.bookingSearchSquareGroupBox.Name = "bookingSearchSquareGroupBox";
+            this.bookingSearchSquareGroupBox.Size = new System.Drawing.Size(399, 108);
+            this.bookingSearchSquareGroupBox.TabIndex = 18;
+            this.bookingSearchSquareGroupBox.TabStop = false;
+            this.bookingSearchSquareGroupBox.Text = "Поиск по площади";
             // 
-            // label6
+            // bookingSearchSquareRightBoundLabel
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(21, 65);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(118, 17);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "Правая граница:";
+            this.bookingSearchSquareRightBoundLabel.AutoSize = true;
+            this.bookingSearchSquareRightBoundLabel.Location = new System.Drawing.Point(21, 65);
+            this.bookingSearchSquareRightBoundLabel.Name = "bookingSearchSquareRightBoundLabel";
+            this.bookingSearchSquareRightBoundLabel.Size = new System.Drawing.Size(118, 17);
+            this.bookingSearchSquareRightBoundLabel.TabIndex = 11;
+            this.bookingSearchSquareRightBoundLabel.Text = "Правая граница:";
             // 
-            // label1
+            // bookingSearchSquareLeftBoundLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 40);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(110, 17);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "Левая граница:";
+            this.bookingSearchSquareLeftBoundLabel.AutoSize = true;
+            this.bookingSearchSquareLeftBoundLabel.Location = new System.Drawing.Point(21, 40);
+            this.bookingSearchSquareLeftBoundLabel.Name = "bookingSearchSquareLeftBoundLabel";
+            this.bookingSearchSquareLeftBoundLabel.Size = new System.Drawing.Size(110, 17);
+            this.bookingSearchSquareLeftBoundLabel.TabIndex = 10;
+            this.bookingSearchSquareLeftBoundLabel.Text = "Левая граница:";
             // 
-            // rightSquareBoundtextBox
+            // bookingSearchSquareRightBoundTextBox
             // 
-            this.rightSquareBoundtextBox.Location = new System.Drawing.Point(147, 65);
-            this.rightSquareBoundtextBox.Name = "rightSquareBoundtextBox";
-            this.rightSquareBoundtextBox.Size = new System.Drawing.Size(119, 22);
-            this.rightSquareBoundtextBox.TabIndex = 9;
+            this.bookingSearchSquareRightBoundTextBox.Location = new System.Drawing.Point(147, 65);
+            this.bookingSearchSquareRightBoundTextBox.Name = "bookingSearchSquareRightBoundTextBox";
+            this.bookingSearchSquareRightBoundTextBox.Size = new System.Drawing.Size(119, 22);
+            this.bookingSearchSquareRightBoundTextBox.TabIndex = 9;
             // 
-            // label7
+            // bookingSearchSquareQueryLabel
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 18);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(117, 17);
-            this.label7.TabIndex = 7;
-            this.label7.Text = "Введите запрос:";
+            this.bookingSearchSquareQueryLabel.AutoSize = true;
+            this.bookingSearchSquareQueryLabel.Location = new System.Drawing.Point(6, 18);
+            this.bookingSearchSquareQueryLabel.Name = "bookingSearchSquareQueryLabel";
+            this.bookingSearchSquareQueryLabel.Size = new System.Drawing.Size(117, 17);
+            this.bookingSearchSquareQueryLabel.TabIndex = 7;
+            this.bookingSearchSquareQueryLabel.Text = "Введите запрос:";
             // 
-            // leftSquareBoundTextBox
+            // bookingSearchSquareLeftBoundTextBox
             // 
-            this.leftSquareBoundTextBox.Location = new System.Drawing.Point(147, 37);
-            this.leftSquareBoundTextBox.Name = "leftSquareBoundTextBox";
-            this.leftSquareBoundTextBox.Size = new System.Drawing.Size(119, 22);
-            this.leftSquareBoundTextBox.TabIndex = 6;
+            this.bookingSearchSquareLeftBoundTextBox.Location = new System.Drawing.Point(147, 37);
+            this.bookingSearchSquareLeftBoundTextBox.Name = "bookingSearchSquareLeftBoundTextBox";
+            this.bookingSearchSquareLeftBoundTextBox.Size = new System.Drawing.Size(119, 22);
+            this.bookingSearchSquareLeftBoundTextBox.TabIndex = 6;
             // 
-            // btnSearchSquare
+            // btnSquareSearch
             // 
-            this.btnSearchSquare.Location = new System.Drawing.Point(272, 40);
-            this.btnSearchSquare.Name = "btnSearchSquare";
-            this.btnSearchSquare.Size = new System.Drawing.Size(119, 42);
-            this.btnSearchSquare.TabIndex = 5;
-            this.btnSearchSquare.Text = "Найти";
-            this.btnSearchSquare.UseVisualStyleBackColor = true;
-            this.btnSearchSquare.Click += new System.EventHandler(this.btnSearchSquares_Click);
+            this.btnSquareSearch.Location = new System.Drawing.Point(272, 40);
+            this.btnSquareSearch.Name = "btnSquareSearch";
+            this.btnSquareSearch.Size = new System.Drawing.Size(119, 42);
+            this.btnSquareSearch.TabIndex = 5;
+            this.btnSquareSearch.Text = "Найти";
+            this.btnSquareSearch.UseVisualStyleBackColor = true;
+            this.btnSquareSearch.Click += new System.EventHandler(this.btnSquareSearch_Click);
             // 
-            // bookingSortColGroupBox
+            // bookingSortGroupBox
             // 
-            this.bookingSortColGroupBox.Controls.Add(this.btnSort);
-            this.bookingSortColGroupBox.Controls.Add(this.radioButtonDesc);
-            this.bookingSortColGroupBox.Controls.Add(this.radioButtonAsc);
-            this.bookingSortColGroupBox.Controls.Add(this.listBoxFieldsForSort);
-            this.bookingSortColGroupBox.Controls.Add(this.label5);
-            this.bookingSortColGroupBox.Location = new System.Drawing.Point(13, 318);
-            this.bookingSortColGroupBox.Name = "bookingSortColGroupBox";
-            this.bookingSortColGroupBox.Size = new System.Drawing.Size(399, 147);
-            this.bookingSortColGroupBox.TabIndex = 17;
-            this.bookingSortColGroupBox.TabStop = false;
-            this.bookingSortColGroupBox.Text = "Сортировка";
+            this.bookingSortGroupBox.Controls.Add(this.btnBookingSort);
+            this.bookingSortGroupBox.Controls.Add(this.descBookingRadioButton);
+            this.bookingSortGroupBox.Controls.Add(this.ascBookingRadioButton);
+            this.bookingSortGroupBox.Controls.Add(this.bookingSortColsListBox);
+            this.bookingSortGroupBox.Controls.Add(this.bookingSortLabel);
+            this.bookingSortGroupBox.Location = new System.Drawing.Point(13, 318);
+            this.bookingSortGroupBox.Name = "bookingSortGroupBox";
+            this.bookingSortGroupBox.Size = new System.Drawing.Size(399, 147);
+            this.bookingSortGroupBox.TabIndex = 17;
+            this.bookingSortGroupBox.TabStop = false;
+            this.bookingSortGroupBox.Text = "Сортировка";
             // 
-            // btnSort
+            // btnBookingSort
             // 
-            this.btnSort.Enabled = false;
-            this.btnSort.Location = new System.Drawing.Point(256, 93);
-            this.btnSort.Name = "btnSort";
-            this.btnSort.Size = new System.Drawing.Size(119, 42);
-            this.btnSort.TabIndex = 4;
-            this.btnSort.Text = "Сортировать";
-            this.btnSort.UseVisualStyleBackColor = true;
-            this.btnSort.Click += new System.EventHandler(this.btnSortBookings_Click);
+            this.btnBookingSort.Enabled = false;
+            this.btnBookingSort.Location = new System.Drawing.Point(256, 93);
+            this.btnBookingSort.Name = "btnBookingSort";
+            this.btnBookingSort.Size = new System.Drawing.Size(119, 42);
+            this.btnBookingSort.TabIndex = 4;
+            this.btnBookingSort.Text = "Сортировать";
+            this.btnBookingSort.UseVisualStyleBackColor = true;
+            this.btnBookingSort.Click += new System.EventHandler(this.btnBookingSort_Click);
             // 
-            // radioButtonDesc
+            // descBookingRadioButton
             // 
-            this.radioButtonDesc.AutoSize = true;
-            this.radioButtonDesc.Location = new System.Drawing.Point(256, 66);
-            this.radioButtonDesc.Name = "radioButtonDesc";
-            this.radioButtonDesc.Size = new System.Drawing.Size(117, 21);
-            this.radioButtonDesc.TabIndex = 3;
-            this.radioButtonDesc.Text = "По убыванию";
-            this.radioButtonDesc.UseVisualStyleBackColor = true;
+            this.descBookingRadioButton.AutoSize = true;
+            this.descBookingRadioButton.Location = new System.Drawing.Point(256, 66);
+            this.descBookingRadioButton.Name = "descBookingRadioButton";
+            this.descBookingRadioButton.Size = new System.Drawing.Size(117, 21);
+            this.descBookingRadioButton.TabIndex = 3;
+            this.descBookingRadioButton.Text = "По убыванию";
+            this.descBookingRadioButton.UseVisualStyleBackColor = true;
             // 
-            // radioButtonAsc
+            // ascBookingRadioButton
             // 
-            this.radioButtonAsc.AutoSize = true;
-            this.radioButtonAsc.Checked = true;
-            this.radioButtonAsc.Location = new System.Drawing.Point(256, 39);
-            this.radioButtonAsc.Name = "radioButtonAsc";
-            this.radioButtonAsc.Size = new System.Drawing.Size(137, 21);
-            this.radioButtonAsc.TabIndex = 2;
-            this.radioButtonAsc.TabStop = true;
-            this.radioButtonAsc.Text = "По возрастанию";
-            this.radioButtonAsc.UseVisualStyleBackColor = true;
+            this.ascBookingRadioButton.AutoSize = true;
+            this.ascBookingRadioButton.Checked = true;
+            this.ascBookingRadioButton.Location = new System.Drawing.Point(256, 39);
+            this.ascBookingRadioButton.Name = "ascBookingRadioButton";
+            this.ascBookingRadioButton.Size = new System.Drawing.Size(137, 21);
+            this.ascBookingRadioButton.TabIndex = 2;
+            this.ascBookingRadioButton.TabStop = true;
+            this.ascBookingRadioButton.Text = "По возрастанию";
+            this.ascBookingRadioButton.UseVisualStyleBackColor = true;
             // 
-            // listBoxFieldsForSort
+            // bookingSortColsListBox
             // 
-            this.listBoxFieldsForSort.FormattingEnabled = true;
-            this.listBoxFieldsForSort.ItemHeight = 16;
-            this.listBoxFieldsForSort.Items.AddRange(new object[] {
+            this.bookingSortColsListBox.FormattingEnabled = true;
+            this.bookingSortColsListBox.ItemHeight = 16;
+            this.bookingSortColsListBox.Items.AddRange(new object[] {
             "Площадь помещения",
             "Номер этажа",
             "Стоимость аренды",
             "Начало периода аренды",
             "Конец периода аренды"});
-            this.listBoxFieldsForSort.Location = new System.Drawing.Point(9, 39);
-            this.listBoxFieldsForSort.Name = "listBoxFieldsForSort";
-            this.listBoxFieldsForSort.Size = new System.Drawing.Size(241, 100);
-            this.listBoxFieldsForSort.TabIndex = 1;
-            this.listBoxFieldsForSort.SelectedIndexChanged += new System.EventHandler(this.bookingSortColListBox_SelectedIndexChanged);
+            this.bookingSortColsListBox.Location = new System.Drawing.Point(9, 39);
+            this.bookingSortColsListBox.Name = "bookingSortColsListBox";
+            this.bookingSortColsListBox.Size = new System.Drawing.Size(241, 100);
+            this.bookingSortColsListBox.TabIndex = 1;
+            this.bookingSortColsListBox.SelectedIndexChanged += new System.EventHandler(this.bookingSortColsListBox_SelectedIndexChanged);
             // 
-            // label5
+            // bookingSortLabel
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 18);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(154, 17);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Поле для сортировки:";
+            this.bookingSortLabel.AutoSize = true;
+            this.bookingSortLabel.Location = new System.Drawing.Point(6, 18);
+            this.bookingSortLabel.Name = "bookingSortLabel";
+            this.bookingSortLabel.Size = new System.Drawing.Size(154, 17);
+            this.bookingSortLabel.TabIndex = 0;
+            this.bookingSortLabel.Text = "Поле для сортировки:";
             // 
             // bookingPanelLabel
             // 
@@ -433,11 +407,6 @@ namespace MartDB
             this.bookingPanelLabel.TabIndex = 6;
             this.bookingPanelLabel.Text = "Панель управления: \"Аренда\"";
             // 
-            // martDBDataSet
-            // 
-            this.martDBDataSet.DataSetName = "MartDBDataSet";
-            this.martDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // menuStrip1
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -446,7 +415,7 @@ namespace MartDB
             this.menuToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(983, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(983, 30);
             this.menuStrip1.TabIndex = 12;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -454,12 +423,12 @@ namespace MartDB
             // 
             this.panelsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mainToolStripMenuItem,
-            this.bookingHandlingToolStripMenuItem,
+            this.bookingToolStripMenuItem,
             this.employeeToolStripMenuItem,
             this.tradeProfileToolStripMenuItem,
             this.outletToolStripMenuItem});
             this.panelsToolStripMenuItem.Name = "panelsToolStripMenuItem";
-            this.panelsToolStripMenuItem.Size = new System.Drawing.Size(93, 24);
+            this.panelsToolStripMenuItem.Size = new System.Drawing.Size(93, 26);
             this.panelsToolStripMenuItem.Text = "Страницы";
             // 
             // mainToolStripMenuItem
@@ -469,12 +438,12 @@ namespace MartDB
             this.mainToolStripMenuItem.Text = "Главная";
             this.mainToolStripMenuItem.Click += new System.EventHandler(this.mainPanelToolStripMenuItem_Click);
             // 
-            // bookingHandlingToolStripMenuItem
+            // bookingToolStripMenuItem
             // 
-            this.bookingHandlingToolStripMenuItem.Name = "bookingHandlingToolStripMenuItem";
-            this.bookingHandlingToolStripMenuItem.Size = new System.Drawing.Size(345, 26);
-            this.bookingHandlingToolStripMenuItem.Text = "Управление арендами";
-            this.bookingHandlingToolStripMenuItem.Click += new System.EventHandler(this.bookingPanelToolStripMenuItem_Click);
+            this.bookingToolStripMenuItem.Name = "bookingToolStripMenuItem";
+            this.bookingToolStripMenuItem.Size = new System.Drawing.Size(345, 26);
+            this.bookingToolStripMenuItem.Text = "Управление арендами";
+            this.bookingToolStripMenuItem.Click += new System.EventHandler(this.bookingPanelToolStripMenuItem_Click);
             // 
             // employeeToolStripMenuItem
             // 
@@ -500,23 +469,23 @@ namespace MartDB
             // menuToolStripMenuItem
             // 
             this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutToolStripMenuItem1});
+            this.aboutToolStripMenuItem});
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
-            this.menuToolStripMenuItem.Size = new System.Drawing.Size(65, 24);
+            this.menuToolStripMenuItem.Size = new System.Drawing.Size(65, 26);
             this.menuToolStripMenuItem.Text = "Меню";
             // 
-            // aboutToolStripMenuItem1
+            // aboutToolStripMenuItem
             // 
-            this.aboutToolStripMenuItem1.Name = "aboutToolStripMenuItem1";
-            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
-            this.aboutToolStripMenuItem1.Text = "О программе";
-            this.aboutToolStripMenuItem1.Click += new System.EventHandler(this.aboutToolStripMenuItem1_Click);
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(187, 26);
+            this.aboutToolStripMenuItem.Text = "О программе";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // panelMainLabel
             // 
             this.panelMainLabel.AutoSize = true;
             this.panelMainLabel.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.panelMainLabel.Location = new System.Drawing.Point(393, 13);
+            this.panelMainLabel.Location = new System.Drawing.Point(384, 101);
             this.panelMainLabel.Name = "panelMainLabel";
             this.panelMainLabel.Size = new System.Drawing.Size(149, 46);
             this.panelMainLabel.TabIndex = 0;
@@ -540,7 +509,7 @@ namespace MartDB
             this.btnPanelMain.TabIndex = 8;
             this.btnPanelMain.Text = "На главную";
             this.btnPanelMain.UseVisualStyleBackColor = true;
-            this.btnPanelMain.Click += new System.EventHandler(this.btnMainPanel_Click);
+            this.btnPanelMain.Click += new System.EventHandler(this.btnPanelMain_Click);
             // 
             // btnPreviousPanel
             // 
@@ -555,8 +524,7 @@ namespace MartDB
             // panelMain
             // 
             this.panelMain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelMain.Controls.Add(this.currentUserRoleLabel);
-            this.panelMain.Controls.Add(this.currentUserNameLabel);
+            this.panelMain.Controls.Add(this.panelUser);
             this.panelMain.Controls.Add(this.btnPanelBooking);
             this.panelMain.Controls.Add(this.btnPanelOutlet);
             this.panelMain.Controls.Add(this.btnPanelTradeProfile);
@@ -570,9 +538,47 @@ namespace MartDB
             this.panelMain.Size = new System.Drawing.Size(948, 560);
             this.panelMain.TabIndex = 13;
             // 
+            // panelUser
+            // 
+            this.panelUser.Controls.Add(this.currentUserNameLabel);
+            this.panelUser.Controls.Add(this.btnChangeUser);
+            this.panelUser.Controls.Add(this.currentUserRoleLabel);
+            this.panelUser.Location = new System.Drawing.Point(-1, -1);
+            this.panelUser.Name = "panelUser";
+            this.panelUser.Size = new System.Drawing.Size(324, 131);
+            this.panelUser.TabIndex = 20;
+            // 
+            // currentUserNameLabel
+            // 
+            this.currentUserNameLabel.AutoSize = true;
+            this.currentUserNameLabel.Location = new System.Drawing.Point(18, 21);
+            this.currentUserNameLabel.Name = "currentUserNameLabel";
+            this.currentUserNameLabel.Size = new System.Drawing.Size(165, 17);
+            this.currentUserNameLabel.TabIndex = 17;
+            this.currentUserNameLabel.Text = "Текущий пользователь:";
+            // 
+            // btnChangeUser
+            // 
+            this.btnChangeUser.Location = new System.Drawing.Point(87, 72);
+            this.btnChangeUser.Name = "btnChangeUser";
+            this.btnChangeUser.Size = new System.Drawing.Size(124, 45);
+            this.btnChangeUser.TabIndex = 19;
+            this.btnChangeUser.Text = "Сменить пользователя";
+            this.btnChangeUser.UseVisualStyleBackColor = true;
+            this.btnChangeUser.Click += new System.EventHandler(this.btnChangeUser_Click);
+            // 
+            // currentUserRoleLabel
+            // 
+            this.currentUserRoleLabel.AutoSize = true;
+            this.currentUserRoleLabel.Location = new System.Drawing.Point(18, 48);
+            this.currentUserRoleLabel.Name = "currentUserRoleLabel";
+            this.currentUserRoleLabel.Size = new System.Drawing.Size(105, 17);
+            this.currentUserRoleLabel.TabIndex = 18;
+            this.currentUserRoleLabel.Text = "Текущая роль:";
+            // 
             // btnPanelBooking
             // 
-            this.btnPanelBooking.Location = new System.Drawing.Point(126, 116);
+            this.btnPanelBooking.Location = new System.Drawing.Point(112, 197);
             this.btnPanelBooking.Name = "btnPanelBooking";
             this.btnPanelBooking.Size = new System.Drawing.Size(286, 83);
             this.btnPanelBooking.TabIndex = 14;
@@ -582,120 +588,46 @@ namespace MartDB
             // 
             // btnPanelOutlet
             // 
-            this.btnPanelOutlet.Location = new System.Drawing.Point(550, 224);
+            this.btnPanelOutlet.Location = new System.Drawing.Point(536, 305);
             this.btnPanelOutlet.Name = "btnPanelOutlet";
             this.btnPanelOutlet.Size = new System.Drawing.Size(286, 83);
             this.btnPanelOutlet.TabIndex = 13;
             this.btnPanelOutlet.Text = "Панель управления торговыми точками";
             this.btnPanelOutlet.UseVisualStyleBackColor = true;
-            this.btnPanelOutlet.Click += new System.EventHandler(this.btnOutletPanel_Click);
+            this.btnPanelOutlet.Click += new System.EventHandler(this.btnPanelOutlet_Click);
             // 
             // btnPanelTradeProfile
             // 
-            this.btnPanelTradeProfile.Location = new System.Drawing.Point(550, 116);
+            this.btnPanelTradeProfile.Location = new System.Drawing.Point(536, 197);
             this.btnPanelTradeProfile.Name = "btnPanelTradeProfile";
             this.btnPanelTradeProfile.Size = new System.Drawing.Size(286, 83);
             this.btnPanelTradeProfile.TabIndex = 12;
             this.btnPanelTradeProfile.Text = "Панель управления торговыми профилями";
             this.btnPanelTradeProfile.UseVisualStyleBackColor = true;
-            this.btnPanelTradeProfile.Click += new System.EventHandler(this.btnTradeProfilePanel_Click);
+            this.btnPanelTradeProfile.Click += new System.EventHandler(this.btnPanelTradeProfile_Click);
             // 
             // btnPanelEmployee
             // 
-            this.btnPanelEmployee.Location = new System.Drawing.Point(126, 224);
+            this.btnPanelEmployee.Location = new System.Drawing.Point(112, 305);
             this.btnPanelEmployee.Name = "btnPanelEmployee";
             this.btnPanelEmployee.Size = new System.Drawing.Size(286, 83);
             this.btnPanelEmployee.TabIndex = 11;
             this.btnPanelEmployee.Text = "Панель управления сотрудниками";
             this.btnPanelEmployee.UseVisualStyleBackColor = true;
-            this.btnPanelEmployee.Click += new System.EventHandler(this.btnEmployeePanel_Click);
-            // 
-            // employeeBindingSource
-            // 
-            this.employeeBindingSource.DataMember = "Employee";
-            this.employeeBindingSource.DataSource = this.martDBDataSet;
-            // 
-            // employeeTableAdapter
-            // 
-            this.employeeTableAdapter.ClearBeforeFill = true;
-            // 
-            // bookingTableAdapterManager
-            // 
-            this.bookingTableAdapterManager.AreaTableAdapter = null;
-            this.bookingTableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.bookingTableAdapterManager.BookingTableAdapter = this.bookingTableAdapter;
-            this.bookingTableAdapterManager.EmployeeTableAdapter = null;
-            this.bookingTableAdapterManager.OrganisationTableAdapter = null;
-            this.bookingTableAdapterManager.OutletTableAdapter = null;
-            this.bookingTableAdapterManager.ReviewTableAdapter = null;
-            this.bookingTableAdapterManager.TradeProfileTableAdapter = null;
-            this.bookingTableAdapterManager.UpdateOrder = MartDB.MartDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // bookingTableAdapter
-            // 
-            this.bookingTableAdapter.ClearBeforeFill = true;
-            // 
-            // areaTableAdapter
-            // 
-            this.areaTableAdapter.ClearBeforeFill = true;
-            // 
-            // areaTableAdapterManager
-            // 
-            this.areaTableAdapterManager.AreaTableAdapter = this.areaTableAdapter;
-            this.areaTableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.areaTableAdapterManager.BookingTableAdapter = null;
-            this.areaTableAdapterManager.EmployeeTableAdapter = null;
-            this.areaTableAdapterManager.OrganisationTableAdapter = null;
-            this.areaTableAdapterManager.OutletTableAdapter = null;
-            this.areaTableAdapterManager.ReviewTableAdapter = null;
-            this.areaTableAdapterManager.TradeProfileTableAdapter = null;
-            this.areaTableAdapterManager.UpdateOrder = MartDB.MartDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // bookingBindingSource
-            // 
-            this.bookingBindingSource.DataMember = "Booking";
-            this.bookingBindingSource.DataSource = this.martDBDataSet;
-            // 
-            // areaBindingSource
-            // 
-            this.areaBindingSource.DataMember = "Area";
-            this.areaBindingSource.DataSource = this.martDBDataSet;
-            // 
-            // employeeTableAdapterManager
-            // 
-            this.employeeTableAdapterManager.AreaTableAdapter = null;
-            this.employeeTableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.employeeTableAdapterManager.BookingTableAdapter = null;
-            this.employeeTableAdapterManager.EmployeeTableAdapter = this.employeeTableAdapter;
-            this.employeeTableAdapterManager.OrganisationTableAdapter = null;
-            this.employeeTableAdapterManager.OutletTableAdapter = null;
-            this.employeeTableAdapterManager.ReviewTableAdapter = null;
-            this.employeeTableAdapterManager.TradeProfileTableAdapter = null;
-            this.employeeTableAdapterManager.UpdateOrder = MartDB.MartDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.btnPanelEmployee.Click += new System.EventHandler(this.btnPanelEmployee_Click);
             // 
             // panelEmployee
             // 
-            this.panelEmployee.Controls.Add(this.btnUpdateEmployeeDGV);
             this.panelEmployee.Controls.Add(this.btnHandleEmployeeForm);
             this.panelEmployee.Controls.Add(this.employeeSortGroupBox);
-            this.panelEmployee.Controls.Add(this.btnShowAllEmployees);
+            this.panelEmployee.Controls.Add(this.btnEmployeeShowAll);
             this.panelEmployee.Controls.Add(this.employeeSearchGroupBox);
             this.panelEmployee.Controls.Add(this.dgvEmployee);
-            this.panelEmployee.Controls.Add(this.label4);
+            this.panelEmployee.Controls.Add(this.employeePanelLabel);
             this.panelEmployee.Location = new System.Drawing.Point(12, 33);
             this.panelEmployee.Name = "panelEmployee";
             this.panelEmployee.Size = new System.Drawing.Size(948, 479);
             this.panelEmployee.TabIndex = 14;
-            // 
-            // btnUpdateEmployeeDGV
-            // 
-            this.btnUpdateEmployeeDGV.Location = new System.Drawing.Point(667, 394);
-            this.btnUpdateEmployeeDGV.Name = "btnUpdateEmployeeDGV";
-            this.btnUpdateEmployeeDGV.Size = new System.Drawing.Size(208, 60);
-            this.btnUpdateEmployeeDGV.TabIndex = 25;
-            this.btnUpdateEmployeeDGV.Text = "Обновить таблицу";
-            this.btnUpdateEmployeeDGV.UseVisualStyleBackColor = true;
-            this.btnUpdateEmployeeDGV.Click += new System.EventHandler(this.btnUpdateEmployeeDGV_Click);
             // 
             // btnHandleEmployeeForm
             // 
@@ -709,11 +641,11 @@ namespace MartDB
             // 
             // employeeSortGroupBox
             // 
-            this.employeeSortGroupBox.Controls.Add(this.employeeSortColListBox);
-            this.employeeSortGroupBox.Controls.Add(this.btnSortEmployees);
+            this.employeeSortGroupBox.Controls.Add(this.employeeSortColsListBox);
+            this.employeeSortGroupBox.Controls.Add(this.btnEmployeeSort);
             this.employeeSortGroupBox.Controls.Add(this.descEmployeeRadioButton);
             this.employeeSortGroupBox.Controls.Add(this.ascEmployeeRadioButton);
-            this.employeeSortGroupBox.Controls.Add(this.employeeSortColLabel);
+            this.employeeSortGroupBox.Controls.Add(this.employeeSortLabel);
             this.employeeSortGroupBox.Location = new System.Drawing.Point(14, 266);
             this.employeeSortGroupBox.Name = "employeeSortGroupBox";
             this.employeeSortGroupBox.Size = new System.Drawing.Size(317, 188);
@@ -721,33 +653,33 @@ namespace MartDB
             this.employeeSortGroupBox.TabStop = false;
             this.employeeSortGroupBox.Text = "Сортировка";
             // 
-            // employeeSortColListBox
+            // employeeSortColsListBox
             // 
-            this.employeeSortColListBox.FormattingEnabled = true;
-            this.employeeSortColListBox.ItemHeight = 16;
-            this.employeeSortColListBox.Items.AddRange(new object[] {
+            this.employeeSortColsListBox.FormattingEnabled = true;
+            this.employeeSortColsListBox.ItemHeight = 16;
+            this.employeeSortColsListBox.Items.AddRange(new object[] {
             "Организация",
             "ФИО",
             "Пол",
             "Должность",
             "Телефонный номер",
             "Электронная почта"});
-            this.employeeSortColListBox.Location = new System.Drawing.Point(7, 39);
-            this.employeeSortColListBox.Name = "employeeSortColListBox";
-            this.employeeSortColListBox.Size = new System.Drawing.Size(154, 116);
-            this.employeeSortColListBox.TabIndex = 13;
-            this.employeeSortColListBox.SelectedIndexChanged += new System.EventHandler(this.employeeSortColListBox_SelectedIndexChanged);
+            this.employeeSortColsListBox.Location = new System.Drawing.Point(7, 39);
+            this.employeeSortColsListBox.Name = "employeeSortColsListBox";
+            this.employeeSortColsListBox.Size = new System.Drawing.Size(154, 116);
+            this.employeeSortColsListBox.TabIndex = 13;
+            this.employeeSortColsListBox.SelectedIndexChanged += new System.EventHandler(this.employeeSortColsListBox_SelectedIndexChanged);
             // 
-            // btnSortEmployees
+            // btnEmployeeSort
             // 
-            this.btnSortEmployees.Enabled = false;
-            this.btnSortEmployees.Location = new System.Drawing.Point(174, 93);
-            this.btnSortEmployees.Name = "btnSortEmployees";
-            this.btnSortEmployees.Size = new System.Drawing.Size(119, 42);
-            this.btnSortEmployees.TabIndex = 4;
-            this.btnSortEmployees.Text = "Сортировать";
-            this.btnSortEmployees.UseVisualStyleBackColor = true;
-            this.btnSortEmployees.Click += new System.EventHandler(this.btnSortEmployees_Click);
+            this.btnEmployeeSort.Enabled = false;
+            this.btnEmployeeSort.Location = new System.Drawing.Point(174, 93);
+            this.btnEmployeeSort.Name = "btnEmployeeSort";
+            this.btnEmployeeSort.Size = new System.Drawing.Size(119, 42);
+            this.btnEmployeeSort.TabIndex = 4;
+            this.btnEmployeeSort.Text = "Сортировать";
+            this.btnEmployeeSort.UseVisualStyleBackColor = true;
+            this.btnEmployeeSort.Click += new System.EventHandler(this.btnEmployeeSort_Click);
             // 
             // descEmployeeRadioButton
             // 
@@ -771,32 +703,32 @@ namespace MartDB
             this.ascEmployeeRadioButton.Text = "По возрастанию";
             this.ascEmployeeRadioButton.UseVisualStyleBackColor = true;
             // 
-            // employeeSortColLabel
+            // employeeSortLabel
             // 
-            this.employeeSortColLabel.AutoSize = true;
-            this.employeeSortColLabel.Location = new System.Drawing.Point(6, 18);
-            this.employeeSortColLabel.Name = "employeeSortColLabel";
-            this.employeeSortColLabel.Size = new System.Drawing.Size(154, 17);
-            this.employeeSortColLabel.TabIndex = 0;
-            this.employeeSortColLabel.Text = "Поле для сортировки:";
+            this.employeeSortLabel.AutoSize = true;
+            this.employeeSortLabel.Location = new System.Drawing.Point(6, 18);
+            this.employeeSortLabel.Name = "employeeSortLabel";
+            this.employeeSortLabel.Size = new System.Drawing.Size(154, 17);
+            this.employeeSortLabel.TabIndex = 0;
+            this.employeeSortLabel.Text = "Поле для сортировки:";
             // 
-            // btnShowAllEmployees
+            // btnEmployeeShowAll
             // 
-            this.btnShowAllEmployees.Location = new System.Drawing.Point(118, 218);
-            this.btnShowAllEmployees.Name = "btnShowAllEmployees";
-            this.btnShowAllEmployees.Size = new System.Drawing.Size(119, 42);
-            this.btnShowAllEmployees.TabIndex = 23;
-            this.btnShowAllEmployees.Text = "Показать все";
-            this.btnShowAllEmployees.UseVisualStyleBackColor = true;
-            this.btnShowAllEmployees.Click += new System.EventHandler(this.btnShowAllEmployees_Click);
+            this.btnEmployeeShowAll.Location = new System.Drawing.Point(118, 218);
+            this.btnEmployeeShowAll.Name = "btnEmployeeShowAll";
+            this.btnEmployeeShowAll.Size = new System.Drawing.Size(119, 42);
+            this.btnEmployeeShowAll.TabIndex = 23;
+            this.btnEmployeeShowAll.Text = "Показать все";
+            this.btnEmployeeShowAll.UseVisualStyleBackColor = true;
+            this.btnEmployeeShowAll.Click += new System.EventHandler(this.btnEmployeeShowAll_Click);
             // 
             // employeeSearchGroupBox
             // 
-            this.employeeSearchGroupBox.Controls.Add(this.employeeQueryLabel);
-            this.employeeSearchGroupBox.Controls.Add(this.employeeSearchColListBox);
-            this.employeeSearchGroupBox.Controls.Add(this.employeeSearchColLabel);
-            this.employeeSearchGroupBox.Controls.Add(this.employeeQueryTextBox);
-            this.employeeSearchGroupBox.Controls.Add(this.btnSearchEmployee);
+            this.employeeSearchGroupBox.Controls.Add(this.employeeSearchQueryLabel);
+            this.employeeSearchGroupBox.Controls.Add(this.employeeSearchColsListBox);
+            this.employeeSearchGroupBox.Controls.Add(this.employeeSearchColsLabel);
+            this.employeeSearchGroupBox.Controls.Add(this.employeeSearchQueryTextBox);
+            this.employeeSearchGroupBox.Controls.Add(this.btnEmployeeSearch);
             this.employeeSearchGroupBox.Location = new System.Drawing.Point(13, 45);
             this.employeeSearchGroupBox.Name = "employeeSearchGroupBox";
             this.employeeSearchGroupBox.Size = new System.Drawing.Size(317, 161);
@@ -804,56 +736,56 @@ namespace MartDB
             this.employeeSearchGroupBox.TabStop = false;
             this.employeeSearchGroupBox.Text = "Поиск";
             // 
-            // employeeQueryLabel
+            // employeeSearchQueryLabel
             // 
-            this.employeeQueryLabel.AutoSize = true;
-            this.employeeQueryLabel.Location = new System.Drawing.Point(178, 43);
-            this.employeeQueryLabel.Name = "employeeQueryLabel";
-            this.employeeQueryLabel.Size = new System.Drawing.Size(117, 17);
-            this.employeeQueryLabel.TabIndex = 12;
-            this.employeeQueryLabel.Text = "Введите запрос:";
+            this.employeeSearchQueryLabel.AutoSize = true;
+            this.employeeSearchQueryLabel.Location = new System.Drawing.Point(178, 43);
+            this.employeeSearchQueryLabel.Name = "employeeSearchQueryLabel";
+            this.employeeSearchQueryLabel.Size = new System.Drawing.Size(117, 17);
+            this.employeeSearchQueryLabel.TabIndex = 12;
+            this.employeeSearchQueryLabel.Text = "Введите запрос:";
             // 
-            // employeeSearchColListBox
+            // employeeSearchColsListBox
             // 
-            this.employeeSearchColListBox.FormattingEnabled = true;
-            this.employeeSearchColListBox.ItemHeight = 16;
-            this.employeeSearchColListBox.Items.AddRange(new object[] {
+            this.employeeSearchColsListBox.FormattingEnabled = true;
+            this.employeeSearchColsListBox.ItemHeight = 16;
+            this.employeeSearchColsListBox.Items.AddRange(new object[] {
             "Организация",
             "ФИО",
             "Пол",
             "Должность",
             "Телефонный номер",
             "Электронная почта"});
-            this.employeeSearchColListBox.Location = new System.Drawing.Point(7, 38);
-            this.employeeSearchColListBox.Name = "employeeSearchColListBox";
-            this.employeeSearchColListBox.Size = new System.Drawing.Size(154, 116);
-            this.employeeSearchColListBox.TabIndex = 11;
+            this.employeeSearchColsListBox.Location = new System.Drawing.Point(7, 38);
+            this.employeeSearchColsListBox.Name = "employeeSearchColsListBox";
+            this.employeeSearchColsListBox.Size = new System.Drawing.Size(154, 116);
+            this.employeeSearchColsListBox.TabIndex = 11;
             // 
-            // employeeSearchColLabel
+            // employeeSearchColsLabel
             // 
-            this.employeeSearchColLabel.AutoSize = true;
-            this.employeeSearchColLabel.Location = new System.Drawing.Point(6, 18);
-            this.employeeSearchColLabel.Name = "employeeSearchColLabel";
-            this.employeeSearchColLabel.Size = new System.Drawing.Size(164, 17);
-            this.employeeSearchColLabel.TabIndex = 7;
-            this.employeeSearchColLabel.Text = "Выберите поле поиска:";
+            this.employeeSearchColsLabel.AutoSize = true;
+            this.employeeSearchColsLabel.Location = new System.Drawing.Point(6, 18);
+            this.employeeSearchColsLabel.Name = "employeeSearchColsLabel";
+            this.employeeSearchColsLabel.Size = new System.Drawing.Size(164, 17);
+            this.employeeSearchColsLabel.TabIndex = 7;
+            this.employeeSearchColsLabel.Text = "Выберите поле поиска:";
             // 
-            // employeeQueryTextBox
+            // employeeSearchQueryTextBox
             // 
-            this.employeeQueryTextBox.Location = new System.Drawing.Point(181, 63);
-            this.employeeQueryTextBox.Name = "employeeQueryTextBox";
-            this.employeeQueryTextBox.Size = new System.Drawing.Size(119, 22);
-            this.employeeQueryTextBox.TabIndex = 6;
+            this.employeeSearchQueryTextBox.Location = new System.Drawing.Point(181, 63);
+            this.employeeSearchQueryTextBox.Name = "employeeSearchQueryTextBox";
+            this.employeeSearchQueryTextBox.Size = new System.Drawing.Size(119, 22);
+            this.employeeSearchQueryTextBox.TabIndex = 6;
             // 
-            // btnSearchEmployee
+            // btnEmployeeSearch
             // 
-            this.btnSearchEmployee.Location = new System.Drawing.Point(181, 91);
-            this.btnSearchEmployee.Name = "btnSearchEmployee";
-            this.btnSearchEmployee.Size = new System.Drawing.Size(119, 42);
-            this.btnSearchEmployee.TabIndex = 5;
-            this.btnSearchEmployee.Text = "Найти";
-            this.btnSearchEmployee.UseVisualStyleBackColor = true;
-            this.btnSearchEmployee.Click += new System.EventHandler(this.btnSearchEmployees_Click);
+            this.btnEmployeeSearch.Location = new System.Drawing.Point(181, 91);
+            this.btnEmployeeSearch.Name = "btnEmployeeSearch";
+            this.btnEmployeeSearch.Size = new System.Drawing.Size(119, 42);
+            this.btnEmployeeSearch.TabIndex = 5;
+            this.btnEmployeeSearch.Text = "Найти";
+            this.btnEmployeeSearch.UseVisualStyleBackColor = true;
+            this.btnEmployeeSearch.Click += new System.EventHandler(this.btnEmployeeSearch_Click);
             // 
             // dgvEmployee
             // 
@@ -869,40 +801,29 @@ namespace MartDB
             this.dgvEmployee.Size = new System.Drawing.Size(578, 318);
             this.dgvEmployee.TabIndex = 22;
             // 
-            // label4
+            // employeePanelLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(8, 9);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(343, 28);
-            this.label4.TabIndex = 21;
-            this.label4.Text = "Панель управления: \"Сотрудники\"";
+            this.employeePanelLabel.AutoSize = true;
+            this.employeePanelLabel.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.employeePanelLabel.Location = new System.Drawing.Point(8, 9);
+            this.employeePanelLabel.Name = "employeePanelLabel";
+            this.employeePanelLabel.Size = new System.Drawing.Size(343, 28);
+            this.employeePanelLabel.TabIndex = 21;
+            this.employeePanelLabel.Text = "Панель управления: \"Сотрудники\"";
             // 
             // panelTradeProfile
             // 
             this.panelTradeProfile.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelTradeProfile.Controls.Add(this.btnUpdateTradeProfileDGV);
             this.panelTradeProfile.Controls.Add(this.btnHandleTradeProfileForm);
             this.panelTradeProfile.Controls.Add(this.tradeProfileSortGroupBox);
-            this.panelTradeProfile.Controls.Add(this.btnShowAllTradeProfiles);
-            this.panelTradeProfile.Controls.Add(this.groupBox7);
+            this.panelTradeProfile.Controls.Add(this.btnTradeProfileShowAll);
+            this.panelTradeProfile.Controls.Add(this.tradeProfileSearchGroupBox);
             this.panelTradeProfile.Controls.Add(this.dgvTradeProfile);
-            this.panelTradeProfile.Controls.Add(this.employeePanelLabel);
+            this.panelTradeProfile.Controls.Add(this.tradeProfilePanelLabel);
             this.panelTradeProfile.Location = new System.Drawing.Point(12, 33);
             this.panelTradeProfile.Name = "panelTradeProfile";
             this.panelTradeProfile.Size = new System.Drawing.Size(948, 479);
             this.panelTradeProfile.TabIndex = 15;
-            // 
-            // btnUpdateTradeProfileDGV
-            // 
-            this.btnUpdateTradeProfileDGV.Location = new System.Drawing.Point(666, 384);
-            this.btnUpdateTradeProfileDGV.Name = "btnUpdateTradeProfileDGV";
-            this.btnUpdateTradeProfileDGV.Size = new System.Drawing.Size(208, 60);
-            this.btnUpdateTradeProfileDGV.TabIndex = 25;
-            this.btnUpdateTradeProfileDGV.Text = "Обновить таблицу";
-            this.btnUpdateTradeProfileDGV.UseVisualStyleBackColor = true;
-            this.btnUpdateTradeProfileDGV.Click += new System.EventHandler(this.btnUpdateTradeProfileDGV_Click);
             // 
             // btnHandleTradeProfileForm
             // 
@@ -916,7 +837,7 @@ namespace MartDB
             // 
             // tradeProfileSortGroupBox
             // 
-            this.tradeProfileSortGroupBox.Controls.Add(this.btnSortTradeProfile);
+            this.tradeProfileSortGroupBox.Controls.Add(this.btnTradeProfileSort);
             this.tradeProfileSortGroupBox.Controls.Add(this.descTradeProfileRadioButton);
             this.tradeProfileSortGroupBox.Controls.Add(this.ascTradeProfileRadioButton);
             this.tradeProfileSortGroupBox.Location = new System.Drawing.Point(14, 266);
@@ -926,15 +847,15 @@ namespace MartDB
             this.tradeProfileSortGroupBox.TabStop = false;
             this.tradeProfileSortGroupBox.Text = "Сортировка";
             // 
-            // btnSortTradeProfile
+            // btnTradeProfileSort
             // 
-            this.btnSortTradeProfile.Location = new System.Drawing.Point(68, 93);
-            this.btnSortTradeProfile.Name = "btnSortTradeProfile";
-            this.btnSortTradeProfile.Size = new System.Drawing.Size(119, 42);
-            this.btnSortTradeProfile.TabIndex = 4;
-            this.btnSortTradeProfile.Text = "Сортировать";
-            this.btnSortTradeProfile.UseVisualStyleBackColor = true;
-            this.btnSortTradeProfile.Click += new System.EventHandler(this.btnSortTradeProfiles_Click);
+            this.btnTradeProfileSort.Location = new System.Drawing.Point(68, 93);
+            this.btnTradeProfileSort.Name = "btnTradeProfileSort";
+            this.btnTradeProfileSort.Size = new System.Drawing.Size(119, 42);
+            this.btnTradeProfileSort.TabIndex = 4;
+            this.btnTradeProfileSort.Text = "Сортировать";
+            this.btnTradeProfileSort.UseVisualStyleBackColor = true;
+            this.btnTradeProfileSort.Click += new System.EventHandler(this.btnTradeProfileSort_Click);
             // 
             // descTradeProfileRadioButton
             // 
@@ -958,53 +879,53 @@ namespace MartDB
             this.ascTradeProfileRadioButton.Text = "По возрастанию";
             this.ascTradeProfileRadioButton.UseVisualStyleBackColor = true;
             // 
-            // btnShowAllTradeProfiles
+            // btnTradeProfileShowAll
             // 
-            this.btnShowAllTradeProfiles.Location = new System.Drawing.Point(84, 208);
-            this.btnShowAllTradeProfiles.Name = "btnShowAllTradeProfiles";
-            this.btnShowAllTradeProfiles.Size = new System.Drawing.Size(119, 42);
-            this.btnShowAllTradeProfiles.TabIndex = 23;
-            this.btnShowAllTradeProfiles.Text = "Показать все";
-            this.btnShowAllTradeProfiles.UseVisualStyleBackColor = true;
-            this.btnShowAllTradeProfiles.Click += new System.EventHandler(this.btnShowAllTradeProfiles_Click);
+            this.btnTradeProfileShowAll.Location = new System.Drawing.Point(84, 208);
+            this.btnTradeProfileShowAll.Name = "btnTradeProfileShowAll";
+            this.btnTradeProfileShowAll.Size = new System.Drawing.Size(119, 42);
+            this.btnTradeProfileShowAll.TabIndex = 23;
+            this.btnTradeProfileShowAll.Text = "Показать все";
+            this.btnTradeProfileShowAll.UseVisualStyleBackColor = true;
+            this.btnTradeProfileShowAll.Click += new System.EventHandler(this.btnTradeProfileShowAll_Click);
             // 
-            // groupBox7
+            // tradeProfileSearchGroupBox
             // 
-            this.groupBox7.Controls.Add(this.tradeProfileQueryLabel);
-            this.groupBox7.Controls.Add(this.queryTradeProfileTextBox);
-            this.groupBox7.Controls.Add(this.btnSearchTradeProfile);
-            this.groupBox7.Location = new System.Drawing.Point(13, 45);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(265, 149);
-            this.groupBox7.TabIndex = 20;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Поиск";
+            this.tradeProfileSearchGroupBox.Controls.Add(this.tradeProfileSearchQueryLabel);
+            this.tradeProfileSearchGroupBox.Controls.Add(this.tradeProfileSearchQueryTextBox);
+            this.tradeProfileSearchGroupBox.Controls.Add(this.btnTradeProfileSearch);
+            this.tradeProfileSearchGroupBox.Location = new System.Drawing.Point(13, 45);
+            this.tradeProfileSearchGroupBox.Name = "tradeProfileSearchGroupBox";
+            this.tradeProfileSearchGroupBox.Size = new System.Drawing.Size(265, 149);
+            this.tradeProfileSearchGroupBox.TabIndex = 20;
+            this.tradeProfileSearchGroupBox.TabStop = false;
+            this.tradeProfileSearchGroupBox.Text = "Поиск";
             // 
-            // tradeProfileQueryLabel
+            // tradeProfileSearchQueryLabel
             // 
-            this.tradeProfileQueryLabel.AutoSize = true;
-            this.tradeProfileQueryLabel.Location = new System.Drawing.Point(73, 21);
-            this.tradeProfileQueryLabel.Name = "tradeProfileQueryLabel";
-            this.tradeProfileQueryLabel.Size = new System.Drawing.Size(117, 17);
-            this.tradeProfileQueryLabel.TabIndex = 12;
-            this.tradeProfileQueryLabel.Text = "Введите запрос:";
+            this.tradeProfileSearchQueryLabel.AutoSize = true;
+            this.tradeProfileSearchQueryLabel.Location = new System.Drawing.Point(73, 21);
+            this.tradeProfileSearchQueryLabel.Name = "tradeProfileSearchQueryLabel";
+            this.tradeProfileSearchQueryLabel.Size = new System.Drawing.Size(117, 17);
+            this.tradeProfileSearchQueryLabel.TabIndex = 12;
+            this.tradeProfileSearchQueryLabel.Text = "Введите запрос:";
             // 
-            // queryTradeProfileTextBox
+            // tradeProfileSearchQueryTextBox
             // 
-            this.queryTradeProfileTextBox.Location = new System.Drawing.Point(71, 49);
-            this.queryTradeProfileTextBox.Name = "queryTradeProfileTextBox";
-            this.queryTradeProfileTextBox.Size = new System.Drawing.Size(119, 22);
-            this.queryTradeProfileTextBox.TabIndex = 6;
+            this.tradeProfileSearchQueryTextBox.Location = new System.Drawing.Point(71, 49);
+            this.tradeProfileSearchQueryTextBox.Name = "tradeProfileSearchQueryTextBox";
+            this.tradeProfileSearchQueryTextBox.Size = new System.Drawing.Size(119, 22);
+            this.tradeProfileSearchQueryTextBox.TabIndex = 6;
             // 
-            // btnSearchTradeProfile
+            // btnTradeProfileSearch
             // 
-            this.btnSearchTradeProfile.Location = new System.Drawing.Point(71, 90);
-            this.btnSearchTradeProfile.Name = "btnSearchTradeProfile";
-            this.btnSearchTradeProfile.Size = new System.Drawing.Size(119, 42);
-            this.btnSearchTradeProfile.TabIndex = 5;
-            this.btnSearchTradeProfile.Text = "Найти";
-            this.btnSearchTradeProfile.UseVisualStyleBackColor = true;
-            this.btnSearchTradeProfile.Click += new System.EventHandler(this.btnSearchTradeProfiles_Click);
+            this.btnTradeProfileSearch.Location = new System.Drawing.Point(71, 90);
+            this.btnTradeProfileSearch.Name = "btnTradeProfileSearch";
+            this.btnTradeProfileSearch.Size = new System.Drawing.Size(119, 42);
+            this.btnTradeProfileSearch.TabIndex = 5;
+            this.btnTradeProfileSearch.Text = "Найти";
+            this.btnTradeProfileSearch.UseVisualStyleBackColor = true;
+            this.btnTradeProfileSearch.Click += new System.EventHandler(this.btnTradeProfileSearch_Click);
             // 
             // dgvTradeProfile
             // 
@@ -1020,70 +941,59 @@ namespace MartDB
             this.dgvTradeProfile.Size = new System.Drawing.Size(578, 318);
             this.dgvTradeProfile.TabIndex = 22;
             // 
-            // employeePanelLabel
+            // tradeProfilePanelLabel
             // 
-            this.employeePanelLabel.AutoSize = true;
-            this.employeePanelLabel.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.employeePanelLabel.Location = new System.Drawing.Point(8, 9);
-            this.employeePanelLabel.Name = "employeePanelLabel";
-            this.employeePanelLabel.Size = new System.Drawing.Size(413, 28);
-            this.employeePanelLabel.TabIndex = 21;
-            this.employeePanelLabel.Text = "Панель управления: \"Торговые профили\"";
+            this.tradeProfilePanelLabel.AutoSize = true;
+            this.tradeProfilePanelLabel.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tradeProfilePanelLabel.Location = new System.Drawing.Point(8, 9);
+            this.tradeProfilePanelLabel.Name = "tradeProfilePanelLabel";
+            this.tradeProfilePanelLabel.Size = new System.Drawing.Size(413, 28);
+            this.tradeProfilePanelLabel.TabIndex = 21;
+            this.tradeProfilePanelLabel.Text = "Панель управления: \"Торговые профили\"";
             // 
             // panelOutlet
             // 
             this.panelOutlet.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelOutlet.Controls.Add(this.btnUpdateOutletDGV);
-            this.panelOutlet.Controls.Add(this.btnShowHandleOutletForm);
-            this.panelOutlet.Controls.Add(this.groupBox8);
-            this.panelOutlet.Controls.Add(this.btnShowAllOutlets);
-            this.panelOutlet.Controls.Add(this.groupBox9);
+            this.panelOutlet.Controls.Add(this.btnHandleOutletForm);
+            this.panelOutlet.Controls.Add(this.outletSortGroupBox);
+            this.panelOutlet.Controls.Add(this.btnOutletShowAll);
+            this.panelOutlet.Controls.Add(this.outletSearchGroupBox);
             this.panelOutlet.Controls.Add(this.dgvOutlet);
-            this.panelOutlet.Controls.Add(this.label19);
+            this.panelOutlet.Controls.Add(this.outletPanelLabel);
             this.panelOutlet.Location = new System.Drawing.Point(12, 33);
             this.panelOutlet.Name = "panelOutlet";
             this.panelOutlet.Size = new System.Drawing.Size(948, 479);
             this.panelOutlet.TabIndex = 16;
             // 
-            // btnUpdateOutletDGV
+            // btnHandleOutletForm
             // 
-            this.btnUpdateOutletDGV.Location = new System.Drawing.Point(666, 397);
-            this.btnUpdateOutletDGV.Name = "btnUpdateOutletDGV";
-            this.btnUpdateOutletDGV.Size = new System.Drawing.Size(208, 60);
-            this.btnUpdateOutletDGV.TabIndex = 25;
-            this.btnUpdateOutletDGV.Text = "Обновить таблицу";
-            this.btnUpdateOutletDGV.UseVisualStyleBackColor = true;
-            this.btnUpdateOutletDGV.Click += new System.EventHandler(this.btnUpdateOutletDGV_Click);
+            this.btnHandleOutletForm.Location = new System.Drawing.Point(401, 397);
+            this.btnHandleOutletForm.Name = "btnHandleOutletForm";
+            this.btnHandleOutletForm.Size = new System.Drawing.Size(208, 60);
+            this.btnHandleOutletForm.TabIndex = 14;
+            this.btnHandleOutletForm.Text = "Управление торговыми точками";
+            this.btnHandleOutletForm.UseVisualStyleBackColor = true;
+            this.btnHandleOutletForm.Click += new System.EventHandler(this.btnHandleOutletForm_Click);
             // 
-            // btnShowHandleOutletForm
+            // outletSortGroupBox
             // 
-            this.btnShowHandleOutletForm.Location = new System.Drawing.Point(401, 397);
-            this.btnShowHandleOutletForm.Name = "btnShowHandleOutletForm";
-            this.btnShowHandleOutletForm.Size = new System.Drawing.Size(208, 60);
-            this.btnShowHandleOutletForm.TabIndex = 14;
-            this.btnShowHandleOutletForm.Text = "Управление торговыми точками";
-            this.btnShowHandleOutletForm.UseVisualStyleBackColor = true;
-            this.btnShowHandleOutletForm.Click += new System.EventHandler(this.btnHandleOutletForm_Click);
+            this.outletSortGroupBox.Controls.Add(this.outletSortColsListBox);
+            this.outletSortGroupBox.Controls.Add(this.btnOutletSort);
+            this.outletSortGroupBox.Controls.Add(this.descOutletRadioButton);
+            this.outletSortGroupBox.Controls.Add(this.ascOutletRadioButton);
+            this.outletSortGroupBox.Controls.Add(this.outletSortLabel);
+            this.outletSortGroupBox.Location = new System.Drawing.Point(14, 266);
+            this.outletSortGroupBox.Name = "outletSortGroupBox";
+            this.outletSortGroupBox.Size = new System.Drawing.Size(317, 188);
+            this.outletSortGroupBox.TabIndex = 24;
+            this.outletSortGroupBox.TabStop = false;
+            this.outletSortGroupBox.Text = "Сортировка";
             // 
-            // groupBox8
+            // outletSortColsListBox
             // 
-            this.groupBox8.Controls.Add(this.sortColsOutletListBox);
-            this.groupBox8.Controls.Add(this.btnSortOutlets);
-            this.groupBox8.Controls.Add(this.descOutletRadioButton);
-            this.groupBox8.Controls.Add(this.ascOutletRadioButton);
-            this.groupBox8.Controls.Add(this.label14);
-            this.groupBox8.Location = new System.Drawing.Point(14, 266);
-            this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(317, 188);
-            this.groupBox8.TabIndex = 24;
-            this.groupBox8.TabStop = false;
-            this.groupBox8.Text = "Сортировка";
-            // 
-            // sortColsOutletListBox
-            // 
-            this.sortColsOutletListBox.FormattingEnabled = true;
-            this.sortColsOutletListBox.ItemHeight = 16;
-            this.sortColsOutletListBox.Items.AddRange(new object[] {
+            this.outletSortColsListBox.FormattingEnabled = true;
+            this.outletSortColsListBox.ItemHeight = 16;
+            this.outletSortColsListBox.Items.AddRange(new object[] {
             "Организация",
             "Код помещения",
             "Название торговой точки",
@@ -1091,22 +1001,22 @@ namespace MartDB
             "Расписание",
             "Рейтинг",
             "Контактное лицо"});
-            this.sortColsOutletListBox.Location = new System.Drawing.Point(7, 39);
-            this.sortColsOutletListBox.Name = "sortColsOutletListBox";
-            this.sortColsOutletListBox.Size = new System.Drawing.Size(154, 116);
-            this.sortColsOutletListBox.TabIndex = 13;
-            this.sortColsOutletListBox.SelectedIndexChanged += new System.EventHandler(this.outletSortColListBox_SelectedIndexChanged);
+            this.outletSortColsListBox.Location = new System.Drawing.Point(7, 39);
+            this.outletSortColsListBox.Name = "outletSortColsListBox";
+            this.outletSortColsListBox.Size = new System.Drawing.Size(154, 116);
+            this.outletSortColsListBox.TabIndex = 13;
+            this.outletSortColsListBox.SelectedIndexChanged += new System.EventHandler(this.outletSortColsListBox_SelectedIndexChanged);
             // 
-            // btnSortOutlets
+            // btnOutletSort
             // 
-            this.btnSortOutlets.Enabled = false;
-            this.btnSortOutlets.Location = new System.Drawing.Point(174, 93);
-            this.btnSortOutlets.Name = "btnSortOutlets";
-            this.btnSortOutlets.Size = new System.Drawing.Size(119, 42);
-            this.btnSortOutlets.TabIndex = 4;
-            this.btnSortOutlets.Text = "Сортировать";
-            this.btnSortOutlets.UseVisualStyleBackColor = true;
-            this.btnSortOutlets.Click += new System.EventHandler(this.btnSortOutlets_Click);
+            this.btnOutletSort.Enabled = false;
+            this.btnOutletSort.Location = new System.Drawing.Point(174, 93);
+            this.btnOutletSort.Name = "btnOutletSort";
+            this.btnOutletSort.Size = new System.Drawing.Size(119, 42);
+            this.btnOutletSort.TabIndex = 4;
+            this.btnOutletSort.Text = "Сортировать";
+            this.btnOutletSort.UseVisualStyleBackColor = true;
+            this.btnOutletSort.Click += new System.EventHandler(this.btnOutletSort_Click);
             // 
             // descOutletRadioButton
             // 
@@ -1130,53 +1040,53 @@ namespace MartDB
             this.ascOutletRadioButton.Text = "По возрастанию";
             this.ascOutletRadioButton.UseVisualStyleBackColor = true;
             // 
-            // label14
+            // outletSortLabel
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(6, 18);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(154, 17);
-            this.label14.TabIndex = 0;
-            this.label14.Text = "Поле для сортировки:";
+            this.outletSortLabel.AutoSize = true;
+            this.outletSortLabel.Location = new System.Drawing.Point(6, 18);
+            this.outletSortLabel.Name = "outletSortLabel";
+            this.outletSortLabel.Size = new System.Drawing.Size(154, 17);
+            this.outletSortLabel.TabIndex = 0;
+            this.outletSortLabel.Text = "Поле для сортировки:";
             // 
-            // btnShowAllOutlets
+            // btnOutletShowAll
             // 
-            this.btnShowAllOutlets.Location = new System.Drawing.Point(118, 218);
-            this.btnShowAllOutlets.Name = "btnShowAllOutlets";
-            this.btnShowAllOutlets.Size = new System.Drawing.Size(119, 42);
-            this.btnShowAllOutlets.TabIndex = 23;
-            this.btnShowAllOutlets.Text = "Показать все";
-            this.btnShowAllOutlets.UseVisualStyleBackColor = true;
-            this.btnShowAllOutlets.Click += new System.EventHandler(this.btnShowAllOutlets_Click);
+            this.btnOutletShowAll.Location = new System.Drawing.Point(118, 218);
+            this.btnOutletShowAll.Name = "btnOutletShowAll";
+            this.btnOutletShowAll.Size = new System.Drawing.Size(119, 42);
+            this.btnOutletShowAll.TabIndex = 23;
+            this.btnOutletShowAll.Text = "Показать все";
+            this.btnOutletShowAll.UseVisualStyleBackColor = true;
+            this.btnOutletShowAll.Click += new System.EventHandler(this.btnOutletShowAll_Click);
             // 
-            // groupBox9
+            // outletSearchGroupBox
             // 
-            this.groupBox9.Controls.Add(this.label16);
-            this.groupBox9.Controls.Add(this.queryOutletFieldColBox);
-            this.groupBox9.Controls.Add(this.label18);
-            this.groupBox9.Controls.Add(this.queryOutletTextBox);
-            this.groupBox9.Controls.Add(this.btnSearchOutlet);
-            this.groupBox9.Location = new System.Drawing.Point(13, 45);
-            this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(317, 161);
-            this.groupBox9.TabIndex = 20;
-            this.groupBox9.TabStop = false;
-            this.groupBox9.Text = "Поиск";
+            this.outletSearchGroupBox.Controls.Add(this.outletSearchQueryLabel);
+            this.outletSearchGroupBox.Controls.Add(this.outletSearchColsListBox);
+            this.outletSearchGroupBox.Controls.Add(this.outletSearchColsLabel);
+            this.outletSearchGroupBox.Controls.Add(this.outletSearchQueryTextBox);
+            this.outletSearchGroupBox.Controls.Add(this.btnOutletSearch);
+            this.outletSearchGroupBox.Location = new System.Drawing.Point(13, 45);
+            this.outletSearchGroupBox.Name = "outletSearchGroupBox";
+            this.outletSearchGroupBox.Size = new System.Drawing.Size(317, 161);
+            this.outletSearchGroupBox.TabIndex = 20;
+            this.outletSearchGroupBox.TabStop = false;
+            this.outletSearchGroupBox.Text = "Поиск";
             // 
-            // label16
+            // outletSearchQueryLabel
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(178, 43);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(117, 17);
-            this.label16.TabIndex = 12;
-            this.label16.Text = "Введите запрос:";
+            this.outletSearchQueryLabel.AutoSize = true;
+            this.outletSearchQueryLabel.Location = new System.Drawing.Point(178, 43);
+            this.outletSearchQueryLabel.Name = "outletSearchQueryLabel";
+            this.outletSearchQueryLabel.Size = new System.Drawing.Size(117, 17);
+            this.outletSearchQueryLabel.TabIndex = 12;
+            this.outletSearchQueryLabel.Text = "Введите запрос:";
             // 
-            // queryOutletFieldColBox
+            // outletSearchColsListBox
             // 
-            this.queryOutletFieldColBox.FormattingEnabled = true;
-            this.queryOutletFieldColBox.ItemHeight = 16;
-            this.queryOutletFieldColBox.Items.AddRange(new object[] {
+            this.outletSearchColsListBox.FormattingEnabled = true;
+            this.outletSearchColsListBox.ItemHeight = 16;
+            this.outletSearchColsListBox.Items.AddRange(new object[] {
             "Организация",
             "Код помещения",
             "Название торговой точки",
@@ -1184,36 +1094,36 @@ namespace MartDB
             "Расписание",
             "Рейтинг",
             "Контактное лицо"});
-            this.queryOutletFieldColBox.Location = new System.Drawing.Point(7, 38);
-            this.queryOutletFieldColBox.Name = "queryOutletFieldColBox";
-            this.queryOutletFieldColBox.Size = new System.Drawing.Size(154, 116);
-            this.queryOutletFieldColBox.TabIndex = 11;
+            this.outletSearchColsListBox.Location = new System.Drawing.Point(7, 38);
+            this.outletSearchColsListBox.Name = "outletSearchColsListBox";
+            this.outletSearchColsListBox.Size = new System.Drawing.Size(154, 116);
+            this.outletSearchColsListBox.TabIndex = 11;
             // 
-            // label18
+            // outletSearchColsLabel
             // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(6, 18);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(164, 17);
-            this.label18.TabIndex = 7;
-            this.label18.Text = "Выберите поле поиска:";
+            this.outletSearchColsLabel.AutoSize = true;
+            this.outletSearchColsLabel.Location = new System.Drawing.Point(6, 18);
+            this.outletSearchColsLabel.Name = "outletSearchColsLabel";
+            this.outletSearchColsLabel.Size = new System.Drawing.Size(164, 17);
+            this.outletSearchColsLabel.TabIndex = 7;
+            this.outletSearchColsLabel.Text = "Выберите поле поиска:";
             // 
-            // queryOutletTextBox
+            // outletSearchQueryTextBox
             // 
-            this.queryOutletTextBox.Location = new System.Drawing.Point(181, 63);
-            this.queryOutletTextBox.Name = "queryOutletTextBox";
-            this.queryOutletTextBox.Size = new System.Drawing.Size(119, 22);
-            this.queryOutletTextBox.TabIndex = 6;
+            this.outletSearchQueryTextBox.Location = new System.Drawing.Point(181, 63);
+            this.outletSearchQueryTextBox.Name = "outletSearchQueryTextBox";
+            this.outletSearchQueryTextBox.Size = new System.Drawing.Size(119, 22);
+            this.outletSearchQueryTextBox.TabIndex = 6;
             // 
-            // btnSearchOutlet
+            // btnOutletSearch
             // 
-            this.btnSearchOutlet.Location = new System.Drawing.Point(181, 91);
-            this.btnSearchOutlet.Name = "btnSearchOutlet";
-            this.btnSearchOutlet.Size = new System.Drawing.Size(119, 42);
-            this.btnSearchOutlet.TabIndex = 5;
-            this.btnSearchOutlet.Text = "Найти";
-            this.btnSearchOutlet.UseVisualStyleBackColor = true;
-            this.btnSearchOutlet.Click += new System.EventHandler(this.btnSearchOutlets_Click);
+            this.btnOutletSearch.Location = new System.Drawing.Point(181, 91);
+            this.btnOutletSearch.Name = "btnOutletSearch";
+            this.btnOutletSearch.Size = new System.Drawing.Size(119, 42);
+            this.btnOutletSearch.TabIndex = 5;
+            this.btnOutletSearch.Text = "Найти";
+            this.btnOutletSearch.UseVisualStyleBackColor = true;
+            this.btnOutletSearch.Click += new System.EventHandler(this.btnOutletSearch_Click);
             // 
             // dgvOutlet
             // 
@@ -1229,33 +1139,15 @@ namespace MartDB
             this.dgvOutlet.Size = new System.Drawing.Size(578, 318);
             this.dgvOutlet.TabIndex = 22;
             // 
-            // label19
+            // outletPanelLabel
             // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label19.Location = new System.Drawing.Point(8, 9);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(383, 28);
-            this.label19.TabIndex = 21;
-            this.label19.Text = "Панель управления: \"Торговые точки\"";
-            // 
-            // currentUserNameLabel
-            // 
-            this.currentUserNameLabel.AutoSize = true;
-            this.currentUserNameLabel.Location = new System.Drawing.Point(8, 9);
-            this.currentUserNameLabel.Name = "currentUserNameLabel";
-            this.currentUserNameLabel.Size = new System.Drawing.Size(165, 17);
-            this.currentUserNameLabel.TabIndex = 17;
-            this.currentUserNameLabel.Text = "Текущий пользователь:";
-            // 
-            // currentUserRoleLabel
-            // 
-            this.currentUserRoleLabel.AutoSize = true;
-            this.currentUserRoleLabel.Location = new System.Drawing.Point(8, 36);
-            this.currentUserRoleLabel.Name = "currentUserRoleLabel";
-            this.currentUserRoleLabel.Size = new System.Drawing.Size(105, 17);
-            this.currentUserRoleLabel.TabIndex = 18;
-            this.currentUserRoleLabel.Text = "Текущая роль:";
+            this.outletPanelLabel.AutoSize = true;
+            this.outletPanelLabel.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.outletPanelLabel.Location = new System.Drawing.Point(8, 9);
+            this.outletPanelLabel.Name = "outletPanelLabel";
+            this.outletPanelLabel.Size = new System.Drawing.Size(383, 28);
+            this.outletPanelLabel.TabIndex = 21;
+            this.outletPanelLabel.Text = "Панель управления: \"Торговые точки\"";
             // 
             // MainForm
             // 
@@ -1263,10 +1155,10 @@ namespace MartDB
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(983, 605);
             this.Controls.Add(this.panelMain);
-            this.Controls.Add(this.panelOutlet);
             this.Controls.Add(this.panelBooking);
-            this.Controls.Add(this.panelEmployee);
+            this.Controls.Add(this.panelOutlet);
             this.Controls.Add(this.panelTradeProfile);
+            this.Controls.Add(this.panelEmployee);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MainMenuStrip = this.menuStrip1;
@@ -1281,18 +1173,16 @@ namespace MartDB
             this.bookingSearchFloorGroupBox.ResumeLayout(false);
             this.bookingSearchFloorGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBooking)).EndInit();
-            this.bookingSquareSearchGroupBox.ResumeLayout(false);
-            this.bookingSquareSearchGroupBox.PerformLayout();
-            this.bookingSortColGroupBox.ResumeLayout(false);
-            this.bookingSortColGroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.martDBDataSet)).EndInit();
+            this.bookingSearchSquareGroupBox.ResumeLayout(false);
+            this.bookingSearchSquareGroupBox.PerformLayout();
+            this.bookingSortGroupBox.ResumeLayout(false);
+            this.bookingSortGroupBox.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panelMain.ResumeLayout(false);
             this.panelMain.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bookingBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.areaBindingSource)).EndInit();
+            this.panelUser.ResumeLayout(false);
+            this.panelUser.PerformLayout();
             this.panelEmployee.ResumeLayout(false);
             this.panelEmployee.PerformLayout();
             this.employeeSortGroupBox.ResumeLayout(false);
@@ -1304,15 +1194,15 @@ namespace MartDB
             this.panelTradeProfile.PerformLayout();
             this.tradeProfileSortGroupBox.ResumeLayout(false);
             this.tradeProfileSortGroupBox.PerformLayout();
-            this.groupBox7.ResumeLayout(false);
-            this.groupBox7.PerformLayout();
+            this.tradeProfileSearchGroupBox.ResumeLayout(false);
+            this.tradeProfileSearchGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTradeProfile)).EndInit();
             this.panelOutlet.ResumeLayout(false);
             this.panelOutlet.PerformLayout();
-            this.groupBox8.ResumeLayout(false);
-            this.groupBox8.PerformLayout();
-            this.groupBox9.ResumeLayout(false);
-            this.groupBox9.PerformLayout();
+            this.outletSortGroupBox.ResumeLayout(false);
+            this.outletSortGroupBox.PerformLayout();
+            this.outletSearchGroupBox.ResumeLayout(false);
+            this.outletSearchGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOutlet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -1321,23 +1211,22 @@ namespace MartDB
 
         #endregion
         private System.Windows.Forms.Panel panelBooking;
-        private MartDBDataSet martDBDataSet;
         private System.Windows.Forms.Label bookingPanelLabel;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem panelsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem1;
-        private System.Windows.Forms.GroupBox bookingSquareSearchGroupBox;
-        private System.Windows.Forms.GroupBox bookingSortColGroupBox;
-        private System.Windows.Forms.Button btnSort;
-        private System.Windows.Forms.RadioButton radioButtonDesc;
-        private System.Windows.Forms.RadioButton radioButtonAsc;
-        private System.Windows.Forms.ListBox listBoxFieldsForSort;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button btnSearchSquare;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox leftSquareBoundTextBox;
-        private System.Windows.Forms.Button btnShowAllBookings;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.GroupBox bookingSearchSquareGroupBox;
+        private System.Windows.Forms.GroupBox bookingSortGroupBox;
+        private System.Windows.Forms.Button btnBookingSort;
+        private System.Windows.Forms.RadioButton descBookingRadioButton;
+        private System.Windows.Forms.RadioButton ascBookingRadioButton;
+        private System.Windows.Forms.ListBox bookingSortColsListBox;
+        private System.Windows.Forms.Label bookingSortLabel;
+        private System.Windows.Forms.Button btnSquareSearch;
+        private System.Windows.Forms.Label bookingSearchSquareQueryLabel;
+        private System.Windows.Forms.TextBox bookingSearchSquareLeftBoundTextBox;
+        private System.Windows.Forms.Button btnBookingShowAll;
         private System.Windows.Forms.ToolStripMenuItem mainToolStripMenuItem;
         private System.Windows.Forms.DataGridView dgvBooking;
         private System.Windows.Forms.Label panelMainLabel;
@@ -1345,86 +1234,75 @@ namespace MartDB
         private System.Windows.Forms.Button btnPanelMain;
         private System.Windows.Forms.Button btnPreviousPanel;
         private System.Windows.Forms.Panel panelMain;
-        private System.Windows.Forms.ToolStripMenuItem bookingHandlingToolStripMenuItem;
-        private System.Windows.Forms.TextBox rightSquareBoundtextBox;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ToolStripMenuItem bookingToolStripMenuItem;
+        private System.Windows.Forms.TextBox bookingSearchSquareRightBoundTextBox;
+        private System.Windows.Forms.Label bookingSearchSquareRightBoundLabel;
+        private System.Windows.Forms.Label bookingSearchSquareLeftBoundLabel;
         private System.Windows.Forms.GroupBox bookingSearchFloorGroupBox;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox rightFloorBoundTextBox;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox leftFloorBoundTextBox;
+        private System.Windows.Forms.Label bookingSearchFloorRightBoundLabel;
+        private System.Windows.Forms.Label bookingSearchFloorLeftBoundLabel;
+        private System.Windows.Forms.TextBox bookingSearchFloorRightBoundTextBox;
+        private System.Windows.Forms.Label bookingSearchFloorQueryLabel;
+        private System.Windows.Forms.TextBox bookingSearchFloorLeftBoundTextBox;
         private System.Windows.Forms.Button btnFloorSearch;
-        private System.Windows.Forms.BindingSource employeeBindingSource;
-        private MartDBDataSetTableAdapters.EmployeeTableAdapter employeeTableAdapter;
-        private MartDBDataSetTableAdapters.TableAdapterManager bookingTableAdapterManager;
-        private MartDBDataSetTableAdapters.BookingTableAdapter bookingTableAdapter;
-        private MartDBDataSetTableAdapters.AreaTableAdapter areaTableAdapter;
-        private MartDBDataSetTableAdapters.TableAdapterManager areaTableAdapterManager;
-        private System.Windows.Forms.BindingSource bookingBindingSource;
-        private System.Windows.Forms.BindingSource areaBindingSource;
-        private MartDBDataSetTableAdapters.TableAdapterManager employeeTableAdapterManager;
         private System.Windows.Forms.Panel panelEmployee;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label employeePanelLabel;
         private System.Windows.Forms.GroupBox employeeSearchGroupBox;
-        private System.Windows.Forms.Label employeeSearchColLabel;
-        private System.Windows.Forms.TextBox employeeQueryTextBox;
-        private System.Windows.Forms.Button btnSearchEmployee;
+        private System.Windows.Forms.Label employeeSearchColsLabel;
+        private System.Windows.Forms.TextBox employeeSearchQueryTextBox;
+        private System.Windows.Forms.Button btnEmployeeSearch;
         private System.Windows.Forms.DataGridView dgvEmployee;
-        private System.Windows.Forms.Label employeeQueryLabel;
-        private System.Windows.Forms.ListBox employeeSearchColListBox;
+        private System.Windows.Forms.Label employeeSearchQueryLabel;
+        private System.Windows.Forms.ListBox employeeSearchColsListBox;
         private System.Windows.Forms.ToolStripMenuItem employeeToolStripMenuItem;
         private System.Windows.Forms.Button btnPanelEmployee;
-        private System.Windows.Forms.Button btnShowAllEmployees;
+        private System.Windows.Forms.Button btnEmployeeShowAll;
         private System.Windows.Forms.GroupBox employeeSortGroupBox;
-        private System.Windows.Forms.ListBox employeeSortColListBox;
-        private System.Windows.Forms.Button btnSortEmployees;
+        private System.Windows.Forms.ListBox employeeSortColsListBox;
+        private System.Windows.Forms.Button btnEmployeeSort;
         private System.Windows.Forms.RadioButton descEmployeeRadioButton;
         private System.Windows.Forms.RadioButton ascEmployeeRadioButton;
-        private System.Windows.Forms.Label employeeSortColLabel;
+        private System.Windows.Forms.Label employeeSortLabel;
         private System.Windows.Forms.Button btnHandleEmployeeForm;
         private System.Windows.Forms.Panel panelTradeProfile;
         private System.Windows.Forms.Button btnHandleTradeProfileForm;
         private System.Windows.Forms.GroupBox tradeProfileSortGroupBox;
-        private System.Windows.Forms.Button btnSortTradeProfile;
+        private System.Windows.Forms.Button btnTradeProfileSort;
         private System.Windows.Forms.RadioButton descTradeProfileRadioButton;
         private System.Windows.Forms.RadioButton ascTradeProfileRadioButton;
-        private System.Windows.Forms.Button btnShowAllTradeProfiles;
-        private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.Label tradeProfileQueryLabel;
-        private System.Windows.Forms.TextBox queryTradeProfileTextBox;
-        private System.Windows.Forms.Button btnSearchTradeProfile;
+        private System.Windows.Forms.Button btnTradeProfileShowAll;
+        private System.Windows.Forms.GroupBox tradeProfileSearchGroupBox;
+        private System.Windows.Forms.Label tradeProfileSearchQueryLabel;
+        private System.Windows.Forms.TextBox tradeProfileSearchQueryTextBox;
+        private System.Windows.Forms.Button btnTradeProfileSearch;
         private System.Windows.Forms.DataGridView dgvTradeProfile;
-        private System.Windows.Forms.Label employeePanelLabel;
+        private System.Windows.Forms.Label tradeProfilePanelLabel;
         private System.Windows.Forms.ToolStripMenuItem tradeProfileToolStripMenuItem;
         private System.Windows.Forms.Button btnPanelTradeProfile;
         private System.Windows.Forms.Panel panelOutlet;
-        private System.Windows.Forms.Button btnShowHandleOutletForm;
-        private System.Windows.Forms.GroupBox groupBox8;
-        private System.Windows.Forms.ListBox sortColsOutletListBox;
-        private System.Windows.Forms.Button btnSortOutlets;
+        private System.Windows.Forms.Button btnHandleOutletForm;
+        private System.Windows.Forms.GroupBox outletSortGroupBox;
+        private System.Windows.Forms.ListBox outletSortColsListBox;
+        private System.Windows.Forms.Button btnOutletSort;
         private System.Windows.Forms.RadioButton descOutletRadioButton;
         private System.Windows.Forms.RadioButton ascOutletRadioButton;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Button btnShowAllOutlets;
-        private System.Windows.Forms.GroupBox groupBox9;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.ListBox queryOutletFieldColBox;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox queryOutletTextBox;
-        private System.Windows.Forms.Button btnSearchOutlet;
+        private System.Windows.Forms.Label outletSortLabel;
+        private System.Windows.Forms.Button btnOutletShowAll;
+        private System.Windows.Forms.GroupBox outletSearchGroupBox;
+        private System.Windows.Forms.Label outletSearchQueryLabel;
+        private System.Windows.Forms.ListBox outletSearchColsListBox;
+        private System.Windows.Forms.Label outletSearchColsLabel;
+        private System.Windows.Forms.TextBox outletSearchQueryTextBox;
+        private System.Windows.Forms.Button btnOutletSearch;
         private System.Windows.Forms.DataGridView dgvOutlet;
-        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label outletPanelLabel;
         private System.Windows.Forms.Button btnPanelOutlet;
         private System.Windows.Forms.ToolStripMenuItem outletToolStripMenuItem;
-        private System.Windows.Forms.Button btnUpdateBookingDGV;
-        private System.Windows.Forms.Button btnUpdateOutletDGV;
-        private System.Windows.Forms.Button btnUpdateEmployeeDGV;
-        private System.Windows.Forms.Button btnUpdateTradeProfileDGV;
         private System.Windows.Forms.Button btnPanelBooking;
         private System.Windows.Forms.Button btnHandleBookingForm;
         private System.Windows.Forms.Label currentUserRoleLabel;
         private System.Windows.Forms.Label currentUserNameLabel;
+        private System.Windows.Forms.Panel panelUser;
+        private System.Windows.Forms.Button btnChangeUser;
     }
 }

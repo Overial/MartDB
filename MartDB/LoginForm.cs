@@ -166,7 +166,7 @@ namespace MartDB
                         else
                         {
                             // Display corresponding info
-                            MessageBox.Show("Неверный логин, пароль или роль!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Неверный логин или пароль!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
 

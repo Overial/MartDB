@@ -29,6 +29,9 @@ namespace MartDB
 
         private void CustomerForm_Load(object sender, EventArgs e)
         {
+            // Display user name info
+            this.panelMainLabel.Text = "Добро пожаловать, " + UserData.UserName;
+            
             // Turning pages functionality
             this.listPanel.Add(this.panelMain);
 
@@ -143,12 +146,10 @@ namespace MartDB
 
             // Create query
             string selectQuery = "SELECT Organisation.org_name AS [Организация]," +
-                                 "Outlet.area_id AS [Код помещения]," +
                                  "Outlet.outlet_name AS [Название торговой точки]," +
                                  "Outlet.outlet_type AS [Тип торговой точки]," +
                                  "Outlet.timetable AS [Расписание]," +
-                                 "Outlet.rating AS [Рейтинг]," +
-                                 "Outlet.contact_person AS [Контактное лицо] " +
+                                 "Outlet.rating AS [Рейтинг] " +
                                  "FROM Outlet " +
                                  "JOIN Organisation ON Outlet.org_id = Organisation.org_id";
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(selectQuery, sqlConnection);
@@ -165,16 +166,26 @@ namespace MartDB
             dgvOutlet.DataSource = dataSet.Tables[0];
         }
 
+        private void searchColsOutletListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.btnSearchOutlet.Enabled = true;
+        }
+
         private void btnSearchOutlet_Click(object sender, EventArgs e)
         {
             // Field parser
-            string strFieldForSearch = this.searchColsOutletListBox.SelectedItem.ToString();
             int iColIndex = 0;
-            for (int i = 0; i < dgvOutlet.Columns.Count; ++i)
+            
+            if (this.searchColsOutletListBox.SelectedItem != null)
             {
-                if (dgvOutlet.Columns[i].HeaderText == strFieldForSearch)
+                string strFieldForSearch = this.searchColsOutletListBox.SelectedItem.ToString();
+
+                for (int i = 0; i < dgvOutlet.Columns.Count; ++i)
                 {
-                    iColIndex = i;
+                    if (dgvOutlet.Columns[i].HeaderText == strFieldForSearch)
+                    {
+                        iColIndex = i;
+                    }
                 }
             }
 
