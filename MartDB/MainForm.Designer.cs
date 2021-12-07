@@ -162,7 +162,7 @@ namespace MartDB
             // 
             // btnHandleBookingForm
             // 
-            this.btnHandleBookingForm.Location = new System.Drawing.Point(470, 411);
+            this.btnHandleBookingForm.Location = new System.Drawing.Point(591, 408);
             this.btnHandleBookingForm.Name = "btnHandleBookingForm";
             this.btnHandleBookingForm.Size = new System.Drawing.Size(176, 57);
             this.btnHandleBookingForm.TabIndex = 22;
@@ -1154,8 +1154,8 @@ namespace MartDB
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(983, 605);
-            this.Controls.Add(this.panelMain);
             this.Controls.Add(this.panelBooking);
+            this.Controls.Add(this.panelMain);
             this.Controls.Add(this.panelOutlet);
             this.Controls.Add(this.panelTradeProfile);
             this.Controls.Add(this.panelEmployee);

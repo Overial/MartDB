@@ -465,7 +465,7 @@ namespace MartDB
         // Button to initiate sorting
         private void btnBookingSort_Click(object sender, EventArgs e)
         {
-            // col to sort
+            // Col to sort
             DataGridViewColumn col = default;
 
             // Get selected col to sort
@@ -608,7 +608,7 @@ namespace MartDB
         // Get field for employee sorting
         private void btnEmployeeSort_Click(object sender, EventArgs e)
         {
-            // col to sort
+            // Col to sort
             DataGridViewColumn col = default;
 
             // Get selected col to sort
@@ -833,7 +833,7 @@ namespace MartDB
 
         private void btnOutletSort_Click(object sender, EventArgs e)
         {
-            // col to sort
+            // Col to sort
             DataGridViewColumn col = default;
 
             // Get selected col to sort

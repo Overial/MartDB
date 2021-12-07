@@ -29,7 +29,7 @@ namespace MartDB
             this.areaIdComboBox.DisplayMember = "area_id";
             this.areaIdComboBox.ValueMember = "area_id";
 
-            // Contraint organisations
+            // Constraint organisations
             if (UserData.UserRole == "organisation")
             {
                 orgNameTextBox.Enabled = false;

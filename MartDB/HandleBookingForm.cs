@@ -18,71 +18,63 @@ namespace MartDB
             InitializeComponent();
         }
 
-        private void btnCreateBooking_Click(object sender, EventArgs e)
+        private void HandleBookingForm_Load(object sender, EventArgs e)
         {
-            // Open DB connection
-            mySqlConnection.Open();
+            // Fill combo box with org names from Area table
+            DataTable dtOrgNames = new DataTable();
+            SqlDataAdapter daOrgNames = new SqlDataAdapter("SELECT org_name FROM Organisation",
+                                                    this.sqlConnection);
+            daOrgNames.Fill(dtOrgNames);
+            this.orgNameComboBox.DataSource = dtOrgNames;
+            this.orgNameComboBox.DisplayMember = "org_name";
+            this.orgNameComboBox.ValueMember = "org_name";
 
-            // Initialize params
-            try
-            {
-                sqlCmdCreateBooking.Parameters["@org_id"].Value = Convert.ToInt32(orgIdTextBox.Text);
-                sqlCmdCreateBooking.Parameters["@area_id"].Value = Convert.ToInt32(areaIdTextBox.Text);
-                sqlCmdCreateBooking.Parameters["@cost"].Value = Convert.ToInt32(costTextBox.Text);
-                sqlCmdCreateBooking.Parameters["@booking_start_date"].Value = dtpBookingStartDate.Text;
-                sqlCmdCreateBooking.Parameters["@booking_end_date"].Value = dtpBookingEndDate.Text;
-
-                // Call proc
-                sqlCmdCreateBooking.ExecuteNonQuery();
-
-                // Show corresponding information
-                MessageBox.Show("Данные успешно сохранены!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (FormatException)
-            {
-                MessageBox.Show("Введены некорректные значения!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (SqlException)
-            {
-                MessageBox.Show("Добавление данных завершилось с ошибкой!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            // Close DB connection
-            mySqlConnection.Close();
+            // Fill combo box with area ids from Area table
+            DataTable dtAreaIds = new DataTable();
+            SqlDataAdapter daAreaIds = new SqlDataAdapter("SELECT area_id FROM Area",
+                                                    this.sqlConnection);
+            daAreaIds.Fill(dtAreaIds);
+            this.areaIdComboBox.DataSource = dtAreaIds;
+            this.areaIdComboBox.DisplayMember = "area_id";
+            this.areaIdComboBox.ValueMember = "area_id";
         }
 
-        private void btnDeleteBooking_Click(object sender, EventArgs e)
+        private void btnAddBooking_Click(object sender, EventArgs e)
         {
             // Open DB connection
-            mySqlConnection.Open();
+            sqlConnection.Open();
 
             // Call proc
             try
             {
                 // Initialize params
-                sqlCmdDeleteBooking.Parameters["@org_id"].Value = orgIdTextBox.Text;
-                sqlCmdDeleteBooking.Parameters["@area_id"].Value = areaIdTextBox.Text;
-                sqlCmdDeleteBooking.Parameters["@cost"].Value = costTextBox.Text;
-                sqlCmdDeleteBooking.Parameters["@booking_start_date"].Value = dtpBookingStartDate.Text;
-                sqlCmdDeleteBooking.Parameters["@booking_end_date"].Value = dtpBookingEndDate.Text;
+                sqlCmdAddBooking.Parameters["@org_name"].Value = orgNameComboBox.Text;
+                sqlCmdAddBooking.Parameters["@area_id"].Value = areaIdComboBox.Text;
+                sqlCmdAddBooking.Parameters["@booking_start_date"].Value = dtpBookingStartDate.Text;
+                sqlCmdAddBooking.Parameters["@booking_end_date"].Value = dtpBookingEndDate.Text;
 
                 // Call proc
-                sqlCmdDeleteBooking.ExecuteNonQuery();
+                sqlCmdAddBooking.ExecuteNonQuery();
 
                 // Show corresponding information
-                MessageBox.Show("Данные успешно удалены!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Данные успешно добавлены!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (FormatException)
             {
-                MessageBox.Show("Введены некорректные значения!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Введены некорректные значения!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (SqlException)
             {
-                MessageBox.Show("Удаление данных завершилась с ошибкой!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Добавление данных завершилось с ошибкой!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             // Close DB connection
-            mySqlConnection.Close();
+            sqlConnection.Close();
+        }
+
+        private void btnUpdateBooking_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
