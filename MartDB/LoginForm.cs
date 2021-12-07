@@ -135,7 +135,7 @@ namespace MartDB
                         else if (role == "customer")
                         {
                             this.Visible = false;
-                            UserForm userForm = new UserForm();
+                            CustomerForm userForm = new CustomerForm();
                             userForm.ShowDialog();
                             this.Close();
                         }

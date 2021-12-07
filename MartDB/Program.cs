@@ -18,8 +18,11 @@ namespace MartDB
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new LoginForm());
 
-            // Debugging
-            Application.Run(new MainForm());
+            ////// Debugging //////
+
+            // Application.Run(new MainForm());
+
+            Application.Run(new CustomerForm());
         }
     }
 }

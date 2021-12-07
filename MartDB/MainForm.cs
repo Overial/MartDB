@@ -1,4 +1,8 @@
-﻿using System;
+﻿// IDB-19-07
+// Afanasyev Vadim
+// 2021
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,17 +24,14 @@ namespace MartDB
 
         // Panels:
         // 0: Main
-        // 1: Area
-        // 2: Booking
-        // 3: Employee
-        // ...
+        // 1: Booking
+        // 2: Employee
+        // 3: TradeProfile
+        // 4: Outlet
 
         public MainForm()
         {
             InitializeComponent();
-
-            // Set start position to center
-            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         // Actions on load
@@ -38,9 +39,10 @@ namespace MartDB
         {
             // Turning pages functionality
             this.listPanel.Add(this.panelMain);
-            this.listPanel.Add(this.panelBookingHandling);
-            this.listPanel.Add(this.panelEmployees);
-            this.listPanel.Add(this.panelTradeProfiles);
+            this.listPanel.Add(this.panelBooking);
+            this.listPanel.Add(this.panelEmployee);
+            this.listPanel.Add(this.panelTradeProfile);
+            this.listPanel.Add(this.panelOutlet);
             
             // Show first panel
             this.listPanel[this.index].BringToFront();
@@ -48,9 +50,11 @@ namespace MartDB
             // Adjust form for organisations
             if (UserData.UserRole == "organisation")
             {
-                this.btnCallHandleBookingForm.Enabled = false;
+                this.btnHandleBookingForm.Enabled = false;
             }
 
+            ////// DGV loading //////
+            
             // Fill area and booking data grid view
             FillAreaAndBookingDGV();
 
@@ -58,10 +62,10 @@ namespace MartDB
             FillEmployeesDGV();
 
             // Fill trade profiles data grid view
-            FillTradeProfileDGV();
+            FillTradeProfilesDGV();
 
             // Fill outlet data grid view
-            FillOutletDGV();
+            FillOutletsDGV();
 
             // TODO: This line of code loads data into the 'martDBDataSet.Area' table. You can move, or remove it, as needed.
             this.areaTableAdapter.Fill(this.martDBDataSet.Area);
@@ -74,7 +78,7 @@ namespace MartDB
         ////// Nav buttons //////
 
         // Turn back
-        private void btnPrevious_Click(object sender, EventArgs e)
+        private void btnPreviousPanel_Click(object sender, EventArgs e)
         {
             // While it's not the beginning and not the main panel
             if (this.index > 1)
@@ -84,7 +88,7 @@ namespace MartDB
         }
 
         // Turn forward
-        private void btnNext_Click(object sender, EventArgs e)
+        private void btnNextPanel_Click(object sender, EventArgs e)
         {
             // While it's not the end
             if (this.index < this.listPanel.Count - 1)
@@ -93,10 +97,8 @@ namespace MartDB
             }
         }
 
-        ////// Main panel buttons //////
-
         // Move to main panel
-        private void btnMoveToMain_Click(object sender, EventArgs e)
+        private void btnMainPanel_Click(object sender, EventArgs e)
         {
             // Set panel index
             this.index = 0;
@@ -105,29 +107,31 @@ namespace MartDB
             this.panelMain.BringToFront();
 
             // Hide nav buttons
-            this.btnMoveToPanelMain.Visible = false;
-            this.btnNext.Visible = false;
-            this.btnPrevious.Visible = false;
+            this.btnPanelMain.Visible = false;
+            this.btnNextPanel.Visible = false;
+            this.btnPreviousPanel.Visible = false;
         }
 
-        // Move to area panel
-        private void btnBookingHandling_Click(object sender, EventArgs e)
+        ////// Main panel buttons //////
+
+        // Move to booking panel
+        private void btnBookingPanel_Click(object sender, EventArgs e)
         {
             // Set panel index
             this.index = 1;
 
             // Bring booking handling panel to front
-            this.panelBookingHandling.BringToFront();
+            this.panelBooking.BringToFront();
 
             // Bring nav buttons to front
-            this.btnMoveToPanelMain.BringToFront();
-            this.btnNext.BringToFront();
-            this.btnPrevious.BringToFront();
+            this.btnPanelMain.BringToFront();
+            this.btnNextPanel.BringToFront();
+            this.btnPreviousPanel.BringToFront();
 
             // Show nav buttons
-            this.btnMoveToPanelMain.Visible = true;
-            this.btnNext.Visible = true;
-            this.btnPrevious.Visible = true;
+            this.btnPanelMain.Visible = true;
+            this.btnNextPanel.Visible = true;
+            this.btnPreviousPanel.Visible = true;
         }
 
         private void btnEmployeePanel_Click(object sender, EventArgs e)
@@ -136,17 +140,17 @@ namespace MartDB
             this.index = 2;
 
             // Bring booking handling panel to front
-            this.panelEmployees.BringToFront();
+            this.panelEmployee.BringToFront();
 
             // Bring nav buttons to front
-            this.btnMoveToPanelMain.BringToFront();
-            this.btnNext.BringToFront();
-            this.btnPrevious.BringToFront();
+            this.btnPanelMain.BringToFront();
+            this.btnNextPanel.BringToFront();
+            this.btnPreviousPanel.BringToFront();
 
             // Show nav buttons
-            this.btnMoveToPanelMain.Visible = true;
-            this.btnNext.Visible = true;
-            this.btnPrevious.Visible = true;
+            this.btnPanelMain.Visible = true;
+            this.btnNextPanel.Visible = true;
+            this.btnPreviousPanel.Visible = true;
         }
 
         private void btnTradeProfilePanel_Click(object sender, EventArgs e)
@@ -155,17 +159,17 @@ namespace MartDB
             this.index = 3;
 
             // Bring booking handling panel to front
-            this.panelTradeProfiles.BringToFront();
+            this.panelTradeProfile.BringToFront();
 
             // Bring nav buttons to front
-            this.btnMoveToPanelMain.BringToFront();
-            this.btnNext.BringToFront();
-            this.btnPrevious.BringToFront();
+            this.btnPanelMain.BringToFront();
+            this.btnNextPanel.BringToFront();
+            this.btnPreviousPanel.BringToFront();
 
             // Show nav buttons
-            this.btnMoveToPanelMain.Visible = true;
-            this.btnNext.Visible = true;
-            this.btnPrevious.Visible = true;
+            this.btnPanelMain.Visible = true;
+            this.btnNextPanel.Visible = true;
+            this.btnPreviousPanel.Visible = true;
         }
 
         private void btnOutletPanel_Click(object sender, EventArgs e)
@@ -174,55 +178,54 @@ namespace MartDB
             this.index = 4;
 
             // Bring booking handling panel to front
-            this.panelOutlets.BringToFront();
+            this.panelOutlet.BringToFront();
 
             // Bring nav buttons to front
-            this.btnMoveToPanelMain.BringToFront();
-            this.btnNext.BringToFront();
-            this.btnPrevious.BringToFront();
+            this.btnPanelMain.BringToFront();
+            this.btnNextPanel.BringToFront();
+            this.btnPreviousPanel.BringToFront();
 
             // Show nav buttons
-            this.btnMoveToPanelMain.Visible = true;
-            this.btnNext.Visible = true;
-            this.btnPrevious.Visible = true;
+            this.btnPanelMain.Visible = true;
+            this.btnNextPanel.Visible = true;
+            this.btnPreviousPanel.Visible = true;
         }
 
         ////// Menu strip //////
 
-        private void mainToolStripMenuItem_Click(object sender, EventArgs e)
+        private void mainPanelToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.index = 0;
             this.panelMain.BringToFront();
         }
 
-        private void bookingHandlingToolStripMenuItem_Click(object sender, EventArgs e)
+        private void bookingPanelToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.index = 1;
-            this.panelBookingHandling.BringToFront();
+            this.panelBooking.BringToFront();
         }
 
-        private void employeesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void employeePanelToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.index = 2;
-            this.panelEmployees.BringToFront();
+            this.panelEmployee.BringToFront();
         }
 
-        private void tradeProfileToolStripMenuItem_Click(object sender, EventArgs e)
+        private void tradeProfilePanelToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.index = 3;
-            this.panelTradeProfiles.BringToFront();
+            this.panelTradeProfile.BringToFront();
         }
 
-        private void outletToolStripMenuItem_Click(object sender, EventArgs e)
+        private void outletPanelToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.index = 4;
-            this.panelOutlets.BringToFront();
+            this.panelOutlet.BringToFront();
         }
 
-        // About (menuStrip)
         private void aboutToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("База данных \"Тессеракт\"", "О программе", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("База данных ТЦ \"Тессеракт\"", "О программе", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         ////// Booking handling panel //////
@@ -254,61 +257,18 @@ namespace MartDB
             sqlDataAdapter.Fill(dataSet);
 
             // Fill DGV
-            dgvBookingHandling.ReadOnly = true;
-            dgvBookingHandling.DataSource = dataSet.Tables[0];
-        }
-
-        // Enable button only if field for sort is selected
-        private void listBoxFieldsForSort_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            this.btnSort.Enabled = true;
-        }
-
-        // Button to initiate sorting
-        private void btnSortBookings_Click(object sender, EventArgs e)
-        {
-            // col to sort
-            DataGridViewColumn col = default;
-
-            // Get selected col to sort
-            switch (this.listBoxFieldsForSort.SelectedIndex)
-            {
-                case 0:
-                    col = this.dgvBookingHandling.Columns[0];
-                    break;
-                case 1:
-                    col = this.dgvBookingHandling.Columns[1];
-                    break;
-                case 2:
-                    col = this.dgvBookingHandling.Columns[2];
-                    break;
-                case 3:
-                    col = this.dgvBookingHandling.Columns[3];
-                    break;
-                case 4:
-                    col = this.dgvBookingHandling.Columns[4];
-                    break;
-            }
-
-            // Get selected choice for sorting
-            if (this.radioButtonAsc.Checked)
-            {
-                dgvBookingHandling.Sort(col, ListSortDirection.Ascending);
-            }
-            else if (this.radioButtonDesc.Checked)
-            {
-                dgvBookingHandling.Sort(col, ListSortDirection.Descending);
-            }
+            dgvBooking.ReadOnly = true;
+            dgvBooking.DataSource = dataSet.Tables[0];
         }
 
         // Enable button only if field for search is selected
-        private void listBoxFieldsForSearch_SelectedIndexChanged(object sender, EventArgs e)
+        private void bookingSearchColListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.btnSearchSquare.Enabled = true;
         }
 
         // Button to initiate searchin'
-        private void btnSearchSquare_Click(object sender, EventArgs e)
+        private void btnSearchSquares_Click(object sender, EventArgs e)
         {
             // Get field for search
             //
@@ -348,25 +308,25 @@ namespace MartDB
                 //                                                queryForSearch);
 
                 // Filter area square data
-                foreach (DataGridViewRow row in this.dgvBookingHandling.Rows)
+                foreach (DataGridViewRow row in this.dgvBooking.Rows)
                 {
                     if (Convert.ToInt32(row.Cells[0].Value) >= Convert.ToInt32(leftBound) &&
                         Convert.ToInt32(row.Cells[0].Value) <= Convert.ToInt32(rightBound))
                     {
-                        dgvBookingHandling.Rows[row.Index].Visible = true;
+                        dgvBooking.Rows[row.Index].Visible = true;
                         // dgvBookingHandling.Rows[row.Index].Selected = true;
                     }
                     else
                     {
-                        dgvBookingHandling.CurrentCell = null;
-                        dgvBookingHandling.Rows[row.Index].Visible = false;
+                        dgvBooking.CurrentCell = null;
+                        dgvBooking.Rows[row.Index].Visible = false;
                     }
                 }
             }
         }
 
         // Seaching by floor button
-        private void btnFloorSearch_Click(object sender, EventArgs e)
+        private void btnSearchFloors_Click(object sender, EventArgs e)
         {
             // Start searching only if user has entered query for search
             if (this.leftFloorBoundTextBox.Text.Length > 0 && this.rightFloorBoundTextBox.Text.Length > 0)
@@ -385,18 +345,18 @@ namespace MartDB
                 }
 
                 // Filter area square data
-                foreach (DataGridViewRow row in this.dgvBookingHandling.Rows)
+                foreach (DataGridViewRow row in this.dgvBooking.Rows)
                 {
                     if (Convert.ToInt32(row.Cells[1].Value) >= Convert.ToInt32(leftBound) &&
                         Convert.ToInt32(row.Cells[1].Value) <= Convert.ToInt32(rightBound))
                     {
-                        dgvBookingHandling.Rows[row.Index].Visible = true;
+                        dgvBooking.Rows[row.Index].Visible = true;
                         // dgvBookingHandling.Rows[row.Index].Selected = true;
                     }
                     else
                     {
-                        dgvBookingHandling.CurrentCell = null;
-                        dgvBookingHandling.Rows[row.Index].Visible = false;
+                        dgvBooking.CurrentCell = null;
+                        dgvBooking.Rows[row.Index].Visible = false;
                     }
                 }
             }
@@ -410,17 +370,66 @@ namespace MartDB
             // dgvBookingHandling.Rows[0].Selected = true;
 
             // Display every row
-            foreach (DataGridViewRow row in this.dgvBookingHandling.Rows)
+            foreach (DataGridViewRow row in this.dgvBooking.Rows)
             {
-                dgvBookingHandling.Rows[row.Index].Visible = true;
+                dgvBooking.Rows[row.Index].Visible = true;
+            }
+        }
+
+        // Enable button only if field for sort is selected
+        private void bookingSortColListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.btnSort.Enabled = true;
+        }
+
+        // Button to initiate sorting
+        private void btnSortBookings_Click(object sender, EventArgs e)
+        {
+            // col to sort
+            DataGridViewColumn col = default;
+
+            // Get selected col to sort
+            switch (this.listBoxFieldsForSort.SelectedIndex)
+            {
+                case 0:
+                    col = this.dgvBooking.Columns[0];
+                    break;
+                case 1:
+                    col = this.dgvBooking.Columns[1];
+                    break;
+                case 2:
+                    col = this.dgvBooking.Columns[2];
+                    break;
+                case 3:
+                    col = this.dgvBooking.Columns[3];
+                    break;
+                case 4:
+                    col = this.dgvBooking.Columns[4];
+                    break;
+            }
+
+            // Get selected choice for sorting
+            if (this.radioButtonAsc.Checked)
+            {
+                dgvBooking.Sort(col, ListSortDirection.Ascending);
+            }
+            else if (this.radioButtonDesc.Checked)
+            {
+                dgvBooking.Sort(col, ListSortDirection.Descending);
             }
         }
 
         // Move to booking handling form
-        private void btnCallHandleBookingForm_Click(object sender, EventArgs e)
+        private void btnBookingForm_Click(object sender, EventArgs e)
         {
             Form handleBookingForm = new HandleBookingForm();
             handleBookingForm.Show();
+        }
+
+        private void btnUpdateBookingDGV_Click(object sender, EventArgs e)
+        {
+            // Fill area and booking data grid view
+            FillAreaAndBookingDGV();
         }
 
         ////// Employee panel //////
@@ -453,12 +462,12 @@ namespace MartDB
             sqlDataAdapter.Fill(dataSet);
 
             // Fill DGV
-            dgvEmployees.ReadOnly = true;
-            dgvEmployees.DataSource = dataSet.Tables[0];
+            dgvEmployee.ReadOnly = true;
+            dgvEmployee.DataSource = dataSet.Tables[0];
         }
 
         // Search by query
-        private void btnSearchEmployee_Click(object sender, EventArgs e)
+        private void btnSearchEmployees_Click(object sender, EventArgs e)
         {
             // Get field for search
             //
@@ -467,23 +476,23 @@ namespace MartDB
             //
 
             // Field parser
-            string strFieldForSearch = this.queryEmployeeColListBox.SelectedItem.ToString();
+            string strFieldForSearch = this.employeeSearchColListBox.SelectedItem.ToString();
             int iColIndex = 0;
-            for (int i = 0; i < dgvEmployees.Columns.Count; ++i)
+            for (int i = 0; i < dgvEmployee.Columns.Count; ++i)
             {
-                if (dgvEmployees.Columns[i].HeaderText == strFieldForSearch)
+                if (dgvEmployee.Columns[i].HeaderText == strFieldForSearch)
                 {
                     iColIndex = i;
                 }
             }
 
             // Start searching only if user has entered query for search
-            if (this.queryEmployeeTextBox.Text.Length > 0)
+            if (this.employeeQueryTextBox.Text.Length > 0)
             {
                 string query = "";
                 try
                 {
-                    query = Convert.ToString(this.queryEmployeeTextBox.Text);
+                    query = Convert.ToString(this.employeeQueryTextBox.Text);
                 }
                 // Prevent invalid user input
                 catch
@@ -492,16 +501,16 @@ namespace MartDB
                 }
 
                 // Filter area square data
-                foreach (DataGridViewRow row in this.dgvEmployees.Rows)
+                foreach (DataGridViewRow row in this.dgvEmployee.Rows)
                 {
                     if (row.Cells[iColIndex].Value.ToString().Contains(query))
                     {
-                        dgvEmployees.Rows[row.Index].Visible = true;
+                        dgvEmployee.Rows[row.Index].Visible = true;
                     }
                     else
                     {
-                        dgvEmployees.CurrentCell = null;
-                        dgvEmployees.Rows[row.Index].Visible = false;
+                        dgvEmployee.CurrentCell = null;
+                        dgvEmployee.Rows[row.Index].Visible = false;
                     }
                 }
             }
@@ -510,14 +519,14 @@ namespace MartDB
         private void btnShowAllEmployees_Click(object sender, EventArgs e)
         {
             // Display every row
-            foreach (DataGridViewRow row in this.dgvEmployees.Rows)
+            foreach (DataGridViewRow row in this.dgvEmployee.Rows)
             {
-                dgvEmployees.Rows[row.Index].Visible = true;
+                dgvEmployee.Rows[row.Index].Visible = true;
             }
         }
 
         // Enable sort button
-        private void sortFieldsEmployeesListBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void employeeSortColListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.btnSortEmployees.Enabled = true;
         }
@@ -529,49 +538,55 @@ namespace MartDB
             DataGridViewColumn col = default;
 
             // Get selected col to sort
-            switch (this.sortFieldsEmployeesListBox.SelectedIndex)
+            switch (this.employeeSortColListBox.SelectedIndex)
             {
                 case 0:
-                    col = this.dgvEmployees.Columns[0];
+                    col = this.dgvEmployee.Columns[0];
                     break;
                 case 1:
-                    col = this.dgvEmployees.Columns[1];
+                    col = this.dgvEmployee.Columns[1];
                     break;
                 case 2:
-                    col = this.dgvEmployees.Columns[2];
+                    col = this.dgvEmployee.Columns[2];
                     break;
                 case 3:
-                    col = this.dgvEmployees.Columns[3];
+                    col = this.dgvEmployee.Columns[3];
                     break;
                 case 4:
-                    col = this.dgvEmployees.Columns[4];
+                    col = this.dgvEmployee.Columns[4];
                     break;
                 case 5:
-                    col = this.dgvEmployees.Columns[5];
+                    col = this.dgvEmployee.Columns[5];
                     break;
             }
 
             // Get selected choice for sorting
             if (this.ascEmployeeRadioButton.Checked)
             {
-                dgvEmployees.Sort(col, ListSortDirection.Ascending);
+                dgvEmployee.Sort(col, ListSortDirection.Ascending);
             }
             else if (this.descEmployeeRadioButton.Checked)
             {
-                dgvEmployees.Sort(col, ListSortDirection.Descending);
+                dgvEmployee.Sort(col, ListSortDirection.Descending);
             }
         }
 
-        private void btnMoveToHandleEmployeesForm_Click(object sender, EventArgs e)
+        private void btnHandleEmployeeForm_Click(object sender, EventArgs e)
         {
             Form form = new HandleEmployeeForm();
             form.Show();
         }
 
+        private void btnUpdateEmployeeDGV_Click(object sender, EventArgs e)
+        {
+            // Fill employees data grid view
+            FillEmployeesDGV();
+        }
+
         ////// Trade profile panel //////
-        
+
         // Get info about employees
-        private void FillTradeProfileDGV()
+        private void FillTradeProfilesDGV()
         {
             // Establish connection
             SqlConnection sqlConnection = new SqlConnection();
@@ -594,7 +609,7 @@ namespace MartDB
             dgvTradeProfile.DataSource = dataSet.Tables[0];
         }
 
-        private void btnSearchTradeProfile_Click(object sender, EventArgs e)
+        private void btnSearchTradeProfiles_Click(object sender, EventArgs e)
         {
             // Start searching only if user has entered query for search
             if (this.queryTradeProfileTextBox.Text.Length > 0)
@@ -635,7 +650,7 @@ namespace MartDB
             }
         }
 
-        private void btnSortTradeProfile_Click(object sender, EventArgs e)
+        private void btnSortTradeProfiles_Click(object sender, EventArgs e)
         {
             // col to sort
             DataGridViewColumn col = this.dgvTradeProfile.Columns[0];
@@ -651,16 +666,22 @@ namespace MartDB
             }
         }
 
-        private void btnMoveToHandlingTradeProfilesForm_Click(object sender, EventArgs e)
+        private void btnHandleTradeProfileForm_Click(object sender, EventArgs e)
         {
             Form form = new HandleTradeProfileForm();
             form.Show();
         }
 
+        private void btnUpdateTradeProfileDGV_Click(object sender, EventArgs e)
+        {
+            // Fill trade profiles data grid view
+            FillTradeProfilesDGV();
+        }
+
         ////// Outlet panel //////
-        
+
         // Get info about employees
-        private void FillOutletDGV()
+        private void FillOutletsDGV()
         {
             // Establish connection
             SqlConnection sqlConnection = new SqlConnection();
@@ -691,7 +712,7 @@ namespace MartDB
             dgvOutlet.DataSource = dataSet.Tables[0];
         }
 
-        private void btnSearchOutlet_Click(object sender, EventArgs e)
+        private void btnSearchOutlets_Click(object sender, EventArgs e)
         {
             // Field parser
             string strFieldForSearch = this.queryOutletFieldColBox.SelectedItem.ToString();
@@ -743,7 +764,7 @@ namespace MartDB
             }
         }
 
-        private void sortColsOutletListBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void outletSortColListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.btnSortOutlets.Enabled = true;
         }
@@ -793,10 +814,16 @@ namespace MartDB
             }
         }
 
-        private void btnShowHandleOutletForm_Click(object sender, EventArgs e)
+        private void btnHandleOutletForm_Click(object sender, EventArgs e)
         {
             Form form = new HandleOutletForm();
             form.Show();
+        }
+
+        private void btnUpdateOutletDGV_Click(object sender, EventArgs e)
+        {
+            // Fill outlet data grid view
+            FillOutletsDGV();
         }
     }
 }
