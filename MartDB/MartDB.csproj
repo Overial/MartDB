@@ -52,11 +52,11 @@
     <Compile Include="CustomerForm.Designer.cs">
       <DependentUpon>CustomerForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="HandleBookingForm.cs">
+    <Compile Include="AddBookingForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="HandleBookingForm.Designer.cs">
-      <DependentUpon>HandleBookingForm.cs</DependentUpon>
+    <Compile Include="AddBookingForm.Designer.cs">
+      <DependentUpon>AddBookingForm.cs</DependentUpon>
     </Compile>
     <Compile Include="HandleEmployeeForm.cs">
       <SubType>Form</SubType>
@@ -101,12 +101,18 @@
     <Compile Include="RegisterForm.Designer.cs">
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UpdateBookingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateBookingForm.Designer.cs">
+      <DependentUpon>UpdateBookingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserData.cs" />
     <EmbeddedResource Include="CustomerForm.resx">
       <DependentUpon>CustomerForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HandleBookingForm.resx">
-      <DependentUpon>HandleBookingForm.cs</DependentUpon>
+    <EmbeddedResource Include="AddBookingForm.resx">
+      <DependentUpon>AddBookingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HandleEmployeeForm.resx">
       <DependentUpon>HandleEmployeeForm.cs</DependentUpon>
@@ -134,6 +140,9 @@
     </Compile>
     <EmbeddedResource Include="RegisterForm.resx">
       <DependentUpon>RegisterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateBookingForm.resx">
+      <DependentUpon>UpdateBookingForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="MartDBDataSet.xsc">
       <DependentUpon>MartDBDataSet.xsd</DependentUpon>

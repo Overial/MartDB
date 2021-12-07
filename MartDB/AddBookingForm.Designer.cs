@@ -1,7 +1,7 @@
 ﻿
 namespace MartDB
 {
-    partial class HandleBookingForm
+    partial class AddBookingForm
     {
         /// <summary>
         /// Required designer variable.
@@ -39,14 +39,13 @@ namespace MartDB
             this.dtpBookingStartDate = new System.Windows.Forms.DateTimePicker();
             this.dtpBookingEndDate = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
-            this.btnUpdateBooking = new System.Windows.Forms.Button();
             this.orgNameComboBox = new System.Windows.Forms.ComboBox();
             this.areaIdComboBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // btnAddBooking
             // 
-            this.btnAddBooking.Location = new System.Drawing.Point(53, 262);
+            this.btnAddBooking.Location = new System.Drawing.Point(178, 242);
             this.btnAddBooking.Name = "btnAddBooking";
             this.btnAddBooking.Size = new System.Drawing.Size(146, 45);
             this.btnAddBooking.TabIndex = 10;
@@ -130,16 +129,6 @@ namespace MartDB
             this.label6.TabIndex = 25;
             this.label6.Text = "Введите данные и нажмите необходимую кнопку:";
             // 
-            // btnUpdateBooking
-            // 
-            this.btnUpdateBooking.Location = new System.Drawing.Point(289, 262);
-            this.btnUpdateBooking.Name = "btnUpdateBooking";
-            this.btnUpdateBooking.Size = new System.Drawing.Size(146, 45);
-            this.btnUpdateBooking.TabIndex = 22;
-            this.btnUpdateBooking.Text = "Обновить данные аренды";
-            this.btnUpdateBooking.UseVisualStyleBackColor = true;
-            this.btnUpdateBooking.Click += new System.EventHandler(this.btnUpdateBooking_Click);
-            // 
             // orgNameComboBox
             // 
             this.orgNameComboBox.FormattingEnabled = true;
@@ -156,17 +145,16 @@ namespace MartDB
             this.areaIdComboBox.Size = new System.Drawing.Size(121, 24);
             this.areaIdComboBox.TabIndex = 27;
             // 
-            // HandleBookingForm
+            // AddBookingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(499, 346);
+            this.ClientSize = new System.Drawing.Size(499, 311);
             this.Controls.Add(this.areaIdComboBox);
             this.Controls.Add(this.orgNameComboBox);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.dtpBookingEndDate);
             this.Controls.Add(this.dtpBookingStartDate);
-            this.Controls.Add(this.btnUpdateBooking);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
@@ -175,7 +163,7 @@ namespace MartDB
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "HandleBookingForm";
+            this.Name = "AddBookingForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Управление арендами";
             this.Load += new System.EventHandler(this.HandleBookingForm_Load);
@@ -195,7 +183,6 @@ namespace MartDB
         private System.Windows.Forms.DateTimePicker dtpBookingStartDate;
         private System.Windows.Forms.DateTimePicker dtpBookingEndDate;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button btnUpdateBooking;
         private System.Windows.Forms.ComboBox orgNameComboBox;
         private System.Windows.Forms.ComboBox areaIdComboBox;
     }

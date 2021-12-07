@@ -73,13 +73,13 @@ namespace MartDB
             // Adjust form for organisations
             if (UserData.UserRole == "organisation")
             {
-                this.btnHandleBookingForm.Enabled = false;
+                this.btnAddBookingForm.Enabled = false;
             }
 
             ////// DGV loading //////
             
             // Fill area and booking data grid view
-            FillAreaAndBookingDGV();
+            FillBookingDGV();
 
             // Fill employees data grid view
             FillEmployeesDGV();
@@ -311,7 +311,7 @@ namespace MartDB
         ////// Booking panel //////
 
         // Get info about areas and bookings
-        private void FillAreaAndBookingDGV()
+        private void FillBookingDGV()
         {
             // Establish connection
             SqlConnection sqlConnection = new SqlConnection();
@@ -320,12 +320,15 @@ namespace MartDB
 
             // Create query
             string selectQuery = "SELECT " +
-                                     "area_square AS [Площадь помещения]," +
-                                     "floor_number AS [Номер этажа]," +
-                                     "cost AS [Стоимость аренды]," +
-                                     "booking_start_date AS [Начало периода аренды]," +
-                                     "booking_end_date AS [Конец периода аренды]" +
+                                     "Organisation.org_name AS [Название организации]," +
+                                     "Area.area_id AS [Код помещения]," +
+                                     "Area.area_square AS [Площадь помещения]," +
+                                     "Area.floor_number AS [Номер этажа]," +
+                                     "Booking.cost AS [Стоимость аренды]," +
+                                     "Booking.booking_start_date AS [Начало периода аренды]," +
+                                     "Booking.booking_end_date AS [Конец периода аренды] " +
                                  "FROM Booking " +
+                                 "JOIN Organisation ON Booking.org_id = Organisation.org_id " +
                                  "JOIN Area ON Booking.area_id = Area.area_id";
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(selectQuery, sqlConnection);
 
@@ -500,10 +503,64 @@ namespace MartDB
         }
 
         // Move to booking handling form
-        private void btnHandleBookingForm_Click(object sender, EventArgs e)
+        private void btnAddBookingForm_Click(object sender, EventArgs e)
         {
-            Form handleBookingForm = new HandleBookingForm();
+            Form handleBookingForm = new AddBookingForm();
+            handleBookingForm.FormClosed += new FormClosedEventHandler(this.updateBookingForm_FormClosed);
             handleBookingForm.Show();
+        }
+
+        // Get data from selected booking
+        private void btnUpdateBooking_Click(object sender, EventArgs e)
+        {
+            Int32 selectedCellsCount = this.dgvBooking.GetCellCount(DataGridViewElementStates.Selected);
+            if (selectedCellsCount > 0)
+            {
+                if (this.dgvBooking.AreAllCellsSelected(true))
+                {
+                    MessageBox.Show("Изменить можно только одну строку за раз!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    // System.Text.StringBuilder sb = new System.Text.StringBuilder();
+
+                    // Initiate booking updating only if the whole row is selected
+                    if (selectedCellsCount == this.dgvBooking.Columns.GetColumnCount(DataGridViewElementStates.Visible))
+                    {
+                        //for (int i = 0; i < selectedCellsCount; i++)
+                        //{
+                        //    sb.Append("Row: ");
+                        //    sb.Append(this.dgvBooking.SelectedCells[i].RowIndex.ToString());
+                        //    sb.Append(", Column: ");
+                        //    sb.Append(this.dgvBooking.SelectedCells[i].ColumnIndex.ToString());
+                        //    sb.Append(Environment.NewLine);
+                        //}
+
+                        string orgName = this.dgvBooking.SelectedCells[0].Value.ToString();
+                        string areaId = this.dgvBooking.SelectedCells[1].Value.ToString();
+                        string bookingStartDate = this.dgvBooking.SelectedCells[5].Value.ToString();
+                        string bookingEndDate = this.dgvBooking.SelectedCells[6].Value.ToString();
+
+                        // Pass data to UpdateBookingForm
+                        Form updateBookingForm = new UpdateBookingForm(orgName, areaId, bookingStartDate, bookingEndDate);
+                        updateBookingForm.FormClosed += new FormClosedEventHandler(this.updateBookingForm_FormClosed);
+                        updateBookingForm.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Выберите всю строку для изменения информации!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                    //sb.Append("Total: " + selectedCellsCount.ToString());
+                    //MessageBox.Show(sb.ToString(), "Selected Cells");
+                }
+            }
+        }
+
+        // Refresh booking table after any manipulations with it
+        private void updateBookingForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            FillBookingDGV();
         }
 
         ////// Employee panel //////

@@ -16,11 +16,11 @@ namespace MartDB
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginForm());
+            // Application.Run(new LoginForm());
 
             ////// Debugging //////
 
-            // Application.Run(new MainForm());
+            Application.Run(new MainForm());
 
             // Application.Run(new CustomerForm());
         }

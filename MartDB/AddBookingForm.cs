@@ -11,9 +11,9 @@ using System.Data.SqlClient;
 
 namespace MartDB
 {
-    public partial class HandleBookingForm : Form
+    public partial class AddBookingForm : Form
     {
-        public HandleBookingForm()
+        public AddBookingForm()
         {
             InitializeComponent();
         }
@@ -58,6 +58,9 @@ namespace MartDB
 
                 // Show corresponding information
                 MessageBox.Show("Данные успешно добавлены!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Close this form in case of success
+                this.Close();
             }
             catch (FormatException)
             {
@@ -70,11 +73,6 @@ namespace MartDB
 
             // Close DB connection
             sqlConnection.Close();
-        }
-
-        private void btnUpdateBooking_Click(object sender, EventArgs e)
-        {
-            
         }
     }
 }
