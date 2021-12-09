@@ -336,12 +336,112 @@ namespace MartDB
 
         private void btnDeleteReview_Click(object sender, EventArgs e)
         {
+            Int32 selectedCellsCount = this.dgvReview.GetCellCount(DataGridViewElementStates.Selected);
+            if (selectedCellsCount > 0)
+            {
+                if (this.dgvReview.AreAllCellsSelected(true))
+                {
+                    MessageBox.Show("Удалить можно только один отзыв за раз!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    // Initiate booking updating only if the whole row is selected
+                    if (selectedCellsCount == this.dgvReview.Columns.GetColumnCount(DataGridViewElementStates.Visible))
+                    {
+                        string outletName = this.dgvReview.SelectedCells[0].Value.ToString();
+                        string username = this.dgvReview.SelectedCells[1].Value.ToString();
 
+                        // Pass data to UpdateBookingForm
+                        if (username == UserData.UserName)
+                        {
+                            // Open DB connection
+                            this.sqlConnection.Open();
+
+                            // Call proc
+                            try
+                            {
+                                // Initialize params
+                                this.sqlCmdDeleteReview.Parameters["@username"].Value = UserData.UserName;
+                                this.sqlCmdDeleteReview.Parameters["@outlet_name"].Value = outletName;
+
+                                // Call proc
+                                int iAffectedRowsCount = this.sqlCmdDeleteReview.ExecuteNonQuery();
+
+                                // Show corresponding information
+                                if (iAffectedRowsCount == 0)
+                                {
+                                    MessageBox.Show("Удаления данных завершилось с ошибкой!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Данные успешно удалены!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                    // Update dgvReview in case of success
+                                    FillReviewsDGV();
+                                }
+                            }
+                            catch (FormatException)
+                            {
+                                MessageBox.Show("Введены некорректные значения!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                            catch (SqlException ex)
+                            {
+                                //MessageBox.Show("Добавление данных завершилось с ошибкой!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                                StringBuilder errorMessages = new StringBuilder();
+                                for (int i = 0; i < ex.Errors.Count; i++)
+                                {
+                                    errorMessages.Append("Index #" + i + "\n" +
+                                        "Message: " + ex.Errors[i].Message + "\n" +
+                                        "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+                                        "Source: " + ex.Errors[i].Source + "\n" +
+                                        "Procedure: " + ex.Errors[i].Procedure + "\n");
+                                }
+                                MessageBox.Show(errorMessages.ToString(), "Error");
+                            }
+
+                            // Close DB connection
+                            this.sqlConnection.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Выбран чужой отзыв!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Выберите всю строку для удаления отзыва!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                    //sb.Append("Total: " + selectedCellsCount.ToString());
+                    //MessageBox.Show(sb.ToString(), "Selected Cells");
+                }
+            }
+        }
+
+        // Show only current user reviews
+        private void ViewUserReviews()
+        {
+            FillReviewsDGV();
+
+            // Filter area square data
+            foreach (DataGridViewRow row in this.dgvReview.Rows)
+            {
+                if (row.Cells[1].Value.ToString().Contains(UserData.UserName))
+                {
+                    dgvReview.Rows[row.Index].Visible = true;
+                }
+                else
+                {
+                    dgvReview.CurrentCell = null;
+                    dgvReview.Rows[row.Index].Visible = false;
+                }
+            }
         }
 
         private void btnUserReviewsForm_Click(object sender, EventArgs e)
         {
-
+            ViewUserReviews();
         }
 
         private void btnReviewShowAll_Click(object sender, EventArgs e)
@@ -353,8 +453,10 @@ namespace MartDB
         // Refresh booking table after any manipulations with it
         private void handleReviewForms_FormClosed(object sender, FormClosedEventArgs e)
         {
-            FillOutletsDGV();
-            FillReviewsDGV();
+            //FillOutletsDGV();
+            //FillReviewsDGV();
+
+            ViewUserReviews();
         }
     }
 }

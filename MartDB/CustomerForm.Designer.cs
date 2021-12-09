@@ -33,8 +33,9 @@ namespace MartDB
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelOutlet = new System.Windows.Forms.Panel();
+            this.btnReviewShowAll = new System.Windows.Forms.Button();
             this.btnDeleteReview = new System.Windows.Forms.Button();
-            this.btnUserReviewsForm = new System.Windows.Forms.Button();
+            this.btnViewUserReviews = new System.Windows.Forms.Button();
             this.btnUpdateReview = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -60,7 +61,7 @@ namespace MartDB
             this.dgvOutlet = new System.Windows.Forms.DataGridView();
             this.sqlConnection = new System.Data.SqlClient.SqlConnection();
             this.sqlCmdGetOutletReviews = new System.Data.SqlClient.SqlCommand();
-            this.btnReviewShowAll = new System.Windows.Forms.Button();
+            this.sqlCmdDeleteReview = new System.Data.SqlClient.SqlCommand();
             this.menuStrip1.SuspendLayout();
             this.panelOutlet.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReview)).BeginInit();
@@ -101,7 +102,7 @@ namespace MartDB
             this.panelOutlet.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelOutlet.Controls.Add(this.btnReviewShowAll);
             this.panelOutlet.Controls.Add(this.btnDeleteReview);
-            this.panelOutlet.Controls.Add(this.btnUserReviewsForm);
+            this.panelOutlet.Controls.Add(this.btnViewUserReviews);
             this.panelOutlet.Controls.Add(this.btnUpdateReview);
             this.panelOutlet.Controls.Add(this.label2);
             this.panelOutlet.Controls.Add(this.label1);
@@ -116,10 +117,21 @@ namespace MartDB
             this.panelOutlet.Size = new System.Drawing.Size(1359, 544);
             this.panelOutlet.TabIndex = 5;
             // 
+            // btnReviewShowAll
+            // 
+            this.btnReviewShowAll.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReviewShowAll.Location = new System.Drawing.Point(964, 332);
+            this.btnReviewShowAll.Name = "btnReviewShowAll";
+            this.btnReviewShowAll.Size = new System.Drawing.Size(165, 105);
+            this.btnReviewShowAll.TabIndex = 41;
+            this.btnReviewShowAll.Text = "Показать все отзывы";
+            this.btnReviewShowAll.UseVisualStyleBackColor = true;
+            this.btnReviewShowAll.Click += new System.EventHandler(this.btnReviewShowAll_Click);
+            // 
             // btnDeleteReview
             // 
             this.btnDeleteReview.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDeleteReview.Location = new System.Drawing.Point(964, 466);
+            this.btnDeleteReview.Location = new System.Drawing.Point(1135, 466);
             this.btnDeleteReview.Name = "btnDeleteReview";
             this.btnDeleteReview.Size = new System.Drawing.Size(209, 61);
             this.btnDeleteReview.TabIndex = 40;
@@ -127,21 +139,21 @@ namespace MartDB
             this.btnDeleteReview.UseVisualStyleBackColor = true;
             this.btnDeleteReview.Click += new System.EventHandler(this.btnDeleteReview_Click);
             // 
-            // btnUserReviewsForm
+            // btnViewUserReviews
             // 
-            this.btnUserReviewsForm.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnUserReviewsForm.Location = new System.Drawing.Point(1179, 443);
-            this.btnUserReviewsForm.Name = "btnUserReviewsForm";
-            this.btnUserReviewsForm.Size = new System.Drawing.Size(165, 84);
-            this.btnUserReviewsForm.TabIndex = 39;
-            this.btnUserReviewsForm.Text = "Посмотреть свои отзывы";
-            this.btnUserReviewsForm.UseVisualStyleBackColor = true;
-            this.btnUserReviewsForm.Click += new System.EventHandler(this.btnUserReviewsForm_Click);
+            this.btnViewUserReviews.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnViewUserReviews.Location = new System.Drawing.Point(964, 443);
+            this.btnViewUserReviews.Name = "btnViewUserReviews";
+            this.btnViewUserReviews.Size = new System.Drawing.Size(165, 84);
+            this.btnViewUserReviews.TabIndex = 39;
+            this.btnViewUserReviews.Text = "Посмотреть свои отзывы";
+            this.btnViewUserReviews.UseVisualStyleBackColor = true;
+            this.btnViewUserReviews.Click += new System.EventHandler(this.btnUserReviewsForm_Click);
             // 
             // btnUpdateReview
             // 
             this.btnUpdateReview.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnUpdateReview.Location = new System.Drawing.Point(964, 399);
+            this.btnUpdateReview.Location = new System.Drawing.Point(1135, 399);
             this.btnUpdateReview.Name = "btnUpdateReview";
             this.btnUpdateReview.Size = new System.Drawing.Size(209, 61);
             this.btnUpdateReview.TabIndex = 38;
@@ -228,7 +240,7 @@ namespace MartDB
             // btnAddReview
             // 
             this.btnAddReview.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddReview.Location = new System.Drawing.Point(964, 332);
+            this.btnAddReview.Location = new System.Drawing.Point(1135, 332);
             this.btnAddReview.Name = "btnAddReview";
             this.btnAddReview.Size = new System.Drawing.Size(209, 61);
             this.btnAddReview.TabIndex = 32;
@@ -416,16 +428,14 @@ namespace MartDB
             this.sqlCmdGetOutletReviews.Parameters.AddRange(new System.Data.SqlClient.SqlParameter[] {
             new System.Data.SqlClient.SqlParameter("@outlet_name", System.Data.SqlDbType.VarChar, 50)});
             // 
-            // btnReviewShowAll
+            // sqlCmdDeleteReview
             // 
-            this.btnReviewShowAll.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReviewShowAll.Location = new System.Drawing.Point(1179, 332);
-            this.btnReviewShowAll.Name = "btnReviewShowAll";
-            this.btnReviewShowAll.Size = new System.Drawing.Size(165, 105);
-            this.btnReviewShowAll.TabIndex = 41;
-            this.btnReviewShowAll.Text = "Показать все отзывы";
-            this.btnReviewShowAll.UseVisualStyleBackColor = true;
-            this.btnReviewShowAll.Click += new System.EventHandler(this.btnReviewShowAll_Click);
+            this.sqlCmdDeleteReview.CommandText = "ProcDeleteReview";
+            this.sqlCmdDeleteReview.CommandType = System.Data.CommandType.StoredProcedure;
+            this.sqlCmdDeleteReview.Connection = this.sqlConnection;
+            this.sqlCmdDeleteReview.Parameters.AddRange(new System.Data.SqlClient.SqlParameter[] {
+            new System.Data.SqlClient.SqlParameter("@username", System.Data.SqlDbType.VarChar, 50),
+            new System.Data.SqlClient.SqlParameter("@outlet_name", System.Data.SqlDbType.VarChar, 50)});
             // 
             // CustomerForm
             // 
@@ -485,12 +495,13 @@ namespace MartDB
         private System.Windows.Forms.DataGridView dgvReview;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnUserReviewsForm;
+        private System.Windows.Forms.Button btnViewUserReviews;
         private System.Windows.Forms.Label currentUserLabel;
         private System.Windows.Forms.Button btnUpdateReview;
         private System.Windows.Forms.Button btnDeleteReview;
         private System.Data.SqlClient.SqlConnection sqlConnection;
         private System.Data.SqlClient.SqlCommand sqlCmdGetOutletReviews;
         private System.Windows.Forms.Button btnReviewShowAll;
+        private System.Data.SqlClient.SqlCommand sqlCmdDeleteReview;
     }
 }
