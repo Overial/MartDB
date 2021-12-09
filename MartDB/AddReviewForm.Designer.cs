@@ -38,7 +38,7 @@ namespace MartDB
             this.btnAddReview = new System.Windows.Forms.Button();
             this.sqlConnection = new System.Data.SqlClient.SqlConnection();
             this.sqlCmdAddReview = new System.Data.SqlClient.SqlCommand();
-            this.reviewContenTextBox = new System.Windows.Forms.TextBox();
+            this.reviewContentTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -126,20 +126,20 @@ namespace MartDB
             new System.Data.SqlClient.SqlParameter("@rating", System.Data.SqlDbType.Int),
             new System.Data.SqlClient.SqlParameter("@review_content", System.Data.SqlDbType.VarChar, 200)});
             // 
-            // reviewContenTextBox
+            // reviewContentTextBox
             // 
-            this.reviewContenTextBox.Location = new System.Drawing.Point(158, 155);
-            this.reviewContenTextBox.Multiline = true;
-            this.reviewContenTextBox.Name = "reviewContenTextBox";
-            this.reviewContenTextBox.Size = new System.Drawing.Size(411, 125);
-            this.reviewContenTextBox.TabIndex = 28;
+            this.reviewContentTextBox.Location = new System.Drawing.Point(158, 155);
+            this.reviewContentTextBox.Multiline = true;
+            this.reviewContentTextBox.Name = "reviewContentTextBox";
+            this.reviewContentTextBox.Size = new System.Drawing.Size(411, 125);
+            this.reviewContentTextBox.TabIndex = 28;
             // 
             // AddReviewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(581, 435);
-            this.Controls.Add(this.reviewContenTextBox);
+            this.Controls.Add(this.reviewContentTextBox);
             this.Controls.Add(this.btnAddReview);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.ratingComboBox);
@@ -170,6 +170,6 @@ namespace MartDB
         private System.Windows.Forms.Button btnAddReview;
         private System.Data.SqlClient.SqlConnection sqlConnection;
         private System.Data.SqlClient.SqlCommand sqlCmdAddReview;
-        private System.Windows.Forms.TextBox reviewContenTextBox;
+        private System.Windows.Forms.TextBox reviewContentTextBox;
     }
 }

@@ -113,6 +113,12 @@
     <Compile Include="UpdateBookingForm.Designer.cs">
       <DependentUpon>UpdateBookingForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UpdateReviewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateReviewForm.Designer.cs">
+      <DependentUpon>UpdateReviewForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserData.cs" />
     <EmbeddedResource Include="AddReviewForm.resx">
       <DependentUpon>AddReviewForm.cs</DependentUpon>
@@ -152,6 +158,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateBookingForm.resx">
       <DependentUpon>UpdateBookingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateReviewForm.resx">
+      <DependentUpon>UpdateReviewForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="MartDBDataSet.xsc">
       <DependentUpon>MartDBDataSet.xsd</DependentUpon>

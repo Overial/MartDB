@@ -33,7 +33,7 @@ namespace MartDB
             FillOutletsDGV();
 
             // Fill review data grid view
-            // FillReviewsDGV();
+            FillReviewsDGV();
         }
 
         ////// Menu strip //////
@@ -87,11 +87,13 @@ namespace MartDB
 
             // Create query
             string selectQuery = "SELECT " +
+                                     "Outlet.outlet_name," +
                                      "Users.username," +
                                      "Review.rating," +
                                      "Review.review_content " +
                                      "FROM Review " +
-                                 "JOIN Users ON Review.user_id = Users.id";
+                                 "JOIN Users ON Review.userid = Users.id " +
+                                 "JOIN Outlet ON Review.org_id = Outlet.org_id";
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(selectQuery, sqlConnection);
 
             // Set command builder
@@ -278,7 +280,7 @@ namespace MartDB
 
                         // Pass data to UpdateBookingForm
                         Form addReviewForm = new AddReviewForm(outletName);
-                        addReviewForm.FormClosed += new FormClosedEventHandler(this.hanldleReviewForms_FormClosed);
+                        addReviewForm.FormClosed += new FormClosedEventHandler(this.handleReviewForms_FormClosed);
                         addReviewForm.Show();
                     }
                     else
@@ -292,10 +294,67 @@ namespace MartDB
             }
         }
 
+        private void btnUpdateReview_Click(object sender, EventArgs e)
+        {
+            Int32 selectedCellsCount = this.dgvReview.GetCellCount(DataGridViewElementStates.Selected);
+            if (selectedCellsCount > 0)
+            {
+                if (this.dgvReview.AreAllCellsSelected(true))
+                {
+                    MessageBox.Show("Изменить можно только один отзыв за раз!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    // Initiate booking updating only if the whole row is selected
+                    if (selectedCellsCount == this.dgvReview.Columns.GetColumnCount(DataGridViewElementStates.Visible))
+                    {
+                        string outletName = this.dgvReview.SelectedCells[0].Value.ToString();
+                        string username = this.dgvReview.SelectedCells[1].Value.ToString();
+
+                        // Pass data to UpdateBookingForm
+                        if (username == UserData.UserName)
+                        {
+                            Form updateReviewForm = new UpdateReviewForm(outletName);
+                            updateReviewForm.FormClosed += new FormClosedEventHandler(this.handleReviewForms_FormClosed);
+                            updateReviewForm.Show();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Выбран чужой отзыв!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Выберите всю строку для изменения информации!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                    //sb.Append("Total: " + selectedCellsCount.ToString());
+                    //MessageBox.Show(sb.ToString(), "Selected Cells");
+                }
+            }
+        }
+
+        private void btnDeleteReview_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnUserReviewsForm_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnReviewShowAll_Click(object sender, EventArgs e)
+        {
+            this.dgvReview.DataSource = null;
+            FillReviewsDGV();
+        }
+
         // Refresh booking table after any manipulations with it
-        private void hanldleReviewForms_FormClosed(object sender, FormClosedEventArgs e)
+        private void handleReviewForms_FormClosed(object sender, FormClosedEventArgs e)
         {
             FillOutletsDGV();
+            FillReviewsDGV();
         }
     }
 }

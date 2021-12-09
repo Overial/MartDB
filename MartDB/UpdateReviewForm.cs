@@ -11,33 +11,24 @@ using System.Data.SqlClient;
 
 namespace MartDB
 {
-    public partial class AddReviewForm : Form
+    public partial class UpdateReviewForm : Form
     {
         private string _outletName = "";
 
-        public AddReviewForm(string outletName)
+        public UpdateReviewForm(string orgId)
         {
             InitializeComponent();
 
-            this._outletName = outletName;
+            this._outletName = orgId;
         }
 
-        private void AddReviewForm_Load(object sender, EventArgs e)
+        private void UpdateReviewForm_Load(object sender, EventArgs e)
         {
-            // Fill combo box with org names from Area table
-            DataTable dtOrgNames = new DataTable();
-            SqlDataAdapter daOrgNames = new SqlDataAdapter("SELECT outlet_name FROM Outlet",
-                                                    this.sqlConnection);
-            daOrgNames.Fill(dtOrgNames);
-            this.outletNameComboBox.DataSource = dtOrgNames;
-            this.outletNameComboBox.DisplayMember = "outlet_name";
-            this.outletNameComboBox.ValueMember = "outlet_name";
-
-            // Set chosen outlet name
+            this.usernameTextBox.Text = UserData.UserName;
             this.outletNameComboBox.Text = this._outletName;
         }
 
-        private void btnAddReview_Click(object sender, EventArgs e)
+        private void btnUpdateReview_Click(object sender, EventArgs e)
         {
             // Open DB connection
             this.sqlConnection.Open();
@@ -46,23 +37,23 @@ namespace MartDB
             try
             {
                 // Initialize params
-                this.sqlCmdAddReview.Parameters["@username"].Value = UserData.UserName;
-                this.sqlCmdAddReview.Parameters["@outlet_name"].Value = this.outletNameComboBox.Text;
-                this.sqlCmdAddReview.Parameters["@rating"].Value = this.ratingComboBox.Text;
-                this.sqlCmdAddReview.Parameters["@review_content"].Value = this.reviewContentTextBox.Text;
-                
+                this.sqlCmdUpdateReview.Parameters["@username"].Value = UserData.UserName;
+                this.sqlCmdUpdateReview.Parameters["@outlet_name"].Value = this._outletName;
+                this.sqlCmdUpdateReview.Parameters["@rating"].Value = this.ratingComboBox.Text;
+                this.sqlCmdUpdateReview.Parameters["@review_content"].Value = this.reviewContentTextBox.Text;
+
                 // Call proc
-                int iAffectedRowsCount = this.sqlCmdAddReview.ExecuteNonQuery();
+                int iAffectedRowsCount = this.sqlCmdUpdateReview.ExecuteNonQuery();
 
                 // Show corresponding information
                 if (iAffectedRowsCount == 0)
                 {
-                    MessageBox.Show("Добавление данных завершилось с ошибкой!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Изменение данных завершилось с ошибкой!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    MessageBox.Show("Данные успешно добавлены!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    
+                    MessageBox.Show("Данные успешно изменены!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                     // Close this form in case of success
                     this.Close();
                 }

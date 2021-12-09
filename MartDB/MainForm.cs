@@ -29,10 +29,6 @@ namespace MartDB
         // 3: TradeProfile
         // 4: Outlet
 
-        // панель аренды: фильтрация только свои
-        
-        // панель свободных помещений
-
         public MainForm()
         {
             InitializeComponent();
@@ -812,13 +808,14 @@ namespace MartDB
             sqlConnection.Open();
 
             // Create query
-            string selectQuery = "SELECT Organisation.org_name AS [Организация]," +
-                                 "Outlet.area_id AS [Код помещения]," +
-                                 "Outlet.outlet_name AS [Название торговой точки]," +
-                                 "Outlet.outlet_type AS [Тип торговой точки]," +
-                                 "Outlet.timetable AS [Расписание]," +
-                                 "Outlet.rating AS [Рейтинг]," +
-                                 "Outlet.contact_person AS [Контактное лицо] " +
+            string selectQuery = "SELECT " +
+                                     "Organisation.org_name AS [Организация]," +
+                                     "Outlet.area_id AS [Код помещения]," +
+                                     "Outlet.outlet_name AS [Название торговой точки]," +
+                                     "Outlet.outlet_type AS [Тип торговой точки]," +
+                                     "Outlet.timetable AS [Расписание]," +
+                                     "Outlet.rating AS [Рейтинг]," +
+                                     "Outlet.contact_person AS [Контактное лицо] " +
                                  "FROM Outlet " +
                                  "JOIN Organisation ON Outlet.org_id = Organisation.org_id";
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(selectQuery, sqlConnection);
