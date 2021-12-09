@@ -22,7 +22,7 @@ namespace MartDB
 
             // Application.Run(new MainForm());
 
-            Application.Run(new CustomerForm());
+           Application.Run(new CustomerForm());
         }
     }
 }

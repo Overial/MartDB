@@ -121,6 +121,7 @@ namespace MartDB
             this.sqlCmdAddReview.CommandType = System.Data.CommandType.StoredProcedure;
             this.sqlCmdAddReview.Connection = this.sqlConnection;
             this.sqlCmdAddReview.Parameters.AddRange(new System.Data.SqlClient.SqlParameter[] {
+            new System.Data.SqlClient.SqlParameter("@username", System.Data.SqlDbType.VarChar, 50),
             new System.Data.SqlClient.SqlParameter("@outlet_name", System.Data.SqlDbType.VarChar, 50),
             new System.Data.SqlClient.SqlParameter("@rating", System.Data.SqlDbType.Int),
             new System.Data.SqlClient.SqlParameter("@review_content", System.Data.SqlDbType.VarChar, 200)});

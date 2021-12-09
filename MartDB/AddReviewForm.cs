@@ -46,6 +46,7 @@ namespace MartDB
             try
             {
                 // Initialize params
+                this.sqlCmdAddReview.Parameters["@username"].Value = UserData.UserName;
                 this.sqlCmdAddReview.Parameters["@outlet_name"].Value = this.outletNameComboBox.Text;
                 this.sqlCmdAddReview.Parameters["@rating"].Value = this.ratingComboBox.Text;
                 this.sqlCmdAddReview.Parameters["@review_content"].Value = this.reviewContenTextBox.Text;

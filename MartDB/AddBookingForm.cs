@@ -29,12 +29,15 @@ namespace MartDB
             this.orgNameComboBox.DisplayMember = "org_name";
             this.orgNameComboBox.ValueMember = "org_name";
 
-            // Fill combo box with area ids from Area table
-            DataTable dtAreaIds = new DataTable();
-            SqlDataAdapter daAreaIds = new SqlDataAdapter("SELECT area_id FROM Area",
-                                                    this.sqlConnection);
-            daAreaIds.Fill(dtAreaIds);
-            this.areaIdComboBox.DataSource = dtAreaIds;
+            // Fill combo box with area ids from Area table which are not already in Booking table
+            DataTable dtFreeAreaIds = new DataTable();
+            string query = "SELECT Area.area_id FROM Area " +
+                           "LEFT JOIN Booking ON Area.area_id = Booking.area_id " +
+                           "WHERE Booking.area_id IS NULL";
+            SqlDataAdapter daFreeAreaIds = new SqlDataAdapter(query,
+                                                              this.sqlConnection);
+            daFreeAreaIds.Fill(dtFreeAreaIds);
+            this.areaIdComboBox.DataSource = dtFreeAreaIds;
             this.areaIdComboBox.DisplayMember = "area_id";
             this.areaIdComboBox.ValueMember = "area_id";
         }

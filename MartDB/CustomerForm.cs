@@ -31,6 +31,9 @@ namespace MartDB
 
             // Fill outlet data grid view
             FillOutletsDGV();
+
+            // Fill review data grid view
+            // FillReviewsDGV();
         }
 
         ////// Menu strip //////
@@ -51,12 +54,13 @@ namespace MartDB
             sqlConnection.Open();
 
             // Create query
-            string selectQuery = "SELECT Outlet.outlet_name AS [Название торговой точки], " +
-                                 "Outlet.outlet_type AS [Тип торговой точки]," +
-                                 "Area.floor_number AS [Номер этажа]," +
-                                 "Outlet.timetable AS [Расписание]," +
-                                 "Outlet.rating AS [Рейтинг] " +
-                                 "FROM Outlet " +
+            string selectQuery = "SELECT " +
+                                     "Outlet.outlet_name AS [Название торговой точки], " +
+                                     "Outlet.outlet_type AS [Тип торговой точки]," +
+                                     "Area.floor_number AS [Номер этажа]," +
+                                     "Outlet.timetable AS [Расписание]," +
+                                     "Outlet.rating AS [Рейтинг] " +
+                                     "FROM Outlet " +
                                  "JOIN Area ON Outlet.area_id = Area.area_id " +
                                  "JOIN Organisation ON Outlet.org_id = Organisation.org_id ";
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(selectQuery, sqlConnection);
@@ -69,8 +73,46 @@ namespace MartDB
             sqlDataAdapter.Fill(dataSet);
 
             // Fill DGV
-            dgvOutlet.ReadOnly = true;
-            dgvOutlet.DataSource = dataSet.Tables[0];
+            this.dgvOutlet.ReadOnly = true;
+            this.dgvOutlet.DataSource = dataSet.Tables[0];
+        }
+
+        // Get info about reviews
+        private void FillReviewsDGV()
+        {
+            // Establish connection
+            SqlConnection sqlConnection = new SqlConnection();
+            sqlConnection.ConnectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=MartDB;Integrated Security=True";
+            sqlConnection.Open();
+
+            // Create query
+            string selectQuery = "SELECT " +
+                                     "Users.username," +
+                                     "Review.rating," +
+                                     "Review.review_content " +
+                                     "FROM Review " +
+                                 "JOIN Users ON Review.user_id = Users.id";
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(selectQuery, sqlConnection);
+
+            // Set command builder
+            // SqlCommandBuilder commandBuilder = new SqlCommandBuilder(sqlDataAdapter);
+
+            // Fill data set
+            DataSet dataSet = new DataSet();
+            sqlDataAdapter.Fill(dataSet);
+
+            // Fill DGV
+            this.dgvReview.ReadOnly = true;
+            this.dgvReview.DataSource = dataSet.Tables[0];
+        }
+
+        // Button to change user at runtime
+        private void btnChangeUser_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            Form form = new LoginForm();
+            form.ShowDialog();
+            this.Close();
         }
 
         private void searchColsOutletListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -178,6 +220,27 @@ namespace MartDB
             }
         }
 
+        // Display selected outlet reviews
+        private void dgvOutlet_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            this.dgvReview.DataSource = null;
+
+            // Get selected outlet
+            string selectedOutlet = "";
+            if (this.dgvOutlet.SelectedCells.Count == 1)
+            {
+                // MessageBox.Show(this.dgvOutlet.CurrentRow.Cells[0].Value.ToString());
+                selectedOutlet = this.dgvOutlet.CurrentRow.Cells[0].Value.ToString();
+
+                this.sqlCmdGetOutletReviews.Parameters["@outlet_name"].Value = selectedOutlet;
+                this.sqlConnection.Open();
+                DataTable dt = new DataTable();
+                dt.Load(sqlCmdGetOutletReviews.ExecuteReader());
+                this.dgvReview.DataSource = dt;
+                this.sqlConnection.Close();
+            }
+        }
+
         private void btnAddReview_Click(object sender, EventArgs e)
         {
             Int32 selectedCellsCount = this.dgvOutlet.GetCellCount(DataGridViewElementStates.Selected);
@@ -216,15 +279,6 @@ namespace MartDB
         private void hanldleReviewForms_FormClosed(object sender, FormClosedEventArgs e)
         {
             FillOutletsDGV();
-        }
-
-        // Button to change user at runtime
-        private void btnChangeUser_Click(object sender, EventArgs e)
-        {
-            this.Visible = false;
-            Form form = new LoginForm();
-            form.ShowDialog();
-            this.Close();
         }
     }
 }

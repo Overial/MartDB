@@ -33,7 +33,14 @@ namespace MartDB
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelOutlet = new System.Windows.Forms.Panel();
+            this.btnDeleteReview = new System.Windows.Forms.Button();
+            this.btnUserReviewsForm = new System.Windows.Forms.Button();
+            this.btnUpdateReview = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dgvReview = new System.Windows.Forms.DataGridView();
             this.panelUser = new System.Windows.Forms.Panel();
+            this.currentUserLabel = new System.Windows.Forms.Label();
             this.panelOutletLabel = new System.Windows.Forms.Label();
             this.btnChangeUser = new System.Windows.Forms.Button();
             this.btnAddReview = new System.Windows.Forms.Button();
@@ -43,27 +50,23 @@ namespace MartDB
             this.descOutletRadioButton = new System.Windows.Forms.RadioButton();
             this.ascOutletRadioButton = new System.Windows.Forms.RadioButton();
             this.sortColOutletLabel = new System.Windows.Forms.Label();
-            this.btnOutletShowAll = new System.Windows.Forms.Button();
             this.searchOutletGroupBox = new System.Windows.Forms.GroupBox();
             this.searchQueryOutletGroupBox = new System.Windows.Forms.Label();
             this.searchColsOutletListBox = new System.Windows.Forms.ListBox();
             this.searchOutletLabel = new System.Windows.Forms.Label();
             this.searchQueryOutletTextBox = new System.Windows.Forms.TextBox();
             this.btnSearchOutlet = new System.Windows.Forms.Button();
+            this.btnOutletShowAll = new System.Windows.Forms.Button();
             this.dgvOutlet = new System.Windows.Forms.DataGridView();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnUpdateReview = new System.Windows.Forms.Button();
-            this.btnDeleleReview = new System.Windows.Forms.Button();
-            this.currentUserLabel = new System.Windows.Forms.Label();
+            this.sqlConnection = new System.Data.SqlClient.SqlConnection();
+            this.sqlCmdGetOutletReviews = new System.Data.SqlClient.SqlCommand();
             this.menuStrip1.SuspendLayout();
             this.panelOutlet.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvReview)).BeginInit();
             this.panelUser.SuspendLayout();
             this.sortOutletGroupBox.SuspendLayout();
             this.searchOutletGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOutlet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -95,11 +98,12 @@ namespace MartDB
             // panelOutlet
             // 
             this.panelOutlet.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelOutlet.Controls.Add(this.btnDeleleReview);
+            this.panelOutlet.Controls.Add(this.btnDeleteReview);
+            this.panelOutlet.Controls.Add(this.btnUserReviewsForm);
             this.panelOutlet.Controls.Add(this.btnUpdateReview);
             this.panelOutlet.Controls.Add(this.label2);
             this.panelOutlet.Controls.Add(this.label1);
-            this.panelOutlet.Controls.Add(this.dataGridView1);
+            this.panelOutlet.Controls.Add(this.dgvReview);
             this.panelOutlet.Controls.Add(this.panelUser);
             this.panelOutlet.Controls.Add(this.btnAddReview);
             this.panelOutlet.Controls.Add(this.sortOutletGroupBox);
@@ -109,6 +113,70 @@ namespace MartDB
             this.panelOutlet.Name = "panelOutlet";
             this.panelOutlet.Size = new System.Drawing.Size(1359, 544);
             this.panelOutlet.TabIndex = 5;
+            // 
+            // btnDeleteReview
+            // 
+            this.btnDeleteReview.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDeleteReview.Location = new System.Drawing.Point(964, 466);
+            this.btnDeleteReview.Name = "btnDeleteReview";
+            this.btnDeleteReview.Size = new System.Drawing.Size(209, 61);
+            this.btnDeleteReview.TabIndex = 40;
+            this.btnDeleteReview.Text = "Удалить отзыв";
+            this.btnDeleteReview.UseVisualStyleBackColor = true;
+            // 
+            // btnUserReviewsForm
+            // 
+            this.btnUserReviewsForm.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUserReviewsForm.Location = new System.Drawing.Point(1179, 332);
+            this.btnUserReviewsForm.Name = "btnUserReviewsForm";
+            this.btnUserReviewsForm.Size = new System.Drawing.Size(165, 195);
+            this.btnUserReviewsForm.TabIndex = 39;
+            this.btnUserReviewsForm.Text = "Посмотреть свои отзывы";
+            this.btnUserReviewsForm.UseVisualStyleBackColor = true;
+            // 
+            // btnUpdateReview
+            // 
+            this.btnUpdateReview.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUpdateReview.Location = new System.Drawing.Point(964, 399);
+            this.btnUpdateReview.Name = "btnUpdateReview";
+            this.btnUpdateReview.Size = new System.Drawing.Size(209, 61);
+            this.btnUpdateReview.TabIndex = 38;
+            this.btnUpdateReview.Text = "Редактировать отзыв";
+            this.btnUpdateReview.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(960, 5);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(77, 23);
+            this.label2.TabIndex = 37;
+            this.label2.Text = "Отзывы:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(326, 5);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(142, 23);
+            this.label1.TabIndex = 36;
+            this.label1.Text = "Торговые точки:";
+            // 
+            // dgvReview
+            // 
+            this.dgvReview.AllowUserToAddRows = false;
+            this.dgvReview.AllowUserToDeleteRows = false;
+            this.dgvReview.AllowUserToOrderColumns = true;
+            this.dgvReview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvReview.Location = new System.Drawing.Point(964, 38);
+            this.dgvReview.Name = "dgvReview";
+            this.dgvReview.ReadOnly = true;
+            this.dgvReview.RowHeadersWidth = 51;
+            this.dgvReview.RowTemplate.Height = 24;
+            this.dgvReview.Size = new System.Drawing.Size(380, 288);
+            this.dgvReview.TabIndex = 35;
             // 
             // panelUser
             // 
@@ -120,6 +188,16 @@ namespace MartDB
             this.panelUser.Name = "panelUser";
             this.panelUser.Size = new System.Drawing.Size(321, 144);
             this.panelUser.TabIndex = 33;
+            // 
+            // currentUserLabel
+            // 
+            this.currentUserLabel.AutoSize = true;
+            this.currentUserLabel.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.currentUserLabel.Location = new System.Drawing.Point(87, 38);
+            this.currentUserLabel.Name = "currentUserLabel";
+            this.currentUserLabel.Size = new System.Drawing.Size(136, 28);
+            this.currentUserLabel.TabIndex = 20;
+            this.currentUserLabel.Text = "<username>!";
             // 
             // panelOutletLabel
             // 
@@ -145,9 +223,9 @@ namespace MartDB
             // btnAddReview
             // 
             this.btnAddReview.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddReview.Location = new System.Drawing.Point(1063, 332);
+            this.btnAddReview.Location = new System.Drawing.Point(964, 332);
             this.btnAddReview.Name = "btnAddReview";
-            this.btnAddReview.Size = new System.Drawing.Size(183, 61);
+            this.btnAddReview.Size = new System.Drawing.Size(209, 61);
             this.btnAddReview.TabIndex = 32;
             this.btnAddReview.Text = "Написать отзыв";
             this.btnAddReview.UseVisualStyleBackColor = true;
@@ -226,17 +304,6 @@ namespace MartDB
             this.sortColOutletLabel.TabIndex = 0;
             this.sortColOutletLabel.Text = "Поле для сортировки:";
             // 
-            // btnOutletShowAll
-            // 
-            this.btnOutletShowAll.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnOutletShowAll.Location = new System.Drawing.Point(181, 144);
-            this.btnOutletShowAll.Name = "btnOutletShowAll";
-            this.btnOutletShowAll.Size = new System.Drawing.Size(119, 42);
-            this.btnOutletShowAll.TabIndex = 30;
-            this.btnOutletShowAll.Text = "Показать все";
-            this.btnOutletShowAll.UseVisualStyleBackColor = true;
-            this.btnOutletShowAll.Click += new System.EventHandler(this.btnOutletShowAll_Click);
-            // 
             // searchOutletGroupBox
             // 
             this.searchOutletGroupBox.Controls.Add(this.searchQueryOutletGroupBox);
@@ -305,6 +372,17 @@ namespace MartDB
             this.btnSearchOutlet.UseVisualStyleBackColor = true;
             this.btnSearchOutlet.Click += new System.EventHandler(this.btnSearchOutlet_Click);
             // 
+            // btnOutletShowAll
+            // 
+            this.btnOutletShowAll.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnOutletShowAll.Location = new System.Drawing.Point(181, 144);
+            this.btnOutletShowAll.Name = "btnOutletShowAll";
+            this.btnOutletShowAll.Size = new System.Drawing.Size(119, 42);
+            this.btnOutletShowAll.TabIndex = 30;
+            this.btnOutletShowAll.Text = "Показать все";
+            this.btnOutletShowAll.UseVisualStyleBackColor = true;
+            this.btnOutletShowAll.Click += new System.EventHandler(this.btnOutletShowAll_Click);
+            // 
             // dgvOutlet
             // 
             this.dgvOutlet.AllowUserToAddRows = false;
@@ -318,70 +396,19 @@ namespace MartDB
             this.dgvOutlet.RowTemplate.Height = 24;
             this.dgvOutlet.Size = new System.Drawing.Size(616, 489);
             this.dgvOutlet.TabIndex = 29;
+            this.dgvOutlet.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOutlet_CellClick);
             // 
-            // dataGridView1
+            // sqlConnection
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(964, 38);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(380, 288);
-            this.dataGridView1.TabIndex = 35;
+            this.sqlConnection.ConnectionString = "Data Source=.\\SQLEXPRESS;Initial Catalog=MartDB;Integrated Security=True";
+            this.sqlConnection.FireInfoMessageEventOnUserErrors = false;
             // 
-            // label1
+            // sqlCmdGetOutletReviews
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(326, 5);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(142, 23);
-            this.label1.TabIndex = 36;
-            this.label1.Text = "Торговые точки:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(960, 5);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 23);
-            this.label2.TabIndex = 37;
-            this.label2.Text = "Отзывы:";
-            // 
-            // btnUpdateReview
-            // 
-            this.btnUpdateReview.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnUpdateReview.Location = new System.Drawing.Point(1063, 399);
-            this.btnUpdateReview.Name = "btnUpdateReview";
-            this.btnUpdateReview.Size = new System.Drawing.Size(183, 61);
-            this.btnUpdateReview.TabIndex = 38;
-            this.btnUpdateReview.Text = "Редактировать отзыв";
-            this.btnUpdateReview.UseVisualStyleBackColor = true;
-            // 
-            // btnDeleleReview
-            // 
-            this.btnDeleleReview.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDeleleReview.Location = new System.Drawing.Point(1063, 466);
-            this.btnDeleleReview.Name = "btnDeleleReview";
-            this.btnDeleleReview.Size = new System.Drawing.Size(183, 61);
-            this.btnDeleleReview.TabIndex = 39;
-            this.btnDeleleReview.Text = "Удалить отзыв";
-            this.btnDeleleReview.UseVisualStyleBackColor = true;
-            // 
-            // currentUserLabel
-            // 
-            this.currentUserLabel.AutoSize = true;
-            this.currentUserLabel.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.currentUserLabel.Location = new System.Drawing.Point(87, 38);
-            this.currentUserLabel.Name = "currentUserLabel";
-            this.currentUserLabel.Size = new System.Drawing.Size(136, 28);
-            this.currentUserLabel.TabIndex = 20;
-            this.currentUserLabel.Text = "<username>!";
+            this.sqlCmdGetOutletReviews.CommandText = "SELECT * FROM FnGetOutletReviews(@outlet_name)";
+            this.sqlCmdGetOutletReviews.Connection = this.sqlConnection;
+            this.sqlCmdGetOutletReviews.Parameters.AddRange(new System.Data.SqlClient.SqlParameter[] {
+            new System.Data.SqlClient.SqlParameter("@outlet_name", System.Data.SqlDbType.VarChar, 50)});
             // 
             // CustomerForm
             // 
@@ -401,6 +428,7 @@ namespace MartDB
             this.menuStrip1.PerformLayout();
             this.panelOutlet.ResumeLayout(false);
             this.panelOutlet.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvReview)).EndInit();
             this.panelUser.ResumeLayout(false);
             this.panelUser.PerformLayout();
             this.sortOutletGroupBox.ResumeLayout(false);
@@ -408,7 +436,6 @@ namespace MartDB
             this.searchOutletGroupBox.ResumeLayout(false);
             this.searchOutletGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOutlet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -438,11 +465,14 @@ namespace MartDB
         private System.Windows.Forms.Panel panelUser;
         private System.Windows.Forms.Label panelOutletLabel;
         private System.Windows.Forms.Button btnChangeUser;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvReview;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnDeleleReview;
-        private System.Windows.Forms.Button btnUpdateReview;
+        private System.Windows.Forms.Button btnUserReviewsForm;
         private System.Windows.Forms.Label currentUserLabel;
+        private System.Windows.Forms.Button btnUpdateReview;
+        private System.Windows.Forms.Button btnDeleteReview;
+        private System.Data.SqlClient.SqlConnection sqlConnection;
+        private System.Data.SqlClient.SqlCommand sqlCmdGetOutletReviews;
     }
 }
