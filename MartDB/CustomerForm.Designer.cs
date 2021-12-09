@@ -33,9 +33,8 @@ namespace MartDB
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelOutlet = new System.Windows.Forms.Panel();
-            this.panelOutletLabel = new System.Windows.Forms.Label();
             this.panelUser = new System.Windows.Forms.Panel();
-            this.currentUserNameLabel = new System.Windows.Forms.Label();
+            this.panelOutletLabel = new System.Windows.Forms.Label();
             this.btnChangeUser = new System.Windows.Forms.Button();
             this.btnAddReview = new System.Windows.Forms.Button();
             this.sortOutletGroupBox = new System.Windows.Forms.GroupBox();
@@ -52,12 +51,19 @@ namespace MartDB
             this.searchQueryOutletTextBox = new System.Windows.Forms.TextBox();
             this.btnSearchOutlet = new System.Windows.Forms.Button();
             this.dgvOutlet = new System.Windows.Forms.DataGridView();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnUpdateReview = new System.Windows.Forms.Button();
+            this.btnDeleleReview = new System.Windows.Forms.Button();
+            this.currentUserLabel = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.panelOutlet.SuspendLayout();
             this.panelUser.SuspendLayout();
             this.sortOutletGroupBox.SuspendLayout();
             this.searchOutletGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOutlet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -67,7 +73,7 @@ namespace MartDB
             this.menuToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1223, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1383, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -82,56 +88,53 @@ namespace MartDB
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(187, 26);
             this.aboutToolStripMenuItem.Text = "О программе";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // panelOutlet
             // 
             this.panelOutlet.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelOutlet.Controls.Add(this.panelOutletLabel);
+            this.panelOutlet.Controls.Add(this.btnDeleleReview);
+            this.panelOutlet.Controls.Add(this.btnUpdateReview);
+            this.panelOutlet.Controls.Add(this.label2);
+            this.panelOutlet.Controls.Add(this.label1);
+            this.panelOutlet.Controls.Add(this.dataGridView1);
             this.panelOutlet.Controls.Add(this.panelUser);
             this.panelOutlet.Controls.Add(this.btnAddReview);
             this.panelOutlet.Controls.Add(this.sortOutletGroupBox);
-            this.panelOutlet.Controls.Add(this.btnOutletShowAll);
             this.panelOutlet.Controls.Add(this.searchOutletGroupBox);
             this.panelOutlet.Controls.Add(this.dgvOutlet);
             this.panelOutlet.Location = new System.Drawing.Point(12, 33);
             this.panelOutlet.Name = "panelOutlet";
-            this.panelOutlet.Size = new System.Drawing.Size(1199, 602);
+            this.panelOutlet.Size = new System.Drawing.Size(1359, 544);
             this.panelOutlet.TabIndex = 5;
+            // 
+            // panelUser
+            // 
+            this.panelUser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelUser.Controls.Add(this.currentUserLabel);
+            this.panelUser.Controls.Add(this.panelOutletLabel);
+            this.panelUser.Controls.Add(this.btnChangeUser);
+            this.panelUser.Location = new System.Drawing.Point(-1, -1);
+            this.panelUser.Name = "panelUser";
+            this.panelUser.Size = new System.Drawing.Size(321, 144);
+            this.panelUser.TabIndex = 33;
             // 
             // panelOutletLabel
             // 
             this.panelOutletLabel.AutoSize = true;
-            this.panelOutletLabel.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.panelOutletLabel.Location = new System.Drawing.Point(17, 20);
+            this.panelOutletLabel.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.panelOutletLabel.Location = new System.Drawing.Point(55, 0);
             this.panelOutletLabel.Name = "panelOutletLabel";
-            this.panelOutletLabel.Size = new System.Drawing.Size(251, 35);
-            this.panelOutletLabel.TabIndex = 34;
-            this.panelOutletLabel.Text = "Добро пожаловать!";
-            // 
-            // panelUser
-            // 
-            this.panelUser.Controls.Add(this.currentUserNameLabel);
-            this.panelUser.Controls.Add(this.btnChangeUser);
-            this.panelUser.Location = new System.Drawing.Point(850, -1);
-            this.panelUser.Name = "panelUser";
-            this.panelUser.Size = new System.Drawing.Size(348, 113);
-            this.panelUser.TabIndex = 33;
-            // 
-            // currentUserNameLabel
-            // 
-            this.currentUserNameLabel.AutoSize = true;
-            this.currentUserNameLabel.Location = new System.Drawing.Point(18, 21);
-            this.currentUserNameLabel.Name = "currentUserNameLabel";
-            this.currentUserNameLabel.Size = new System.Drawing.Size(165, 17);
-            this.currentUserNameLabel.TabIndex = 17;
-            this.currentUserNameLabel.Text = "Текущий пользователь:";
+            this.panelOutletLabel.Size = new System.Drawing.Size(200, 28);
+            this.panelOutletLabel.TabIndex = 17;
+            this.panelOutletLabel.Text = "Добро пожаловать,";
             // 
             // btnChangeUser
             // 
-            this.btnChangeUser.Location = new System.Drawing.Point(112, 50);
+            this.btnChangeUser.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnChangeUser.Location = new System.Drawing.Point(92, 84);
             this.btnChangeUser.Name = "btnChangeUser";
             this.btnChangeUser.Size = new System.Drawing.Size(124, 45);
             this.btnChangeUser.TabIndex = 19;
@@ -141,9 +144,10 @@ namespace MartDB
             // 
             // btnAddReview
             // 
-            this.btnAddReview.Location = new System.Drawing.Point(386, 519);
+            this.btnAddReview.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddReview.Location = new System.Drawing.Point(1063, 332);
             this.btnAddReview.Name = "btnAddReview";
-            this.btnAddReview.Size = new System.Drawing.Size(152, 51);
+            this.btnAddReview.Size = new System.Drawing.Size(183, 61);
             this.btnAddReview.TabIndex = 32;
             this.btnAddReview.Text = "Написать отзыв";
             this.btnAddReview.UseVisualStyleBackColor = true;
@@ -156,9 +160,9 @@ namespace MartDB
             this.sortOutletGroupBox.Controls.Add(this.descOutletRadioButton);
             this.sortOutletGroupBox.Controls.Add(this.ascOutletRadioButton);
             this.sortOutletGroupBox.Controls.Add(this.sortColOutletLabel);
-            this.sortOutletGroupBox.Location = new System.Drawing.Point(11, 382);
+            this.sortOutletGroupBox.Location = new System.Drawing.Point(7, 349);
             this.sortOutletGroupBox.Name = "sortOutletGroupBox";
-            this.sortOutletGroupBox.Size = new System.Drawing.Size(317, 188);
+            this.sortOutletGroupBox.Size = new System.Drawing.Size(317, 178);
             this.sortOutletGroupBox.TabIndex = 31;
             this.sortOutletGroupBox.TabStop = false;
             this.sortOutletGroupBox.Text = "Сортировка";
@@ -175,14 +179,15 @@ namespace MartDB
             "Рейтинг"});
             this.sortColsOutletListBox.Location = new System.Drawing.Point(7, 39);
             this.sortColsOutletListBox.Name = "sortColsOutletListBox";
-            this.sortColsOutletListBox.Size = new System.Drawing.Size(154, 116);
+            this.sortColsOutletListBox.Size = new System.Drawing.Size(154, 132);
             this.sortColsOutletListBox.TabIndex = 13;
             this.sortColsOutletListBox.SelectedIndexChanged += new System.EventHandler(this.sortColsOutletListBox_SelectedIndexChanged);
             // 
             // btnSortOutlet
             // 
+            this.btnSortOutlet.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSortOutlet.Enabled = false;
-            this.btnSortOutlet.Location = new System.Drawing.Point(174, 93);
+            this.btnSortOutlet.Location = new System.Drawing.Point(174, 102);
             this.btnSortOutlet.Name = "btnSortOutlet";
             this.btnSortOutlet.Size = new System.Drawing.Size(119, 42);
             this.btnSortOutlet.TabIndex = 4;
@@ -223,7 +228,8 @@ namespace MartDB
             // 
             // btnOutletShowAll
             // 
-            this.btnOutletShowAll.Location = new System.Drawing.Point(115, 334);
+            this.btnOutletShowAll.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnOutletShowAll.Location = new System.Drawing.Point(181, 144);
             this.btnOutletShowAll.Name = "btnOutletShowAll";
             this.btnOutletShowAll.Size = new System.Drawing.Size(119, 42);
             this.btnOutletShowAll.TabIndex = 30;
@@ -238,9 +244,10 @@ namespace MartDB
             this.searchOutletGroupBox.Controls.Add(this.searchOutletLabel);
             this.searchOutletGroupBox.Controls.Add(this.searchQueryOutletTextBox);
             this.searchOutletGroupBox.Controls.Add(this.btnSearchOutlet);
-            this.searchOutletGroupBox.Location = new System.Drawing.Point(10, 161);
+            this.searchOutletGroupBox.Controls.Add(this.btnOutletShowAll);
+            this.searchOutletGroupBox.Location = new System.Drawing.Point(7, 149);
             this.searchOutletGroupBox.Name = "searchOutletGroupBox";
-            this.searchOutletGroupBox.Size = new System.Drawing.Size(317, 161);
+            this.searchOutletGroupBox.Size = new System.Drawing.Size(317, 194);
             this.searchOutletGroupBox.TabIndex = 27;
             this.searchOutletGroupBox.TabStop = false;
             this.searchOutletGroupBox.Text = "Поиск";
@@ -248,7 +255,7 @@ namespace MartDB
             // searchQueryOutletGroupBox
             // 
             this.searchQueryOutletGroupBox.AutoSize = true;
-            this.searchQueryOutletGroupBox.Location = new System.Drawing.Point(178, 43);
+            this.searchQueryOutletGroupBox.Location = new System.Drawing.Point(178, 18);
             this.searchQueryOutletGroupBox.Name = "searchQueryOutletGroupBox";
             this.searchQueryOutletGroupBox.Size = new System.Drawing.Size(117, 17);
             this.searchQueryOutletGroupBox.TabIndex = 12;
@@ -266,7 +273,7 @@ namespace MartDB
             "Рейтинг"});
             this.searchColsOutletListBox.Location = new System.Drawing.Point(7, 38);
             this.searchColsOutletListBox.Name = "searchColsOutletListBox";
-            this.searchColsOutletListBox.Size = new System.Drawing.Size(154, 116);
+            this.searchColsOutletListBox.Size = new System.Drawing.Size(154, 148);
             this.searchColsOutletListBox.TabIndex = 11;
             this.searchColsOutletListBox.SelectedIndexChanged += new System.EventHandler(this.searchColsOutletListBox_SelectedIndexChanged);
             // 
@@ -281,15 +288,16 @@ namespace MartDB
             // 
             // searchQueryOutletTextBox
             // 
-            this.searchQueryOutletTextBox.Location = new System.Drawing.Point(181, 63);
+            this.searchQueryOutletTextBox.Location = new System.Drawing.Point(181, 38);
             this.searchQueryOutletTextBox.Name = "searchQueryOutletTextBox";
             this.searchQueryOutletTextBox.Size = new System.Drawing.Size(119, 22);
             this.searchQueryOutletTextBox.TabIndex = 6;
             // 
             // btnSearchOutlet
             // 
+            this.btnSearchOutlet.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSearchOutlet.Enabled = false;
-            this.btnSearchOutlet.Location = new System.Drawing.Point(181, 91);
+            this.btnSearchOutlet.Location = new System.Drawing.Point(181, 81);
             this.btnSearchOutlet.Name = "btnSearchOutlet";
             this.btnSearchOutlet.Size = new System.Drawing.Size(119, 42);
             this.btnSearchOutlet.TabIndex = 5;
@@ -303,19 +311,83 @@ namespace MartDB
             this.dgvOutlet.AllowUserToDeleteRows = false;
             this.dgvOutlet.AllowUserToOrderColumns = true;
             this.dgvOutlet.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvOutlet.Location = new System.Drawing.Point(349, 159);
+            this.dgvOutlet.Location = new System.Drawing.Point(330, 38);
             this.dgvOutlet.Name = "dgvOutlet";
             this.dgvOutlet.ReadOnly = true;
             this.dgvOutlet.RowHeadersWidth = 51;
             this.dgvOutlet.RowTemplate.Height = 24;
-            this.dgvOutlet.Size = new System.Drawing.Size(578, 318);
+            this.dgvOutlet.Size = new System.Drawing.Size(616, 489);
             this.dgvOutlet.TabIndex = 29;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToOrderColumns = true;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(964, 38);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(380, 288);
+            this.dataGridView1.TabIndex = 35;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(326, 5);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(142, 23);
+            this.label1.TabIndex = 36;
+            this.label1.Text = "Торговые точки:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(960, 5);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(77, 23);
+            this.label2.TabIndex = 37;
+            this.label2.Text = "Отзывы:";
+            // 
+            // btnUpdateReview
+            // 
+            this.btnUpdateReview.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUpdateReview.Location = new System.Drawing.Point(1063, 399);
+            this.btnUpdateReview.Name = "btnUpdateReview";
+            this.btnUpdateReview.Size = new System.Drawing.Size(183, 61);
+            this.btnUpdateReview.TabIndex = 38;
+            this.btnUpdateReview.Text = "Редактировать отзыв";
+            this.btnUpdateReview.UseVisualStyleBackColor = true;
+            // 
+            // btnDeleleReview
+            // 
+            this.btnDeleleReview.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDeleleReview.Location = new System.Drawing.Point(1063, 466);
+            this.btnDeleleReview.Name = "btnDeleleReview";
+            this.btnDeleleReview.Size = new System.Drawing.Size(183, 61);
+            this.btnDeleleReview.TabIndex = 39;
+            this.btnDeleleReview.Text = "Удалить отзыв";
+            this.btnDeleleReview.UseVisualStyleBackColor = true;
+            // 
+            // currentUserLabel
+            // 
+            this.currentUserLabel.AutoSize = true;
+            this.currentUserLabel.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.currentUserLabel.Location = new System.Drawing.Point(87, 38);
+            this.currentUserLabel.Name = "currentUserLabel";
+            this.currentUserLabel.Size = new System.Drawing.Size(136, 28);
+            this.currentUserLabel.TabIndex = 20;
+            this.currentUserLabel.Text = "<username>!";
             // 
             // CustomerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1223, 647);
+            this.ClientSize = new System.Drawing.Size(1383, 589);
             this.Controls.Add(this.panelOutlet);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -336,6 +408,7 @@ namespace MartDB
             this.searchOutletGroupBox.ResumeLayout(false);
             this.searchOutletGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOutlet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -363,8 +436,13 @@ namespace MartDB
         private System.Windows.Forms.DataGridView dgvOutlet;
         private System.Windows.Forms.Button btnAddReview;
         private System.Windows.Forms.Panel panelUser;
-        private System.Windows.Forms.Label currentUserNameLabel;
-        private System.Windows.Forms.Button btnChangeUser;
         private System.Windows.Forms.Label panelOutletLabel;
+        private System.Windows.Forms.Button btnChangeUser;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnDeleleReview;
+        private System.Windows.Forms.Button btnUpdateReview;
+        private System.Windows.Forms.Label currentUserLabel;
     }
 }

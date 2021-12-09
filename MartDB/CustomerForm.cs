@@ -27,10 +27,7 @@ namespace MartDB
             ////// Display info about user //////
 
             // Display user name at main window label
-            this.panelOutletLabel.Text = "Добро пожаловать, " + UserData.UserName + "!";
-
-            // Display user name at panel label
-            this.currentUserNameLabel.Text = "Текущий пользователь: " + UserData.UserName;
+            this.currentUserLabel.Text = UserData.UserName + "!";
 
             // Fill outlet data grid view
             FillOutletsDGV();
