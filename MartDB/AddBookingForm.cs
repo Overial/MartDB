@@ -42,19 +42,19 @@ namespace MartDB
         private void btnAddBooking_Click(object sender, EventArgs e)
         {
             // Open DB connection
-            sqlConnection.Open();
+            this.sqlConnection.Open();
 
             // Call proc
             try
             {
                 // Initialize params
-                sqlCmdAddBooking.Parameters["@org_name"].Value = orgNameComboBox.Text;
-                sqlCmdAddBooking.Parameters["@area_id"].Value = areaIdComboBox.Text;
-                sqlCmdAddBooking.Parameters["@booking_start_date"].Value = dtpBookingStartDate.Text;
-                sqlCmdAddBooking.Parameters["@booking_end_date"].Value = dtpBookingEndDate.Text;
+                this.sqlCmdAddBooking.Parameters["@org_name"].Value = orgNameComboBox.Text;
+                this.sqlCmdAddBooking.Parameters["@area_id"].Value = areaIdComboBox.Text;
+                this.sqlCmdAddBooking.Parameters["@booking_start_date"].Value = dtpBookingStartDate.Text;
+                this.sqlCmdAddBooking.Parameters["@booking_end_date"].Value = dtpBookingEndDate.Text;
 
                 // Call proc
-                sqlCmdAddBooking.ExecuteNonQuery();
+                this.sqlCmdAddBooking.ExecuteNonQuery();
 
                 // Show corresponding information
                 MessageBox.Show("Данные успешно добавлены!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -72,7 +72,7 @@ namespace MartDB
             }
 
             // Close DB connection
-            sqlConnection.Close();
+            this.sqlConnection.Close();
         }
     }
 }

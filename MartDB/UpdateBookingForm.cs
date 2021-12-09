@@ -39,18 +39,18 @@ namespace MartDB
         private void btnUpdateBooking_Click(object sender, EventArgs e)
         {
             // Open DB connection
-            sqlConnection.Open();
+            this.sqlConnection.Open();
 
             try
             {
                 // Initialize params
-                sqlCmdUpdateBooking.Parameters["@org_name"].Value = orgNameComboBox.Text;
-                sqlCmdUpdateBooking.Parameters["@area_id"].Value = areaIdComboBox.Text;
-                sqlCmdUpdateBooking.Parameters["@booking_start_date"].Value = dtpBookingStartDate.Text;
-                sqlCmdUpdateBooking.Parameters["@booking_end_date"].Value = dtpBookingEndDate.Text;
+                this.sqlCmdUpdateBooking.Parameters["@org_name"].Value = orgNameComboBox.Text;
+                this.sqlCmdUpdateBooking.Parameters["@area_id"].Value = areaIdComboBox.Text;
+                this.sqlCmdUpdateBooking.Parameters["@booking_start_date"].Value = dtpBookingStartDate.Text;
+                this.sqlCmdUpdateBooking.Parameters["@booking_end_date"].Value = dtpBookingEndDate.Text;
 
                 // Call proc
-                int iAffectedRowsCount = sqlCmdUpdateBooking.ExecuteNonQuery();
+                int iAffectedRowsCount = this.sqlCmdUpdateBooking.ExecuteNonQuery();
 
                 // Show corresponding information
                 if (iAffectedRowsCount == 0)
@@ -86,7 +86,7 @@ namespace MartDB
             }
 
             // Close DB connection
-            sqlConnection.Close();
+            this.sqlConnection.Close();
         }
     }
 }

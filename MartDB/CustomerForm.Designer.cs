@@ -43,8 +43,6 @@ namespace MartDB
             this.btnPanelMain = new System.Windows.Forms.Button();
             this.btnPanelOutlet = new System.Windows.Forms.Button();
             this.panelOutlet = new System.Windows.Forms.Panel();
-            this.btnUpdateDGVOutlet = new System.Windows.Forms.Button();
-            this.btnShowOutletDetailsForm = new System.Windows.Forms.Button();
             this.sortOutletGroupBox = new System.Windows.Forms.GroupBox();
             this.sortColsOutletListBox = new System.Windows.Forms.ListBox();
             this.btnSortOutlet = new System.Windows.Forms.Button();
@@ -191,8 +189,6 @@ namespace MartDB
             // panelOutlet
             // 
             this.panelOutlet.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelOutlet.Controls.Add(this.btnUpdateDGVOutlet);
-            this.panelOutlet.Controls.Add(this.btnShowOutletDetailsForm);
             this.panelOutlet.Controls.Add(this.sortOutletGroupBox);
             this.panelOutlet.Controls.Add(this.btnOutletShowAll);
             this.panelOutlet.Controls.Add(this.searchOutletGroupBox);
@@ -202,24 +198,6 @@ namespace MartDB
             this.panelOutlet.Name = "panelOutlet";
             this.panelOutlet.Size = new System.Drawing.Size(948, 479);
             this.panelOutlet.TabIndex = 5;
-            // 
-            // btnUpdateDGVOutlet
-            // 
-            this.btnUpdateDGVOutlet.Location = new System.Drawing.Point(666, 397);
-            this.btnUpdateDGVOutlet.Name = "btnUpdateDGVOutlet";
-            this.btnUpdateDGVOutlet.Size = new System.Drawing.Size(208, 60);
-            this.btnUpdateDGVOutlet.TabIndex = 32;
-            this.btnUpdateDGVOutlet.Text = "Обновить таблицу";
-            this.btnUpdateDGVOutlet.UseVisualStyleBackColor = true;
-            // 
-            // btnShowOutletDetailsForm
-            // 
-            this.btnShowOutletDetailsForm.Location = new System.Drawing.Point(401, 397);
-            this.btnShowOutletDetailsForm.Name = "btnShowOutletDetailsForm";
-            this.btnShowOutletDetailsForm.Size = new System.Drawing.Size(208, 60);
-            this.btnShowOutletDetailsForm.TabIndex = 26;
-            this.btnShowOutletDetailsForm.Text = "Управление торговыми точками";
-            this.btnShowOutletDetailsForm.UseVisualStyleBackColor = true;
             // 
             // sortOutletGroupBox
             // 
@@ -240,9 +218,9 @@ namespace MartDB
             this.sortColsOutletListBox.FormattingEnabled = true;
             this.sortColsOutletListBox.ItemHeight = 16;
             this.sortColsOutletListBox.Items.AddRange(new object[] {
-            "Организация",
             "Название торговой точки",
             "Тип торговой точки",
+            "Номер этажа",
             "Расписание",
             "Рейтинг"});
             this.sortColsOutletListBox.Location = new System.Drawing.Point(7, 39);
@@ -331,9 +309,9 @@ namespace MartDB
             this.searchColsOutletListBox.FormattingEnabled = true;
             this.searchColsOutletListBox.ItemHeight = 16;
             this.searchColsOutletListBox.Items.AddRange(new object[] {
-            "Организация",
             "Название торговой точки",
             "Тип торговой точки",
+            "Номер этажа",
             "Расписание",
             "Рейтинг"});
             this.searchColsOutletListBox.Location = new System.Drawing.Point(7, 38);
@@ -440,8 +418,6 @@ namespace MartDB
         private System.Windows.Forms.Button btnNextPanel;
         private System.Windows.Forms.Label panelMainLabel;
         private System.Windows.Forms.Panel panelOutlet;
-        private System.Windows.Forms.Button btnUpdateDGVOutlet;
-        private System.Windows.Forms.Button btnShowOutletDetailsForm;
         private System.Windows.Forms.GroupBox sortOutletGroupBox;
         private System.Windows.Forms.ListBox sortColsOutletListBox;
         private System.Windows.Forms.Button btnSortOutlet;

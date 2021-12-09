@@ -340,8 +340,8 @@ namespace MartDB
             sqlDataAdapter.Fill(dataSet);
 
             // Fill DGV
-            dgvBooking.ReadOnly = true;
-            dgvBooking.DataSource = dataSet.Tables[0];
+            this.dgvBooking.ReadOnly = true;
+            this.dgvBooking.DataSource = dataSet.Tables[0];
         }
 
         // Enable button only if field for search is selected
@@ -396,13 +396,13 @@ namespace MartDB
                     if (Convert.ToInt32(row.Cells[0].Value) >= Convert.ToInt32(leftBound) &&
                         Convert.ToInt32(row.Cells[0].Value) <= Convert.ToInt32(rightBound))
                     {
-                        dgvBooking.Rows[row.Index].Visible = true;
+                        this.dgvBooking.Rows[row.Index].Visible = true;
                         // dgvBookingHandling.Rows[row.Index].Selected = true;
                     }
                     else
                     {
-                        dgvBooking.CurrentCell = null;
-                        dgvBooking.Rows[row.Index].Visible = false;
+                        this.dgvBooking.CurrentCell = null;
+                        this.dgvBooking.Rows[row.Index].Visible = false;
                     }
                 }
             }
@@ -433,13 +433,13 @@ namespace MartDB
                     if (Convert.ToInt32(row.Cells[1].Value) >= Convert.ToInt32(leftBound) &&
                         Convert.ToInt32(row.Cells[1].Value) <= Convert.ToInt32(rightBound))
                     {
-                        dgvBooking.Rows[row.Index].Visible = true;
+                        this.dgvBooking.Rows[row.Index].Visible = true;
                         // dgvBookingHandling.Rows[row.Index].Selected = true;
                     }
                     else
                     {
-                        dgvBooking.CurrentCell = null;
-                        dgvBooking.Rows[row.Index].Visible = false;
+                        this.dgvBooking.CurrentCell = null;
+                        this.dgvBooking.Rows[row.Index].Visible = false;
                     }
                 }
             }
@@ -455,7 +455,7 @@ namespace MartDB
             // Display every row
             foreach (DataGridViewRow row in this.dgvBooking.Rows)
             {
-                dgvBooking.Rows[row.Index].Visible = true;
+                this.dgvBooking.Rows[row.Index].Visible = true;
             }
         }
 
@@ -489,16 +489,18 @@ namespace MartDB
                 case 4:
                     col = this.dgvBooking.Columns[4];
                     break;
+                default:
+                    break;
             }
 
             // Get selected choice for sorting
             if (this.ascBookingRadioButton.Checked)
             {
-                dgvBooking.Sort(col, ListSortDirection.Ascending);
+                this.dgvBooking.Sort(col, ListSortDirection.Ascending);
             }
             else if (this.descBookingRadioButton.Checked)
             {
-                dgvBooking.Sort(col, ListSortDirection.Descending);
+                this.dgvBooking.Sort(col, ListSortDirection.Descending);
             }
         }
 
@@ -593,8 +595,8 @@ namespace MartDB
             sqlDataAdapter.Fill(dataSet);
 
             // Fill DGV
-            dgvEmployee.ReadOnly = true;
-            dgvEmployee.DataSource = dataSet.Tables[0];
+            this.dgvEmployee.ReadOnly = true;
+            this.dgvEmployee.DataSource = dataSet.Tables[0];
         }
 
         // Search by query
@@ -636,12 +638,12 @@ namespace MartDB
                 {
                     if (row.Cells[iColIndex].Value.ToString().Contains(query))
                     {
-                        dgvEmployee.Rows[row.Index].Visible = true;
+                        this.dgvEmployee.Rows[row.Index].Visible = true;
                     }
                     else
                     {
-                        dgvEmployee.CurrentCell = null;
-                        dgvEmployee.Rows[row.Index].Visible = false;
+                        this.dgvEmployee.CurrentCell = null;
+                        this.dgvEmployee.Rows[row.Index].Visible = false;
                     }
                 }
             }
@@ -652,7 +654,7 @@ namespace MartDB
             // Display every row
             foreach (DataGridViewRow row in this.dgvEmployee.Rows)
             {
-                dgvEmployee.Rows[row.Index].Visible = true;
+                this.dgvEmployee.Rows[row.Index].Visible = true;
             }
         }
 
@@ -689,16 +691,18 @@ namespace MartDB
                 case 5:
                     col = this.dgvEmployee.Columns[5];
                     break;
+                default:
+                    break;
             }
 
             // Get selected choice for sorting
             if (this.ascEmployeeRadioButton.Checked)
             {
-                dgvEmployee.Sort(col, ListSortDirection.Ascending);
+                this.dgvEmployee.Sort(col, ListSortDirection.Ascending);
             }
             else if (this.descEmployeeRadioButton.Checked)
             {
-                dgvEmployee.Sort(col, ListSortDirection.Descending);
+                this.dgvEmployee.Sort(col, ListSortDirection.Descending);
             }
         }
 
@@ -730,8 +734,8 @@ namespace MartDB
             sqlDataAdapter.Fill(dataSet);
 
             // Fill DGV
-            dgvTradeProfile.ReadOnly = true;
-            dgvTradeProfile.DataSource = dataSet.Tables[0];
+            this.dgvTradeProfile.ReadOnly = true;
+            this.dgvTradeProfile.DataSource = dataSet.Tables[0];
         }
 
         private void btnTradeProfileSearch_Click(object sender, EventArgs e)
@@ -755,12 +759,12 @@ namespace MartDB
                 {
                     if (row.Cells[0].Value.ToString().Contains(query))
                     {
-                        dgvTradeProfile.Rows[row.Index].Visible = true;
+                        this.dgvTradeProfile.Rows[row.Index].Visible = true;
                     }
                     else
                     {
-                        dgvTradeProfile.CurrentCell = null;
-                        dgvTradeProfile.Rows[row.Index].Visible = false;
+                        this.dgvTradeProfile.CurrentCell = null;
+                        this.dgvTradeProfile.Rows[row.Index].Visible = false;
                     }
                 }
             }
@@ -771,23 +775,23 @@ namespace MartDB
             // Display every row
             foreach (DataGridViewRow row in this.dgvTradeProfile.Rows)
             {
-                dgvTradeProfile.Rows[row.Index].Visible = true;
+                this.dgvTradeProfile.Rows[row.Index].Visible = true;
             }
         }
 
         private void btnTradeProfileSort_Click(object sender, EventArgs e)
         {
-            // col to sort
+            // Col to sort
             DataGridViewColumn col = this.dgvTradeProfile.Columns[0];
 
             // Get selected choice for sorting
             if (this.ascTradeProfileRadioButton.Checked)
             {
-                dgvTradeProfile.Sort(col, ListSortDirection.Ascending);
+                this.dgvTradeProfile.Sort(col, ListSortDirection.Ascending);
             }
             else if (this.descTradeProfileRadioButton.Checked)
             {
-                dgvTradeProfile.Sort(col, ListSortDirection.Descending);
+                this.dgvTradeProfile.Sort(col, ListSortDirection.Descending);
             }
         }
 
@@ -827,8 +831,8 @@ namespace MartDB
             sqlDataAdapter.Fill(dataSet);
 
             // Fill DGV
-            dgvOutlet.ReadOnly = true;
-            dgvOutlet.DataSource = dataSet.Tables[0];
+            this.dgvOutlet.ReadOnly = true;
+            this.dgvOutlet.DataSource = dataSet.Tables[0];
         }
 
         private void btnOutletSearch_Click(object sender, EventArgs e)
@@ -836,9 +840,9 @@ namespace MartDB
             // Field parser
             string strFieldForSearch = this.outletSearchColsListBox.SelectedItem.ToString();
             int iColIndex = 0;
-            for (int i = 0; i < dgvOutlet.Columns.Count; ++i)
+            for (int i = 0; i < this.dgvOutlet.Columns.Count; ++i)
             {
-                if (dgvOutlet.Columns[i].HeaderText == strFieldForSearch)
+                if (this.dgvOutlet.Columns[i].HeaderText == strFieldForSearch)
                 {
                     iColIndex = i;
                 }
@@ -863,12 +867,12 @@ namespace MartDB
                 {
                     if (row.Cells[iColIndex].Value.ToString().Contains(query))
                     {
-                        dgvOutlet.Rows[row.Index].Visible = true;
+                        this.dgvOutlet.Rows[row.Index].Visible = true;
                     }
                     else
                     {
-                        dgvOutlet.CurrentCell = null;
-                        dgvOutlet.Rows[row.Index].Visible = false;
+                        this.dgvOutlet.CurrentCell = null;
+                        this.dgvOutlet.Rows[row.Index].Visible = false;
                     }
                 }
             }
@@ -879,7 +883,7 @@ namespace MartDB
             // Display every row
             foreach (DataGridViewRow row in this.dgvOutlet.Rows)
             {
-                dgvOutlet.Rows[row.Index].Visible = true;
+                this.dgvOutlet.Rows[row.Index].Visible = true;
             }
         }
 
@@ -920,16 +924,18 @@ namespace MartDB
                 case 7:
                     col = this.dgvOutlet.Columns[7];
                     break;
+                default:
+                    break;
             }
 
             // Get selected choice for sorting
             if (this.ascOutletRadioButton.Checked)
             {
-                dgvOutlet.Sort(col, ListSortDirection.Ascending);
+                this.dgvOutlet.Sort(col, ListSortDirection.Ascending);
             }
             else if (this.descOutletRadioButton.Checked)
             {
-                dgvOutlet.Sort(col, ListSortDirection.Descending);
+                this.dgvOutlet.Sort(col, ListSortDirection.Descending);
             }
         }
 

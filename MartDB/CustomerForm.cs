@@ -145,13 +145,14 @@ namespace MartDB
             sqlConnection.Open();
 
             // Create query
-            string selectQuery = "SELECT Organisation.org_name AS [Организация]," +
-                                 "Outlet.outlet_name AS [Название торговой точки]," +
+            string selectQuery = "SELECT Outlet.outlet_name AS [Название торговой точки], " +
                                  "Outlet.outlet_type AS [Тип торговой точки]," +
+                                 "Area.floor_number AS [Номер этажа]," +
                                  "Outlet.timetable AS [Расписание]," +
                                  "Outlet.rating AS [Рейтинг] " +
                                  "FROM Outlet " +
-                                 "JOIN Organisation ON Outlet.org_id = Organisation.org_id";
+                                 "JOIN Area ON Outlet.area_id = Area.area_id " +
+                                 "JOIN Organisation ON Outlet.org_id = Organisation.org_id ";
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(selectQuery, sqlConnection);
 
             // Set command builder
@@ -256,14 +257,7 @@ namespace MartDB
                 case 4:
                     col = this.dgvOutlet.Columns[4];
                     break;
-                case 5:
-                    col = this.dgvOutlet.Columns[5];
-                    break;
-                case 6:
-                    col = this.dgvOutlet.Columns[6];
-                    break;
-                case 7:
-                    col = this.dgvOutlet.Columns[7];
+                default:
                     break;
             }
 
@@ -276,17 +270,6 @@ namespace MartDB
             {
                 dgvOutlet.Sort(col, ListSortDirection.Descending);
             }
-        }
-
-        private void btnShowOutletDetailsForm_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnUpdateDGVOutlet_Click(object sender, EventArgs e)
-        {
-            // Fill outlet data grid view
-            FillOutletsDGV();
         }
     }
 }
