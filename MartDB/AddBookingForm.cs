@@ -54,13 +54,20 @@ namespace MartDB
                 this.sqlCmdAddBooking.Parameters["@booking_end_date"].Value = dtpBookingEndDate.Text;
 
                 // Call proc
-                this.sqlCmdAddBooking.ExecuteNonQuery();
+                int iAffectedRowsCount = sqlCmdAddBooking.ExecuteNonQuery();
 
                 // Show corresponding information
-                MessageBox.Show("Данные успешно добавлены!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (iAffectedRowsCount == 0)
+                {
+                    MessageBox.Show("Добавление данных завершилось с ошибкой!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show("Данные успешно добавлены!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // Close this form in case of success
-                this.Close();
+                    // Close this form in case of success
+                    this.Close();
+                }
             }
             catch (FormatException)
             {

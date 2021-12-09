@@ -43,6 +43,7 @@ namespace MartDB
             this.btnPanelMain = new System.Windows.Forms.Button();
             this.btnPanelOutlet = new System.Windows.Forms.Button();
             this.panelOutlet = new System.Windows.Forms.Panel();
+            this.btnAddReview = new System.Windows.Forms.Button();
             this.sortOutletGroupBox = new System.Windows.Forms.GroupBox();
             this.sortColsOutletListBox = new System.Windows.Forms.ListBox();
             this.btnSortOutlet = new System.Windows.Forms.Button();
@@ -189,6 +190,7 @@ namespace MartDB
             // panelOutlet
             // 
             this.panelOutlet.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelOutlet.Controls.Add(this.btnAddReview);
             this.panelOutlet.Controls.Add(this.sortOutletGroupBox);
             this.panelOutlet.Controls.Add(this.btnOutletShowAll);
             this.panelOutlet.Controls.Add(this.searchOutletGroupBox);
@@ -198,6 +200,16 @@ namespace MartDB
             this.panelOutlet.Name = "panelOutlet";
             this.panelOutlet.Size = new System.Drawing.Size(948, 479);
             this.panelOutlet.TabIndex = 5;
+            // 
+            // btnAddReview
+            // 
+            this.btnAddReview.Location = new System.Drawing.Point(389, 403);
+            this.btnAddReview.Name = "btnAddReview";
+            this.btnAddReview.Size = new System.Drawing.Size(152, 51);
+            this.btnAddReview.TabIndex = 32;
+            this.btnAddReview.Text = "Написать отзыв";
+            this.btnAddReview.UseVisualStyleBackColor = true;
+            this.btnAddReview.Click += new System.EventHandler(this.btnAddReview_Click);
             // 
             // sortOutletGroupBox
             // 
@@ -433,5 +445,6 @@ namespace MartDB
         private System.Windows.Forms.Button btnSearchOutlet;
         private System.Windows.Forms.DataGridView dgvOutlet;
         private System.Windows.Forms.Label panelOutletLabel;
+        private System.Windows.Forms.Button btnAddReview;
     }
 }

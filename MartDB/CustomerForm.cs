@@ -271,5 +271,45 @@ namespace MartDB
                 dgvOutlet.Sort(col, ListSortDirection.Descending);
             }
         }
+
+        private void btnAddReview_Click(object sender, EventArgs e)
+        {
+            Int32 selectedCellsCount = this.dgvOutlet.GetCellCount(DataGridViewElementStates.Selected);
+            if (selectedCellsCount > 0)
+            {
+                if (this.dgvOutlet.AreAllCellsSelected(true))
+                {
+                    MessageBox.Show("Добавить можно только один отзыв за раз!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    // System.Text.StringBuilder sb = new System.Text.StringBuilder();
+
+                    // Initiate booking updating only if the whole row is selected
+                    if (selectedCellsCount == this.dgvOutlet.Columns.GetColumnCount(DataGridViewElementStates.Visible))
+                    {
+                        string outletName = this.dgvOutlet.SelectedCells[0].Value.ToString();
+
+                        // Pass data to UpdateBookingForm
+                        Form addReviewForm = new AddReviewForm(outletName);
+                        addReviewForm.FormClosed += new FormClosedEventHandler(this.hanldleReviewForms_FormClosed);
+                        addReviewForm.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Выберите всю строку для изменения информации!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                    //sb.Append("Total: " + selectedCellsCount.ToString());
+                    //MessageBox.Show(sb.ToString(), "Selected Cells");
+                }
+            }
+        }
+
+        // Refresh booking table after any manipulations with it
+        private void hanldleReviewForms_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            FillOutletsDGV();
+        }
     }
 }

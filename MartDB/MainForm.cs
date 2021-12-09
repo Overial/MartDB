@@ -508,7 +508,7 @@ namespace MartDB
         private void btnAddBookingForm_Click(object sender, EventArgs e)
         {
             Form handleBookingForm = new AddBookingForm();
-            handleBookingForm.FormClosed += new FormClosedEventHandler(this.updateBookingForm_FormClosed);
+            handleBookingForm.FormClosed += new FormClosedEventHandler(this.hanldleBookingForms_FormClosed);
             handleBookingForm.Show();
         }
 
@@ -545,7 +545,7 @@ namespace MartDB
 
                         // Pass data to UpdateBookingForm
                         Form updateBookingForm = new UpdateBookingForm(orgName, areaId, bookingStartDate, bookingEndDate);
-                        updateBookingForm.FormClosed += new FormClosedEventHandler(this.updateBookingForm_FormClosed);
+                        updateBookingForm.FormClosed += new FormClosedEventHandler(this.hanldleBookingForms_FormClosed);
                         updateBookingForm.Show();
                     }
                     else
@@ -560,7 +560,7 @@ namespace MartDB
         }
 
         // Refresh booking table after any manipulations with it
-        private void updateBookingForm_FormClosed(object sender, FormClosedEventArgs e)
+        private void hanldleBookingForms_FormClosed(object sender, FormClosedEventArgs e)
         {
             FillBookingDGV();
         }
