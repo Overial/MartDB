@@ -397,6 +397,7 @@ namespace MartDB
             this.dgvOutlet.Size = new System.Drawing.Size(616, 489);
             this.dgvOutlet.TabIndex = 29;
             this.dgvOutlet.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOutlet_CellClick);
+            this.dgvOutlet.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvOutlet_RowHeaderMouseClick);
             // 
             // sqlConnection
             // 

@@ -241,6 +241,23 @@ namespace MartDB
             }
         }
 
+        private void dgvOutlet_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            this.dgvReview.DataSource = null;
+
+            // Get selected outlet
+            string selectedOutlet = "";
+            // MessageBox.Show(this.dgvOutlet.CurrentRow.Cells[0].Value.ToString());
+            selectedOutlet = this.dgvOutlet.CurrentRow.Cells[0].Value.ToString();
+
+            this.sqlCmdGetOutletReviews.Parameters["@outlet_name"].Value = selectedOutlet;
+            this.sqlConnection.Open();
+            DataTable dt = new DataTable();
+            dt.Load(sqlCmdGetOutletReviews.ExecuteReader());
+            this.dgvReview.DataSource = dt;
+            this.sqlConnection.Close();
+        }
+
         private void btnAddReview_Click(object sender, EventArgs e)
         {
             Int32 selectedCellsCount = this.dgvOutlet.GetCellCount(DataGridViewElementStates.Selected);
