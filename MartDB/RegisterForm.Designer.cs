@@ -105,6 +105,7 @@ namespace MartDB
             // 
             // btnRegister
             // 
+            this.btnRegister.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRegister.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnRegister.Location = new System.Drawing.Point(95, 275);
             this.btnRegister.Name = "btnRegister";
@@ -142,6 +143,7 @@ namespace MartDB
             // 
             // btnExit
             // 
+            this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnExit.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnExit.Location = new System.Drawing.Point(334, 31);
             this.btnExit.Name = "btnExit";

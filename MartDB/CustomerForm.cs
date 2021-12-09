@@ -17,11 +17,6 @@ namespace MartDB
 {
     public partial class CustomerForm : Form
     {
-        // List with panels
-        List<Panel> listPanel = new List<Panel>();
-        // For panel list indexing
-        int index = 0;
-
         public CustomerForm()
         {
             InitializeComponent();
@@ -29,105 +24,19 @@ namespace MartDB
 
         private void CustomerForm_Load(object sender, EventArgs e)
         {
-            // Display user name info
-            this.panelMainLabel.Text = "Добро пожаловать, " + UserData.UserName;
-            
-            // Turning pages functionality
-            this.listPanel.Add(this.panelMain);
+            ////// Display info about user //////
 
-            // Show first panel
-            this.listPanel[this.index].BringToFront();
+            // Display user name at main window label
+            this.panelOutletLabel.Text = "Добро пожаловать, " + UserData.UserName + "!";
+
+            // Display user name at panel label
+            this.currentUserNameLabel.Text = "Текущий пользователь: " + UserData.UserName;
 
             // Fill outlet data grid view
             FillOutletsDGV();
-
-            // Hide nav buttons
-            this.btnPanelMain.Visible = false;
-            this.btnNextPanel.Visible = false;
-            this.btnPreviousPanel.Visible = false;
         }
 
-        ////// Nav buttons //////
-        
-        private void btnPreviousPanel_Click(object sender, EventArgs e)
-        {
-            // While it's not the beginning and not the main panel
-            if (this.index > 1)
-            {
-                this.listPanel[--this.index].BringToFront();
-            }
-        }
-
-        private void btnNextPanel_Click(object sender, EventArgs e)
-        {
-            // While it's not the end
-            if (this.index < this.listPanel.Count - 1)
-            {
-                this.listPanel[++this.index].BringToFront();
-            }
-        }
-
-        private void btnPanelMain_Click(object sender, EventArgs e)
-        {
-            // Set panel index
-            this.index = 0;
-
-            // Bring main panel to front
-            this.panelMain.BringToFront();
-
-            // Hide nav buttons
-            this.btnPanelMain.Visible = false;
-            this.btnNextPanel.Visible = false;
-            this.btnPreviousPanel.Visible = false;
-        }
-
-        ////// Main panel buttons //////
-        
-        private void btnPanelOutlet_Click(object sender, EventArgs e)
-        {
-            // Set panel index
-            this.index = 1;
-
-            // Bring booking handling panel to front
-            this.panelOutlet.BringToFront();
-
-            // Bring nav buttons to front
-            this.btnPanelMain.BringToFront();
-            this.btnNextPanel.BringToFront();
-            this.btnPreviousPanel.BringToFront();
-
-            // Show nav buttons
-            this.btnPanelMain.Visible = true;
-            this.btnNextPanel.Visible = true;
-            this.btnPreviousPanel.Visible = true;
-        }
-
-        private void panelMainToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.index = 0;
-            this.panelMain.BringToFront();
-
-            // Hide nav buttons
-            this.btnPanelMain.Visible = false;
-            this.btnNextPanel.Visible = false;
-            this.btnPreviousPanel.Visible = false;
-        }
-
-        private void panelOutletToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.index = 1;
-            this.panelOutlet.BringToFront();
-
-            // Bring nav buttons to front
-            this.btnPanelMain.BringToFront();
-            this.btnNextPanel.BringToFront();
-            this.btnPreviousPanel.BringToFront();
-
-            // Show nav buttons
-            this.btnPanelMain.Visible = true;
-            this.btnNextPanel.Visible = true;
-            this.btnPreviousPanel.Visible = true;
-        }
+        ////// Menu strip //////
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -136,7 +45,7 @@ namespace MartDB
 
         ////// Outlet panel //////
 
-        // Get info about employees
+        // Get info about outlets
         private void FillOutletsDGV()
         {
             // Establish connection
@@ -310,6 +219,15 @@ namespace MartDB
         private void hanldleReviewForms_FormClosed(object sender, FormClosedEventArgs e)
         {
             FillOutletsDGV();
+        }
+
+        // Button to change user at runtime
+        private void btnChangeUser_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            Form form = new LoginForm();
+            form.ShowDialog();
+            this.Close();
         }
     }
 }
