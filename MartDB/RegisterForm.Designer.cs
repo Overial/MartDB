@@ -34,13 +34,11 @@ namespace MartDB
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.btnRegister = new System.Windows.Forms.Button();
             this.usernameTextBox = new System.Windows.Forms.TextBox();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
-            this.roleComboBox = new System.Windows.Forms.ComboBox();
             this.btnExit = new System.Windows.Forms.Button();
-            this.mySqlConnection = new System.Data.SqlClient.SqlConnection();
+            this.sqlConnection = new System.Data.SqlClient.SqlConnection();
             this.mySqlCommand = new System.Data.SqlClient.SqlCommand();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -59,9 +57,10 @@ namespace MartDB
             // 
             // тессерактToolStripMenuItem
             // 
+            this.тессерактToolStripMenuItem.Enabled = false;
             this.тессерактToolStripMenuItem.Name = "тессерактToolStripMenuItem";
-            this.тессерактToolStripMenuItem.Size = new System.Drawing.Size(103, 24);
-            this.тессерактToolStripMenuItem.Text = "\"Тессеракт\"";
+            this.тессерактToolStripMenuItem.Size = new System.Drawing.Size(110, 24);
+            this.тессерактToolStripMenuItem.Text = "Регистрация";
             // 
             // label1
             // 
@@ -93,21 +92,11 @@ namespace MartDB
             this.label3.TabIndex = 3;
             this.label3.Text = "Пароль:";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(43, 206);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 23);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Роль:";
-            // 
             // btnRegister
             // 
             this.btnRegister.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRegister.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnRegister.Location = new System.Drawing.Point(95, 275);
+            this.btnRegister.Location = new System.Drawing.Point(103, 205);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(216, 60);
             this.btnRegister.TabIndex = 5;
@@ -130,17 +119,6 @@ namespace MartDB
             this.passwordTextBox.Size = new System.Drawing.Size(184, 22);
             this.passwordTextBox.TabIndex = 7;
             // 
-            // roleComboBox
-            // 
-            this.roleComboBox.FormattingEnabled = true;
-            this.roleComboBox.Items.AddRange(new object[] {
-            "Организация",
-            "Посетитель"});
-            this.roleComboBox.Location = new System.Drawing.Point(174, 208);
-            this.roleComboBox.Name = "roleComboBox";
-            this.roleComboBox.Size = new System.Drawing.Size(184, 24);
-            this.roleComboBox.TabIndex = 8;
-            // 
             // btnExit
             // 
             this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -153,34 +131,30 @@ namespace MartDB
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // mySqlConnection
+            // sqlConnection
             // 
-            this.mySqlConnection.ConnectionString = "Data Source=.\\SQLEXPRESS;Initial Catalog=MartDB;Integrated Security=True";
-            this.mySqlConnection.FireInfoMessageEventOnUserErrors = false;
+            this.sqlConnection.ConnectionString = "Data Source=.\\SQLEXPRESS;Initial Catalog=MartDB;Integrated Security=True";
+            this.sqlConnection.FireInfoMessageEventOnUserErrors = false;
             // 
             // mySqlCommand
             // 
             this.mySqlCommand.CommandText = "ProcRegister";
             this.mySqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
-            this.mySqlCommand.Connection = this.mySqlConnection;
+            this.mySqlCommand.Connection = this.sqlConnection;
             this.mySqlCommand.Parameters.AddRange(new System.Data.SqlClient.SqlParameter[] {
             new System.Data.SqlClient.SqlParameter("@username", System.Data.SqlDbType.VarChar, 100),
-            new System.Data.SqlClient.SqlParameter("@password", System.Data.SqlDbType.VarChar, 100),
-            new System.Data.SqlClient.SqlParameter("@UserRole", System.Data.SqlDbType.VarChar, 100),
-            new System.Data.SqlClient.SqlParameter("@flag", System.Data.SqlDbType.Int, 0, System.Data.ParameterDirection.Output, false, ((byte)(0)), ((byte)(0)), "", System.Data.DataRowVersion.Current, null)});
+            new System.Data.SqlClient.SqlParameter("@password", System.Data.SqlDbType.VarChar, 100)});
             // 
             // RegisterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Tomato;
-            this.ClientSize = new System.Drawing.Size(425, 347);
+            this.ClientSize = new System.Drawing.Size(425, 290);
             this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.roleComboBox);
             this.Controls.Add(this.passwordTextBox);
             this.Controls.Add(this.usernameTextBox);
             this.Controls.Add(this.btnRegister);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -202,14 +176,12 @@ namespace MartDB
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.TextBox usernameTextBox;
         private System.Windows.Forms.TextBox passwordTextBox;
-        private System.Windows.Forms.ComboBox roleComboBox;
         private System.Windows.Forms.ToolStripMenuItem тессерактToolStripMenuItem;
         private System.Windows.Forms.Button btnExit;
-        private System.Data.SqlClient.SqlConnection mySqlConnection;
+        private System.Data.SqlClient.SqlConnection sqlConnection;
         private System.Data.SqlClient.SqlCommand mySqlCommand;
     }
 }

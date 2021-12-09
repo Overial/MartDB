@@ -43,61 +43,31 @@ namespace MartDB
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            int flag = 0;
-            bool successfulRegisterFlag = false;
-
             // Set initial values
             mySqlCommand.Parameters["@username"].Value = usernameTextBox.Text;
             mySqlCommand.Parameters["@password"].Value = passwordTextBox.Text;
 
-            // Parse UserRole
-            string role = roleComboBox.Text;
-            switch (role)
+            // Open DB connection
+            sqlConnection.Open();
+
+            // Call proc
+            int iAffectedRowsCount = mySqlCommand.ExecuteNonQuery();
+
+            // Show corresponding information
+            if (iAffectedRowsCount == 0)
             {
-                case "Администратор":
-                    role = "admin";
-                    successfulRegisterFlag = true;
-                    break;
-                case "Организация":
-                    role = "organisation";
-                    successfulRegisterFlag = true;
-                    break;
-                case "Посетитель":
-                    role = "customer";
-                    successfulRegisterFlag = true;
-                    break;
-                default:
-                    MessageBox.Show("Введена некорректная роль пользователя!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    break;
+                MessageBox.Show("Регистрация завершилась с ошибкой!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            mySqlCommand.Parameters["@UserRole"].Value = role;
-
-            mySqlCommand.Parameters["@flag"].Value = flag;
-
-            if (successfulRegisterFlag)
+            else
             {
-                // Open DB connection
-                mySqlConnection.Open();
+                MessageBox.Show("Регистрация пройдена успешно!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // Call proc
-                mySqlCommand.ExecuteNonQuery();
-
-                // Close DB connection
-                mySqlConnection.Close();
-
-                // Get flag of registration status
-                flag = Convert.ToInt32(mySqlCommand.Parameters["@flag"].Value);
-
-                // Show corresponding message
-                if (flag == 0)
-                {
-                    MessageBox.Show("Регистрация проведена успешно!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show("Что-то пошло не так!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                // Close this form in case of success
+                this.Close();
             }
+
+            // Close DB connection
+            sqlConnection.Close();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
