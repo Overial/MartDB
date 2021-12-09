@@ -124,6 +124,32 @@ namespace MartDB
             this.btnOutletSearch = new System.Windows.Forms.Button();
             this.dgvOutlet = new System.Windows.Forms.DataGridView();
             this.outletPanelLabel = new System.Windows.Forms.Label();
+            this.btnPanelArea = new System.Windows.Forms.Button();
+            this.panelArea = new System.Windows.Forms.Panel();
+            this.areaSearchFloorGroupBox = new System.Windows.Forms.GroupBox();
+            this.areaSearchFloorRightBoundLabel = new System.Windows.Forms.Label();
+            this.areaSearchFloorLeftBoundLabel = new System.Windows.Forms.Label();
+            this.areaSearchFloorRightBoundTextBox = new System.Windows.Forms.TextBox();
+            this.areaSearchFloorQueryLabel = new System.Windows.Forms.Label();
+            this.areaSearchFloorLeftBoundTextBox = new System.Windows.Forms.TextBox();
+            this.btnAreaFloorSearch = new System.Windows.Forms.Button();
+            this.dgvArea = new System.Windows.Forms.DataGridView();
+            this.btnAreaShowAll = new System.Windows.Forms.Button();
+            this.areaSearchSquareGroupBox = new System.Windows.Forms.GroupBox();
+            this.areaSearchSquareRightBoundLabel = new System.Windows.Forms.Label();
+            this.areaSearchSquareLeftBoundLabel = new System.Windows.Forms.Label();
+            this.areaSearchSquareRightBoundTextBox = new System.Windows.Forms.TextBox();
+            this.areaSearchSquareQueryLabel = new System.Windows.Forms.Label();
+            this.areaSearchSquareLeftBoundTextBox = new System.Windows.Forms.TextBox();
+            this.btnAreaSquareSearch = new System.Windows.Forms.Button();
+            this.areaSortGroupBox = new System.Windows.Forms.GroupBox();
+            this.btnAreaSort = new System.Windows.Forms.Button();
+            this.descAreaRadioButton = new System.Windows.Forms.RadioButton();
+            this.ascAreaRadioButton = new System.Windows.Forms.RadioButton();
+            this.areaSortColsListBox = new System.Windows.Forms.ListBox();
+            this.areaSortLabel = new System.Windows.Forms.Label();
+            this.areaPanelLabel = new System.Windows.Forms.Label();
+            this.areaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelBooking.SuspendLayout();
             this.bookingSearchFloorGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBooking)).BeginInit();
@@ -144,6 +170,11 @@ namespace MartDB
             this.outletSortGroupBox.SuspendLayout();
             this.outletSearchGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOutlet)).BeginInit();
+            this.panelArea.SuspendLayout();
+            this.areaSearchFloorGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvArea)).BeginInit();
+            this.areaSearchSquareGroupBox.SuspendLayout();
+            this.areaSortGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelBooking
@@ -436,12 +467,13 @@ namespace MartDB
             // 
             this.panelsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mainToolStripMenuItem,
+            this.areaToolStripMenuItem,
             this.bookingToolStripMenuItem,
             this.employeeToolStripMenuItem,
             this.tradeProfileToolStripMenuItem,
             this.outletToolStripMenuItem});
             this.panelsToolStripMenuItem.Name = "panelsToolStripMenuItem";
-            this.panelsToolStripMenuItem.Size = new System.Drawing.Size(93, 26);
+            this.panelsToolStripMenuItem.Size = new System.Drawing.Size(93, 24);
             this.panelsToolStripMenuItem.Text = "Страницы";
             // 
             // mainToolStripMenuItem
@@ -454,29 +486,29 @@ namespace MartDB
             // bookingToolStripMenuItem
             // 
             this.bookingToolStripMenuItem.Name = "bookingToolStripMenuItem";
-            this.bookingToolStripMenuItem.Size = new System.Drawing.Size(345, 26);
-            this.bookingToolStripMenuItem.Text = "Управление арендами";
+            this.bookingToolStripMenuItem.Size = new System.Drawing.Size(410, 26);
+            this.bookingToolStripMenuItem.Text = "Панель управления \"Аренда\"";
             this.bookingToolStripMenuItem.Click += new System.EventHandler(this.bookingPanelToolStripMenuItem_Click);
             // 
             // employeeToolStripMenuItem
             // 
             this.employeeToolStripMenuItem.Name = "employeeToolStripMenuItem";
-            this.employeeToolStripMenuItem.Size = new System.Drawing.Size(345, 26);
-            this.employeeToolStripMenuItem.Text = "Управление сотрудниками";
+            this.employeeToolStripMenuItem.Size = new System.Drawing.Size(410, 26);
+            this.employeeToolStripMenuItem.Text = "Панель управления \"Сотрудники\"";
             this.employeeToolStripMenuItem.Click += new System.EventHandler(this.employeePanelToolStripMenuItem_Click);
             // 
             // tradeProfileToolStripMenuItem
             // 
             this.tradeProfileToolStripMenuItem.Name = "tradeProfileToolStripMenuItem";
-            this.tradeProfileToolStripMenuItem.Size = new System.Drawing.Size(345, 26);
-            this.tradeProfileToolStripMenuItem.Text = "Управление торговыми профилями";
+            this.tradeProfileToolStripMenuItem.Size = new System.Drawing.Size(410, 26);
+            this.tradeProfileToolStripMenuItem.Text = "Панель управления \"Торговые профили\"";
             this.tradeProfileToolStripMenuItem.Click += new System.EventHandler(this.tradeProfilePanelToolStripMenuItem_Click);
             // 
             // outletToolStripMenuItem
             // 
             this.outletToolStripMenuItem.Name = "outletToolStripMenuItem";
-            this.outletToolStripMenuItem.Size = new System.Drawing.Size(345, 26);
-            this.outletToolStripMenuItem.Text = "Управление торговыми точками";
+            this.outletToolStripMenuItem.Size = new System.Drawing.Size(410, 26);
+            this.outletToolStripMenuItem.Text = "Панель управления \"Торговые точки\"";
             this.outletToolStripMenuItem.Click += new System.EventHandler(this.outletPanelToolStripMenuItem_Click);
             // 
             // menuToolStripMenuItem
@@ -537,6 +569,7 @@ namespace MartDB
             // panelMain
             // 
             this.panelMain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelMain.Controls.Add(this.btnPanelArea);
             this.panelMain.Controls.Add(this.panelUser);
             this.panelMain.Controls.Add(this.btnPanelBooking);
             this.panelMain.Controls.Add(this.btnPanelOutlet);
@@ -591,41 +624,41 @@ namespace MartDB
             // 
             // btnPanelBooking
             // 
-            this.btnPanelBooking.Location = new System.Drawing.Point(112, 197);
+            this.btnPanelBooking.Location = new System.Drawing.Point(198, 258);
             this.btnPanelBooking.Name = "btnPanelBooking";
-            this.btnPanelBooking.Size = new System.Drawing.Size(286, 83);
+            this.btnPanelBooking.Size = new System.Drawing.Size(193, 83);
             this.btnPanelBooking.TabIndex = 14;
-            this.btnPanelBooking.Text = "Панель управления арендами";
+            this.btnPanelBooking.Text = "Панель управления \"Аренда\"";
             this.btnPanelBooking.UseVisualStyleBackColor = true;
             this.btnPanelBooking.Click += new System.EventHandler(this.btnPanelBooking_Click);
             // 
             // btnPanelOutlet
             // 
-            this.btnPanelOutlet.Location = new System.Drawing.Point(536, 305);
+            this.btnPanelOutlet.Location = new System.Drawing.Point(501, 169);
             this.btnPanelOutlet.Name = "btnPanelOutlet";
-            this.btnPanelOutlet.Size = new System.Drawing.Size(286, 83);
+            this.btnPanelOutlet.Size = new System.Drawing.Size(193, 83);
             this.btnPanelOutlet.TabIndex = 13;
-            this.btnPanelOutlet.Text = "Панель управления торговыми точками";
+            this.btnPanelOutlet.Text = "Панель управления \"Торговые точки\"";
             this.btnPanelOutlet.UseVisualStyleBackColor = true;
             this.btnPanelOutlet.Click += new System.EventHandler(this.btnPanelOutlet_Click);
             // 
             // btnPanelTradeProfile
             // 
-            this.btnPanelTradeProfile.Location = new System.Drawing.Point(536, 197);
+            this.btnPanelTradeProfile.Location = new System.Drawing.Point(501, 260);
             this.btnPanelTradeProfile.Name = "btnPanelTradeProfile";
-            this.btnPanelTradeProfile.Size = new System.Drawing.Size(286, 83);
+            this.btnPanelTradeProfile.Size = new System.Drawing.Size(193, 83);
             this.btnPanelTradeProfile.TabIndex = 12;
-            this.btnPanelTradeProfile.Text = "Панель управления торговыми профилями";
+            this.btnPanelTradeProfile.Text = "Панель управления \"Торговые профили\"";
             this.btnPanelTradeProfile.UseVisualStyleBackColor = true;
             this.btnPanelTradeProfile.Click += new System.EventHandler(this.btnPanelTradeProfile_Click);
             // 
             // btnPanelEmployee
             // 
-            this.btnPanelEmployee.Location = new System.Drawing.Point(112, 305);
+            this.btnPanelEmployee.Location = new System.Drawing.Point(198, 351);
             this.btnPanelEmployee.Name = "btnPanelEmployee";
-            this.btnPanelEmployee.Size = new System.Drawing.Size(286, 83);
+            this.btnPanelEmployee.Size = new System.Drawing.Size(193, 83);
             this.btnPanelEmployee.TabIndex = 11;
-            this.btnPanelEmployee.Text = "Панель управления сотрудниками";
+            this.btnPanelEmployee.Text = "Панель управления \"Сотрудники\"";
             this.btnPanelEmployee.UseVisualStyleBackColor = true;
             this.btnPanelEmployee.Click += new System.EventHandler(this.btnPanelEmployee_Click);
             // 
@@ -1163,13 +1196,280 @@ namespace MartDB
             this.outletPanelLabel.TabIndex = 21;
             this.outletPanelLabel.Text = "Панель управления: \"Торговые точки\"";
             // 
+            // btnPanelArea
+            // 
+            this.btnPanelArea.Location = new System.Drawing.Point(198, 169);
+            this.btnPanelArea.Name = "btnPanelArea";
+            this.btnPanelArea.Size = new System.Drawing.Size(193, 83);
+            this.btnPanelArea.TabIndex = 21;
+            this.btnPanelArea.Text = "Панель управления: \"Доступные помещения\"";
+            this.btnPanelArea.UseVisualStyleBackColor = true;
+            this.btnPanelArea.Click += new System.EventHandler(this.btnPanelArea_Click);
+            // 
+            // panelArea
+            // 
+            this.panelArea.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelArea.Controls.Add(this.areaSearchFloorGroupBox);
+            this.panelArea.Controls.Add(this.dgvArea);
+            this.panelArea.Controls.Add(this.btnAreaShowAll);
+            this.panelArea.Controls.Add(this.areaSearchSquareGroupBox);
+            this.panelArea.Controls.Add(this.areaSortGroupBox);
+            this.panelArea.Controls.Add(this.areaPanelLabel);
+            this.panelArea.Location = new System.Drawing.Point(12, 33);
+            this.panelArea.Name = "panelArea";
+            this.panelArea.Size = new System.Drawing.Size(948, 479);
+            this.panelArea.TabIndex = 17;
+            // 
+            // areaSearchFloorGroupBox
+            // 
+            this.areaSearchFloorGroupBox.Controls.Add(this.areaSearchFloorRightBoundLabel);
+            this.areaSearchFloorGroupBox.Controls.Add(this.areaSearchFloorLeftBoundLabel);
+            this.areaSearchFloorGroupBox.Controls.Add(this.areaSearchFloorRightBoundTextBox);
+            this.areaSearchFloorGroupBox.Controls.Add(this.areaSearchFloorQueryLabel);
+            this.areaSearchFloorGroupBox.Controls.Add(this.areaSearchFloorLeftBoundTextBox);
+            this.areaSearchFloorGroupBox.Controls.Add(this.btnAreaFloorSearch);
+            this.areaSearchFloorGroupBox.Location = new System.Drawing.Point(15, 162);
+            this.areaSearchFloorGroupBox.Name = "areaSearchFloorGroupBox";
+            this.areaSearchFloorGroupBox.Size = new System.Drawing.Size(397, 106);
+            this.areaSearchFloorGroupBox.TabIndex = 19;
+            this.areaSearchFloorGroupBox.TabStop = false;
+            this.areaSearchFloorGroupBox.Text = "Поиск по номеру этажа";
+            // 
+            // areaSearchFloorRightBoundLabel
+            // 
+            this.areaSearchFloorRightBoundLabel.AutoSize = true;
+            this.areaSearchFloorRightBoundLabel.Location = new System.Drawing.Point(21, 65);
+            this.areaSearchFloorRightBoundLabel.Name = "areaSearchFloorRightBoundLabel";
+            this.areaSearchFloorRightBoundLabel.Size = new System.Drawing.Size(118, 17);
+            this.areaSearchFloorRightBoundLabel.TabIndex = 11;
+            this.areaSearchFloorRightBoundLabel.Text = "Правая граница:";
+            // 
+            // areaSearchFloorLeftBoundLabel
+            // 
+            this.areaSearchFloorLeftBoundLabel.AutoSize = true;
+            this.areaSearchFloorLeftBoundLabel.Location = new System.Drawing.Point(21, 40);
+            this.areaSearchFloorLeftBoundLabel.Name = "areaSearchFloorLeftBoundLabel";
+            this.areaSearchFloorLeftBoundLabel.Size = new System.Drawing.Size(110, 17);
+            this.areaSearchFloorLeftBoundLabel.TabIndex = 10;
+            this.areaSearchFloorLeftBoundLabel.Text = "Левая граница:";
+            // 
+            // areaSearchFloorRightBoundTextBox
+            // 
+            this.areaSearchFloorRightBoundTextBox.Location = new System.Drawing.Point(147, 65);
+            this.areaSearchFloorRightBoundTextBox.Name = "areaSearchFloorRightBoundTextBox";
+            this.areaSearchFloorRightBoundTextBox.Size = new System.Drawing.Size(119, 22);
+            this.areaSearchFloorRightBoundTextBox.TabIndex = 9;
+            // 
+            // areaSearchFloorQueryLabel
+            // 
+            this.areaSearchFloorQueryLabel.AutoSize = true;
+            this.areaSearchFloorQueryLabel.Location = new System.Drawing.Point(6, 18);
+            this.areaSearchFloorQueryLabel.Name = "areaSearchFloorQueryLabel";
+            this.areaSearchFloorQueryLabel.Size = new System.Drawing.Size(117, 17);
+            this.areaSearchFloorQueryLabel.TabIndex = 7;
+            this.areaSearchFloorQueryLabel.Text = "Введите запрос:";
+            // 
+            // areaSearchFloorLeftBoundTextBox
+            // 
+            this.areaSearchFloorLeftBoundTextBox.Location = new System.Drawing.Point(147, 37);
+            this.areaSearchFloorLeftBoundTextBox.Name = "areaSearchFloorLeftBoundTextBox";
+            this.areaSearchFloorLeftBoundTextBox.Size = new System.Drawing.Size(119, 22);
+            this.areaSearchFloorLeftBoundTextBox.TabIndex = 6;
+            // 
+            // btnAreaFloorSearch
+            // 
+            this.btnAreaFloorSearch.Location = new System.Drawing.Point(272, 40);
+            this.btnAreaFloorSearch.Name = "btnAreaFloorSearch";
+            this.btnAreaFloorSearch.Size = new System.Drawing.Size(119, 42);
+            this.btnAreaFloorSearch.TabIndex = 5;
+            this.btnAreaFloorSearch.Text = "Найти";
+            this.btnAreaFloorSearch.UseVisualStyleBackColor = true;
+            this.btnAreaFloorSearch.Click += new System.EventHandler(this.btnAreaFloorSearch_Click);
+            // 
+            // dgvArea
+            // 
+            this.dgvArea.AllowUserToAddRows = false;
+            this.dgvArea.AllowUserToDeleteRows = false;
+            this.dgvArea.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvArea.Location = new System.Drawing.Point(418, 47);
+            this.dgvArea.Name = "dgvArea";
+            this.dgvArea.ReadOnly = true;
+            this.dgvArea.RowHeadersWidth = 51;
+            this.dgvArea.RowTemplate.Height = 24;
+            this.dgvArea.Size = new System.Drawing.Size(511, 418);
+            this.dgvArea.TabIndex = 19;
+            // 
+            // btnAreaShowAll
+            // 
+            this.btnAreaShowAll.Location = new System.Drawing.Point(158, 276);
+            this.btnAreaShowAll.Name = "btnAreaShowAll";
+            this.btnAreaShowAll.Size = new System.Drawing.Size(119, 42);
+            this.btnAreaShowAll.TabIndex = 8;
+            this.btnAreaShowAll.Text = "Показать все";
+            this.btnAreaShowAll.UseVisualStyleBackColor = true;
+            this.btnAreaShowAll.Click += new System.EventHandler(this.btnAreaShowAll_Click);
+            // 
+            // areaSearchSquareGroupBox
+            // 
+            this.areaSearchSquareGroupBox.Controls.Add(this.areaSearchSquareRightBoundLabel);
+            this.areaSearchSquareGroupBox.Controls.Add(this.areaSearchSquareLeftBoundLabel);
+            this.areaSearchSquareGroupBox.Controls.Add(this.areaSearchSquareRightBoundTextBox);
+            this.areaSearchSquareGroupBox.Controls.Add(this.areaSearchSquareQueryLabel);
+            this.areaSearchSquareGroupBox.Controls.Add(this.areaSearchSquareLeftBoundTextBox);
+            this.areaSearchSquareGroupBox.Controls.Add(this.btnAreaSquareSearch);
+            this.areaSearchSquareGroupBox.Location = new System.Drawing.Point(13, 42);
+            this.areaSearchSquareGroupBox.Name = "areaSearchSquareGroupBox";
+            this.areaSearchSquareGroupBox.Size = new System.Drawing.Size(399, 108);
+            this.areaSearchSquareGroupBox.TabIndex = 18;
+            this.areaSearchSquareGroupBox.TabStop = false;
+            this.areaSearchSquareGroupBox.Text = "Поиск по площади";
+            // 
+            // areaSearchSquareRightBoundLabel
+            // 
+            this.areaSearchSquareRightBoundLabel.AutoSize = true;
+            this.areaSearchSquareRightBoundLabel.Location = new System.Drawing.Point(21, 65);
+            this.areaSearchSquareRightBoundLabel.Name = "areaSearchSquareRightBoundLabel";
+            this.areaSearchSquareRightBoundLabel.Size = new System.Drawing.Size(118, 17);
+            this.areaSearchSquareRightBoundLabel.TabIndex = 11;
+            this.areaSearchSquareRightBoundLabel.Text = "Правая граница:";
+            // 
+            // areaSearchSquareLeftBoundLabel
+            // 
+            this.areaSearchSquareLeftBoundLabel.AutoSize = true;
+            this.areaSearchSquareLeftBoundLabel.Location = new System.Drawing.Point(21, 40);
+            this.areaSearchSquareLeftBoundLabel.Name = "areaSearchSquareLeftBoundLabel";
+            this.areaSearchSquareLeftBoundLabel.Size = new System.Drawing.Size(110, 17);
+            this.areaSearchSquareLeftBoundLabel.TabIndex = 10;
+            this.areaSearchSquareLeftBoundLabel.Text = "Левая граница:";
+            // 
+            // areaSearchSquareRightBoundTextBox
+            // 
+            this.areaSearchSquareRightBoundTextBox.Location = new System.Drawing.Point(147, 65);
+            this.areaSearchSquareRightBoundTextBox.Name = "areaSearchSquareRightBoundTextBox";
+            this.areaSearchSquareRightBoundTextBox.Size = new System.Drawing.Size(119, 22);
+            this.areaSearchSquareRightBoundTextBox.TabIndex = 9;
+            // 
+            // areaSearchSquareQueryLabel
+            // 
+            this.areaSearchSquareQueryLabel.AutoSize = true;
+            this.areaSearchSquareQueryLabel.Location = new System.Drawing.Point(6, 18);
+            this.areaSearchSquareQueryLabel.Name = "areaSearchSquareQueryLabel";
+            this.areaSearchSquareQueryLabel.Size = new System.Drawing.Size(117, 17);
+            this.areaSearchSquareQueryLabel.TabIndex = 7;
+            this.areaSearchSquareQueryLabel.Text = "Введите запрос:";
+            // 
+            // areaSearchSquareLeftBoundTextBox
+            // 
+            this.areaSearchSquareLeftBoundTextBox.Location = new System.Drawing.Point(147, 37);
+            this.areaSearchSquareLeftBoundTextBox.Name = "areaSearchSquareLeftBoundTextBox";
+            this.areaSearchSquareLeftBoundTextBox.Size = new System.Drawing.Size(119, 22);
+            this.areaSearchSquareLeftBoundTextBox.TabIndex = 6;
+            // 
+            // btnAreaSquareSearch
+            // 
+            this.btnAreaSquareSearch.Location = new System.Drawing.Point(272, 40);
+            this.btnAreaSquareSearch.Name = "btnAreaSquareSearch";
+            this.btnAreaSquareSearch.Size = new System.Drawing.Size(119, 42);
+            this.btnAreaSquareSearch.TabIndex = 5;
+            this.btnAreaSquareSearch.Text = "Найти";
+            this.btnAreaSquareSearch.UseVisualStyleBackColor = true;
+            this.btnAreaSquareSearch.Click += new System.EventHandler(this.btnAreaSquareSearch_Click);
+            // 
+            // areaSortGroupBox
+            // 
+            this.areaSortGroupBox.Controls.Add(this.btnAreaSort);
+            this.areaSortGroupBox.Controls.Add(this.descAreaRadioButton);
+            this.areaSortGroupBox.Controls.Add(this.ascAreaRadioButton);
+            this.areaSortGroupBox.Controls.Add(this.areaSortColsListBox);
+            this.areaSortGroupBox.Controls.Add(this.areaSortLabel);
+            this.areaSortGroupBox.Location = new System.Drawing.Point(13, 318);
+            this.areaSortGroupBox.Name = "areaSortGroupBox";
+            this.areaSortGroupBox.Size = new System.Drawing.Size(399, 147);
+            this.areaSortGroupBox.TabIndex = 17;
+            this.areaSortGroupBox.TabStop = false;
+            this.areaSortGroupBox.Text = "Сортировка";
+            // 
+            // btnAreaSort
+            // 
+            this.btnAreaSort.Enabled = false;
+            this.btnAreaSort.Location = new System.Drawing.Point(256, 93);
+            this.btnAreaSort.Name = "btnAreaSort";
+            this.btnAreaSort.Size = new System.Drawing.Size(119, 42);
+            this.btnAreaSort.TabIndex = 4;
+            this.btnAreaSort.Text = "Сортировать";
+            this.btnAreaSort.UseVisualStyleBackColor = true;
+            this.btnAreaSort.Click += new System.EventHandler(this.btnAreaSort_Click);
+            // 
+            // descAreaRadioButton
+            // 
+            this.descAreaRadioButton.AutoSize = true;
+            this.descAreaRadioButton.Location = new System.Drawing.Point(256, 66);
+            this.descAreaRadioButton.Name = "descAreaRadioButton";
+            this.descAreaRadioButton.Size = new System.Drawing.Size(117, 21);
+            this.descAreaRadioButton.TabIndex = 3;
+            this.descAreaRadioButton.Text = "По убыванию";
+            this.descAreaRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // ascAreaRadioButton
+            // 
+            this.ascAreaRadioButton.AutoSize = true;
+            this.ascAreaRadioButton.Checked = true;
+            this.ascAreaRadioButton.Location = new System.Drawing.Point(256, 39);
+            this.ascAreaRadioButton.Name = "ascAreaRadioButton";
+            this.ascAreaRadioButton.Size = new System.Drawing.Size(137, 21);
+            this.ascAreaRadioButton.TabIndex = 2;
+            this.ascAreaRadioButton.TabStop = true;
+            this.ascAreaRadioButton.Text = "По возрастанию";
+            this.ascAreaRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // areaSortColsListBox
+            // 
+            this.areaSortColsListBox.FormattingEnabled = true;
+            this.areaSortColsListBox.ItemHeight = 16;
+            this.areaSortColsListBox.Items.AddRange(new object[] {
+            "Код помещения",
+            "Площадь помещения",
+            "Номер этажа"});
+            this.areaSortColsListBox.Location = new System.Drawing.Point(9, 39);
+            this.areaSortColsListBox.Name = "areaSortColsListBox";
+            this.areaSortColsListBox.Size = new System.Drawing.Size(241, 100);
+            this.areaSortColsListBox.TabIndex = 1;
+            this.areaSortColsListBox.SelectedIndexChanged += new System.EventHandler(this.areaSortColsListBox_SelectedIndexChanged);
+            // 
+            // areaSortLabel
+            // 
+            this.areaSortLabel.AutoSize = true;
+            this.areaSortLabel.Location = new System.Drawing.Point(6, 18);
+            this.areaSortLabel.Name = "areaSortLabel";
+            this.areaSortLabel.Size = new System.Drawing.Size(154, 17);
+            this.areaSortLabel.TabIndex = 0;
+            this.areaSortLabel.Text = "Поле для сортировки:";
+            // 
+            // areaPanelLabel
+            // 
+            this.areaPanelLabel.AutoSize = true;
+            this.areaPanelLabel.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.areaPanelLabel.Location = new System.Drawing.Point(8, 9);
+            this.areaPanelLabel.Name = "areaPanelLabel";
+            this.areaPanelLabel.Size = new System.Drawing.Size(453, 28);
+            this.areaPanelLabel.TabIndex = 6;
+            this.areaPanelLabel.Text = "Панель управления: \"Доступные помещения\"";
+            // 
+            // areaToolStripMenuItem
+            // 
+            this.areaToolStripMenuItem.Name = "areaToolStripMenuItem";
+            this.areaToolStripMenuItem.Size = new System.Drawing.Size(410, 26);
+            this.areaToolStripMenuItem.Text = "Панель управления \"Доступные помещения\"";
+            this.areaToolStripMenuItem.Click += new System.EventHandler(this.areaToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(983, 605);
-            this.Controls.Add(this.panelBooking);
+            this.Controls.Add(this.panelArea);
             this.Controls.Add(this.panelMain);
+            this.Controls.Add(this.panelBooking);
             this.Controls.Add(this.panelEmployee);
             this.Controls.Add(this.panelOutlet);
             this.Controls.Add(this.panelTradeProfile);
@@ -1218,6 +1518,15 @@ namespace MartDB
             this.outletSearchGroupBox.ResumeLayout(false);
             this.outletSearchGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOutlet)).EndInit();
+            this.panelArea.ResumeLayout(false);
+            this.panelArea.PerformLayout();
+            this.areaSearchFloorGroupBox.ResumeLayout(false);
+            this.areaSearchFloorGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvArea)).EndInit();
+            this.areaSearchSquareGroupBox.ResumeLayout(false);
+            this.areaSearchSquareGroupBox.PerformLayout();
+            this.areaSortGroupBox.ResumeLayout(false);
+            this.areaSortGroupBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1319,5 +1628,31 @@ namespace MartDB
         private System.Windows.Forms.Panel panelUser;
         private System.Windows.Forms.Button btnChangeUser;
         private System.Windows.Forms.Button btnUpdateBooking;
+        private System.Windows.Forms.Button btnPanelArea;
+        private System.Windows.Forms.Panel panelArea;
+        private System.Windows.Forms.GroupBox areaSearchFloorGroupBox;
+        private System.Windows.Forms.Label areaSearchFloorRightBoundLabel;
+        private System.Windows.Forms.Label areaSearchFloorLeftBoundLabel;
+        private System.Windows.Forms.TextBox areaSearchFloorRightBoundTextBox;
+        private System.Windows.Forms.Label areaSearchFloorQueryLabel;
+        private System.Windows.Forms.TextBox areaSearchFloorLeftBoundTextBox;
+        private System.Windows.Forms.Button btnAreaFloorSearch;
+        private System.Windows.Forms.DataGridView dgvArea;
+        private System.Windows.Forms.Button btnAreaShowAll;
+        private System.Windows.Forms.GroupBox areaSearchSquareGroupBox;
+        private System.Windows.Forms.Label areaSearchSquareRightBoundLabel;
+        private System.Windows.Forms.Label areaSearchSquareLeftBoundLabel;
+        private System.Windows.Forms.TextBox areaSearchSquareRightBoundTextBox;
+        private System.Windows.Forms.Label areaSearchSquareQueryLabel;
+        private System.Windows.Forms.TextBox areaSearchSquareLeftBoundTextBox;
+        private System.Windows.Forms.Button btnAreaSquareSearch;
+        private System.Windows.Forms.GroupBox areaSortGroupBox;
+        private System.Windows.Forms.Button btnAreaSort;
+        private System.Windows.Forms.RadioButton descAreaRadioButton;
+        private System.Windows.Forms.RadioButton ascAreaRadioButton;
+        private System.Windows.Forms.ListBox areaSortColsListBox;
+        private System.Windows.Forms.Label areaSortLabel;
+        private System.Windows.Forms.Label areaPanelLabel;
+        private System.Windows.Forms.ToolStripMenuItem areaToolStripMenuItem;
     }
 }

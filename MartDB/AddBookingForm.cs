@@ -31,10 +31,10 @@ namespace MartDB
 
             // Fill combo box with area ids from Area table which are not already in Booking table
             DataTable dtFreeAreaIds = new DataTable();
-            string query = "SELECT Area.area_id FROM Area " +
+            string selectQuery = "SELECT Area.area_id FROM Area " +
                            "LEFT JOIN Booking ON Area.area_id = Booking.area_id " +
                            "WHERE Booking.area_id IS NULL";
-            SqlDataAdapter daFreeAreaIds = new SqlDataAdapter(query,
+            SqlDataAdapter daFreeAreaIds = new SqlDataAdapter(selectQuery,
                                                               this.sqlConnection);
             daFreeAreaIds.Fill(dtFreeAreaIds);
             this.areaIdComboBox.DataSource = dtFreeAreaIds;
