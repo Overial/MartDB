@@ -1168,9 +1168,9 @@ namespace MartDB
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(983, 605);
+            this.Controls.Add(this.panelBooking);
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.panelEmployee);
-            this.Controls.Add(this.panelBooking);
             this.Controls.Add(this.panelOutlet);
             this.Controls.Add(this.panelTradeProfile);
             this.Controls.Add(this.menuStrip1);

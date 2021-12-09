@@ -315,17 +315,37 @@ namespace MartDB
             sqlConnection.Open();
 
             // Create query
-            string selectQuery = "SELECT " +
-                                     "Organisation.org_name AS [Название организации]," +
-                                     "Area.area_id AS [Код помещения]," +
-                                     "Area.area_square AS [Площадь помещения]," +
-                                     "Area.floor_number AS [Номер этажа]," +
-                                     "Booking.cost AS [Стоимость аренды]," +
-                                     "Booking.booking_start_date AS [Начало периода аренды]," +
-                                     "Booking.booking_end_date AS [Конец периода аренды] " +
-                                 "FROM Booking " +
-                                 "JOIN Organisation ON Booking.org_id = Organisation.org_id " +
-                                 "JOIN Area ON Booking.area_id = Area.area_id";
+            string selectQuery = "";
+            if (UserData.UserRole == "admin")
+            {
+                selectQuery = "SELECT " +
+                                  "Organisation.org_name AS [Название организации]," +
+                                  "Area.area_id AS [Код помещения]," +
+                                  "Area.area_square AS [Площадь помещения]," +
+                                  "Area.floor_number AS [Номер этажа]," +
+                                  "Booking.cost AS [Стоимость аренды]," +
+                                  "Booking.booking_start_date AS [Начало периода аренды]," +
+                                  "Booking.booking_end_date AS [Конец периода аренды] " +
+                               "FROM Booking " +
+                               "JOIN Organisation ON Booking.org_id = Organisation.org_id " +
+                               "JOIN Area ON Booking.area_id = Area.area_id";
+            }
+            else if (UserData.UserRole == "organisation")
+            {
+                selectQuery = "SELECT " +
+                                  "Organisation.org_name AS [Название организации]," +
+                                  "Area.area_id AS [Код помещения]," +
+                                  "Area.area_square AS [Площадь помещения]," +
+                                  "Area.floor_number AS [Номер этажа]," +
+                                  "Booking.cost AS [Стоимость аренды]," +
+                                  "Booking.booking_start_date AS [Начало периода аренды]," +
+                                  "Booking.booking_end_date AS [Конец периода аренды] " +
+                               "FROM Booking " +
+                               "JOIN Organisation ON Booking.org_id = Organisation.org_id " +
+                               "JOIN Area ON Booking.area_id = Area.area_id " +
+                               "WHERE Organisation.org_name = \'" + UserData.UserName + "\'";
+            }
+            
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(selectQuery, sqlConnection);
 
             // Set command builder
@@ -514,7 +534,7 @@ namespace MartDB
             Int32 selectedCellsCount = this.dgvBooking.GetCellCount(DataGridViewElementStates.Selected);
             if (selectedCellsCount > 0)
             {
-                if (this.dgvBooking.AreAllCellsSelected(true))
+                if (this.dgvBooking.AreAllCellsSelected(true) && dgvBooking.RowCount > 1)
                 {
                     MessageBox.Show("Изменить можно только одну строку за раз!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -540,9 +560,12 @@ namespace MartDB
                         string bookingEndDate = this.dgvBooking.SelectedCells[6].Value.ToString();
 
                         // Pass data to UpdateBookingForm
-                        Form updateBookingForm = new UpdateBookingForm(orgName, areaId, bookingStartDate, bookingEndDate);
-                        updateBookingForm.FormClosed += new FormClosedEventHandler(this.hanldleBookingForms_FormClosed);
-                        updateBookingForm.Show();
+                        if (orgName == UserData.UserName)
+                        {
+                            Form updateBookingForm = new UpdateBookingForm(orgName, areaId, bookingStartDate, bookingEndDate);
+                            updateBookingForm.FormClosed += new FormClosedEventHandler(this.hanldleBookingForms_FormClosed);
+                            updateBookingForm.Show();
+                        }
                     }
                     else
                     {

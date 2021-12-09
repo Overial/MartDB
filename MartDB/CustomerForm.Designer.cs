@@ -78,7 +78,7 @@ namespace MartDB
             this.menuToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1383, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1383, 30);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -124,7 +124,7 @@ namespace MartDB
             this.btnReviewShowAll.Name = "btnReviewShowAll";
             this.btnReviewShowAll.Size = new System.Drawing.Size(165, 105);
             this.btnReviewShowAll.TabIndex = 41;
-            this.btnReviewShowAll.Text = "Показать все отзывы";
+            this.btnReviewShowAll.Text = "Вывод всех отзывов";
             this.btnReviewShowAll.UseVisualStyleBackColor = true;
             this.btnReviewShowAll.Click += new System.EventHandler(this.btnReviewShowAll_Click);
             // 
@@ -146,7 +146,7 @@ namespace MartDB
             this.btnViewUserReviews.Name = "btnViewUserReviews";
             this.btnViewUserReviews.Size = new System.Drawing.Size(165, 84);
             this.btnViewUserReviews.TabIndex = 39;
-            this.btnViewUserReviews.Text = "Посмотреть свои отзывы";
+            this.btnViewUserReviews.Text = "Вывод Ваших отзывов";
             this.btnViewUserReviews.UseVisualStyleBackColor = true;
             this.btnViewUserReviews.Click += new System.EventHandler(this.btnUserReviewsForm_Click);
             // 
@@ -220,7 +220,7 @@ namespace MartDB
             // 
             this.panelOutletLabel.AutoSize = true;
             this.panelOutletLabel.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.panelOutletLabel.Location = new System.Drawing.Point(55, 0);
+            this.panelOutletLabel.Location = new System.Drawing.Point(55, 3);
             this.panelOutletLabel.Name = "panelOutletLabel";
             this.panelOutletLabel.Size = new System.Drawing.Size(200, 28);
             this.panelOutletLabel.TabIndex = 17;
