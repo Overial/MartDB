@@ -95,6 +95,34 @@ namespace MartDB
             this.btnPanelMain.Visible = false;
             this.btnNextPanel.Visible = false;
             this.btnPreviousPanel.Visible = false;
+
+            // Set booking data comboboxes
+            this.sqlConnection.Open();
+
+            this.bookingSearchDateComboBox1.BringToFront();
+            this.bookingSearchDateComboBox2.BringToFront();
+                
+            DataTable dtBookingStartDates = new DataTable();
+            SqlDataAdapter daBookingStartDates = new SqlDataAdapter("SELECT DISTINCT booking_start_date FROM Booking",
+                                                                    this.sqlConnection);
+
+            daBookingStartDates.Fill(dtBookingStartDates);
+                
+            this.bookingSearchDateComboBox1.DataSource = dtBookingStartDates;
+            this.bookingSearchDateComboBox1.DisplayMember = "booking_start_date";
+            this.bookingSearchDateComboBox1.ValueMember = "booking_start_date";
+
+            DataTable dtBookingEndDates = new DataTable();
+            SqlDataAdapter daBookingEndDates = new SqlDataAdapter("SELECT DISTINCT booking_end_date FROM Booking",
+                                                                    this.sqlConnection);
+
+            daBookingEndDates.Fill(dtBookingEndDates);
+
+            this.bookingSearchDateComboBox2.DataSource = dtBookingEndDates;
+            this.bookingSearchDateComboBox2.DisplayMember = "booking_end_date";
+            this.bookingSearchDateComboBox2.ValueMember = "booking_end_date";
+
+            this.sqlConnection.Close();
         }
 
         ////// Nav buttons //////
@@ -556,11 +584,11 @@ namespace MartDB
         // Enable button only if field for search is selected
         private void bookingSearchColListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.btnSquareSearch.Enabled = true;
+            this.btnCostSearch.Enabled = true;
         }
 
         // Button to initiate searchin'
-        private void btnSquareSearch_Click(object sender, EventArgs e)
+        private void btnCostSearch_Click(object sender, EventArgs e)
         {
             // Get field for search
             //
@@ -580,14 +608,14 @@ namespace MartDB
             //}
 
             // Start searching only if user has entered query for search
-            if (this.bookingSearchSquareLeftBoundTextBox.Text.Length > 0 && this.bookingSearchSquareRightBoundTextBox.Text.Length > 0)
+            if (this.bookingSearchCostLeftBoundTextBox.Text.Length > 0 && this.bookingSearchCostRightBoundTextBox.Text.Length > 0)
             {
                 string leftBound = "";
                 string rightBound = "";
                 try
                 {
-                    leftBound = Convert.ToString(this.bookingSearchSquareLeftBoundTextBox.Text);
-                    rightBound = Convert.ToString(this.bookingSearchSquareRightBoundTextBox.Text);
+                    leftBound = Convert.ToString(this.bookingSearchCostLeftBoundTextBox.Text);
+                    rightBound = Convert.ToString(this.bookingSearchCostRightBoundTextBox.Text);
                 }
                 // Prevent invalid user input
                 catch
@@ -602,8 +630,8 @@ namespace MartDB
                 // Filter area square data
                 foreach (DataGridViewRow row in this.dgvBooking.Rows)
                 {
-                    if (Convert.ToInt32(row.Cells[0].Value) >= Convert.ToInt32(leftBound) &&
-                        Convert.ToInt32(row.Cells[0].Value) <= Convert.ToInt32(rightBound))
+                    if (Convert.ToInt32(row.Cells[4].Value) >= Convert.ToInt32(leftBound) &&
+                        Convert.ToInt32(row.Cells[4].Value) <= Convert.ToInt32(rightBound))
                     {
                         this.dgvBooking.Rows[row.Index].Visible = true;
                         // dgvBookingHandling.Rows[row.Index].Selected = true;
@@ -618,38 +646,38 @@ namespace MartDB
         }
 
         // Seaching by floor button
-        private void btnFloorSearch_Click(object sender, EventArgs e)
+        private void btnDateSearch_Click(object sender, EventArgs e)
         {
             // Start searching only if user has entered query for search
-            if (this.bookingSearchFloorLeftBoundTextBox.Text.Length > 0 && this.bookingSearchFloorRightBoundTextBox.Text.Length > 0)
+            if (this.bookingSearchDateComboBox1.Text.Length > 0 && this.bookingSearchDateComboBox2.Text.Length > 0)
             {
-                string leftBound = "";
-                string rightBound = "";
+                DateTime leftBound;
+                DateTime rightBound;
                 try
                 {
-                    leftBound = Convert.ToString(this.bookingSearchFloorLeftBoundTextBox.Text);
-                    rightBound = Convert.ToString(this.bookingSearchFloorRightBoundTextBox.Text);
+                    leftBound = DateTime.Parse(this.bookingSearchDateComboBox1.Text);
+                    rightBound = DateTime.Parse(this.bookingSearchDateComboBox2.Text);
+
+                    // Filter area square data
+                    foreach (DataGridViewRow row in this.dgvBooking.Rows)
+                    {
+                        if (DateTime.Parse(row.Cells[5].Value.ToString()).Date >= leftBound.Date &&
+                            DateTime.Parse(row.Cells[6].Value.ToString()).Date <= rightBound.Date)
+                        {
+                            this.dgvBooking.Rows[row.Index].Visible = true;
+                            // dgvBookingHandling.Rows[row.Index].Selected = true;
+                        }
+                        else
+                        {
+                            this.dgvBooking.CurrentCell = null;
+                            this.dgvBooking.Rows[row.Index].Visible = false;
+                        }
+                    }
                 }
                 // Prevent invalid user input
                 catch
                 {
                     MessageBox.Show("Введено некорректное значение запроса для поиска!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-
-                // Filter area square data
-                foreach (DataGridViewRow row in this.dgvBooking.Rows)
-                {
-                    if (Convert.ToInt32(row.Cells[1].Value) >= Convert.ToInt32(leftBound) &&
-                        Convert.ToInt32(row.Cells[1].Value) <= Convert.ToInt32(rightBound))
-                    {
-                        this.dgvBooking.Rows[row.Index].Visible = true;
-                        // dgvBookingHandling.Rows[row.Index].Selected = true;
-                    }
-                    else
-                    {
-                        this.dgvBooking.CurrentCell = null;
-                        this.dgvBooking.Rows[row.Index].Visible = false;
-                    }
                 }
             }
         }
@@ -697,6 +725,12 @@ namespace MartDB
                     break;
                 case 4:
                     col = this.dgvBooking.Columns[4];
+                    break;
+                case 5:
+                    col = this.dgvBooking.Columns[5];
+                    break;
+                case 6:
+                    col = this.dgvBooking.Columns[6];
                     break;
                 default:
                     break;
@@ -796,7 +830,7 @@ namespace MartDB
                                      "Employee.phone_number AS [Телефонный номер]," +
                                      "Employee.email AS [Электронная почта] " +
                                  "FROM Employee " +
-                                 "JOIN Organisation ON Employee.org_id = Organisation.area_id";
+                                 "JOIN Organisation ON Employee.org_id = Organisation.org_id";
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(selectQuery, sqlConnection);
 
             // Set command builder
@@ -1028,7 +1062,7 @@ namespace MartDB
                                      "Organisation.org_name AS [Организация]," +
                                      "Outlet.area_id AS [Код помещения]," +
                                      "Outlet.outlet_name AS [Название торговой точки]," +
-                                     "Outlet.outlet_type AS [Тип торговой точки]," +
+                                     "Outlet.trade_profile_name AS [Торговая точка]," +
                                      "Outlet.timetable AS [Расписание]," +
                                      "Outlet.rating AS [Рейтинг]," +
                                      "Outlet.contact_person AS [Контактное лицо] " +
