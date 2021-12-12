@@ -60,8 +60,8 @@ namespace MartDB
             this.btnOutletShowAll = new System.Windows.Forms.Button();
             this.dgvOutlet = new System.Windows.Forms.DataGridView();
             this.sqlConnection = new System.Data.SqlClient.SqlConnection();
-            this.sqlCmdGetOutletReviews = new System.Data.SqlClient.SqlCommand();
-            this.sqlCmdDeleteReview = new System.Data.SqlClient.SqlCommand();
+            this.sqlCmdFnGetOutletReviews = new System.Data.SqlClient.SqlCommand();
+            this.sqlCmdProcDeleteReview = new System.Data.SqlClient.SqlCommand();
             this.menuStrip1.SuspendLayout();
             this.panelOutlet.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReview)).BeginInit();
@@ -87,7 +87,7 @@ namespace MartDB
             this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aboutToolStripMenuItem});
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
-            this.menuToolStripMenuItem.Size = new System.Drawing.Size(65, 26);
+            this.menuToolStripMenuItem.Size = new System.Drawing.Size(65, 24);
             this.menuToolStripMenuItem.Text = "Меню";
             // 
             // aboutToolStripMenuItem
@@ -185,7 +185,6 @@ namespace MartDB
             // 
             this.dgvReview.AllowUserToAddRows = false;
             this.dgvReview.AllowUserToDeleteRows = false;
-            this.dgvReview.AllowUserToOrderColumns = true;
             this.dgvReview.AllowUserToResizeColumns = false;
             this.dgvReview.AllowUserToResizeRows = false;
             this.dgvReview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -406,7 +405,8 @@ namespace MartDB
             // 
             this.dgvOutlet.AllowUserToAddRows = false;
             this.dgvOutlet.AllowUserToDeleteRows = false;
-            this.dgvOutlet.AllowUserToOrderColumns = true;
+            this.dgvOutlet.AllowUserToResizeColumns = false;
+            this.dgvOutlet.AllowUserToResizeRows = false;
             this.dgvOutlet.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOutlet.Location = new System.Drawing.Point(310, 29);
             this.dgvOutlet.Name = "dgvOutlet";
@@ -416,28 +416,27 @@ namespace MartDB
             this.dgvOutlet.Size = new System.Drawing.Size(604, 584);
             this.dgvOutlet.TabIndex = 29;
             this.dgvOutlet.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOutlet_CellClick);
-            this.dgvOutlet.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvOutlet_RowHeaderMouseClick);
             // 
             // sqlConnection
             // 
             this.sqlConnection.ConnectionString = "Data Source=.\\SQLEXPRESS;Initial Catalog=MartDB;Integrated Security=True";
             this.sqlConnection.FireInfoMessageEventOnUserErrors = false;
             // 
-            // sqlCmdGetOutletReviews
+            // sqlCmdFnGetOutletReviews
             // 
-            this.sqlCmdGetOutletReviews.CommandText = "SELECT * FROM FnGetOutletReviews(@outlet_name)";
-            this.sqlCmdGetOutletReviews.Connection = this.sqlConnection;
-            this.sqlCmdGetOutletReviews.Parameters.AddRange(new System.Data.SqlClient.SqlParameter[] {
+            this.sqlCmdFnGetOutletReviews.CommandText = "SELECT * FROM FnGetOutletReviews(@outlet_name)";
+            this.sqlCmdFnGetOutletReviews.Connection = this.sqlConnection;
+            this.sqlCmdFnGetOutletReviews.Parameters.AddRange(new System.Data.SqlClient.SqlParameter[] {
             new System.Data.SqlClient.SqlParameter("@outlet_name", System.Data.SqlDbType.VarChar, 50)});
             // 
-            // sqlCmdDeleteReview
+            // sqlCmdProcDeleteReview
             // 
-            this.sqlCmdDeleteReview.CommandText = "ProcDeleteReview";
-            this.sqlCmdDeleteReview.CommandType = System.Data.CommandType.StoredProcedure;
-            this.sqlCmdDeleteReview.Connection = this.sqlConnection;
-            this.sqlCmdDeleteReview.Parameters.AddRange(new System.Data.SqlClient.SqlParameter[] {
-            new System.Data.SqlClient.SqlParameter("@username", System.Data.SqlDbType.VarChar, 50),
-            new System.Data.SqlClient.SqlParameter("@outlet_name", System.Data.SqlDbType.VarChar, 50)});
+            this.sqlCmdProcDeleteReview.CommandText = "ProcDeleteReview";
+            this.sqlCmdProcDeleteReview.CommandType = System.Data.CommandType.StoredProcedure;
+            this.sqlCmdProcDeleteReview.Connection = this.sqlConnection;
+            this.sqlCmdProcDeleteReview.Parameters.AddRange(new System.Data.SqlClient.SqlParameter[] {
+            new System.Data.SqlClient.SqlParameter("@review_id", System.Data.SqlDbType.Int),
+            new System.Data.SqlClient.SqlParameter("@username", System.Data.SqlDbType.VarChar, 50)});
             // 
             // CustomerForm
             // 
@@ -502,8 +501,8 @@ namespace MartDB
         private System.Windows.Forms.Button btnUpdateReview;
         private System.Windows.Forms.Button btnDeleteReview;
         private System.Data.SqlClient.SqlConnection sqlConnection;
-        private System.Data.SqlClient.SqlCommand sqlCmdGetOutletReviews;
+        private System.Data.SqlClient.SqlCommand sqlCmdFnGetOutletReviews;
         private System.Windows.Forms.Button btnReviewShowAll;
-        private System.Data.SqlClient.SqlCommand sqlCmdDeleteReview;
+        private System.Data.SqlClient.SqlCommand sqlCmdProcDeleteReview;
     }
 }

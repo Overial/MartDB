@@ -38,6 +38,7 @@ namespace MartDB
 
         ////// Menu strip //////
 
+        // Get info about app
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("База данных ТЦ \"Тессеракт\"", "О программе", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -65,9 +66,6 @@ namespace MartDB
                                  "JOIN Organisation ON Outlet.org_id = Organisation.org_id ";
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(selectQuery, sqlConnection);
 
-            // Set command builder
-            // SqlCommandBuilder commandBuilder = new SqlCommandBuilder(sqlDataAdapter);
-
             // Fill data set
             DataSet dataSet = new DataSet();
             sqlDataAdapter.Fill(dataSet);
@@ -88,6 +86,7 @@ namespace MartDB
 
             // Create query
             string selectQuery = "SELECT " +
+                                     "Review.review_id," +
                                      "Outlet.outlet_name," +
                                      "Review.rating AS [Рейтинг]," +
                                      "Review.review_content AS [Комментарий]," +
@@ -97,9 +96,6 @@ namespace MartDB
                                  "JOIN Users ON Review.userid = Users.userid";
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(selectQuery, sqlConnection);
 
-            // Set command builder
-            // SqlCommandBuilder commandBuilder = new SqlCommandBuilder(sqlDataAdapter);
-
             // Fill data set
             DataSet dataSet = new DataSet();
             sqlDataAdapter.Fill(dataSet);
@@ -107,7 +103,8 @@ namespace MartDB
             // Fill DGV
             this.dgvReview.DataSource = dataSet.Tables[0];
             this.dgvReview.Columns[0].Visible = false;
-            this.dgvReview.Columns[1].Width = 50;
+            this.dgvReview.Columns[1].Visible = false;
+            this.dgvReview.Columns[2].Width = 50;
         }
 
         // Button to change user at runtime
@@ -119,23 +116,23 @@ namespace MartDB
             this.Close();
         }
 
+        // Prevent user from searching without selected col
         private void searchColsOutletListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.btnSearchOutlet.Enabled = true;
         }
 
+        // Button for searching
         private void btnSearchOutlet_Click(object sender, EventArgs e)
         {
             // Field parser
             int iColIndex = 0;
-            
             if (this.searchColsOutletListBox.SelectedItem != null)
             {
                 string strFieldForSearch = this.searchColsOutletListBox.SelectedItem.ToString();
-
                 for (int i = 0; i < dgvOutlet.Columns.Count; ++i)
                 {
-                    if (dgvOutlet.Columns[i].HeaderText == strFieldForSearch)
+                    if (this.dgvOutlet.Columns[i].HeaderText == strFieldForSearch)
                     {
                         iColIndex = i;
                     }
@@ -145,12 +142,12 @@ namespace MartDB
             // Start searching only if user has entered query for search
             if (this.searchQueryOutletTextBox.Text.Length > 0)
             {
+                // Prevent invalid user input
                 string query = "";
                 try
                 {
                     query = Convert.ToString(this.searchQueryOutletTextBox.Text);
                 }
-                // Prevent invalid user input
                 catch
                 {
                     MessageBox.Show("Введено некорректное значение запроса для поиска!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -161,31 +158,34 @@ namespace MartDB
                 {
                     if (row.Cells[iColIndex].Value.ToString().Contains(query))
                     {
-                        dgvOutlet.Rows[row.Index].Visible = true;
+                        this.dgvOutlet.Rows[row.Index].Visible = true;
                     }
                     else
                     {
-                        dgvOutlet.CurrentCell = null;
-                        dgvOutlet.Rows[row.Index].Visible = false;
+                        this.dgvOutlet.CurrentCell = null;
+                        this.dgvOutlet.Rows[row.Index].Visible = false;
                     }
                 }
             }
         }
 
+        // Show all outlets
         private void btnOutletShowAll_Click(object sender, EventArgs e)
         {
             // Display every row
             foreach (DataGridViewRow row in this.dgvOutlet.Rows)
             {
-                dgvOutlet.Rows[row.Index].Visible = true;
+                this.dgvOutlet.Rows[row.Index].Visible = true;
             }
         }
 
+        // Prevent user from sorting without selected col
         private void sortColsOutletListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.btnSortOutlet.Enabled = true;
         }
 
+        // Button for sorting
         private void btnSortOutlet_Click(object sender, EventArgs e)
         {
             // col to sort
@@ -216,50 +216,31 @@ namespace MartDB
             // Get selected choice for sorting
             if (this.ascOutletRadioButton.Checked)
             {
-                dgvOutlet.Sort(col, ListSortDirection.Ascending);
+                this.dgvOutlet.Sort(col, ListSortDirection.Ascending);
             }
             else if (this.descOutletRadioButton.Checked)
             {
-                dgvOutlet.Sort(col, ListSortDirection.Descending);
+                this.dgvOutlet.Sort(col, ListSortDirection.Descending);
             }
         }
 
         // Display selected outlet reviews
         private void dgvOutlet_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            //this.dgvReview.DataSource = null;
+            // Clear review DGV
+            this.dgvReview.DataSource = null;
 
-            //// Get selected outlet
-            //string selectedOutlet = "";
-            //if (this.dgvOutlet.SelectedCells.Count == 1)
-            //{
-            //    // MessageBox.Show(this.dgvOutlet.CurrentRow.Cells[0].Value.ToString());
-            //    selectedOutlet = this.dgvOutlet.CurrentRow.Cells[0].Value.ToString();
+            // Get selected outlet
+            int rowIndex = this.dgvOutlet.SelectedCells[0].RowIndex;
+            string outletName = this.dgvOutlet.Rows[rowIndex].Cells[0].Value.ToString();
 
-            //    this.sqlCmdGetOutletReviews.Parameters["@outlet_name"].Value = selectedOutlet;
-            //    this.sqlConnection.Open();
-            //    DataTable dt = new DataTable();
-            //    dt.Load(sqlCmdGetOutletReviews.ExecuteReader());
-            //    this.dgvReview.DataSource = dt;
-            //    this.sqlConnection.Close();
-            //}
-        }
-
-        private void dgvOutlet_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            //this.dgvReview.DataSource = null;
-
-            //// Get selected outlet
-            //string selectedOutlet = "";
-            //// MessageBox.Show(this.dgvOutlet.CurrentRow.Cells[0].Value.ToString());
-            //selectedOutlet = this.dgvOutlet.CurrentRow.Cells[0].Value.ToString();
-
-            //this.sqlCmdGetOutletReviews.Parameters["@outlet_name"].Value = selectedOutlet;
-            //this.sqlConnection.Open();
-            //DataTable dt = new DataTable();
-            //dt.Load(sqlCmdGetOutletReviews.ExecuteReader());
-            //this.dgvReview.DataSource = dt;
-            //this.sqlConnection.Close();
+            // Call SQL fn
+            this.sqlCmdFnGetOutletReviews.Parameters["@outlet_name"].Value = outletName;
+            this.sqlConnection.Open();
+            DataTable dt = new DataTable();
+            dt.Load(sqlCmdFnGetOutletReviews.ExecuteReader());
+            this.dgvReview.DataSource = dt;
+            this.sqlConnection.Close();
         }
 
         // Add review button
@@ -317,85 +298,72 @@ namespace MartDB
 
         private void btnDeleteReview_Click(object sender, EventArgs e)
         {
-            Int32 selectedCellsCount = this.dgvReview.GetCellCount(DataGridViewElementStates.Selected);
-            if (selectedCellsCount > 0)
+            if (this.dgvReview.AreAllCellsSelected(true))
             {
-                if (this.dgvReview.AreAllCellsSelected(true))
+                MessageBox.Show("Удалить можно только один отзыв за раз!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                // Get selected review
+                int rowIndex = this.dgvReview.SelectedCells[0].RowIndex;
+                string reviewId = this.dgvReview.Rows[rowIndex].Cells[0].Value.ToString();
+                string username = this.dgvReview.Rows[rowIndex].Cells[4].Value.ToString();
+
+                // Pass data to UpdateBookingForm
+                if (username == UserData.UserName)
                 {
-                    MessageBox.Show("Удалить можно только один отзыв за раз!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    // Initiate booking updating only if the whole row is selected
-                    if (selectedCellsCount == this.dgvReview.Columns.GetColumnCount(DataGridViewElementStates.Visible))
+                    // Open DB connection
+                    this.sqlConnection.Open();
+
+                    // Call proc
+                    try
                     {
-                        string outletName = this.dgvReview.SelectedCells[0].Value.ToString();
-                        string username = this.dgvReview.SelectedCells[1].Value.ToString();
+                        // Initialize params
+                        this.sqlCmdProcDeleteReview.Parameters["@review_id"].Value = reviewId;
+                        this.sqlCmdProcDeleteReview.Parameters["@username"].Value = username;
 
-                        // Pass data to UpdateBookingForm
-                        if (username == UserData.UserName)
+                        // Call proc
+                        int iAffectedRowsCount = this.sqlCmdProcDeleteReview.ExecuteNonQuery();
+
+                        // Show corresponding information
+                        if (iAffectedRowsCount == 0)
                         {
-                            // Open DB connection
-                            this.sqlConnection.Open();
-
-                            // Call proc
-                            try
-                            {
-                                // Initialize params
-                                this.sqlCmdDeleteReview.Parameters["@username"].Value = UserData.UserName;
-                                this.sqlCmdDeleteReview.Parameters["@outlet_name"].Value = outletName;
-
-                                // Call proc
-                                int iAffectedRowsCount = this.sqlCmdDeleteReview.ExecuteNonQuery();
-
-                                // Show corresponding information
-                                if (iAffectedRowsCount == 0)
-                                {
-                                    MessageBox.Show("Удаления данных завершилось с ошибкой!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                }
-                                else
-                                {
-                                    MessageBox.Show("Данные успешно удалены!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                                    // Update dgvReview in case of success
-                                    FillReviewsDGV();
-                                }
-                            }
-                            catch (FormatException)
-                            {
-                                MessageBox.Show("Введены некорректные значения!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            catch (SqlException ex)
-                            {
-                                //MessageBox.Show("Добавление данных завершилось с ошибкой!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                                StringBuilder errorMessages = new StringBuilder();
-                                for (int i = 0; i < ex.Errors.Count; i++)
-                                {
-                                    errorMessages.Append("Index #" + i + "\n" +
-                                        "Message: " + ex.Errors[i].Message + "\n" +
-                                        "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
-                                        "Source: " + ex.Errors[i].Source + "\n" +
-                                        "Procedure: " + ex.Errors[i].Procedure + "\n");
-                                }
-                                MessageBox.Show(errorMessages.ToString(), "Error");
-                            }
-
-                            // Close DB connection
-                            this.sqlConnection.Close();
+                            MessageBox.Show("Удаление данных завершилось с ошибкой!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         else
                         {
-                            MessageBox.Show("Выбран чужой отзыв!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Данные успешно удалены!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            // Update dgvReview in case of success
+                            FillReviewsDGV();
                         }
                     }
-                    else
+                    catch (FormatException)
                     {
-                        MessageBox.Show("Выберите всю строку для удаления отзыва!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Введены некорректные значения!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    catch (SqlException ex)
+                    {
+                        //MessageBox.Show("Добавление данных завершилось с ошибкой!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        StringBuilder errorMessages = new StringBuilder();
+                        for (int i = 0; i < ex.Errors.Count; i++)
+                        {
+                            errorMessages.Append("Index #" + i + "\n" +
+                                "Message: " + ex.Errors[i].Message + "\n" +
+                                "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+                                "Source: " + ex.Errors[i].Source + "\n" +
+                                "Procedure: " + ex.Errors[i].Procedure + "\n");
+                        }
+                        MessageBox.Show(errorMessages.ToString(), "Error");
                     }
 
-                    //sb.Append("Total: " + selectedCellsCount.ToString());
-                    //MessageBox.Show(sb.ToString(), "Selected Cells");
+                    // Close DB connection
+                    this.sqlConnection.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Выбран чужой отзыв!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
