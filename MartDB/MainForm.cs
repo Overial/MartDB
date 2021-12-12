@@ -376,8 +376,10 @@ namespace MartDB
         ////// Area panel //////
 
         // Get info about areas and bookings
-        private void FillBookingDGV()
+        private void FillAreaDGV()
         {
+            this.dgvArea.DataSource = null;
+
             // Establish connection
             SqlConnection sqlConnection = new SqlConnection();
             sqlConnection.ConnectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=MartDB;Integrated Security=True";
@@ -401,7 +403,6 @@ namespace MartDB
             sqlDataAdapter.Fill(dataSet);
 
             // Fill DGV
-            this.dgvArea.ReadOnly = true;
             this.dgvArea.DataSource = dataSet.Tables[0];
         }
 
@@ -528,7 +529,7 @@ namespace MartDB
         ////// Booking panel //////
 
         // Get info about areas and bookings
-        private void FillAreaDGV()
+        private void FillBookingDGV()
         {
             // Establish connection
             SqlConnection sqlConnection = new SqlConnection();
@@ -547,9 +548,9 @@ namespace MartDB
                                   "Booking.cost AS [Стоимость аренды]," +
                                   "Booking.booking_start_date AS [Начало периода аренды]," +
                                   "Booking.booking_end_date AS [Конец периода аренды] " +
-                               "FROM Booking " +
-                               "JOIN Organisation ON Booking.org_id = Organisation.org_id " +
-                               "JOIN Area ON Booking.area_id = Area.area_id";
+                            "FROM Booking " +
+                            "JOIN Organisation ON Booking.org_id = Organisation.org_id " +
+                            "JOIN Area ON Booking.area_id = Area.area_id";
             }
             else if (UserData.UserRole == "organisation")
             {
@@ -561,30 +562,20 @@ namespace MartDB
                                   "Booking.cost AS [Стоимость аренды]," +
                                   "Booking.booking_start_date AS [Начало периода аренды]," +
                                   "Booking.booking_end_date AS [Конец периода аренды] " +
-                               "FROM Booking " +
-                               "JOIN Organisation ON Booking.org_id = Organisation.org_id " +
-                               "JOIN Area ON Booking.area_id = Area.area_id " +
-                               "WHERE Organisation.org_name = \'" + UserData.UserName + "\'";
+                              "FROM Booking " +
+                              "JOIN Organisation ON Booking.org_id = Organisation.org_id " +
+                              "JOIN Area ON Booking.area_id = Area.area_id " +
+                              "WHERE Organisation.org_name = \'" + UserData.UserName + "\'";
             }
             
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(selectQuery, sqlConnection);
-
-            // Set command builder
-            // SqlCommandBuilder commandBuilder = new SqlCommandBuilder(sqlDataAdapter);
 
             // Fill data set
             DataSet dataSet = new DataSet();
             sqlDataAdapter.Fill(dataSet);
 
             // Fill DGV
-            this.dgvBooking.ReadOnly = true;
             this.dgvBooking.DataSource = dataSet.Tables[0];
-        }
-
-        // Enable button only if field for search is selected
-        private void bookingSearchColListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            this.btnCostSearch.Enabled = true;
         }
 
         // Button to initiate searchin'
@@ -751,13 +742,15 @@ namespace MartDB
         private void btnAddBookingForm_Click(object sender, EventArgs e)
         {
             Form handleBookingForm = new AddBookingForm();
-            handleBookingForm.FormClosed += new FormClosedEventHandler(this.hanldleBookingForms_FormClosed);
+            handleBookingForm.FormClosed += new FormClosedEventHandler(this.handleBookingForms_FormClosed);
             handleBookingForm.Show();
         }
 
         // Get data from selected booking
         private void btnUpdateBooking_Click(object sender, EventArgs e)
         {
+
+
             Int32 selectedCellsCount = this.dgvBooking.GetCellCount(DataGridViewElementStates.Selected);
             if (selectedCellsCount > 0)
             {
@@ -790,7 +783,7 @@ namespace MartDB
                         if (orgName == UserData.UserName)
                         {
                             Form updateBookingForm = new UpdateBookingForm(orgName, areaId, bookingStartDate, bookingEndDate);
-                            updateBookingForm.FormClosed += new FormClosedEventHandler(this.hanldleBookingForms_FormClosed);
+                            updateBookingForm.FormClosed += new FormClosedEventHandler(this.handleBookingForms_FormClosed);
                             updateBookingForm.Show();
                         }
                     }
@@ -806,7 +799,7 @@ namespace MartDB
         }
 
         // Refresh booking table after any manipulations with it
-        private void hanldleBookingForms_FormClosed(object sender, FormClosedEventArgs e)
+        private void handleBookingForms_FormClosed(object sender, FormClosedEventArgs e)
         {
             FillBookingDGV();
         }
