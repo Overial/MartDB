@@ -27,7 +27,7 @@ namespace MartDB
             // Fill combo box with org names from Area table
             DataTable dtOrgNames = new DataTable();
             SqlDataAdapter daOrgNames = new SqlDataAdapter("SELECT outlet_name FROM Outlet",
-                                                    this.sqlConnection);
+                                                           this.sqlConnection);
             daOrgNames.Fill(dtOrgNames);
             this.outletNameComboBox.DataSource = dtOrgNames;
             this.outletNameComboBox.DisplayMember = "outlet_name";

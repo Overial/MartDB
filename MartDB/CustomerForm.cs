@@ -227,20 +227,7 @@ namespace MartDB
         // Display selected outlet reviews
         private void dgvOutlet_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Clear review DGV
-            this.dgvReview.DataSource = null;
-
-            // Get selected outlet
-            int rowIndex = this.dgvOutlet.SelectedCells[0].RowIndex;
-            string outletName = this.dgvOutlet.Rows[rowIndex].Cells[0].Value.ToString();
-
-            // Call SQL fn
-            this.sqlCmdFnGetOutletReviews.Parameters["@outlet_name"].Value = outletName;
-            this.sqlConnection.Open();
-            DataTable dt = new DataTable();
-            dt.Load(sqlCmdFnGetOutletReviews.ExecuteReader());
-            this.dgvReview.DataSource = dt;
-            this.sqlConnection.Close();
+            ViewOutletReviews();
         }
 
         // Add review button
@@ -335,7 +322,7 @@ namespace MartDB
                             MessageBox.Show("Данные успешно удалены!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                             // Update dgvReview in case of success
-                            FillReviewsDGV();
+                            ViewOutletReviews();
                         }
                     }
                     catch (FormatException)
@@ -388,6 +375,36 @@ namespace MartDB
             }
         }
 
+        private void ViewOutletReviews()
+        {
+            // Clear review DGV
+            this.dgvReview.DataSource = null;
+
+            // Get selected outlet
+            int rowIndex = this.dgvOutlet.SelectedCells[0].RowIndex;
+            string outletName = this.dgvOutlet.Rows[rowIndex].Cells[0].Value.ToString();
+
+            // Call SQL fn
+            this.sqlCmdFnGetOutletReviews.Parameters["@outlet_name"].Value = outletName;
+            if (this.sqlConnection.State == ConnectionState.Closed)
+            {
+                this.sqlConnection.Open();
+            }
+            DataTable dt = new DataTable();
+            dt.Load(sqlCmdFnGetOutletReviews.ExecuteReader());
+
+            // Set review DGV design
+            this.dgvReview.DataSource = dt;
+            this.dgvReview.Columns[0].Visible = false;
+            this.dgvReview.Columns[1].Visible = false;
+            this.dgvReview.Columns[2].Width = 50;
+            this.dgvReview.Columns[2].HeaderText = "Рейтинг";
+            this.dgvReview.Columns[3].HeaderText = "Комментарий";
+            this.dgvReview.Columns[4].HeaderText = "Имя пользователя";
+
+            this.sqlConnection.Close();
+        }
+
         private void btnUserReviewsForm_Click(object sender, EventArgs e)
         {
             ViewUserReviews();
@@ -402,10 +419,7 @@ namespace MartDB
         // Refresh booking table after any manipulations with it
         private void handleReviewForms_FormClosed(object sender, FormClosedEventArgs e)
         {
-            //FillOutletsDGV();
-            //FillReviewsDGV();
-
-            ViewUserReviews();
+            ViewOutletReviews();
         }
     }
 }
