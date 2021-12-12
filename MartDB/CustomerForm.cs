@@ -57,7 +57,7 @@ namespace MartDB
             // Create query
             string selectQuery = "SELECT " +
                                      "Outlet.outlet_name AS [Название торговой точки], " +
-                                     "Outlet.trade_profile_name AS [Тип торговой точки]," +
+                                     "Outlet.trade_profile_name AS [Торговый профиль]," +
                                      "Area.floor_number AS [Номер этажа]," +
                                      "Outlet.timetable AS [Расписание]," +
                                      "Outlet.rating AS [Рейтинг] " +
@@ -120,6 +120,67 @@ namespace MartDB
         private void searchColsOutletListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.btnSearchOutlet.Enabled = true;
+
+            this.comboBox1.Visible = false;
+            this.comboBox2.Visible = false;
+
+            this.sqlConnection.Open();
+
+            // Get selected col to sort
+            switch (this.searchColsOutletListBox.SelectedIndex)
+            {
+                case 0:
+                    this.searchQueryOutletComboBox.BringToFront();
+                    DataTable dtOutletNames = new DataTable();
+                    SqlDataAdapter daOutletNames = new SqlDataAdapter("SELECT outlet_name FROM Outlet",
+                                                                      this.sqlConnection);
+                    daOutletNames.Fill(dtOutletNames);
+                    this.searchQueryOutletComboBox.DataSource = dtOutletNames;
+                    this.searchQueryOutletComboBox.DisplayMember = "outlet_name";
+                    this.searchQueryOutletComboBox.ValueMember = "outlet_name";
+                    break;
+                case 1:
+                    this.searchQueryOutletComboBox.BringToFront();
+                    DataTable dtTradeProfileNames = new DataTable();
+                    SqlDataAdapter daTradeProfileNames = new SqlDataAdapter("SELECT trade_profile_name FROM Outlet",
+                                                                            this.sqlConnection);
+                    daTradeProfileNames.Fill(dtTradeProfileNames);
+                    this.searchQueryOutletComboBox.DataSource = dtTradeProfileNames;
+                    this.searchQueryOutletComboBox.DisplayMember = "trade_profile_name";
+                    this.searchQueryOutletComboBox.ValueMember = "trade_profile_name";
+                    break;
+                case 2:
+                    this.searchQueryOutletComboBox.BringToFront();
+                    DataTable dtFloorNumbers = new DataTable();
+                    SqlDataAdapter daFloorNumbers = new SqlDataAdapter("SELECT DISTINCT floor_number FROM Area " +
+                                                                       "JOIN Outlet ON Outlet.area_id = Area.area_id",
+                                                                       this.sqlConnection);
+                    daFloorNumbers.Fill(dtFloorNumbers);
+                    this.searchQueryOutletComboBox.DataSource = dtFloorNumbers;
+                    this.searchQueryOutletComboBox.DisplayMember = "floor_number";
+                    this.searchQueryOutletComboBox.ValueMember = "floor_number";
+                    break;
+                case 3:
+                    this.searchQueryOutletComboBox.BringToFront();
+                    DataTable dtTimeTables = new DataTable();
+                    SqlDataAdapter daTimeTables = new SqlDataAdapter("SELECT DISTINCT timetable FROM Outlet",
+                                                                      this.sqlConnection);
+                    daTimeTables.Fill(dtTimeTables);
+                    this.searchQueryOutletComboBox.DataSource = dtTimeTables;
+                    this.searchQueryOutletComboBox.DisplayMember = "timetable";
+                    this.searchQueryOutletComboBox.ValueMember = "timetable";
+                    break;
+                case 4:
+                    this.comboBox1.Visible = true;
+                    this.comboBox1.BringToFront();
+                    this.comboBox2.Visible = true;
+                    this.comboBox2.BringToFront();
+                    break;
+                default:
+                    break;
+            }
+
+            this.sqlConnection.Close();
         }
 
         // Button for searching
@@ -135,35 +196,62 @@ namespace MartDB
                     if (this.dgvOutlet.Columns[i].HeaderText == strFieldForSearch)
                     {
                         iColIndex = i;
+                        break;
                     }
                 }
             }
 
             // Start searching only if user has entered query for search
-            if (this.searchQueryOutletTextBox.Text.Length > 0)
+            if (iColIndex != 4)
             {
-                // Prevent invalid user input
-                string query = "";
-                try
+                if (this.searchQueryOutletComboBox.Text.Length > 0)
                 {
-                    query = Convert.ToString(this.searchQueryOutletTextBox.Text);
-                }
-                catch
-                {
-                    MessageBox.Show("Введено некорректное значение запроса для поиска!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-
-                // Filter area square data
-                foreach (DataGridViewRow row in this.dgvOutlet.Rows)
-                {
-                    if (row.Cells[iColIndex].Value.ToString().Contains(query))
+                    // Prevent invalid user input
+                    string query = "";
+                    try
                     {
-                        this.dgvOutlet.Rows[row.Index].Visible = true;
+                        query = Convert.ToString(this.searchQueryOutletComboBox.Text);
                     }
-                    else
+                    catch
                     {
-                        this.dgvOutlet.CurrentCell = null;
-                        this.dgvOutlet.Rows[row.Index].Visible = false;
+                        MessageBox.Show("Введено некорректное значение запроса для поиска!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                    // Filter area square data
+                    foreach (DataGridViewRow row in this.dgvOutlet.Rows)
+                    {
+                        if (row.Cells[iColIndex].Value.ToString().Contains(query))
+                        {
+                            this.dgvOutlet.Rows[row.Index].Visible = true;
+                        }
+                        else
+                        {
+                            this.dgvOutlet.CurrentCell = null;
+                            this.dgvOutlet.Rows[row.Index].Visible = false;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                if (this.comboBox1.Text.Length > 0 && this.comboBox2.Text.Length > 0)
+                {
+                    int leftRatingBound = Convert.ToInt32(this.comboBox1.Text);
+                    int rightRatingBound = Convert.ToInt32(this.comboBox2.Text);
+
+                    // Filter area square data
+                    foreach (DataGridViewRow row in this.dgvOutlet.Rows)
+                    {
+                        if (Convert.ToInt32(row.Cells[iColIndex].Value) >= leftRatingBound &&
+                            Convert.ToInt32(row.Cells[iColIndex].Value) <= rightRatingBound)
+                        {
+                            this.dgvOutlet.Rows[row.Index].Visible = true;
+                        }
+                        else
+                        {
+                            this.dgvOutlet.CurrentCell = null;
+                            this.dgvOutlet.Rows[row.Index].Visible = false;
+                        }
                     }
                 }
             }
@@ -227,7 +315,7 @@ namespace MartDB
         // Display selected outlet reviews
         private void dgvOutlet_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            ViewOutletReviews();
+            ViewSelectedOutletReviews();
         }
 
         // Add review button
@@ -243,6 +331,7 @@ namespace MartDB
             addReviewForm.Show();
         }
 
+        // Update review button
         private void btnUpdateReview_Click(object sender, EventArgs e)
         {
             if (this.dgvReview.AreAllCellsSelected(true))
@@ -271,6 +360,7 @@ namespace MartDB
             }
         }
 
+        // Delete review button
         private void btnDeleteReview_Click(object sender, EventArgs e)
         {
             if (this.dgvReview.AreAllCellsSelected(true))
@@ -310,7 +400,7 @@ namespace MartDB
                             MessageBox.Show("Данные успешно удалены!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                             // Update dgvReview in case of success
-                            ViewOutletReviews();
+                            ViewSelectedOutletReviews();
                         }
                     }
                     catch (FormatException)
@@ -343,27 +433,8 @@ namespace MartDB
             }
         }
 
-        // Show only current user reviews
-        private void ViewUserReviews()
-        {
-            FillReviewsDGV();
-
-            // Filter area square data
-            foreach (DataGridViewRow row in this.dgvReview.Rows)
-            {
-                if (row.Cells[4].Value.ToString().Contains(UserData.UserName))
-                {
-                    this.dgvReview.Rows[row.Index].Visible = true;
-                }
-                else
-                {
-                    this.dgvReview.CurrentCell = null;
-                    this.dgvReview.Rows[row.Index].Visible = false;
-                }
-            }
-        }
-
-        private void ViewOutletReviews()
+        // Show only selected outlet reviews
+        private void ViewSelectedOutletReviews()
         {
             // Clear review DGV
             this.dgvReview.DataSource = null;
@@ -393,20 +464,43 @@ namespace MartDB
             this.sqlConnection.Close();
         }
 
+        // Show only current user reviews
+        private void ViewUserReviews()
+        {
+            FillReviewsDGV();
+
+            // Filter area square data
+            foreach (DataGridViewRow row in this.dgvReview.Rows)
+            {
+                if (row.Cells[4].Value.ToString().Contains(UserData.UserName))
+                {
+                    this.dgvReview.Rows[row.Index].Visible = true;
+                }
+                else
+                {
+                    this.dgvReview.CurrentCell = null;
+                    this.dgvReview.Rows[row.Index].Visible = false;
+                }
+            }
+        }
+
+        // Button to show user reviews
         private void btnUserReviewsForm_Click(object sender, EventArgs e)
         {
             ViewUserReviews();
         }
 
+        // Button to show all reviews
         private void btnReviewShowAll_Click(object sender, EventArgs e)
         {
             this.dgvReview.DataSource = null;
             FillReviewsDGV();
         }
 
+        // Update review DGV after manipulations
         private void handleReviewForms_FormClosed(object sender, FormClosedEventArgs e)
         {
-            ViewOutletReviews();
+            ViewSelectedOutletReviews();
         }
     }
 }

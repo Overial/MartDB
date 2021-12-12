@@ -55,13 +55,15 @@ namespace MartDB
             this.searchQueryOutletGroupBox = new System.Windows.Forms.Label();
             this.searchColsOutletListBox = new System.Windows.Forms.ListBox();
             this.searchOutletLabel = new System.Windows.Forms.Label();
-            this.searchQueryOutletTextBox = new System.Windows.Forms.TextBox();
             this.btnSearchOutlet = new System.Windows.Forms.Button();
             this.btnOutletShowAll = new System.Windows.Forms.Button();
             this.dgvOutlet = new System.Windows.Forms.DataGridView();
             this.sqlConnection = new System.Data.SqlClient.SqlConnection();
             this.sqlCmdFnGetOutletReviews = new System.Data.SqlClient.SqlCommand();
             this.sqlCmdProcDeleteReview = new System.Data.SqlClient.SqlCommand();
+            this.searchQueryOutletComboBox = new System.Windows.Forms.ComboBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             this.panelOutlet.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReview)).BeginInit();
@@ -324,10 +326,12 @@ namespace MartDB
             // 
             // searchOutletGroupBox
             // 
+            this.searchOutletGroupBox.Controls.Add(this.comboBox2);
+            this.searchOutletGroupBox.Controls.Add(this.comboBox1);
+            this.searchOutletGroupBox.Controls.Add(this.searchQueryOutletComboBox);
             this.searchOutletGroupBox.Controls.Add(this.searchQueryOutletGroupBox);
             this.searchOutletGroupBox.Controls.Add(this.searchColsOutletListBox);
             this.searchOutletGroupBox.Controls.Add(this.searchOutletLabel);
-            this.searchOutletGroupBox.Controls.Add(this.searchQueryOutletTextBox);
             this.searchOutletGroupBox.Controls.Add(this.btnSearchOutlet);
             this.searchOutletGroupBox.Controls.Add(this.btnOutletShowAll);
             this.searchOutletGroupBox.Location = new System.Drawing.Point(7, 196);
@@ -352,7 +356,7 @@ namespace MartDB
             this.searchColsOutletListBox.ItemHeight = 16;
             this.searchColsOutletListBox.Items.AddRange(new object[] {
             "Название торговой точки",
-            "Тип торговой точки",
+            "Торговый профиль",
             "Номер этажа",
             "Расписание",
             "Рейтинг"});
@@ -371,18 +375,11 @@ namespace MartDB
             this.searchOutletLabel.TabIndex = 7;
             this.searchOutletLabel.Text = "Выберите поле поиска:";
             // 
-            // searchQueryOutletTextBox
-            // 
-            this.searchQueryOutletTextBox.Location = new System.Drawing.Point(168, 38);
-            this.searchQueryOutletTextBox.Name = "searchQueryOutletTextBox";
-            this.searchQueryOutletTextBox.Size = new System.Drawing.Size(119, 22);
-            this.searchQueryOutletTextBox.TabIndex = 6;
-            // 
             // btnSearchOutlet
             // 
             this.btnSearchOutlet.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSearchOutlet.Enabled = false;
-            this.btnSearchOutlet.Location = new System.Drawing.Point(168, 81);
+            this.btnSearchOutlet.Location = new System.Drawing.Point(168, 96);
             this.btnSearchOutlet.Name = "btnSearchOutlet";
             this.btnSearchOutlet.Size = new System.Drawing.Size(119, 42);
             this.btnSearchOutlet.TabIndex = 5;
@@ -438,6 +435,44 @@ namespace MartDB
             new System.Data.SqlClient.SqlParameter("@review_id", System.Data.SqlDbType.Int),
             new System.Data.SqlClient.SqlParameter("@username", System.Data.SqlDbType.VarChar, 50)});
             // 
+            // searchQueryOutletComboBox
+            // 
+            this.searchQueryOutletComboBox.FormattingEnabled = true;
+            this.searchQueryOutletComboBox.Location = new System.Drawing.Point(168, 38);
+            this.searchQueryOutletComboBox.Name = "searchQueryOutletComboBox";
+            this.searchQueryOutletComboBox.Size = new System.Drawing.Size(119, 24);
+            this.searchQueryOutletComboBox.TabIndex = 31;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "5",
+            "4",
+            "3",
+            "2",
+            "1"});
+            this.comboBox1.Location = new System.Drawing.Point(168, 38);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(119, 24);
+            this.comboBox1.TabIndex = 32;
+            this.comboBox1.Visible = false;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "5",
+            "4",
+            "3",
+            "2",
+            "1"});
+            this.comboBox2.Location = new System.Drawing.Point(168, 68);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(119, 24);
+            this.comboBox2.TabIndex = 33;
+            this.comboBox2.Visible = false;
+            // 
             // CustomerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -486,7 +521,6 @@ namespace MartDB
         private System.Windows.Forms.Label searchQueryOutletGroupBox;
         private System.Windows.Forms.ListBox searchColsOutletListBox;
         private System.Windows.Forms.Label searchOutletLabel;
-        private System.Windows.Forms.TextBox searchQueryOutletTextBox;
         private System.Windows.Forms.Button btnSearchOutlet;
         private System.Windows.Forms.DataGridView dgvOutlet;
         private System.Windows.Forms.Button btnAddReview;
@@ -504,5 +538,8 @@ namespace MartDB
         private System.Data.SqlClient.SqlCommand sqlCmdFnGetOutletReviews;
         private System.Windows.Forms.Button btnReviewShowAll;
         private System.Data.SqlClient.SqlCommand sqlCmdProcDeleteReview;
+        private System.Windows.Forms.ComboBox searchQueryOutletComboBox;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
