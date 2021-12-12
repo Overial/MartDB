@@ -32,7 +32,13 @@ namespace MartDB
         {
             this.orgNameComboBox.Text = this._orgName;
             this.areaIdComboBox.Text = this._areaId.ToString();
+
             this.dtpBookingStartDate.Text = this._bookingStartDate;
+            if (UserData.UserRole == "admin")
+            {
+                this.dtpBookingStartDate.Enabled = true;
+            }
+
             this.dtpBookingEndDate.Text = this._bookingEndDate;
         }
 

@@ -655,8 +655,8 @@ namespace MartDB
                     // Filter area square data
                     foreach (DataGridViewRow row in this.dgvBooking.Rows)
                     {
-                        if (DateTime.Parse(row.Cells[5].Value.ToString()).Date >= leftBound.Date &&
-                            DateTime.Parse(row.Cells[6].Value.ToString()).Date <= rightBound.Date)
+                        if (DateTime.Parse(row.Cells[6].Value.ToString()).Date >= leftBound.Date &&
+                            DateTime.Parse(row.Cells[7].Value.ToString()).Date <= rightBound.Date)
                         {
                             this.dgvBooking.Rows[row.Index].Visible = true;
                             // dgvBookingHandling.Rows[row.Index].Selected = true;

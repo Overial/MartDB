@@ -85,6 +85,7 @@ namespace MartDB
             // 
             // dtpBookingStartDate
             // 
+            this.dtpBookingStartDate.Enabled = false;
             this.dtpBookingStartDate.Location = new System.Drawing.Point(224, 145);
             this.dtpBookingStartDate.Name = "dtpBookingStartDate";
             this.dtpBookingStartDate.Size = new System.Drawing.Size(200, 22);
