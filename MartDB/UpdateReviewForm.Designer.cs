@@ -45,14 +45,15 @@ namespace MartDB
             // 
             // reviewContentTextBox
             // 
-            this.reviewContentTextBox.Location = new System.Drawing.Point(195, 190);
+            this.reviewContentTextBox.Location = new System.Drawing.Point(228, 190);
             this.reviewContentTextBox.Multiline = true;
             this.reviewContentTextBox.Name = "reviewContentTextBox";
-            this.reviewContentTextBox.Size = new System.Drawing.Size(399, 148);
+            this.reviewContentTextBox.Size = new System.Drawing.Size(366, 148);
             this.reviewContentTextBox.TabIndex = 36;
             // 
             // btnUpdateReview
             // 
+            this.btnUpdateReview.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnUpdateReview.Location = new System.Drawing.Point(208, 362);
             this.btnUpdateReview.Name = "btnUpdateReview";
             this.btnUpdateReview.Size = new System.Drawing.Size(165, 58);
@@ -65,7 +66,7 @@ namespace MartDB
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.Location = new System.Drawing.Point(139, 30);
+            this.label6.Location = new System.Drawing.Point(153, 24);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(297, 23);
             this.label6.TabIndex = 34;
@@ -157,7 +158,7 @@ namespace MartDB
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(646, 470);
+            this.ClientSize = new System.Drawing.Size(615, 437);
             this.Controls.Add(this.outletNameComboBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.usernameTextBox);
@@ -168,7 +169,7 @@ namespace MartDB
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "UpdateReviewForm";

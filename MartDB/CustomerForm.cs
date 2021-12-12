@@ -107,6 +107,63 @@ namespace MartDB
             this.dgvReview.Columns[2].Width = 50;
         }
 
+        private void UpdateOutletRating(string outletName)
+        {
+            // Open DB connection
+            this.sqlConnection.Open();
+
+            // Call proc
+            try
+            {
+                // Initialize params
+                this.sqlCmdProcUpdateOutletRating.Parameters["@outlet_name"].Value = outletName;
+
+                // Call proc
+                int iAffectedRowsCount = this.sqlCmdProcUpdateOutletRating.ExecuteNonQuery();
+
+                // Show corresponding information
+                if (iAffectedRowsCount == 0)
+                {
+                    MessageBox.Show("Обновление рейтингов завершилось с ошибкой!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    // MessageBox.Show("Рейтинги успешно обновлены!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Введены некорректные значения!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (SqlException ex)
+            {
+                //MessageBox.Show("Добавление данных завершилось с ошибкой!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                StringBuilder errorMessages = new StringBuilder();
+                for (int i = 0; i < ex.Errors.Count; i++)
+                {
+                    errorMessages.Append("Index #" + i + "\n" +
+                        "Message: " + ex.Errors[i].Message + "\n" +
+                        "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+                        "Source: " + ex.Errors[i].Source + "\n" +
+                        "Procedure: " + ex.Errors[i].Procedure + "\n");
+                }
+                MessageBox.Show(errorMessages.ToString(), "Error");
+            }
+
+            // Close DB connection
+            this.sqlConnection.Close();
+        }
+
+        private void UpdateAllOutletsRatings()
+        {
+            foreach (DataGridViewRow row in this.dgvOutlet.Rows)
+            {
+                string outletName = row.Cells[0].Value.ToString();
+                UpdateOutletRating(outletName);
+            }
+        }
+
         // Button to change user at runtime
         private void btnChangeUser_Click(object sender, EventArgs e)
         {
@@ -440,28 +497,31 @@ namespace MartDB
             this.dgvReview.DataSource = null;
 
             // Get selected outlet
-            int rowIndex = this.dgvOutlet.SelectedCells[0].RowIndex;
-            string outletName = this.dgvOutlet.Rows[rowIndex].Cells[0].Value.ToString();
-
-            // Call SQL fn
-            this.sqlCmdFnGetOutletReviews.Parameters["@outlet_name"].Value = outletName;
-            if (this.sqlConnection.State == ConnectionState.Closed)
+            if (this.dgvOutlet.SelectedCells.Count > 0)
             {
-                this.sqlConnection.Open();
+                int rowIndex = this.dgvOutlet.SelectedCells[0].RowIndex;
+                string outletName = this.dgvOutlet.Rows[rowIndex].Cells[0].Value.ToString();
+
+                // Call SQL fn
+                this.sqlCmdFnGetOutletReviews.Parameters["@outlet_name"].Value = outletName;
+                if (this.sqlConnection.State == ConnectionState.Closed)
+                {
+                    this.sqlConnection.Open();
+                }
+                DataTable dt = new DataTable();
+                dt.Load(sqlCmdFnGetOutletReviews.ExecuteReader());
+
+                // Set review DGV design
+                this.dgvReview.DataSource = dt;
+                this.dgvReview.Columns[0].Visible = false;
+                this.dgvReview.Columns[1].Visible = false;
+                this.dgvReview.Columns[2].Width = 50;
+                this.dgvReview.Columns[2].HeaderText = "Рейтинг";
+                this.dgvReview.Columns[3].HeaderText = "Комментарий";
+                this.dgvReview.Columns[4].HeaderText = "Имя пользователя";
+
+                this.sqlConnection.Close();
             }
-            DataTable dt = new DataTable();
-            dt.Load(sqlCmdFnGetOutletReviews.ExecuteReader());
-
-            // Set review DGV design
-            this.dgvReview.DataSource = dt;
-            this.dgvReview.Columns[0].Visible = false;
-            this.dgvReview.Columns[1].Visible = false;
-            this.dgvReview.Columns[2].Width = 50;
-            this.dgvReview.Columns[2].HeaderText = "Рейтинг";
-            this.dgvReview.Columns[3].HeaderText = "Комментарий";
-            this.dgvReview.Columns[4].HeaderText = "Имя пользователя";
-
-            this.sqlConnection.Close();
         }
 
         // Show only current user reviews
@@ -500,6 +560,8 @@ namespace MartDB
         // Update review DGV after manipulations
         private void handleReviewForms_FormClosed(object sender, FormClosedEventArgs e)
         {
+            UpdateAllOutletsRatings();
+            FillOutletsDGV();
             ViewSelectedOutletReviews();
         }
     }

@@ -44,7 +44,7 @@ namespace MartDB
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(39, 61);
+            this.label1.Location = new System.Drawing.Point(39, 77);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(181, 17);
             this.label1.TabIndex = 0;
@@ -53,7 +53,7 @@ namespace MartDB
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(39, 108);
+            this.label2.Location = new System.Drawing.Point(39, 121);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 17);
             this.label2.TabIndex = 1;
@@ -62,7 +62,7 @@ namespace MartDB
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(39, 155);
+            this.label3.Location = new System.Drawing.Point(39, 168);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(102, 17);
             this.label3.TabIndex = 2;
@@ -71,7 +71,7 @@ namespace MartDB
             // outletNameComboBox
             // 
             this.outletNameComboBox.FormattingEnabled = true;
-            this.outletNameComboBox.Location = new System.Drawing.Point(226, 61);
+            this.outletNameComboBox.Location = new System.Drawing.Point(226, 77);
             this.outletNameComboBox.Name = "outletNameComboBox";
             this.outletNameComboBox.Size = new System.Drawing.Size(172, 24);
             this.outletNameComboBox.TabIndex = 3;
@@ -85,7 +85,7 @@ namespace MartDB
             "3",
             "2",
             "1"});
-            this.ratingComboBox.Location = new System.Drawing.Point(226, 101);
+            this.ratingComboBox.Location = new System.Drawing.Point(226, 121);
             this.ratingComboBox.Name = "ratingComboBox";
             this.ratingComboBox.Size = new System.Drawing.Size(77, 24);
             this.ratingComboBox.TabIndex = 4;
@@ -94,7 +94,7 @@ namespace MartDB
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.Location = new System.Drawing.Point(137, 20);
+            this.label6.Location = new System.Drawing.Point(149, 18);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(297, 23);
             this.label6.TabIndex = 26;
@@ -102,7 +102,8 @@ namespace MartDB
             // 
             // btnAddReview
             // 
-            this.btnAddReview.Location = new System.Drawing.Point(177, 340);
+            this.btnAddReview.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddReview.Location = new System.Drawing.Point(193, 335);
             this.btnAddReview.Name = "btnAddReview";
             this.btnAddReview.Size = new System.Drawing.Size(165, 58);
             this.btnAddReview.TabIndex = 27;
@@ -128,17 +129,17 @@ namespace MartDB
             // 
             // reviewContentTextBox
             // 
-            this.reviewContentTextBox.Location = new System.Drawing.Point(158, 155);
+            this.reviewContentTextBox.Location = new System.Drawing.Point(226, 168);
             this.reviewContentTextBox.Multiline = true;
             this.reviewContentTextBox.Name = "reviewContentTextBox";
-            this.reviewContentTextBox.Size = new System.Drawing.Size(411, 125);
+            this.reviewContentTextBox.Size = new System.Drawing.Size(343, 125);
             this.reviewContentTextBox.TabIndex = 28;
             // 
             // AddReviewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(581, 435);
+            this.ClientSize = new System.Drawing.Size(581, 407);
             this.Controls.Add(this.reviewContentTextBox);
             this.Controls.Add(this.btnAddReview);
             this.Controls.Add(this.label6);
@@ -147,7 +148,7 @@ namespace MartDB
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AddReviewForm";

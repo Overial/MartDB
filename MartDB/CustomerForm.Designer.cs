@@ -64,6 +64,7 @@ namespace MartDB
             this.searchQueryOutletComboBox = new System.Windows.Forms.ComboBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.sqlCmdProcUpdateOutletRating = new System.Data.SqlClient.SqlCommand();
             this.menuStrip1.SuspendLayout();
             this.panelOutlet.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReview)).BeginInit();
@@ -167,7 +168,7 @@ namespace MartDB
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(1051, 3);
+            this.label2.Location = new System.Drawing.Point(916, 3);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(77, 23);
             this.label2.TabIndex = 37;
@@ -218,6 +219,7 @@ namespace MartDB
             this.currentUserLabel.Size = new System.Drawing.Size(136, 28);
             this.currentUserLabel.TabIndex = 20;
             this.currentUserLabel.Text = "<username>!";
+            this.currentUserLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panelOutletLabel
             // 
@@ -258,7 +260,7 @@ namespace MartDB
             this.sortOutletGroupBox.Controls.Add(this.descOutletRadioButton);
             this.sortOutletGroupBox.Controls.Add(this.ascOutletRadioButton);
             this.sortOutletGroupBox.Controls.Add(this.sortColOutletLabel);
-            this.sortOutletGroupBox.Location = new System.Drawing.Point(7, 435);
+            this.sortOutletGroupBox.Location = new System.Drawing.Point(7, 406);
             this.sortOutletGroupBox.Name = "sortOutletGroupBox";
             this.sortOutletGroupBox.Size = new System.Drawing.Size(297, 178);
             this.sortOutletGroupBox.TabIndex = 31;
@@ -334,7 +336,7 @@ namespace MartDB
             this.searchOutletGroupBox.Controls.Add(this.searchOutletLabel);
             this.searchOutletGroupBox.Controls.Add(this.btnSearchOutlet);
             this.searchOutletGroupBox.Controls.Add(this.btnOutletShowAll);
-            this.searchOutletGroupBox.Location = new System.Drawing.Point(7, 196);
+            this.searchOutletGroupBox.Location = new System.Drawing.Point(7, 175);
             this.searchOutletGroupBox.Name = "searchOutletGroupBox";
             this.searchOutletGroupBox.Size = new System.Drawing.Size(297, 194);
             this.searchOutletGroupBox.TabIndex = 27;
@@ -473,6 +475,14 @@ namespace MartDB
             this.comboBox2.TabIndex = 33;
             this.comboBox2.Visible = false;
             // 
+            // sqlCmdProcUpdateOutletRating
+            // 
+            this.sqlCmdProcUpdateOutletRating.CommandText = "ProcUpdateOutletRating";
+            this.sqlCmdProcUpdateOutletRating.CommandType = System.Data.CommandType.StoredProcedure;
+            this.sqlCmdProcUpdateOutletRating.Connection = this.sqlConnection;
+            this.sqlCmdProcUpdateOutletRating.Parameters.AddRange(new System.Data.SqlClient.SqlParameter[] {
+            new System.Data.SqlClient.SqlParameter("@outlet_name", System.Data.SqlDbType.VarChar, 50)});
+            // 
             // CustomerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -541,5 +551,6 @@ namespace MartDB
         private System.Windows.Forms.ComboBox searchQueryOutletComboBox;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Data.SqlClient.SqlCommand sqlCmdProcUpdateOutletRating;
     }
 }
