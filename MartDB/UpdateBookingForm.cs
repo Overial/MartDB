@@ -14,11 +14,11 @@ namespace MartDB
     public partial class UpdateBookingForm : Form
     {
         private string _orgName = "";
-        private string _areaId = "";
+        private int _areaId = 0;
         private string _bookingStartDate = "";
         private string _bookingEndDate = "";
 
-        public UpdateBookingForm(string orgName, string areaId, string bookingStartDate, string bookingEndDate)
+        public UpdateBookingForm(string orgName, int areaId, string bookingStartDate, string bookingEndDate)
         {
             InitializeComponent();
 
@@ -31,7 +31,7 @@ namespace MartDB
         private void UpdateBookingForm_Load(object sender, EventArgs e)
         {
             this.orgNameComboBox.Text = this._orgName;
-            this.areaIdComboBox.Text = this._areaId;
+            this.areaIdComboBox.Text = this._areaId.ToString();
             this.dtpBookingStartDate.Text = this._bookingStartDate;
             this.dtpBookingEndDate.Text = this._bookingEndDate;
         }

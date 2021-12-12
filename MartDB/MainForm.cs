@@ -541,6 +541,7 @@ namespace MartDB
             if (UserData.UserRole == "admin")
             {
                 selectQuery = "SELECT " +
+                                  "Booking.booking_id," +
                                   "Organisation.org_name AS [Название организации]," +
                                   "Area.area_id AS [Код помещения]," +
                                   "Area.area_square AS [Площадь помещения]," +
@@ -555,6 +556,7 @@ namespace MartDB
             else if (UserData.UserRole == "organisation")
             {
                 selectQuery = "SELECT " +
+                                  "Booking.booking_id," +
                                   "Organisation.org_name AS [Название организации]," +
                                   "Area.area_id AS [Код помещения]," +
                                   "Area.area_square AS [Площадь помещения]," +
@@ -576,6 +578,7 @@ namespace MartDB
 
             // Fill DGV
             this.dgvBooking.DataSource = dataSet.Tables[0];
+            this.dgvBooking.Columns[0].Visible = false;
         }
 
         // Button to initiate searchin'
@@ -703,25 +706,25 @@ namespace MartDB
             switch (this.bookingSortColsListBox.SelectedIndex)
             {
                 case 0:
-                    col = this.dgvBooking.Columns[0];
-                    break;
-                case 1:
                     col = this.dgvBooking.Columns[1];
                     break;
-                case 2:
+                case 1:
                     col = this.dgvBooking.Columns[2];
                     break;
-                case 3:
+                case 2:
                     col = this.dgvBooking.Columns[3];
                     break;
-                case 4:
+                case 3:
                     col = this.dgvBooking.Columns[4];
                     break;
-                case 5:
+                case 4:
                     col = this.dgvBooking.Columns[5];
                     break;
-                case 6:
+                case 5:
                     col = this.dgvBooking.Columns[6];
+                    break;
+                case 6:
+                    col = this.dgvBooking.Columns[7];
                     break;
                 default:
                     break;
@@ -749,52 +752,25 @@ namespace MartDB
         // Get data from selected booking
         private void btnUpdateBooking_Click(object sender, EventArgs e)
         {
+            int rowIndex = this.dgvBooking.SelectedCells[0].RowIndex;
 
-
-            Int32 selectedCellsCount = this.dgvBooking.GetCellCount(DataGridViewElementStates.Selected);
-            if (selectedCellsCount > 0)
+            if (this.dgvBooking.SelectedCells.Count > 1)
             {
-                if (this.dgvBooking.AreAllCellsSelected(true) && dgvBooking.RowCount > 1)
-                {
-                    MessageBox.Show("Изменить можно только одну строку за раз!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    // System.Text.StringBuilder sb = new System.Text.StringBuilder();
+                MessageBox.Show("Изменить можно только одну аренду за раз!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (this.dgvBooking.SelectedCells.Count == 1)
+            {
+                // Get selected booking
+                int booking_id = Convert.ToInt32(this.dgvBooking.Rows[rowIndex].Cells[0].Value);
+                string orgName = this.dgvBooking.Rows[rowIndex].Cells[1].Value.ToString();
+                int areaId = Convert.ToInt32(this.dgvBooking.Rows[rowIndex].Cells[2].Value);
+                string bookingStartDate = this.dgvBooking.Rows[rowIndex].Cells[6].Value.ToString();
+                string bookingEndDate = this.dgvBooking.Rows[rowIndex].Cells[7].Value.ToString();
 
-                    // Initiate booking updating only if the whole row is selected
-                    if (selectedCellsCount == this.dgvBooking.Columns.GetColumnCount(DataGridViewElementStates.Visible))
-                    {
-                        //for (int i = 0; i < selectedCellsCount; i++)
-                        //{
-                        //    sb.Append("Row: ");
-                        //    sb.Append(this.dgvBooking.SelectedCells[i].RowIndex.ToString());
-                        //    sb.Append(", Column: ");
-                        //    sb.Append(this.dgvBooking.SelectedCells[i].ColumnIndex.ToString());
-                        //    sb.Append(Environment.NewLine);
-                        //}
-
-                        string orgName = this.dgvBooking.SelectedCells[0].Value.ToString();
-                        string areaId = this.dgvBooking.SelectedCells[1].Value.ToString();
-                        string bookingStartDate = this.dgvBooking.SelectedCells[5].Value.ToString();
-                        string bookingEndDate = this.dgvBooking.SelectedCells[6].Value.ToString();
-
-                        // Pass data to UpdateBookingForm
-                        if (orgName == UserData.UserName)
-                        {
-                            Form updateBookingForm = new UpdateBookingForm(orgName, areaId, bookingStartDate, bookingEndDate);
-                            updateBookingForm.FormClosed += new FormClosedEventHandler(this.handleBookingForms_FormClosed);
-                            updateBookingForm.Show();
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Выберите всю строку для изменения информации!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-
-                    //sb.Append("Total: " + selectedCellsCount.ToString());
-                    //MessageBox.Show(sb.ToString(), "Selected Cells");
-                }
+                // Pass data to UpdateBookingForm
+                Form updateBookingForm = new UpdateBookingForm(orgName, areaId, bookingStartDate, bookingEndDate);
+                updateBookingForm.FormClosed += new FormClosedEventHandler(this.handleBookingForms_FormClosed);
+                updateBookingForm.Show();
             }
         }
 
