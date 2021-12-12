@@ -363,14 +363,14 @@ namespace MartDB
             // Filter area square data
             foreach (DataGridViewRow row in this.dgvReview.Rows)
             {
-                if (row.Cells[1].Value.ToString().Contains(UserData.UserName))
+                if (row.Cells[4].Value.ToString().Contains(UserData.UserName))
                 {
-                    dgvReview.Rows[row.Index].Visible = true;
+                    this.dgvReview.Rows[row.Index].Visible = true;
                 }
                 else
                 {
-                    dgvReview.CurrentCell = null;
-                    dgvReview.Rows[row.Index].Visible = false;
+                    this.dgvReview.CurrentCell = null;
+                    this.dgvReview.Rows[row.Index].Visible = false;
                 }
             }
         }
@@ -416,7 +416,6 @@ namespace MartDB
             FillReviewsDGV();
         }
 
-        // Refresh booking table after any manipulations with it
         private void handleReviewForms_FormClosed(object sender, FormClosedEventArgs e)
         {
             ViewOutletReviews();
