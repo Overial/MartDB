@@ -32,8 +32,8 @@ namespace MartDB
             // Fill combo box with area ids from Area table which are not already in Booking table
             DataTable dtFreeAreaIds = new DataTable();
             string selectQuery = "SELECT Area.area_id FROM Area " +
-                           "LEFT JOIN Booking ON Area.area_id = Booking.area_id " +
-                           "WHERE Booking.area_id IS NULL";
+                                 "LEFT JOIN Booking ON Area.area_id = Booking.area_id " +
+                                 "WHERE Booking.area_id IS NULL";
             SqlDataAdapter daFreeAreaIds = new SqlDataAdapter(selectQuery,
                                                               this.sqlConnection);
             daFreeAreaIds.Fill(dtFreeAreaIds);
@@ -76,9 +76,20 @@ namespace MartDB
             {
                 MessageBox.Show("Введены некорректные значения!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            catch (SqlException)
+            catch (SqlException ex)
             {
                 MessageBox.Show("Добавление данных завершилось с ошибкой!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+// 
+                StringBuilder errorMessages = new StringBuilder();
+                for (int i = 0; i < ex.Errors.Count; i++)
+                {
+                    errorMessages.Append("Index #" + i + "\n" +
+                        "Message: " + ex.Errors[i].Message + "\n" +
+                        "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+                        "Source: " + ex.Errors[i].Source + "\n" +
+                        "Procedure: " + ex.Errors[i].Procedure + "\n");
+                }
+                MessageBox.Show(errorMessages.ToString(), "Error");
             }
 
             // Close DB connection

@@ -586,6 +586,7 @@ namespace MartDB
             // 
             // panelUser
             // 
+            this.panelUser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelUser.Controls.Add(this.currentUserNameLabel);
             this.panelUser.Controls.Add(this.btnChangeUser);
             this.panelUser.Controls.Add(this.currentUserRoleLabel);
@@ -624,7 +625,7 @@ namespace MartDB
             // 
             // btnPanelBooking
             // 
-            this.btnPanelBooking.Location = new System.Drawing.Point(198, 258);
+            this.btnPanelBooking.Location = new System.Drawing.Point(367, 167);
             this.btnPanelBooking.Name = "btnPanelBooking";
             this.btnPanelBooking.Size = new System.Drawing.Size(193, 83);
             this.btnPanelBooking.TabIndex = 14;
@@ -634,7 +635,7 @@ namespace MartDB
             // 
             // btnPanelOutlet
             // 
-            this.btnPanelOutlet.Location = new System.Drawing.Point(501, 169);
+            this.btnPanelOutlet.Location = new System.Drawing.Point(623, 256);
             this.btnPanelOutlet.Name = "btnPanelOutlet";
             this.btnPanelOutlet.Size = new System.Drawing.Size(193, 83);
             this.btnPanelOutlet.TabIndex = 13;
@@ -644,7 +645,7 @@ namespace MartDB
             // 
             // btnPanelTradeProfile
             // 
-            this.btnPanelTradeProfile.Location = new System.Drawing.Point(501, 260);
+            this.btnPanelTradeProfile.Location = new System.Drawing.Point(367, 345);
             this.btnPanelTradeProfile.Name = "btnPanelTradeProfile";
             this.btnPanelTradeProfile.Size = new System.Drawing.Size(193, 83);
             this.btnPanelTradeProfile.TabIndex = 12;
@@ -654,7 +655,7 @@ namespace MartDB
             // 
             // btnPanelEmployee
             // 
-            this.btnPanelEmployee.Location = new System.Drawing.Point(198, 351);
+            this.btnPanelEmployee.Location = new System.Drawing.Point(367, 256);
             this.btnPanelEmployee.Name = "btnPanelEmployee";
             this.btnPanelEmployee.Size = new System.Drawing.Size(193, 83);
             this.btnPanelEmployee.TabIndex = 11;
@@ -1198,7 +1199,7 @@ namespace MartDB
             // 
             // btnPanelArea
             // 
-            this.btnPanelArea.Location = new System.Drawing.Point(198, 169);
+            this.btnPanelArea.Location = new System.Drawing.Point(104, 256);
             this.btnPanelArea.Name = "btnPanelArea";
             this.btnPanelArea.Size = new System.Drawing.Size(193, 83);
             this.btnPanelArea.TabIndex = 21;
@@ -1467,8 +1468,8 @@ namespace MartDB
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(983, 605);
-            this.Controls.Add(this.panelArea);
             this.Controls.Add(this.panelMain);
+            this.Controls.Add(this.panelArea);
             this.Controls.Add(this.panelBooking);
             this.Controls.Add(this.panelEmployee);
             this.Controls.Add(this.panelOutlet);

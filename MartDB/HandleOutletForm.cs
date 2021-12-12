@@ -22,8 +22,9 @@ namespace MartDB
         {
             // Fill combo box with area IDs with info from Area table
             DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter("SELECT area_id FROM Area",
-                                                    this.sqlConnection);
+            string selectQuery = "";
+            SqlDataAdapter da = new SqlDataAdapter(selectQuery,
+                                                   this.sqlConnection);
             da.Fill(dt);
             this.areaIdComboBox.DataSource = dt;
             this.areaIdComboBox.DisplayMember = "area_id";

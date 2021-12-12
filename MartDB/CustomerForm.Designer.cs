@@ -78,7 +78,7 @@ namespace MartDB
             this.menuToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1383, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1356, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -87,7 +87,7 @@ namespace MartDB
             this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aboutToolStripMenuItem});
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
-            this.menuToolStripMenuItem.Size = new System.Drawing.Size(65, 24);
+            this.menuToolStripMenuItem.Size = new System.Drawing.Size(65, 26);
             this.menuToolStripMenuItem.Text = "Меню";
             // 
             // aboutToolStripMenuItem
@@ -112,17 +112,17 @@ namespace MartDB
             this.panelOutlet.Controls.Add(this.sortOutletGroupBox);
             this.panelOutlet.Controls.Add(this.searchOutletGroupBox);
             this.panelOutlet.Controls.Add(this.dgvOutlet);
-            this.panelOutlet.Location = new System.Drawing.Point(12, 33);
+            this.panelOutlet.Location = new System.Drawing.Point(8, 31);
             this.panelOutlet.Name = "panelOutlet";
-            this.panelOutlet.Size = new System.Drawing.Size(1359, 544);
+            this.panelOutlet.Size = new System.Drawing.Size(1339, 624);
             this.panelOutlet.TabIndex = 5;
             // 
             // btnReviewShowAll
             // 
             this.btnReviewShowAll.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReviewShowAll.Location = new System.Drawing.Point(964, 332);
+            this.btnReviewShowAll.Location = new System.Drawing.Point(920, 406);
             this.btnReviewShowAll.Name = "btnReviewShowAll";
-            this.btnReviewShowAll.Size = new System.Drawing.Size(165, 105);
+            this.btnReviewShowAll.Size = new System.Drawing.Size(200, 112);
             this.btnReviewShowAll.TabIndex = 41;
             this.btnReviewShowAll.Text = "Вывод всех отзывов";
             this.btnReviewShowAll.UseVisualStyleBackColor = true;
@@ -131,9 +131,9 @@ namespace MartDB
             // btnDeleteReview
             // 
             this.btnDeleteReview.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDeleteReview.Location = new System.Drawing.Point(1135, 466);
+            this.btnDeleteReview.Location = new System.Drawing.Point(1126, 548);
             this.btnDeleteReview.Name = "btnDeleteReview";
-            this.btnDeleteReview.Size = new System.Drawing.Size(209, 61);
+            this.btnDeleteReview.Size = new System.Drawing.Size(200, 65);
             this.btnDeleteReview.TabIndex = 40;
             this.btnDeleteReview.Text = "Удалить отзыв";
             this.btnDeleteReview.UseVisualStyleBackColor = true;
@@ -142,9 +142,9 @@ namespace MartDB
             // btnViewUserReviews
             // 
             this.btnViewUserReviews.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnViewUserReviews.Location = new System.Drawing.Point(964, 443);
+            this.btnViewUserReviews.Location = new System.Drawing.Point(921, 524);
             this.btnViewUserReviews.Name = "btnViewUserReviews";
-            this.btnViewUserReviews.Size = new System.Drawing.Size(165, 84);
+            this.btnViewUserReviews.Size = new System.Drawing.Size(199, 89);
             this.btnViewUserReviews.TabIndex = 39;
             this.btnViewUserReviews.Text = "Вывод Ваших отзывов";
             this.btnViewUserReviews.UseVisualStyleBackColor = true;
@@ -153,9 +153,9 @@ namespace MartDB
             // btnUpdateReview
             // 
             this.btnUpdateReview.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnUpdateReview.Location = new System.Drawing.Point(1135, 399);
+            this.btnUpdateReview.Location = new System.Drawing.Point(1126, 477);
             this.btnUpdateReview.Name = "btnUpdateReview";
-            this.btnUpdateReview.Size = new System.Drawing.Size(209, 61);
+            this.btnUpdateReview.Size = new System.Drawing.Size(200, 65);
             this.btnUpdateReview.TabIndex = 38;
             this.btnUpdateReview.Text = "Редактировать отзыв";
             this.btnUpdateReview.UseVisualStyleBackColor = true;
@@ -165,7 +165,7 @@ namespace MartDB
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(960, 5);
+            this.label2.Location = new System.Drawing.Point(1051, 3);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(77, 23);
             this.label2.TabIndex = 37;
@@ -175,7 +175,7 @@ namespace MartDB
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(326, 5);
+            this.label1.Location = new System.Drawing.Point(306, 3);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(142, 23);
             this.label1.TabIndex = 36;
@@ -186,13 +186,15 @@ namespace MartDB
             this.dgvReview.AllowUserToAddRows = false;
             this.dgvReview.AllowUserToDeleteRows = false;
             this.dgvReview.AllowUserToOrderColumns = true;
+            this.dgvReview.AllowUserToResizeColumns = false;
+            this.dgvReview.AllowUserToResizeRows = false;
             this.dgvReview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvReview.Location = new System.Drawing.Point(964, 38);
+            this.dgvReview.Location = new System.Drawing.Point(920, 29);
             this.dgvReview.Name = "dgvReview";
             this.dgvReview.ReadOnly = true;
             this.dgvReview.RowHeadersWidth = 51;
             this.dgvReview.RowTemplate.Height = 24;
-            this.dgvReview.Size = new System.Drawing.Size(380, 288);
+            this.dgvReview.Size = new System.Drawing.Size(406, 371);
             this.dgvReview.TabIndex = 35;
             // 
             // panelUser
@@ -203,7 +205,7 @@ namespace MartDB
             this.panelUser.Controls.Add(this.btnChangeUser);
             this.panelUser.Location = new System.Drawing.Point(-1, -1);
             this.panelUser.Name = "panelUser";
-            this.panelUser.Size = new System.Drawing.Size(321, 144);
+            this.panelUser.Size = new System.Drawing.Size(305, 144);
             this.panelUser.TabIndex = 33;
             // 
             // currentUserLabel
@@ -229,7 +231,7 @@ namespace MartDB
             // btnChangeUser
             // 
             this.btnChangeUser.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnChangeUser.Location = new System.Drawing.Point(92, 84);
+            this.btnChangeUser.Location = new System.Drawing.Point(82, 84);
             this.btnChangeUser.Name = "btnChangeUser";
             this.btnChangeUser.Size = new System.Drawing.Size(124, 45);
             this.btnChangeUser.TabIndex = 19;
@@ -240,9 +242,9 @@ namespace MartDB
             // btnAddReview
             // 
             this.btnAddReview.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddReview.Location = new System.Drawing.Point(1135, 332);
+            this.btnAddReview.Location = new System.Drawing.Point(1126, 406);
             this.btnAddReview.Name = "btnAddReview";
-            this.btnAddReview.Size = new System.Drawing.Size(209, 61);
+            this.btnAddReview.Size = new System.Drawing.Size(200, 65);
             this.btnAddReview.TabIndex = 32;
             this.btnAddReview.Text = "Написать отзыв";
             this.btnAddReview.UseVisualStyleBackColor = true;
@@ -255,9 +257,9 @@ namespace MartDB
             this.sortOutletGroupBox.Controls.Add(this.descOutletRadioButton);
             this.sortOutletGroupBox.Controls.Add(this.ascOutletRadioButton);
             this.sortOutletGroupBox.Controls.Add(this.sortColOutletLabel);
-            this.sortOutletGroupBox.Location = new System.Drawing.Point(7, 349);
+            this.sortOutletGroupBox.Location = new System.Drawing.Point(7, 435);
             this.sortOutletGroupBox.Name = "sortOutletGroupBox";
-            this.sortOutletGroupBox.Size = new System.Drawing.Size(317, 178);
+            this.sortOutletGroupBox.Size = new System.Drawing.Size(297, 178);
             this.sortOutletGroupBox.TabIndex = 31;
             this.sortOutletGroupBox.TabStop = false;
             this.sortOutletGroupBox.Text = "Сортировка";
@@ -274,7 +276,7 @@ namespace MartDB
             "Рейтинг"});
             this.sortColsOutletListBox.Location = new System.Drawing.Point(7, 39);
             this.sortColsOutletListBox.Name = "sortColsOutletListBox";
-            this.sortColsOutletListBox.Size = new System.Drawing.Size(154, 132);
+            this.sortColsOutletListBox.Size = new System.Drawing.Size(137, 132);
             this.sortColsOutletListBox.TabIndex = 13;
             this.sortColsOutletListBox.SelectedIndexChanged += new System.EventHandler(this.sortColsOutletListBox_SelectedIndexChanged);
             // 
@@ -282,7 +284,7 @@ namespace MartDB
             // 
             this.btnSortOutlet.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSortOutlet.Enabled = false;
-            this.btnSortOutlet.Location = new System.Drawing.Point(174, 102);
+            this.btnSortOutlet.Location = new System.Drawing.Point(154, 112);
             this.btnSortOutlet.Name = "btnSortOutlet";
             this.btnSortOutlet.Size = new System.Drawing.Size(119, 42);
             this.btnSortOutlet.TabIndex = 4;
@@ -293,7 +295,7 @@ namespace MartDB
             // descOutletRadioButton
             // 
             this.descOutletRadioButton.AutoSize = true;
-            this.descOutletRadioButton.Location = new System.Drawing.Point(174, 66);
+            this.descOutletRadioButton.Location = new System.Drawing.Point(154, 76);
             this.descOutletRadioButton.Name = "descOutletRadioButton";
             this.descOutletRadioButton.Size = new System.Drawing.Size(117, 21);
             this.descOutletRadioButton.TabIndex = 3;
@@ -304,7 +306,7 @@ namespace MartDB
             // 
             this.ascOutletRadioButton.AutoSize = true;
             this.ascOutletRadioButton.Checked = true;
-            this.ascOutletRadioButton.Location = new System.Drawing.Point(174, 39);
+            this.ascOutletRadioButton.Location = new System.Drawing.Point(154, 49);
             this.ascOutletRadioButton.Name = "ascOutletRadioButton";
             this.ascOutletRadioButton.Size = new System.Drawing.Size(137, 21);
             this.ascOutletRadioButton.TabIndex = 2;
@@ -329,9 +331,9 @@ namespace MartDB
             this.searchOutletGroupBox.Controls.Add(this.searchQueryOutletTextBox);
             this.searchOutletGroupBox.Controls.Add(this.btnSearchOutlet);
             this.searchOutletGroupBox.Controls.Add(this.btnOutletShowAll);
-            this.searchOutletGroupBox.Location = new System.Drawing.Point(7, 149);
+            this.searchOutletGroupBox.Location = new System.Drawing.Point(7, 196);
             this.searchOutletGroupBox.Name = "searchOutletGroupBox";
-            this.searchOutletGroupBox.Size = new System.Drawing.Size(317, 194);
+            this.searchOutletGroupBox.Size = new System.Drawing.Size(297, 194);
             this.searchOutletGroupBox.TabIndex = 27;
             this.searchOutletGroupBox.TabStop = false;
             this.searchOutletGroupBox.Text = "Поиск";
@@ -339,7 +341,7 @@ namespace MartDB
             // searchQueryOutletGroupBox
             // 
             this.searchQueryOutletGroupBox.AutoSize = true;
-            this.searchQueryOutletGroupBox.Location = new System.Drawing.Point(178, 18);
+            this.searchQueryOutletGroupBox.Location = new System.Drawing.Point(170, 18);
             this.searchQueryOutletGroupBox.Name = "searchQueryOutletGroupBox";
             this.searchQueryOutletGroupBox.Size = new System.Drawing.Size(117, 17);
             this.searchQueryOutletGroupBox.TabIndex = 12;
@@ -357,7 +359,7 @@ namespace MartDB
             "Рейтинг"});
             this.searchColsOutletListBox.Location = new System.Drawing.Point(7, 38);
             this.searchColsOutletListBox.Name = "searchColsOutletListBox";
-            this.searchColsOutletListBox.Size = new System.Drawing.Size(154, 148);
+            this.searchColsOutletListBox.Size = new System.Drawing.Size(137, 148);
             this.searchColsOutletListBox.TabIndex = 11;
             this.searchColsOutletListBox.SelectedIndexChanged += new System.EventHandler(this.searchColsOutletListBox_SelectedIndexChanged);
             // 
@@ -372,7 +374,7 @@ namespace MartDB
             // 
             // searchQueryOutletTextBox
             // 
-            this.searchQueryOutletTextBox.Location = new System.Drawing.Point(181, 38);
+            this.searchQueryOutletTextBox.Location = new System.Drawing.Point(168, 38);
             this.searchQueryOutletTextBox.Name = "searchQueryOutletTextBox";
             this.searchQueryOutletTextBox.Size = new System.Drawing.Size(119, 22);
             this.searchQueryOutletTextBox.TabIndex = 6;
@@ -381,7 +383,7 @@ namespace MartDB
             // 
             this.btnSearchOutlet.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSearchOutlet.Enabled = false;
-            this.btnSearchOutlet.Location = new System.Drawing.Point(181, 81);
+            this.btnSearchOutlet.Location = new System.Drawing.Point(168, 81);
             this.btnSearchOutlet.Name = "btnSearchOutlet";
             this.btnSearchOutlet.Size = new System.Drawing.Size(119, 42);
             this.btnSearchOutlet.TabIndex = 5;
@@ -392,7 +394,7 @@ namespace MartDB
             // btnOutletShowAll
             // 
             this.btnOutletShowAll.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnOutletShowAll.Location = new System.Drawing.Point(181, 144);
+            this.btnOutletShowAll.Location = new System.Drawing.Point(168, 144);
             this.btnOutletShowAll.Name = "btnOutletShowAll";
             this.btnOutletShowAll.Size = new System.Drawing.Size(119, 42);
             this.btnOutletShowAll.TabIndex = 30;
@@ -406,12 +408,12 @@ namespace MartDB
             this.dgvOutlet.AllowUserToDeleteRows = false;
             this.dgvOutlet.AllowUserToOrderColumns = true;
             this.dgvOutlet.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvOutlet.Location = new System.Drawing.Point(330, 38);
+            this.dgvOutlet.Location = new System.Drawing.Point(310, 29);
             this.dgvOutlet.Name = "dgvOutlet";
             this.dgvOutlet.ReadOnly = true;
             this.dgvOutlet.RowHeadersWidth = 51;
             this.dgvOutlet.RowTemplate.Height = 24;
-            this.dgvOutlet.Size = new System.Drawing.Size(616, 489);
+            this.dgvOutlet.Size = new System.Drawing.Size(604, 584);
             this.dgvOutlet.TabIndex = 29;
             this.dgvOutlet.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOutlet_CellClick);
             this.dgvOutlet.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvOutlet_RowHeaderMouseClick);
@@ -441,10 +443,10 @@ namespace MartDB
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1383, 589);
+            this.ClientSize = new System.Drawing.Size(1356, 660);
             this.Controls.Add(this.panelOutlet);
             this.Controls.Add(this.menuStrip1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "CustomerForm";

@@ -56,7 +56,7 @@ namespace MartDB
             // Create query
             string selectQuery = "SELECT " +
                                      "Outlet.outlet_name AS [Название торговой точки], " +
-                                     "Outlet.outlet_type AS [Тип торговой точки]," +
+                                     "Outlet.trade_profile_name AS [Тип торговой точки]," +
                                      "Area.floor_number AS [Номер этажа]," +
                                      "Outlet.timetable AS [Расписание]," +
                                      "Outlet.rating AS [Рейтинг] " +
@@ -73,8 +73,9 @@ namespace MartDB
             sqlDataAdapter.Fill(dataSet);
 
             // Fill DGV
-            this.dgvOutlet.ReadOnly = true;
             this.dgvOutlet.DataSource = dataSet.Tables[0];
+            this.dgvOutlet.Columns[2].Width = 50;
+            this.dgvOutlet.Columns[4].Width = 50;
         }
 
         // Get info about reviews
@@ -88,12 +89,12 @@ namespace MartDB
             // Create query
             string selectQuery = "SELECT " +
                                      "Outlet.outlet_name," +
-                                     "Users.username," +
-                                     "Review.rating," +
-                                     "Review.review_content " +
-                                     "FROM Review " +
-                                 "JOIN Users ON Review.userid = Users.id " +
-                                 "JOIN Outlet ON Review.org_id = Outlet.org_id";
+                                     "Review.rating AS [Рейтинг]," +
+                                     "Review.review_content AS [Комментарий]," +
+                                     "Users.username AS [Имя пользователя] " +
+                                 "FROM Review " +
+                                 "JOIN Outlet ON Review.outlet_id = Outlet.outlet_id " +
+                                 "JOIN Users ON Review.userid = Users.userid";
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(selectQuery, sqlConnection);
 
             // Set command builder
@@ -104,8 +105,9 @@ namespace MartDB
             sqlDataAdapter.Fill(dataSet);
 
             // Fill DGV
-            this.dgvReview.ReadOnly = true;
             this.dgvReview.DataSource = dataSet.Tables[0];
+            this.dgvReview.Columns[0].Visible = false;
+            this.dgvReview.Columns[1].Width = 50;
         }
 
         // Button to change user at runtime
@@ -225,73 +227,52 @@ namespace MartDB
         // Display selected outlet reviews
         private void dgvOutlet_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            this.dgvReview.DataSource = null;
+            //this.dgvReview.DataSource = null;
 
-            // Get selected outlet
-            string selectedOutlet = "";
-            if (this.dgvOutlet.SelectedCells.Count == 1)
-            {
-                // MessageBox.Show(this.dgvOutlet.CurrentRow.Cells[0].Value.ToString());
-                selectedOutlet = this.dgvOutlet.CurrentRow.Cells[0].Value.ToString();
+            //// Get selected outlet
+            //string selectedOutlet = "";
+            //if (this.dgvOutlet.SelectedCells.Count == 1)
+            //{
+            //    // MessageBox.Show(this.dgvOutlet.CurrentRow.Cells[0].Value.ToString());
+            //    selectedOutlet = this.dgvOutlet.CurrentRow.Cells[0].Value.ToString();
 
-                this.sqlCmdGetOutletReviews.Parameters["@outlet_name"].Value = selectedOutlet;
-                this.sqlConnection.Open();
-                DataTable dt = new DataTable();
-                dt.Load(sqlCmdGetOutletReviews.ExecuteReader());
-                this.dgvReview.DataSource = dt;
-                this.sqlConnection.Close();
-            }
+            //    this.sqlCmdGetOutletReviews.Parameters["@outlet_name"].Value = selectedOutlet;
+            //    this.sqlConnection.Open();
+            //    DataTable dt = new DataTable();
+            //    dt.Load(sqlCmdGetOutletReviews.ExecuteReader());
+            //    this.dgvReview.DataSource = dt;
+            //    this.sqlConnection.Close();
+            //}
         }
 
         private void dgvOutlet_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            this.dgvReview.DataSource = null;
+            //this.dgvReview.DataSource = null;
 
-            // Get selected outlet
-            string selectedOutlet = "";
-            // MessageBox.Show(this.dgvOutlet.CurrentRow.Cells[0].Value.ToString());
-            selectedOutlet = this.dgvOutlet.CurrentRow.Cells[0].Value.ToString();
+            //// Get selected outlet
+            //string selectedOutlet = "";
+            //// MessageBox.Show(this.dgvOutlet.CurrentRow.Cells[0].Value.ToString());
+            //selectedOutlet = this.dgvOutlet.CurrentRow.Cells[0].Value.ToString();
 
-            this.sqlCmdGetOutletReviews.Parameters["@outlet_name"].Value = selectedOutlet;
-            this.sqlConnection.Open();
-            DataTable dt = new DataTable();
-            dt.Load(sqlCmdGetOutletReviews.ExecuteReader());
-            this.dgvReview.DataSource = dt;
-            this.sqlConnection.Close();
+            //this.sqlCmdGetOutletReviews.Parameters["@outlet_name"].Value = selectedOutlet;
+            //this.sqlConnection.Open();
+            //DataTable dt = new DataTable();
+            //dt.Load(sqlCmdGetOutletReviews.ExecuteReader());
+            //this.dgvReview.DataSource = dt;
+            //this.sqlConnection.Close();
         }
 
+        // Add review button
         private void btnAddReview_Click(object sender, EventArgs e)
         {
-            Int32 selectedCellsCount = this.dgvOutlet.GetCellCount(DataGridViewElementStates.Selected);
-            if (selectedCellsCount > 0)
-            {
-                if (this.dgvOutlet.AreAllCellsSelected(true))
-                {
-                    MessageBox.Show("Добавить можно только один отзыв за раз!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    // System.Text.StringBuilder sb = new System.Text.StringBuilder();
+            // Get selected outlet
+            int rowIndex = this.dgvOutlet.SelectedCells[0].RowIndex;
+            string outletName = this.dgvOutlet.Rows[rowIndex].Cells[0].Value.ToString();
 
-                    // Initiate booking updating only if the whole row is selected
-                    if (selectedCellsCount == this.dgvOutlet.Columns.GetColumnCount(DataGridViewElementStates.Visible))
-                    {
-                        string outletName = this.dgvOutlet.SelectedCells[0].Value.ToString();
-
-                        // Pass data to UpdateBookingForm
-                        Form addReviewForm = new AddReviewForm(outletName);
-                        addReviewForm.FormClosed += new FormClosedEventHandler(this.handleReviewForms_FormClosed);
-                        addReviewForm.Show();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Выберите всю строку для изменения информации!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-
-                    //sb.Append("Total: " + selectedCellsCount.ToString());
-                    //MessageBox.Show(sb.ToString(), "Selected Cells");
-                }
-            }
+            // Show addReviewForm and pass outletName there
+            Form addReviewForm = new AddReviewForm(outletName);
+            addReviewForm.FormClosed += new FormClosedEventHandler(this.handleReviewForms_FormClosed);
+            addReviewForm.Show();
         }
 
         private void btnUpdateReview_Click(object sender, EventArgs e)
