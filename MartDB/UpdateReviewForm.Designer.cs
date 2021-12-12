@@ -37,7 +37,7 @@ namespace MartDB
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.sqlConnection = new System.Data.SqlClient.SqlConnection();
-            this.sqlCmdUpdateReview = new System.Data.SqlClient.SqlCommand();
+            this.sqlCmdProcUpdateReview = new System.Data.SqlClient.SqlCommand();
             this.usernameTextBox = new System.Windows.Forms.TextBox();
             this.outletNameComboBox = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -117,14 +117,13 @@ namespace MartDB
             this.sqlConnection.ConnectionString = "Data Source=.\\SQLEXPRESS;Initial Catalog=MartDB;Integrated Security=True";
             this.sqlConnection.FireInfoMessageEventOnUserErrors = false;
             // 
-            // sqlCmdUpdateReview
+            // sqlCmdProcUpdateReview
             // 
-            this.sqlCmdUpdateReview.CommandText = "ProcUpdateReview";
-            this.sqlCmdUpdateReview.CommandType = System.Data.CommandType.StoredProcedure;
-            this.sqlCmdUpdateReview.Connection = this.sqlConnection;
-            this.sqlCmdUpdateReview.Parameters.AddRange(new System.Data.SqlClient.SqlParameter[] {
-            new System.Data.SqlClient.SqlParameter("@username", System.Data.SqlDbType.VarChar, 50),
-            new System.Data.SqlClient.SqlParameter("@outlet_name", System.Data.SqlDbType.VarChar, 50),
+            this.sqlCmdProcUpdateReview.CommandText = "ProcUpdateReview";
+            this.sqlCmdProcUpdateReview.CommandType = System.Data.CommandType.StoredProcedure;
+            this.sqlCmdProcUpdateReview.Connection = this.sqlConnection;
+            this.sqlCmdProcUpdateReview.Parameters.AddRange(new System.Data.SqlClient.SqlParameter[] {
+            new System.Data.SqlClient.SqlParameter("@review_id", System.Data.SqlDbType.Int),
             new System.Data.SqlClient.SqlParameter("@rating", System.Data.SqlDbType.Int),
             new System.Data.SqlClient.SqlParameter("@review_content", System.Data.SqlDbType.VarChar, 200)});
             // 
@@ -191,7 +190,7 @@ namespace MartDB
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Data.SqlClient.SqlConnection sqlConnection;
-        private System.Data.SqlClient.SqlCommand sqlCmdUpdateReview;
+        private System.Data.SqlClient.SqlCommand sqlCmdProcUpdateReview;
         private System.Windows.Forms.TextBox usernameTextBox;
         private System.Windows.Forms.ComboBox outletNameComboBox;
         private System.Windows.Forms.Label label4;

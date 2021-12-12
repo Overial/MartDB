@@ -245,40 +245,28 @@ namespace MartDB
 
         private void btnUpdateReview_Click(object sender, EventArgs e)
         {
-            Int32 selectedCellsCount = this.dgvReview.GetCellCount(DataGridViewElementStates.Selected);
-            if (selectedCellsCount > 0)
+            if (this.dgvReview.AreAllCellsSelected(true))
             {
-                if (this.dgvReview.AreAllCellsSelected(true))
+                MessageBox.Show("Изменить можно только один отзыв за раз!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                // Get selected review
+                int rowIndex = this.dgvReview.SelectedCells[0].RowIndex;
+                int reviewId = Convert.ToInt32(this.dgvReview.Rows[rowIndex].Cells[0].Value);
+                string outletName = this.dgvReview.Rows[rowIndex].Cells[1].Value.ToString();
+                string username = this.dgvReview.Rows[rowIndex].Cells[4].Value.ToString();
+
+                // Pass data to UpdateBookingForm
+                if (username == UserData.UserName)
                 {
-                    MessageBox.Show("Изменить можно только один отзыв за раз!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Form updateReviewForm = new UpdateReviewForm(reviewId, outletName);
+                    updateReviewForm.FormClosed += new FormClosedEventHandler(this.handleReviewForms_FormClosed);
+                    updateReviewForm.Show();
                 }
                 else
                 {
-                    // Initiate booking updating only if the whole row is selected
-                    if (selectedCellsCount == this.dgvReview.Columns.GetColumnCount(DataGridViewElementStates.Visible))
-                    {
-                        string outletName = this.dgvReview.SelectedCells[0].Value.ToString();
-                        string username = this.dgvReview.SelectedCells[1].Value.ToString();
-
-                        // Pass data to UpdateBookingForm
-                        if (username == UserData.UserName)
-                        {
-                            Form updateReviewForm = new UpdateReviewForm(outletName);
-                            updateReviewForm.FormClosed += new FormClosedEventHandler(this.handleReviewForms_FormClosed);
-                            updateReviewForm.Show();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Выбран чужой отзыв!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Выберите всю строку для изменения информации!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-
-                    //sb.Append("Total: " + selectedCellsCount.ToString());
-                    //MessageBox.Show(sb.ToString(), "Selected Cells");
+                    MessageBox.Show("Выбран чужой отзыв!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

@@ -13,13 +13,15 @@ namespace MartDB
 {
     public partial class UpdateReviewForm : Form
     {
+        private int _reviewId = 0;
         private string _outletName = "";
 
-        public UpdateReviewForm(string orgId)
+        public UpdateReviewForm(int reviewId, string outletName)
         {
             InitializeComponent();
 
-            this._outletName = orgId;
+            this._reviewId = reviewId;
+            this._outletName = outletName;
         }
 
         private void UpdateReviewForm_Load(object sender, EventArgs e)
@@ -37,13 +39,12 @@ namespace MartDB
             try
             {
                 // Initialize params
-                this.sqlCmdUpdateReview.Parameters["@username"].Value = UserData.UserName;
-                this.sqlCmdUpdateReview.Parameters["@outlet_name"].Value = this._outletName;
-                this.sqlCmdUpdateReview.Parameters["@rating"].Value = this.ratingComboBox.Text;
-                this.sqlCmdUpdateReview.Parameters["@review_content"].Value = this.reviewContentTextBox.Text;
+                this.sqlCmdProcUpdateReview.Parameters["@review_id"].Value = this._reviewId;
+                this.sqlCmdProcUpdateReview.Parameters["@rating"].Value = this.ratingComboBox.Text;
+                this.sqlCmdProcUpdateReview.Parameters["@review_content"].Value = this.reviewContentTextBox.Text;
 
                 // Call proc
-                int iAffectedRowsCount = this.sqlCmdUpdateReview.ExecuteNonQuery();
+                int iAffectedRowsCount = this.sqlCmdProcUpdateReview.ExecuteNonQuery();
 
                 // Show corresponding information
                 if (iAffectedRowsCount == 0)
