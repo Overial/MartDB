@@ -984,15 +984,15 @@ namespace MartDB
                     // Initialize params
                     try
                     {
-                        sqlCmdDeleteEmployee.Parameters["@org_name"].Value = this.dgvEmployee.Rows[rowIndex].Cells[1].Value.ToString();
-                        sqlCmdDeleteEmployee.Parameters["@fio"].Value = this.dgvEmployee.Rows[rowIndex].Cells[2].Value.ToString();
-                        sqlCmdDeleteEmployee.Parameters["@gender"].Value = this.dgvEmployee.Rows[rowIndex].Cells[3].Value.ToString();
-                        sqlCmdDeleteEmployee.Parameters["@position"].Value = this.dgvEmployee.Rows[rowIndex].Cells[4].Value.ToString();
-                        sqlCmdDeleteEmployee.Parameters["@phone_number"].Value = this.dgvEmployee.Rows[rowIndex].Cells[5].Value.ToString();
-                        sqlCmdDeleteEmployee.Parameters["@email"].Value = this.dgvEmployee.Rows[rowIndex].Cells[6].Value.ToString();
+                        sqlCmdProcDeleteEmployee.Parameters["@org_name"].Value = this.dgvEmployee.Rows[rowIndex].Cells[1].Value.ToString();
+                        sqlCmdProcDeleteEmployee.Parameters["@fio"].Value = this.dgvEmployee.Rows[rowIndex].Cells[2].Value.ToString();
+                        sqlCmdProcDeleteEmployee.Parameters["@gender"].Value = this.dgvEmployee.Rows[rowIndex].Cells[3].Value.ToString();
+                        sqlCmdProcDeleteEmployee.Parameters["@position"].Value = this.dgvEmployee.Rows[rowIndex].Cells[4].Value.ToString();
+                        sqlCmdProcDeleteEmployee.Parameters["@phone_number"].Value = this.dgvEmployee.Rows[rowIndex].Cells[5].Value.ToString();
+                        sqlCmdProcDeleteEmployee.Parameters["@email"].Value = this.dgvEmployee.Rows[rowIndex].Cells[6].Value.ToString();
 
                         // Call proc
-                        int iAffectedRowsCount = sqlCmdDeleteEmployee.ExecuteNonQuery();
+                        int iAffectedRowsCount = sqlCmdProcDeleteEmployee.ExecuteNonQuery();
 
                         // Show corresponding information
                         if (iAffectedRowsCount == 0)
@@ -1139,6 +1139,53 @@ namespace MartDB
                 Form updateTradeProfileForm = new UpdateTradeProfileForm(tradeProfileId, tradeProfileName);
                 updateTradeProfileForm.FormClosed += new FormClosedEventHandler(this.handleTradeProfileForms_FormClosed);
                 updateTradeProfileForm.Show();
+            }
+        }
+
+        private void btnDeleteTradeProfile_Click(object sender, EventArgs e)
+        {
+            if (this.dgvEmployee.SelectedCells.Count > 1)
+            {
+                MessageBox.Show("За раз можно удалить данные только одного торгового профиля!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (this.dgvEmployee.SelectedCells.Count == 1)
+            {
+                int rowIndex = this.dgvEmployee.SelectedCells[0].RowIndex;
+
+                // Open DB connection
+                sqlConnection.Open();
+
+                // Initialize params
+                try
+                {
+                    sqlCmdProcDeleteTradeProfile.Parameters["@trade_profile_name"].Value = this.dgvTradeProfile.Rows[rowIndex].Cells[1].Value.ToString();
+
+                    // Call proc
+                    int iAffectedRowsCount = sqlCmdProcDeleteTradeProfile.ExecuteNonQuery();
+
+                    // Show corresponding information
+                    if (iAffectedRowsCount == 0)
+                    {
+                        MessageBox.Show("Удаление данных завершилось с ошибкой!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Данные успешно удалены!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        FillTradeProfilesDGV();
+                    }
+                }
+                catch (FormatException)
+                {
+                    MessageBox.Show("Введены некорректные значения!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (SqlException)
+                {
+                    MessageBox.Show("Удаление данных завершилось с ошибкой!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                // Close DB connection
+                sqlConnection.Close();
             }
         }
 

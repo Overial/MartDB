@@ -99,7 +99,7 @@ namespace MartDB
             this.dgvEmployee = new System.Windows.Forms.DataGridView();
             this.employeePanelLabel = new System.Windows.Forms.Label();
             this.panelTradeProfile = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnDeleteTradeProfile = new System.Windows.Forms.Button();
             this.btnUpdateTradeProfileForm = new System.Windows.Forms.Button();
             this.btnAddTradeProfileForm = new System.Windows.Forms.Button();
             this.tradeProfileSortGroupBox = new System.Windows.Forms.GroupBox();
@@ -155,7 +155,8 @@ namespace MartDB
             this.areaSortLabel = new System.Windows.Forms.Label();
             this.areaPanelLabel = new System.Windows.Forms.Label();
             this.sqlConnection = new System.Data.SqlClient.SqlConnection();
-            this.sqlCmdDeleteEmployee = new System.Data.SqlClient.SqlCommand();
+            this.sqlCmdProcDeleteEmployee = new System.Data.SqlClient.SqlCommand();
+            this.sqlCmdProcDeleteTradeProfile = new System.Data.SqlClient.SqlCommand();
             this.panelBooking.SuspendLayout();
             this.bookingSearchDateGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBooking)).BeginInit();
@@ -914,7 +915,7 @@ namespace MartDB
             // panelTradeProfile
             // 
             this.panelTradeProfile.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelTradeProfile.Controls.Add(this.button2);
+            this.panelTradeProfile.Controls.Add(this.btnDeleteTradeProfile);
             this.panelTradeProfile.Controls.Add(this.btnUpdateTradeProfileForm);
             this.panelTradeProfile.Controls.Add(this.btnAddTradeProfileForm);
             this.panelTradeProfile.Controls.Add(this.tradeProfileSortGroupBox);
@@ -927,14 +928,15 @@ namespace MartDB
             this.panelTradeProfile.Size = new System.Drawing.Size(948, 479);
             this.panelTradeProfile.TabIndex = 15;
             // 
-            // button2
+            // btnDeleteTradeProfile
             // 
-            this.button2.Location = new System.Drawing.Point(769, 397);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(160, 60);
-            this.button2.TabIndex = 26;
-            this.button2.Text = "Управление торговыми профилями";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnDeleteTradeProfile.Location = new System.Drawing.Point(769, 397);
+            this.btnDeleteTradeProfile.Name = "btnDeleteTradeProfile";
+            this.btnDeleteTradeProfile.Size = new System.Drawing.Size(160, 60);
+            this.btnDeleteTradeProfile.TabIndex = 26;
+            this.btnDeleteTradeProfile.Text = "Удалить торговый профиль";
+            this.btnDeleteTradeProfile.UseVisualStyleBackColor = true;
+            this.btnDeleteTradeProfile.Click += new System.EventHandler(this.btnDeleteTradeProfile_Click);
             // 
             // btnUpdateTradeProfileForm
             // 
@@ -1524,18 +1526,26 @@ namespace MartDB
             this.sqlConnection.ConnectionString = "Data Source=.\\SQLEXPRESS;Initial Catalog=MartDB;Integrated Security=True";
             this.sqlConnection.FireInfoMessageEventOnUserErrors = false;
             // 
-            // sqlCmdDeleteEmployee
+            // sqlCmdProcDeleteEmployee
             // 
-            this.sqlCmdDeleteEmployee.CommandText = "ProcDeleteEmployee";
-            this.sqlCmdDeleteEmployee.CommandType = System.Data.CommandType.StoredProcedure;
-            this.sqlCmdDeleteEmployee.Connection = this.sqlConnection;
-            this.sqlCmdDeleteEmployee.Parameters.AddRange(new System.Data.SqlClient.SqlParameter[] {
+            this.sqlCmdProcDeleteEmployee.CommandText = "ProcDeleteEmployee";
+            this.sqlCmdProcDeleteEmployee.CommandType = System.Data.CommandType.StoredProcedure;
+            this.sqlCmdProcDeleteEmployee.Connection = this.sqlConnection;
+            this.sqlCmdProcDeleteEmployee.Parameters.AddRange(new System.Data.SqlClient.SqlParameter[] {
             new System.Data.SqlClient.SqlParameter("@org_name", System.Data.SqlDbType.VarChar, 50),
             new System.Data.SqlClient.SqlParameter("@fio", System.Data.SqlDbType.VarChar, 50),
             new System.Data.SqlClient.SqlParameter("@gender", System.Data.SqlDbType.VarChar, 1),
             new System.Data.SqlClient.SqlParameter("@position", System.Data.SqlDbType.VarChar, 50),
             new System.Data.SqlClient.SqlParameter("@phone_number", System.Data.SqlDbType.VarChar, 50),
             new System.Data.SqlClient.SqlParameter("@email", System.Data.SqlDbType.VarChar, 50)});
+            // 
+            // sqlCmdProcDeleteTradeProfile
+            // 
+            this.sqlCmdProcDeleteTradeProfile.CommandText = "ProcDeleteTradeProfile";
+            this.sqlCmdProcDeleteTradeProfile.CommandType = System.Data.CommandType.StoredProcedure;
+            this.sqlCmdProcDeleteTradeProfile.Connection = this.sqlConnection;
+            this.sqlCmdProcDeleteTradeProfile.Parameters.AddRange(new System.Data.SqlClient.SqlParameter[] {
+            new System.Data.SqlClient.SqlParameter("@trade_profile_name", System.Data.SqlDbType.VarChar, 50)});
             // 
             // MainForm
             // 
@@ -1732,8 +1742,9 @@ namespace MartDB
         private System.Data.SqlClient.SqlConnection sqlConnection;
         private System.Windows.Forms.Button btnDeleteEmployee;
         private System.Windows.Forms.Button btnUpdateEmployee;
-        private System.Data.SqlClient.SqlCommand sqlCmdDeleteEmployee;
-        private System.Windows.Forms.Button button2;
+        private System.Data.SqlClient.SqlCommand sqlCmdProcDeleteEmployee;
+        private System.Windows.Forms.Button btnDeleteTradeProfile;
         private System.Windows.Forms.Button btnUpdateTradeProfileForm;
+        private System.Data.SqlClient.SqlCommand sqlCmdProcDeleteTradeProfile;
     }
 }
