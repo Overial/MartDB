@@ -24,7 +24,7 @@ namespace MartDB
 
         private void AddReviewForm_Load(object sender, EventArgs e)
         {
-            // Fill combo box with org names from Area table
+            // Fill combo box with outlet names from Outlet table
             DataTable dtOrgNames = new DataTable();
             SqlDataAdapter daOrgNames = new SqlDataAdapter("SELECT outlet_name FROM Outlet",
                                                            this.sqlConnection);

@@ -1,7 +1,7 @@
 ﻿
 namespace MartDB
 {
-    partial class HandleEmployeeForm
+    partial class AddEmployeeForm
     {
         /// <summary>
         /// Required designer variable.
@@ -36,17 +36,15 @@ namespace MartDB
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.orgNameTextBox = new System.Windows.Forms.TextBox();
             this.fioTextBox = new System.Windows.Forms.TextBox();
             this.genderComboBox = new System.Windows.Forms.ComboBox();
-            this.positionTextBox = new System.Windows.Forms.TextBox();
             this.phoneNumberTextBox = new System.Windows.Forms.TextBox();
             this.emailTextBox = new System.Windows.Forms.TextBox();
             this.btnAddEmployee = new System.Windows.Forms.Button();
-            this.btnDeleteEmployee = new System.Windows.Forms.Button();
             this.sqlConnection = new System.Data.SqlClient.SqlConnection();
             this.sqlCmdAddEmployee = new System.Data.SqlClient.SqlCommand();
-            this.sqlCmdDeleteEmployee = new System.Data.SqlClient.SqlCommand();
+            this.orgNameComboBox = new System.Windows.Forms.ComboBox();
+            this.positionComboBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -113,18 +111,11 @@ namespace MartDB
             this.label7.TabIndex = 6;
             this.label7.Text = "Введите данные и нажмите необходимую кнопку:";
             // 
-            // orgNameTextBox
-            // 
-            this.orgNameTextBox.Location = new System.Drawing.Point(216, 54);
-            this.orgNameTextBox.Name = "orgNameTextBox";
-            this.orgNameTextBox.Size = new System.Drawing.Size(100, 22);
-            this.orgNameTextBox.TabIndex = 7;
-            // 
             // fioTextBox
             // 
             this.fioTextBox.Location = new System.Drawing.Point(216, 84);
             this.fioTextBox.Name = "fioTextBox";
-            this.fioTextBox.Size = new System.Drawing.Size(100, 22);
+            this.fioTextBox.Size = new System.Drawing.Size(121, 22);
             this.fioTextBox.TabIndex = 8;
             // 
             // genderComboBox
@@ -138,46 +129,29 @@ namespace MartDB
             this.genderComboBox.Size = new System.Drawing.Size(121, 24);
             this.genderComboBox.TabIndex = 9;
             // 
-            // positionTextBox
-            // 
-            this.positionTextBox.Location = new System.Drawing.Point(216, 150);
-            this.positionTextBox.Name = "positionTextBox";
-            this.positionTextBox.Size = new System.Drawing.Size(100, 22);
-            this.positionTextBox.TabIndex = 10;
-            // 
             // phoneNumberTextBox
             // 
             this.phoneNumberTextBox.Location = new System.Drawing.Point(216, 187);
             this.phoneNumberTextBox.Name = "phoneNumberTextBox";
-            this.phoneNumberTextBox.Size = new System.Drawing.Size(100, 22);
+            this.phoneNumberTextBox.Size = new System.Drawing.Size(121, 22);
             this.phoneNumberTextBox.TabIndex = 11;
             // 
             // emailTextBox
             // 
             this.emailTextBox.Location = new System.Drawing.Point(216, 220);
             this.emailTextBox.Name = "emailTextBox";
-            this.emailTextBox.Size = new System.Drawing.Size(100, 22);
+            this.emailTextBox.Size = new System.Drawing.Size(121, 22);
             this.emailTextBox.TabIndex = 12;
             // 
             // btnAddEmployee
             // 
-            this.btnAddEmployee.Location = new System.Drawing.Point(52, 288);
+            this.btnAddEmployee.Location = new System.Drawing.Point(157, 262);
             this.btnAddEmployee.Name = "btnAddEmployee";
             this.btnAddEmployee.Size = new System.Drawing.Size(157, 52);
             this.btnAddEmployee.TabIndex = 13;
             this.btnAddEmployee.Text = "Добавить сотрудника";
             this.btnAddEmployee.UseVisualStyleBackColor = true;
             this.btnAddEmployee.Click += new System.EventHandler(this.btnAddEmployee_Click);
-            // 
-            // btnDeleteEmployee
-            // 
-            this.btnDeleteEmployee.Location = new System.Drawing.Point(264, 288);
-            this.btnDeleteEmployee.Name = "btnDeleteEmployee";
-            this.btnDeleteEmployee.Size = new System.Drawing.Size(157, 52);
-            this.btnDeleteEmployee.TabIndex = 14;
-            this.btnDeleteEmployee.Text = "Удалить сотрудника";
-            this.btnDeleteEmployee.UseVisualStyleBackColor = true;
-            this.btnDeleteEmployee.Click += new System.EventHandler(this.btnDeleteEmployee_Click);
             // 
             // sqlConnection
             // 
@@ -197,32 +171,37 @@ namespace MartDB
             new System.Data.SqlClient.SqlParameter("@phone_number", System.Data.SqlDbType.VarChar, 50),
             new System.Data.SqlClient.SqlParameter("@email", System.Data.SqlDbType.VarChar, 50)});
             // 
-            // sqlCmdDeleteEmployee
+            // orgNameComboBox
             // 
-            this.sqlCmdDeleteEmployee.CommandText = "ProcDeleteEmployee";
-            this.sqlCmdDeleteEmployee.CommandType = System.Data.CommandType.StoredProcedure;
-            this.sqlCmdDeleteEmployee.Connection = this.sqlConnection;
-            this.sqlCmdDeleteEmployee.Parameters.AddRange(new System.Data.SqlClient.SqlParameter[] {
-            new System.Data.SqlClient.SqlParameter("@org_name", System.Data.SqlDbType.VarChar, 50),
-            new System.Data.SqlClient.SqlParameter("@fio", System.Data.SqlDbType.VarChar, 50),
-            new System.Data.SqlClient.SqlParameter("@gender", System.Data.SqlDbType.VarChar, 1),
-            new System.Data.SqlClient.SqlParameter("@position", System.Data.SqlDbType.VarChar, 50),
-            new System.Data.SqlClient.SqlParameter("@phone_number", System.Data.SqlDbType.VarChar, 50),
-            new System.Data.SqlClient.SqlParameter("@email", System.Data.SqlDbType.VarChar, 50)});
+            this.orgNameComboBox.FormattingEnabled = true;
+            this.orgNameComboBox.Location = new System.Drawing.Point(216, 54);
+            this.orgNameComboBox.Name = "orgNameComboBox";
+            this.orgNameComboBox.Size = new System.Drawing.Size(121, 24);
+            this.orgNameComboBox.TabIndex = 14;
             // 
-            // HandleEmployeesForm
+            // positionComboBox
+            // 
+            this.positionComboBox.FormattingEnabled = true;
+            this.positionComboBox.Items.AddRange(new object[] {
+            "Менеджер",
+            "Консультант"});
+            this.positionComboBox.Location = new System.Drawing.Point(216, 150);
+            this.positionComboBox.Name = "positionComboBox";
+            this.positionComboBox.Size = new System.Drawing.Size(121, 24);
+            this.positionComboBox.TabIndex = 15;
+            // 
+            // AddEmployeeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(474, 407);
-            this.Controls.Add(this.btnDeleteEmployee);
+            this.ClientSize = new System.Drawing.Size(490, 325);
+            this.Controls.Add(this.positionComboBox);
+            this.Controls.Add(this.orgNameComboBox);
             this.Controls.Add(this.btnAddEmployee);
             this.Controls.Add(this.emailTextBox);
             this.Controls.Add(this.phoneNumberTextBox);
-            this.Controls.Add(this.positionTextBox);
             this.Controls.Add(this.genderComboBox);
             this.Controls.Add(this.fioTextBox);
-            this.Controls.Add(this.orgNameTextBox);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -230,12 +209,12 @@ namespace MartDB
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "HandleEmployeesForm";
+            this.Name = "AddEmployeeForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Управление сотрудниками";
+            this.Text = "Добавление сотрудников";
             this.Load += new System.EventHandler(this.HandleEmployeesForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -251,16 +230,14 @@ namespace MartDB
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox orgNameTextBox;
         private System.Windows.Forms.TextBox fioTextBox;
         private System.Windows.Forms.ComboBox genderComboBox;
-        private System.Windows.Forms.TextBox positionTextBox;
         private System.Windows.Forms.TextBox phoneNumberTextBox;
         private System.Windows.Forms.TextBox emailTextBox;
         private System.Windows.Forms.Button btnAddEmployee;
-        private System.Windows.Forms.Button btnDeleteEmployee;
         private System.Data.SqlClient.SqlConnection sqlConnection;
         private System.Data.SqlClient.SqlCommand sqlCmdAddEmployee;
-        private System.Data.SqlClient.SqlCommand sqlCmdDeleteEmployee;
+        private System.Windows.Forms.ComboBox orgNameComboBox;
+        private System.Windows.Forms.ComboBox positionComboBox;
     }
 }

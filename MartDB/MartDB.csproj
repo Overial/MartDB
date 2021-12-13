@@ -64,11 +64,11 @@
     <Compile Include="AddBookingForm.Designer.cs">
       <DependentUpon>AddBookingForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="HandleEmployeeForm.cs">
+    <Compile Include="AddEmployeeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="HandleEmployeeForm.Designer.cs">
-      <DependentUpon>HandleEmployeeForm.cs</DependentUpon>
+    <Compile Include="AddEmployeeForm.Designer.cs">
+      <DependentUpon>AddEmployeeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="HandleOutletForm.cs">
       <SubType>Form</SubType>
@@ -129,8 +129,8 @@
     <EmbeddedResource Include="AddBookingForm.resx">
       <DependentUpon>AddBookingForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HandleEmployeeForm.resx">
-      <DependentUpon>HandleEmployeeForm.cs</DependentUpon>
+    <EmbeddedResource Include="AddEmployeeForm.resx">
+      <DependentUpon>AddEmployeeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HandleOutletForm.resx">
       <DependentUpon>HandleOutletForm.cs</DependentUpon>

@@ -33,6 +33,8 @@ namespace MartDB
             this.btnUpdateBooking = new System.Windows.Forms.Button();
             this.btnAddBookingForm = new System.Windows.Forms.Button();
             this.bookingSearchDateGroupBox = new System.Windows.Forms.GroupBox();
+            this.bookingSearchDateComboBox2 = new System.Windows.Forms.ComboBox();
+            this.bookingSearchDateComboBox1 = new System.Windows.Forms.ComboBox();
             this.bookingSearchDateRightBoundLabel = new System.Windows.Forms.Label();
             this.bookingSearchDateLeftBoundLabel = new System.Windows.Forms.Label();
             this.bookingSearchDateQueryLabel = new System.Windows.Forms.Label();
@@ -78,7 +80,9 @@ namespace MartDB
             this.btnPanelTradeProfile = new System.Windows.Forms.Button();
             this.btnPanelEmployee = new System.Windows.Forms.Button();
             this.panelEmployee = new System.Windows.Forms.Panel();
-            this.btnHandleEmployeeForm = new System.Windows.Forms.Button();
+            this.btnDeleteEmployee = new System.Windows.Forms.Button();
+            this.btnUpdateEmployee = new System.Windows.Forms.Button();
+            this.btnAddEmployeeForm = new System.Windows.Forms.Button();
             this.employeeSortGroupBox = new System.Windows.Forms.GroupBox();
             this.employeeSortColsListBox = new System.Windows.Forms.ListBox();
             this.btnEmployeeSort = new System.Windows.Forms.Button();
@@ -148,9 +152,9 @@ namespace MartDB
             this.areaSortColsListBox = new System.Windows.Forms.ListBox();
             this.areaSortLabel = new System.Windows.Forms.Label();
             this.areaPanelLabel = new System.Windows.Forms.Label();
-            this.bookingSearchDateComboBox1 = new System.Windows.Forms.ComboBox();
-            this.bookingSearchDateComboBox2 = new System.Windows.Forms.ComboBox();
             this.sqlConnection = new System.Data.SqlClient.SqlConnection();
+            this.sqlCmdDeleteEmployee = new System.Data.SqlClient.SqlCommand();
+            this.sqlCmdUpdateEmployee = new System.Data.SqlClient.SqlCommand();
             this.panelBooking.SuspendLayout();
             this.bookingSearchDateGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBooking)).BeginInit();
@@ -228,6 +232,22 @@ namespace MartDB
             this.bookingSearchDateGroupBox.TabIndex = 19;
             this.bookingSearchDateGroupBox.TabStop = false;
             this.bookingSearchDateGroupBox.Text = "Поиск по периоду аренды";
+            // 
+            // bookingSearchDateComboBox2
+            // 
+            this.bookingSearchDateComboBox2.FormattingEnabled = true;
+            this.bookingSearchDateComboBox2.Location = new System.Drawing.Point(143, 70);
+            this.bookingSearchDateComboBox2.Name = "bookingSearchDateComboBox2";
+            this.bookingSearchDateComboBox2.Size = new System.Drawing.Size(121, 24);
+            this.bookingSearchDateComboBox2.TabIndex = 13;
+            // 
+            // bookingSearchDateComboBox1
+            // 
+            this.bookingSearchDateComboBox1.FormattingEnabled = true;
+            this.bookingSearchDateComboBox1.Location = new System.Drawing.Point(143, 40);
+            this.bookingSearchDateComboBox1.Name = "bookingSearchDateComboBox1";
+            this.bookingSearchDateComboBox1.Size = new System.Drawing.Size(121, 24);
+            this.bookingSearchDateComboBox1.TabIndex = 12;
             // 
             // bookingSearchDateRightBoundLabel
             // 
@@ -673,7 +693,9 @@ namespace MartDB
             // panelEmployee
             // 
             this.panelEmployee.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelEmployee.Controls.Add(this.btnHandleEmployeeForm);
+            this.panelEmployee.Controls.Add(this.btnDeleteEmployee);
+            this.panelEmployee.Controls.Add(this.btnUpdateEmployee);
+            this.panelEmployee.Controls.Add(this.btnAddEmployeeForm);
             this.panelEmployee.Controls.Add(this.employeeSortGroupBox);
             this.panelEmployee.Controls.Add(this.btnEmployeeShowAll);
             this.panelEmployee.Controls.Add(this.employeeSearchGroupBox);
@@ -684,15 +706,35 @@ namespace MartDB
             this.panelEmployee.Size = new System.Drawing.Size(948, 479);
             this.panelEmployee.TabIndex = 14;
             // 
-            // btnHandleEmployeeForm
+            // btnDeleteEmployee
             // 
-            this.btnHandleEmployeeForm.Location = new System.Drawing.Point(419, 394);
-            this.btnHandleEmployeeForm.Name = "btnHandleEmployeeForm";
-            this.btnHandleEmployeeForm.Size = new System.Drawing.Size(208, 60);
-            this.btnHandleEmployeeForm.TabIndex = 14;
-            this.btnHandleEmployeeForm.Text = "Управление сотрудниками";
-            this.btnHandleEmployeeForm.UseVisualStyleBackColor = true;
-            this.btnHandleEmployeeForm.Click += new System.EventHandler(this.btnHandleEmployeeForm_Click);
+            this.btnDeleteEmployee.Location = new System.Drawing.Point(748, 394);
+            this.btnDeleteEmployee.Name = "btnDeleteEmployee";
+            this.btnDeleteEmployee.Size = new System.Drawing.Size(181, 60);
+            this.btnDeleteEmployee.TabIndex = 26;
+            this.btnDeleteEmployee.Text = "Удалить данные о сотруднике";
+            this.btnDeleteEmployee.UseVisualStyleBackColor = true;
+            this.btnDeleteEmployee.Click += new System.EventHandler(this.btnDeleteEmployee_Click);
+            // 
+            // btnUpdateEmployee
+            // 
+            this.btnUpdateEmployee.Location = new System.Drawing.Point(551, 394);
+            this.btnUpdateEmployee.Name = "btnUpdateEmployee";
+            this.btnUpdateEmployee.Size = new System.Drawing.Size(181, 60);
+            this.btnUpdateEmployee.TabIndex = 25;
+            this.btnUpdateEmployee.Text = "Обновить данные о сотруднике";
+            this.btnUpdateEmployee.UseVisualStyleBackColor = true;
+            this.btnUpdateEmployee.Click += new System.EventHandler(this.btnUpdateEmployee_Click);
+            // 
+            // btnAddEmployeeForm
+            // 
+            this.btnAddEmployeeForm.Location = new System.Drawing.Point(352, 393);
+            this.btnAddEmployeeForm.Name = "btnAddEmployeeForm";
+            this.btnAddEmployeeForm.Size = new System.Drawing.Size(181, 60);
+            this.btnAddEmployeeForm.TabIndex = 14;
+            this.btnAddEmployeeForm.Text = "Добавить данные о сотруднике";
+            this.btnAddEmployeeForm.UseVisualStyleBackColor = true;
+            this.btnAddEmployeeForm.Click += new System.EventHandler(this.btnAddEmployeeForm_Click);
             // 
             // employeeSortGroupBox
             // 
@@ -701,9 +743,9 @@ namespace MartDB
             this.employeeSortGroupBox.Controls.Add(this.descEmployeeRadioButton);
             this.employeeSortGroupBox.Controls.Add(this.ascEmployeeRadioButton);
             this.employeeSortGroupBox.Controls.Add(this.employeeSortLabel);
-            this.employeeSortGroupBox.Location = new System.Drawing.Point(14, 266);
+            this.employeeSortGroupBox.Location = new System.Drawing.Point(13, 274);
             this.employeeSortGroupBox.Name = "employeeSortGroupBox";
-            this.employeeSortGroupBox.Size = new System.Drawing.Size(317, 188);
+            this.employeeSortGroupBox.Size = new System.Drawing.Size(317, 165);
             this.employeeSortGroupBox.TabIndex = 24;
             this.employeeSortGroupBox.TabStop = false;
             this.employeeSortGroupBox.Text = "Сортировка";
@@ -847,13 +889,15 @@ namespace MartDB
             this.dgvEmployee.AllowUserToAddRows = false;
             this.dgvEmployee.AllowUserToDeleteRows = false;
             this.dgvEmployee.AllowUserToOrderColumns = true;
+            this.dgvEmployee.AllowUserToResizeColumns = false;
+            this.dgvEmployee.AllowUserToResizeRows = false;
             this.dgvEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEmployee.Location = new System.Drawing.Point(352, 43);
+            this.dgvEmployee.Location = new System.Drawing.Point(352, 48);
             this.dgvEmployee.Name = "dgvEmployee";
             this.dgvEmployee.ReadOnly = true;
             this.dgvEmployee.RowHeadersWidth = 51;
             this.dgvEmployee.RowTemplate.Height = 24;
-            this.dgvEmployee.Size = new System.Drawing.Size(578, 318);
+            this.dgvEmployee.Size = new System.Drawing.Size(578, 330);
             this.dgvEmployee.TabIndex = 22;
             // 
             // employeePanelLabel
@@ -1453,36 +1497,38 @@ namespace MartDB
             this.areaPanelLabel.TabIndex = 6;
             this.areaPanelLabel.Text = "Панель управления: \"Доступные помещения\"";
             // 
-            // bookingSearchDateComboBox1
-            // 
-            this.bookingSearchDateComboBox1.FormattingEnabled = true;
-            this.bookingSearchDateComboBox1.Location = new System.Drawing.Point(143, 40);
-            this.bookingSearchDateComboBox1.Name = "bookingSearchDateComboBox1";
-            this.bookingSearchDateComboBox1.Size = new System.Drawing.Size(121, 24);
-            this.bookingSearchDateComboBox1.TabIndex = 12;
-            // 
-            // bookingSearchDateComboBox2
-            // 
-            this.bookingSearchDateComboBox2.FormattingEnabled = true;
-            this.bookingSearchDateComboBox2.Location = new System.Drawing.Point(143, 70);
-            this.bookingSearchDateComboBox2.Name = "bookingSearchDateComboBox2";
-            this.bookingSearchDateComboBox2.Size = new System.Drawing.Size(121, 24);
-            this.bookingSearchDateComboBox2.TabIndex = 13;
-            // 
             // sqlConnection
             // 
             this.sqlConnection.ConnectionString = "Data Source=.\\SQLEXPRESS;Initial Catalog=MartDB;Integrated Security=True";
             this.sqlConnection.FireInfoMessageEventOnUserErrors = false;
+            // 
+            // sqlCmdDeleteEmployee
+            // 
+            this.sqlCmdDeleteEmployee.CommandText = "ProcDeleteEmployee";
+            this.sqlCmdDeleteEmployee.CommandType = System.Data.CommandType.StoredProcedure;
+            this.sqlCmdDeleteEmployee.Connection = this.sqlConnection;
+            this.sqlCmdDeleteEmployee.Parameters.AddRange(new System.Data.SqlClient.SqlParameter[] {
+            new System.Data.SqlClient.SqlParameter("@org_name", System.Data.SqlDbType.VarChar, 50),
+            new System.Data.SqlClient.SqlParameter("@fio", System.Data.SqlDbType.VarChar, 50),
+            new System.Data.SqlClient.SqlParameter("@gender", System.Data.SqlDbType.VarChar, 1),
+            new System.Data.SqlClient.SqlParameter("@position", System.Data.SqlDbType.VarChar, 50),
+            new System.Data.SqlClient.SqlParameter("@phone_number", System.Data.SqlDbType.VarChar, 50),
+            new System.Data.SqlClient.SqlParameter("@email", System.Data.SqlDbType.VarChar, 50)});
+            // 
+            // sqlCmdUpdateEmployee
+            // 
+            this.sqlCmdUpdateEmployee.CommandType = System.Data.CommandType.StoredProcedure;
+            this.sqlCmdUpdateEmployee.Connection = this.sqlConnection;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(983, 605);
+            this.Controls.Add(this.panelEmployee);
             this.Controls.Add(this.panelBooking);
             this.Controls.Add(this.panelArea);
             this.Controls.Add(this.panelMain);
-            this.Controls.Add(this.panelEmployee);
             this.Controls.Add(this.panelOutlet);
             this.Controls.Add(this.panelTradeProfile);
             this.Controls.Add(this.menuStrip1);
@@ -1596,7 +1642,7 @@ namespace MartDB
         private System.Windows.Forms.RadioButton descEmployeeRadioButton;
         private System.Windows.Forms.RadioButton ascEmployeeRadioButton;
         private System.Windows.Forms.Label employeeSortLabel;
-        private System.Windows.Forms.Button btnHandleEmployeeForm;
+        private System.Windows.Forms.Button btnAddEmployeeForm;
         private System.Windows.Forms.Panel panelTradeProfile;
         private System.Windows.Forms.Button btnHandleTradeProfileForm;
         private System.Windows.Forms.GroupBox tradeProfileSortGroupBox;
@@ -1667,5 +1713,9 @@ namespace MartDB
         private System.Windows.Forms.ComboBox bookingSearchDateComboBox2;
         private System.Windows.Forms.ComboBox bookingSearchDateComboBox1;
         private System.Data.SqlClient.SqlConnection sqlConnection;
+        private System.Windows.Forms.Button btnDeleteEmployee;
+        private System.Windows.Forms.Button btnUpdateEmployee;
+        private System.Data.SqlClient.SqlCommand sqlCmdDeleteEmployee;
+        private System.Data.SqlClient.SqlCommand sqlCmdUpdateEmployee;
     }
 }
