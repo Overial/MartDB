@@ -792,6 +792,7 @@ namespace MartDB
 
             // Create query
             string selectQuery = "SELECT " +
+                                     "Employee.employee_id," +
                                      "Organisation.org_name AS [Организация]," +
                                      "Employee.fio AS [ФИО]," +
                                      "Employee.gender AS [Пол]," +
@@ -802,16 +803,13 @@ namespace MartDB
                                  "JOIN Organisation ON Employee.org_id = Organisation.org_id";
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(selectQuery, sqlConnection);
 
-            // Set command builder
-            // SqlCommandBuilder commandBuilder = new SqlCommandBuilder(sqlDataAdapter);
-
             // Fill data set
             DataSet dataSet = new DataSet();
             sqlDataAdapter.Fill(dataSet);
 
             // Fill DGV
-            this.dgvEmployee.ReadOnly = true;
             this.dgvEmployee.DataSource = dataSet.Tables[0];
+            this.dgvEmployee.Columns[0].Visible = false;
         }
 
         // Search by query
@@ -889,22 +887,22 @@ namespace MartDB
             switch (this.employeeSortColsListBox.SelectedIndex)
             {
                 case 0:
-                    col = this.dgvEmployee.Columns[0];
-                    break;
-                case 1:
                     col = this.dgvEmployee.Columns[1];
                     break;
-                case 2:
+                case 1:
                     col = this.dgvEmployee.Columns[2];
                     break;
-                case 3:
+                case 2:
                     col = this.dgvEmployee.Columns[3];
                     break;
-                case 4:
+                case 3:
                     col = this.dgvEmployee.Columns[4];
                     break;
-                case 5:
+                case 4:
                     col = this.dgvEmployee.Columns[5];
+                    break;
+                case 5:
+                    col = this.dgvEmployee.Columns[6];
                     break;
                 default:
                     break;
@@ -933,68 +931,49 @@ namespace MartDB
         // Update employee button
         private void btnUpdateEmployee_Click(object sender, EventArgs e)
         {
-            int rowIndex = this.dgvEmployee.SelectedCells[0].RowIndex;
-
             if (this.dgvEmployee.SelectedCells.Count > 1)
             {
-                MessageBox.Show("Изменить можно только одну аренду за раз!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("За раз можно изменить данные только одного сотрудника!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (this.dgvEmployee.SelectedCells.Count == 1)
             {
-                // Open DB connection
-                sqlConnection.Open();
+                int rowIndex = this.dgvEmployee.SelectedCells[0].RowIndex;
 
-                // Initialize params
-                try
+                if ((UserData.UserRole == "organisation" &&
+                    this.dgvEmployee.Rows[rowIndex].Cells[1].Value.ToString() == UserData.UserName) ||
+                    UserData.UserRole == "admin")
                 {
-                    
+                    string employeeId = this.dgvEmployee.Rows[rowIndex].Cells[0].Value.ToString();
+                    string orgName = this.dgvEmployee.Rows[rowIndex].Cells[1].Value.ToString();
+                    string fio = this.dgvEmployee.Rows[rowIndex].Cells[2].Value.ToString();
+                    string gender = this.dgvEmployee.Rows[rowIndex].Cells[3].Value.ToString();
+                    string position = this.dgvEmployee.Rows[rowIndex].Cells[4].Value.ToString();
+                    string phoneNumber = this.dgvEmployee.Rows[rowIndex].Cells[5].Value.ToString();
+                    string email = this.dgvEmployee.Rows[rowIndex].Cells[6].Value.ToString();
 
-                    sqlCmdDeleteEmployee.Parameters["@org_name"].Value = this.dgvEmployee.Rows[rowIndex].Cells[0].Value.ToString();
-                    sqlCmdDeleteEmployee.Parameters["@fio"].Value = this.dgvEmployee.Rows[rowIndex].Cells[1].Value.ToString();
-                    sqlCmdDeleteEmployee.Parameters["@gender"].Value = this.dgvEmployee.Rows[rowIndex].Cells[2].Value.ToString();
-                    sqlCmdDeleteEmployee.Parameters["@position"].Value = this.dgvEmployee.Rows[rowIndex].Cells[3].Value.ToString();
-                    sqlCmdDeleteEmployee.Parameters["@phone_number"].Value = this.dgvEmployee.Rows[rowIndex].Cells[4].Value.ToString();
-                    sqlCmdDeleteEmployee.Parameters["@email"].Value = this.dgvEmployee.Rows[rowIndex].Cells[5].Value.ToString();
-
-                    // Call proc
-                    int iAffectedRowsCount = sqlCmdDeleteEmployee.ExecuteNonQuery();
-
-                    // Show corresponding information
-                    if (iAffectedRowsCount == 0)
-                    {
-                        MessageBox.Show("Удаление данных завершилось с ошибкой!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Данные успешно удалены!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        FillEmployeesDGV();
-                    }
+                    // Pass data to UpdateBookingForm
+                    Form updateEmployeeForm = new UpdateEmployeeForm(employeeId, orgName, fio, gender, position, phoneNumber, email);
+                    updateEmployeeForm.FormClosed += new FormClosedEventHandler(this.handleEmployeeForms_FormClosed);
+                    updateEmployeeForm.Show();
                 }
-                catch (FormatException)
+                else
                 {
-                    MessageBox.Show("Введены некорректные значения!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Выбран чужой сотрудник!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                catch (SqlException)
-                {
-                    MessageBox.Show("Удаление данных завершилось с ошибкой!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-
-                // Close DB connection
-                sqlConnection.Close();
             }
         }
 
         // Delete employee button
         private void btnDeleteEmployee_Click(object sender, EventArgs e)
         {
-            int rowIndex = this.dgvEmployee.SelectedCells[0].RowIndex;
-
             if (this.dgvEmployee.SelectedCells.Count > 1)
             {
                 MessageBox.Show("Изменить можно только одну аренду за раз!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (this.dgvEmployee.SelectedCells.Count == 1)
             {
+                int rowIndex = this.dgvEmployee.SelectedCells[0].RowIndex;
+
                 // Open DB connection
                 sqlConnection.Open();
 

@@ -36,6 +36,7 @@ namespace MartDB
             if (UserData.UserRole == "organisation")
             {
                 orgNameComboBox.Enabled = false;
+                orgNameComboBox.Text = UserData.UserName;
             }
         }
 
@@ -48,16 +49,7 @@ namespace MartDB
             // Initialize params
             try
             {
-                if (UserData.UserRole == "admin")
-                {
-                    sqlCmdAddEmployee.Parameters["@org_name"].Value = Convert.ToString(orgNameComboBox.Text);
-                }
-                else if (UserData.UserRole == "organisation")
-                {
-                    this.orgNameComboBox.Text = UserData.UserName;
-                    this.orgNameComboBox.Enabled = false;
-                }
-
+                sqlCmdAddEmployee.Parameters["@org_name"].Value = Convert.ToString(orgNameComboBox.Text);
                 sqlCmdAddEmployee.Parameters["@fio"].Value = Convert.ToString(fioTextBox.Text);
                 sqlCmdAddEmployee.Parameters["@gender"].Value = Convert.ToString(genderComboBox.Text);
                 sqlCmdAddEmployee.Parameters["@position"].Value = Convert.ToString(positionComboBox.Text);

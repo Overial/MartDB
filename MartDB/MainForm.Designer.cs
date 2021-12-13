@@ -154,7 +154,6 @@ namespace MartDB
             this.areaPanelLabel = new System.Windows.Forms.Label();
             this.sqlConnection = new System.Data.SqlClient.SqlConnection();
             this.sqlCmdDeleteEmployee = new System.Data.SqlClient.SqlCommand();
-            this.sqlCmdUpdateEmployee = new System.Data.SqlClient.SqlCommand();
             this.panelBooking.SuspendLayout();
             this.bookingSearchDateGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBooking)).BeginInit();
@@ -1515,11 +1514,6 @@ namespace MartDB
             new System.Data.SqlClient.SqlParameter("@phone_number", System.Data.SqlDbType.VarChar, 50),
             new System.Data.SqlClient.SqlParameter("@email", System.Data.SqlDbType.VarChar, 50)});
             // 
-            // sqlCmdUpdateEmployee
-            // 
-            this.sqlCmdUpdateEmployee.CommandType = System.Data.CommandType.StoredProcedure;
-            this.sqlCmdUpdateEmployee.Connection = this.sqlConnection;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1716,6 +1710,5 @@ namespace MartDB
         private System.Windows.Forms.Button btnDeleteEmployee;
         private System.Windows.Forms.Button btnUpdateEmployee;
         private System.Data.SqlClient.SqlCommand sqlCmdDeleteEmployee;
-        private System.Data.SqlClient.SqlCommand sqlCmdUpdateEmployee;
     }
 }

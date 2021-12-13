@@ -214,7 +214,7 @@ namespace MartDB
             this.MinimizeBox = false;
             this.Name = "AddEmployeeForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Добавление сотрудников";
+            this.Text = "Добавление данных о сотрудниках";
             this.Load += new System.EventHandler(this.HandleEmployeesForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
