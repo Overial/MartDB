@@ -99,6 +99,8 @@ namespace MartDB
             this.dgvEmployee = new System.Windows.Forms.DataGridView();
             this.employeePanelLabel = new System.Windows.Forms.Label();
             this.panelTradeProfile = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.btnUpdateTradeProfileForm = new System.Windows.Forms.Button();
             this.btnAddTradeProfileForm = new System.Windows.Forms.Button();
             this.tradeProfileSortGroupBox = new System.Windows.Forms.GroupBox();
             this.btnTradeProfileSort = new System.Windows.Forms.Button();
@@ -154,8 +156,6 @@ namespace MartDB
             this.areaPanelLabel = new System.Windows.Forms.Label();
             this.sqlConnection = new System.Data.SqlClient.SqlConnection();
             this.sqlCmdDeleteEmployee = new System.Data.SqlClient.SqlCommand();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.panelBooking.SuspendLayout();
             this.bookingSearchDateGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBooking)).BeginInit();
@@ -470,7 +470,7 @@ namespace MartDB
             this.menuToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(983, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(983, 28);
             this.menuStrip1.TabIndex = 12;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -484,7 +484,7 @@ namespace MartDB
             this.tradeProfileToolStripMenuItem,
             this.outletToolStripMenuItem});
             this.panelsToolStripMenuItem.Name = "panelsToolStripMenuItem";
-            this.panelsToolStripMenuItem.Size = new System.Drawing.Size(93, 26);
+            this.panelsToolStripMenuItem.Size = new System.Drawing.Size(93, 24);
             this.panelsToolStripMenuItem.Text = "Страницы";
             // 
             // mainToolStripMenuItem
@@ -534,7 +534,7 @@ namespace MartDB
             this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aboutToolStripMenuItem});
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
-            this.menuToolStripMenuItem.Size = new System.Drawing.Size(65, 26);
+            this.menuToolStripMenuItem.Size = new System.Drawing.Size(65, 24);
             this.menuToolStripMenuItem.Text = "Меню";
             // 
             // aboutToolStripMenuItem
@@ -915,7 +915,7 @@ namespace MartDB
             // 
             this.panelTradeProfile.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelTradeProfile.Controls.Add(this.button2);
-            this.panelTradeProfile.Controls.Add(this.button1);
+            this.panelTradeProfile.Controls.Add(this.btnUpdateTradeProfileForm);
             this.panelTradeProfile.Controls.Add(this.btnAddTradeProfileForm);
             this.panelTradeProfile.Controls.Add(this.tradeProfileSortGroupBox);
             this.panelTradeProfile.Controls.Add(this.btnTradeProfileShowAll);
@@ -926,6 +926,25 @@ namespace MartDB
             this.panelTradeProfile.Name = "panelTradeProfile";
             this.panelTradeProfile.Size = new System.Drawing.Size(948, 479);
             this.panelTradeProfile.TabIndex = 15;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(769, 397);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(160, 60);
+            this.button2.TabIndex = 26;
+            this.button2.Text = "Управление торговыми профилями";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // btnUpdateTradeProfileForm
+            // 
+            this.btnUpdateTradeProfileForm.Location = new System.Drawing.Point(539, 394);
+            this.btnUpdateTradeProfileForm.Name = "btnUpdateTradeProfileForm";
+            this.btnUpdateTradeProfileForm.Size = new System.Drawing.Size(160, 60);
+            this.btnUpdateTradeProfileForm.TabIndex = 25;
+            this.btnUpdateTradeProfileForm.Text = "Обновить торговый профиль";
+            this.btnUpdateTradeProfileForm.UseVisualStyleBackColor = true;
+            this.btnUpdateTradeProfileForm.Click += new System.EventHandler(this.btnUpdateTradeProfileForm_Click);
             // 
             // btnAddTradeProfileForm
             // 
@@ -1518,24 +1537,6 @@ namespace MartDB
             new System.Data.SqlClient.SqlParameter("@phone_number", System.Data.SqlDbType.VarChar, 50),
             new System.Data.SqlClient.SqlParameter("@email", System.Data.SqlDbType.VarChar, 50)});
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(551, 393);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(160, 60);
-            this.button1.TabIndex = 25;
-            this.button1.Text = "Управление торговыми профилями";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(770, 394);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(160, 60);
-            this.button2.TabIndex = 26;
-            this.button2.Text = "Управление торговыми профилями";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1733,6 +1734,6 @@ namespace MartDB
         private System.Windows.Forms.Button btnUpdateEmployee;
         private System.Data.SqlClient.SqlCommand sqlCmdDeleteEmployee;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnUpdateTradeProfileForm;
     }
 }

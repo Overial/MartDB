@@ -1122,6 +1122,26 @@ namespace MartDB
             addTradeProfileForm.Show();
         }
 
+        private void btnUpdateTradeProfileForm_Click(object sender, EventArgs e)
+        {
+            if (this.dgvTradeProfile.SelectedCells.Count > 1)
+            {
+                MessageBox.Show("За раз можно изменить данные только одного торгового профиля!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (this.dgvTradeProfile.SelectedCells.Count == 1)
+            {
+                int rowIndex = this.dgvTradeProfile.SelectedCells[0].RowIndex;
+
+                string tradeProfileId = this.dgvTradeProfile.Rows[rowIndex].Cells[0].Value.ToString();
+                string tradeProfileName = this.dgvTradeProfile.Rows[rowIndex].Cells[1].Value.ToString();
+
+                // Pass data to UpdateBookingForm
+                Form updateTradeProfileForm = new UpdateTradeProfileForm(tradeProfileId, tradeProfileName);
+                updateTradeProfileForm.FormClosed += new FormClosedEventHandler(this.handleTradeProfileForms_FormClosed);
+                updateTradeProfileForm.Show();
+            }
+        }
+
         private void handleTradeProfileForms_FormClosed(object sender, FormClosedEventArgs e)
         {
             FillTradeProfilesDGV();

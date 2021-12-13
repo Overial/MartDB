@@ -29,21 +29,13 @@ namespace MartDB
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnDeleteTradeProfile = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnAddTradeProfile = new System.Windows.Forms.Button();
+            this.btnUpdateTradeProfile = new System.Windows.Forms.Button();
             this.tradeProfileNameTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.sqlConnection = new System.Data.SqlClient.SqlConnection();
+            this.sqlCmdProcUpdateTradeProfile = new System.Data.SqlClient.SqlCommand();
             this.SuspendLayout();
-            // 
-            // btnDeleteTradeProfile
-            // 
-            this.btnDeleteTradeProfile.Location = new System.Drawing.Point(242, 174);
-            this.btnDeleteTradeProfile.Name = "btnDeleteTradeProfile";
-            this.btnDeleteTradeProfile.Size = new System.Drawing.Size(149, 76);
-            this.btnDeleteTradeProfile.TabIndex = 9;
-            this.btnDeleteTradeProfile.Text = "Удалить торговый профиль";
-            this.btnDeleteTradeProfile.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
@@ -54,14 +46,15 @@ namespace MartDB
             this.label2.TabIndex = 8;
             this.label2.Text = "Название торгового профиля:";
             // 
-            // btnAddTradeProfile
+            // btnUpdateTradeProfile
             // 
-            this.btnAddTradeProfile.Location = new System.Drawing.Point(71, 174);
-            this.btnAddTradeProfile.Name = "btnAddTradeProfile";
-            this.btnAddTradeProfile.Size = new System.Drawing.Size(149, 76);
-            this.btnAddTradeProfile.TabIndex = 7;
-            this.btnAddTradeProfile.Text = "Добавить торговый профиль";
-            this.btnAddTradeProfile.UseVisualStyleBackColor = true;
+            this.btnUpdateTradeProfile.Location = new System.Drawing.Point(143, 173);
+            this.btnUpdateTradeProfile.Name = "btnUpdateTradeProfile";
+            this.btnUpdateTradeProfile.Size = new System.Drawing.Size(149, 76);
+            this.btnUpdateTradeProfile.TabIndex = 7;
+            this.btnUpdateTradeProfile.Text = "Обновить торговый профиль";
+            this.btnUpdateTradeProfile.UseVisualStyleBackColor = true;
+            this.btnUpdateTradeProfile.Click += new System.EventHandler(this.btnUpdateTradeProfile_Click);
             // 
             // tradeProfileNameTextBox
             // 
@@ -80,29 +73,47 @@ namespace MartDB
             this.label1.TabIndex = 5;
             this.label1.Text = "Введите данные и нажмите необходимую кнопку:";
             // 
+            // sqlConnection
+            // 
+            this.sqlConnection.ConnectionString = "Data Source=.\\SQLEXPRESS;Initial Catalog=MartDB;Integrated Security=True";
+            this.sqlConnection.FireInfoMessageEventOnUserErrors = false;
+            // 
+            // sqlCmdProcUpdateTradeProfile
+            // 
+            this.sqlCmdProcUpdateTradeProfile.CommandText = "ProcUpdateTradeProfile";
+            this.sqlCmdProcUpdateTradeProfile.CommandType = System.Data.CommandType.StoredProcedure;
+            this.sqlCmdProcUpdateTradeProfile.Connection = this.sqlConnection;
+            this.sqlCmdProcUpdateTradeProfile.Parameters.AddRange(new System.Data.SqlClient.SqlParameter[] {
+            new System.Data.SqlClient.SqlParameter("@trade_profile_id", System.Data.SqlDbType.Int),
+            new System.Data.SqlClient.SqlParameter("@trade_profile_name", System.Data.SqlDbType.VarChar, 50)});
+            // 
             // UpdateTradeProfileForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(459, 272);
-            this.Controls.Add(this.btnDeleteTradeProfile);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.btnAddTradeProfile);
+            this.Controls.Add(this.btnUpdateTradeProfile);
             this.Controls.Add(this.tradeProfileNameTextBox);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "UpdateTradeProfileForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UpdateTradeProfileForm";
+            this.Load += new System.EventHandler(this.UpdateTradeProfileForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnDeleteTradeProfile;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnAddTradeProfile;
+        private System.Windows.Forms.Button btnUpdateTradeProfile;
         private System.Windows.Forms.TextBox tradeProfileNameTextBox;
         private System.Windows.Forms.Label label1;
+        private System.Data.SqlClient.SqlConnection sqlConnection;
+        private System.Data.SqlClient.SqlCommand sqlCmdProcUpdateTradeProfile;
     }
 }
