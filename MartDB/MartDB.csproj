@@ -70,17 +70,23 @@
     <Compile Include="AddEmployeeForm.Designer.cs">
       <DependentUpon>AddEmployeeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DeleteTradeProfileForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeleteTradeProfileForm.Designer.cs">
+      <DependentUpon>DeleteTradeProfileForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="HandleOutletForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="HandleOutletForm.Designer.cs">
       <DependentUpon>HandleOutletForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="HandleTradeProfileForm.cs">
+    <Compile Include="AddTradeProfileForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="HandleTradeProfileForm.Designer.cs">
-      <DependentUpon>HandleTradeProfileForm.cs</DependentUpon>
+    <Compile Include="AddTradeProfileForm.Designer.cs">
+      <DependentUpon>AddTradeProfileForm.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
@@ -125,6 +131,12 @@
     <Compile Include="UpdateReviewForm.Designer.cs">
       <DependentUpon>UpdateReviewForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UpdateTradeProfileForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateTradeProfileForm.Designer.cs">
+      <DependentUpon>UpdateTradeProfileForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserData.cs" />
     <EmbeddedResource Include="AddReviewForm.resx">
       <DependentUpon>AddReviewForm.cs</DependentUpon>
@@ -138,11 +150,14 @@
     <EmbeddedResource Include="AddEmployeeForm.resx">
       <DependentUpon>AddEmployeeForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DeleteTradeProfileForm.resx">
+      <DependentUpon>DeleteTradeProfileForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HandleOutletForm.resx">
       <DependentUpon>HandleOutletForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HandleTradeProfileForm.resx">
-      <DependentUpon>HandleTradeProfileForm.cs</DependentUpon>
+    <EmbeddedResource Include="AddTradeProfileForm.resx">
+      <DependentUpon>AddTradeProfileForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -170,6 +185,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateReviewForm.resx">
       <DependentUpon>UpdateReviewForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateTradeProfileForm.resx">
+      <DependentUpon>UpdateTradeProfileForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="MartDBDataSet.xsc">
       <DependentUpon>MartDBDataSet.xsd</DependentUpon>

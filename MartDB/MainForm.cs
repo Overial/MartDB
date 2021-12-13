@@ -1040,7 +1040,10 @@ namespace MartDB
             sqlConnection.Open();
 
             // Create query
-            string selectQuery = "SELECT trade_profile_name FROM TradeProfile";
+            string selectQuery = "SELECT " +
+                                     "trade_profile_id," +
+                                     "trade_profile_name AS [Название торгового профиля] " +
+                                 "FROM TradeProfile";
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(selectQuery, sqlConnection);
 
             // Set command builder
@@ -1051,8 +1054,8 @@ namespace MartDB
             sqlDataAdapter.Fill(dataSet);
 
             // Fill DGV
-            this.dgvTradeProfile.ReadOnly = true;
             this.dgvTradeProfile.DataSource = dataSet.Tables[0];
+            this.dgvTradeProfile.Columns[0].Visible = false;
         }
 
         private void btnTradeProfileSearch_Click(object sender, EventArgs e)
@@ -1074,7 +1077,7 @@ namespace MartDB
                 // Filter area square data
                 foreach (DataGridViewRow row in this.dgvTradeProfile.Rows)
                 {
-                    if (row.Cells[0].Value.ToString().Contains(query))
+                    if (row.Cells[1].Value.ToString().Contains(query))
                     {
                         this.dgvTradeProfile.Rows[row.Index].Visible = true;
                     }
@@ -1099,7 +1102,7 @@ namespace MartDB
         private void btnTradeProfileSort_Click(object sender, EventArgs e)
         {
             // Col to sort
-            DataGridViewColumn col = this.dgvTradeProfile.Columns[0];
+            DataGridViewColumn col = this.dgvTradeProfile.Columns[1];
 
             // Get selected choice for sorting
             if (this.ascTradeProfileRadioButton.Checked)
@@ -1112,10 +1115,16 @@ namespace MartDB
             }
         }
 
-        private void btnHandleTradeProfileForm_Click(object sender, EventArgs e)
+        private void btnAddTradeProfileForm_Click(object sender, EventArgs e)
         {
-            Form form = new HandleTradeProfileForm();
-            form.Show();
+            Form addTradeProfileForm = new AddTradeProfileForm();
+            addTradeProfileForm.FormClosed += new FormClosedEventHandler(this.handleTradeProfileForms_FormClosed);
+            addTradeProfileForm.Show();
+        }
+
+        private void handleTradeProfileForms_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            FillTradeProfilesDGV();
         }
 
         ////// Outlet panel //////

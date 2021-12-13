@@ -99,7 +99,7 @@ namespace MartDB
             this.dgvEmployee = new System.Windows.Forms.DataGridView();
             this.employeePanelLabel = new System.Windows.Forms.Label();
             this.panelTradeProfile = new System.Windows.Forms.Panel();
-            this.btnHandleTradeProfileForm = new System.Windows.Forms.Button();
+            this.btnAddTradeProfileForm = new System.Windows.Forms.Button();
             this.tradeProfileSortGroupBox = new System.Windows.Forms.GroupBox();
             this.btnTradeProfileSort = new System.Windows.Forms.Button();
             this.descTradeProfileRadioButton = new System.Windows.Forms.RadioButton();
@@ -154,6 +154,8 @@ namespace MartDB
             this.areaPanelLabel = new System.Windows.Forms.Label();
             this.sqlConnection = new System.Data.SqlClient.SqlConnection();
             this.sqlCmdDeleteEmployee = new System.Data.SqlClient.SqlCommand();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.panelBooking.SuspendLayout();
             this.bookingSearchDateGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBooking)).BeginInit();
@@ -468,7 +470,7 @@ namespace MartDB
             this.menuToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(983, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(983, 30);
             this.menuStrip1.TabIndex = 12;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -482,7 +484,7 @@ namespace MartDB
             this.tradeProfileToolStripMenuItem,
             this.outletToolStripMenuItem});
             this.panelsToolStripMenuItem.Name = "panelsToolStripMenuItem";
-            this.panelsToolStripMenuItem.Size = new System.Drawing.Size(93, 24);
+            this.panelsToolStripMenuItem.Size = new System.Drawing.Size(93, 26);
             this.panelsToolStripMenuItem.Text = "Страницы";
             // 
             // mainToolStripMenuItem
@@ -532,7 +534,7 @@ namespace MartDB
             this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aboutToolStripMenuItem});
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
-            this.menuToolStripMenuItem.Size = new System.Drawing.Size(65, 24);
+            this.menuToolStripMenuItem.Size = new System.Drawing.Size(65, 26);
             this.menuToolStripMenuItem.Text = "Меню";
             // 
             // aboutToolStripMenuItem
@@ -912,7 +914,9 @@ namespace MartDB
             // panelTradeProfile
             // 
             this.panelTradeProfile.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelTradeProfile.Controls.Add(this.btnHandleTradeProfileForm);
+            this.panelTradeProfile.Controls.Add(this.button2);
+            this.panelTradeProfile.Controls.Add(this.button1);
+            this.panelTradeProfile.Controls.Add(this.btnAddTradeProfileForm);
             this.panelTradeProfile.Controls.Add(this.tradeProfileSortGroupBox);
             this.panelTradeProfile.Controls.Add(this.btnTradeProfileShowAll);
             this.panelTradeProfile.Controls.Add(this.tradeProfileSearchGroupBox);
@@ -923,15 +927,15 @@ namespace MartDB
             this.panelTradeProfile.Size = new System.Drawing.Size(948, 479);
             this.panelTradeProfile.TabIndex = 15;
             // 
-            // btnHandleTradeProfileForm
+            // btnAddTradeProfileForm
             // 
-            this.btnHandleTradeProfileForm.Location = new System.Drawing.Point(392, 384);
-            this.btnHandleTradeProfileForm.Name = "btnHandleTradeProfileForm";
-            this.btnHandleTradeProfileForm.Size = new System.Drawing.Size(208, 60);
-            this.btnHandleTradeProfileForm.TabIndex = 14;
-            this.btnHandleTradeProfileForm.Text = "Управление торговыми профилями";
-            this.btnHandleTradeProfileForm.UseVisualStyleBackColor = true;
-            this.btnHandleTradeProfileForm.Click += new System.EventHandler(this.btnHandleTradeProfileForm_Click);
+            this.btnAddTradeProfileForm.Location = new System.Drawing.Point(311, 393);
+            this.btnAddTradeProfileForm.Name = "btnAddTradeProfileForm";
+            this.btnAddTradeProfileForm.Size = new System.Drawing.Size(160, 60);
+            this.btnAddTradeProfileForm.TabIndex = 14;
+            this.btnAddTradeProfileForm.Text = "Добавить торговый профиль";
+            this.btnAddTradeProfileForm.UseVisualStyleBackColor = true;
+            this.btnAddTradeProfileForm.Click += new System.EventHandler(this.btnAddTradeProfileForm_Click);
             // 
             // tradeProfileSortGroupBox
             // 
@@ -1031,12 +1035,12 @@ namespace MartDB
             this.dgvTradeProfile.AllowUserToDeleteRows = false;
             this.dgvTradeProfile.AllowUserToOrderColumns = true;
             this.dgvTradeProfile.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTradeProfile.Location = new System.Drawing.Point(352, 43);
+            this.dgvTradeProfile.Location = new System.Drawing.Point(311, 43);
             this.dgvTradeProfile.Name = "dgvTradeProfile";
             this.dgvTradeProfile.ReadOnly = true;
             this.dgvTradeProfile.RowHeadersWidth = 51;
             this.dgvTradeProfile.RowTemplate.Height = 24;
-            this.dgvTradeProfile.Size = new System.Drawing.Size(578, 318);
+            this.dgvTradeProfile.Size = new System.Drawing.Size(619, 335);
             this.dgvTradeProfile.TabIndex = 22;
             // 
             // tradeProfilePanelLabel
@@ -1514,17 +1518,35 @@ namespace MartDB
             new System.Data.SqlClient.SqlParameter("@phone_number", System.Data.SqlDbType.VarChar, 50),
             new System.Data.SqlClient.SqlParameter("@email", System.Data.SqlDbType.VarChar, 50)});
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(551, 393);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(160, 60);
+            this.button1.TabIndex = 25;
+            this.button1.Text = "Управление торговыми профилями";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(770, 394);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(160, 60);
+            this.button2.TabIndex = 26;
+            this.button2.Text = "Управление торговыми профилями";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(983, 605);
+            this.Controls.Add(this.panelTradeProfile);
             this.Controls.Add(this.panelEmployee);
             this.Controls.Add(this.panelBooking);
             this.Controls.Add(this.panelArea);
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.panelOutlet);
-            this.Controls.Add(this.panelTradeProfile);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
@@ -1638,7 +1660,7 @@ namespace MartDB
         private System.Windows.Forms.Label employeeSortLabel;
         private System.Windows.Forms.Button btnAddEmployeeForm;
         private System.Windows.Forms.Panel panelTradeProfile;
-        private System.Windows.Forms.Button btnHandleTradeProfileForm;
+        private System.Windows.Forms.Button btnAddTradeProfileForm;
         private System.Windows.Forms.GroupBox tradeProfileSortGroupBox;
         private System.Windows.Forms.Button btnTradeProfileSort;
         private System.Windows.Forms.RadioButton descTradeProfileRadioButton;
@@ -1710,5 +1732,7 @@ namespace MartDB
         private System.Windows.Forms.Button btnDeleteEmployee;
         private System.Windows.Forms.Button btnUpdateEmployee;
         private System.Data.SqlClient.SqlCommand sqlCmdDeleteEmployee;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
     }
 }
