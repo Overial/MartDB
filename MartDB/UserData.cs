@@ -10,20 +10,10 @@ namespace MartDB
     static class UserData
     {
         // Debugging
-        public static string UserName = "admin";
-        public static string UserRole = "admin";
+        //public static string UserName = "admin";
+        //public static string UserRole = "admin";
 
-        static void SetCurrentOrgId()
-        {
-            // Establish connection
-            //SqlConnection sqlConnection = new SqlConnection();
-            //sqlConnection.ConnectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=MartDB;Integrated Security=True";
-            //sqlConnection.Open();
-
-            //SqlCommand sqlCmdGetCurrentOrgId = new SqlCommand();
-            //sqlCmdGetCurrentOrgId.Connection = sqlConnection;
-            //sqlCmdGetCurrentOrgId.CommandType = System.Data.CommandType.Text;
-            //SqlParameter orgName = new SqlParameter("@org_name", SqlDbType.Int);
-        }
+        public static string UserName = "org";
+        public static string UserRole = "organisation";
     }
 }

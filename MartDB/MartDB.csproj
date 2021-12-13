@@ -76,11 +76,11 @@
     <Compile Include="DeleteTradeProfileForm.Designer.cs">
       <DependentUpon>DeleteTradeProfileForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="HandleOutletForm.cs">
+    <Compile Include="UpdateOutletForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="HandleOutletForm.Designer.cs">
-      <DependentUpon>HandleOutletForm.cs</DependentUpon>
+    <Compile Include="UpdateOutletForm.Designer.cs">
+      <DependentUpon>UpdateOutletForm.cs</DependentUpon>
     </Compile>
     <Compile Include="AddTradeProfileForm.cs">
       <SubType>Form</SubType>
@@ -153,8 +153,8 @@
     <EmbeddedResource Include="DeleteTradeProfileForm.resx">
       <DependentUpon>DeleteTradeProfileForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HandleOutletForm.resx">
-      <DependentUpon>HandleOutletForm.cs</DependentUpon>
+    <EmbeddedResource Include="UpdateOutletForm.resx">
+      <DependentUpon>UpdateOutletForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddTradeProfileForm.resx">
       <DependentUpon>AddTradeProfileForm.cs</DependentUpon>

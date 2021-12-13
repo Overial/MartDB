@@ -1206,6 +1206,7 @@ namespace MartDB
 
             // Create query
             string selectQuery = "SELECT " +
+                                     "Outlet.outlet_id," +
                                      "Organisation.org_name AS [Организация]," +
                                      "Outlet.area_id AS [Код помещения]," +
                                      "Outlet.outlet_name AS [Название торговой точки]," +
@@ -1217,16 +1218,13 @@ namespace MartDB
                                  "JOIN Organisation ON Outlet.org_id = Organisation.org_id";
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(selectQuery, sqlConnection);
 
-            // Set command builder
-            // SqlCommandBuilder commandBuilder = new SqlCommandBuilder(sqlDataAdapter);
-
             // Fill data set
             DataSet dataSet = new DataSet();
             sqlDataAdapter.Fill(dataSet);
 
             // Fill DGV
-            this.dgvOutlet.ReadOnly = true;
             this.dgvOutlet.DataSource = dataSet.Tables[0];
+            this.dgvOutlet.Columns[0].Visible = false;
         }
 
         private void btnOutletSearch_Click(object sender, EventArgs e)
@@ -1295,27 +1293,24 @@ namespace MartDB
             switch (this.outletSortColsListBox.SelectedIndex)
             {
                 case 0:
-                    col = this.dgvOutlet.Columns[0];
-                    break;
-                case 1:
                     col = this.dgvOutlet.Columns[1];
                     break;
-                case 2:
+                case 1:
                     col = this.dgvOutlet.Columns[2];
                     break;
-                case 3:
+                case 2:
                     col = this.dgvOutlet.Columns[3];
                     break;
-                case 4:
+                case 3:
                     col = this.dgvOutlet.Columns[4];
                     break;
-                case 5:
+                case 4:
                     col = this.dgvOutlet.Columns[5];
                     break;
-                case 6:
+                case 5:
                     col = this.dgvOutlet.Columns[6];
                     break;
-                case 7:
+                case 6:
                     col = this.dgvOutlet.Columns[7];
                     break;
                 default:
@@ -1333,10 +1328,44 @@ namespace MartDB
             }
         }
 
-        private void btnHandleOutletForm_Click(object sender, EventArgs e)
+        private void btnUpdateOutletForm_Click(object sender, EventArgs e)
         {
-            Form form = new HandleOutletForm();
-            form.Show();
+            if (this.dgvOutlet.SelectedCells.Count > 1)
+            {
+                MessageBox.Show("За раз можно изменить данные только одной торговой точки!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (this.dgvOutlet.SelectedCells.Count == 1)
+            {
+                int rowIndex = this.dgvOutlet.SelectedCells[0].RowIndex;
+
+                if ((UserData.UserRole == "organisation" &&
+                    this.dgvOutlet.Rows[rowIndex].Cells[1].Value.ToString() == UserData.UserName) ||
+                    UserData.UserRole == "admin")
+                {
+                    string outletId = this.dgvOutlet.Rows[rowIndex].Cells[0].Value.ToString();
+                    string orgName = this.dgvOutlet.Rows[rowIndex].Cells[1].Value.ToString();
+                    string areaId = this.dgvOutlet.Rows[rowIndex].Cells[2].Value.ToString();
+                    string outletName = this.dgvOutlet.Rows[rowIndex].Cells[3].Value.ToString();
+                    string tradeProfileName = this.dgvOutlet.Rows[rowIndex].Cells[4].Value.ToString();
+                    string timetable = this.dgvOutlet.Rows[rowIndex].Cells[5].Value.ToString();
+                    string rating = this.dgvOutlet.Rows[rowIndex].Cells[6].Value.ToString();
+                    string contact_person = this.dgvOutlet.Rows[rowIndex].Cells[7].Value.ToString();
+
+                    // Pass data to UpdateBookingForm
+                    Form updateOutletForm = new UpdateOutletForm(outletId, orgName, areaId, outletName, tradeProfileName, timetable, rating, contact_person);
+                    updateOutletForm.FormClosed += new FormClosedEventHandler(this.handleOutletForms_FormClosed);
+                    updateOutletForm.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Выбран чужая торговая точка!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void handleOutletForms_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            FillOutletsDGV();
         }
     }
 }

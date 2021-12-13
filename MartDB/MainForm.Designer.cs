@@ -114,7 +114,7 @@ namespace MartDB
             this.dgvTradeProfile = new System.Windows.Forms.DataGridView();
             this.tradeProfilePanelLabel = new System.Windows.Forms.Label();
             this.panelOutlet = new System.Windows.Forms.Panel();
-            this.btnHandleOutletForm = new System.Windows.Forms.Button();
+            this.btnUpdateOutletForm = new System.Windows.Forms.Button();
             this.outletSortGroupBox = new System.Windows.Forms.GroupBox();
             this.outletSortColsListBox = new System.Windows.Forms.ListBox();
             this.btnOutletSort = new System.Windows.Forms.Button();
@@ -1077,7 +1077,7 @@ namespace MartDB
             // panelOutlet
             // 
             this.panelOutlet.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelOutlet.Controls.Add(this.btnHandleOutletForm);
+            this.panelOutlet.Controls.Add(this.btnUpdateOutletForm);
             this.panelOutlet.Controls.Add(this.outletSortGroupBox);
             this.panelOutlet.Controls.Add(this.btnOutletShowAll);
             this.panelOutlet.Controls.Add(this.outletSearchGroupBox);
@@ -1088,15 +1088,15 @@ namespace MartDB
             this.panelOutlet.Size = new System.Drawing.Size(948, 479);
             this.panelOutlet.TabIndex = 16;
             // 
-            // btnHandleOutletForm
+            // btnUpdateOutletForm
             // 
-            this.btnHandleOutletForm.Location = new System.Drawing.Point(401, 397);
-            this.btnHandleOutletForm.Name = "btnHandleOutletForm";
-            this.btnHandleOutletForm.Size = new System.Drawing.Size(208, 60);
-            this.btnHandleOutletForm.TabIndex = 14;
-            this.btnHandleOutletForm.Text = "Управление торговыми точками";
-            this.btnHandleOutletForm.UseVisualStyleBackColor = true;
-            this.btnHandleOutletForm.Click += new System.EventHandler(this.btnHandleOutletForm_Click);
+            this.btnUpdateOutletForm.Location = new System.Drawing.Point(539, 384);
+            this.btnUpdateOutletForm.Name = "btnUpdateOutletForm";
+            this.btnUpdateOutletForm.Size = new System.Drawing.Size(208, 60);
+            this.btnUpdateOutletForm.TabIndex = 14;
+            this.btnUpdateOutletForm.Text = "Обновить торговую точку";
+            this.btnUpdateOutletForm.UseVisualStyleBackColor = true;
+            this.btnUpdateOutletForm.Click += new System.EventHandler(this.btnUpdateOutletForm_Click);
             // 
             // outletSortGroupBox
             // 
@@ -1552,12 +1552,12 @@ namespace MartDB
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(983, 605);
+            this.Controls.Add(this.panelOutlet);
             this.Controls.Add(this.panelTradeProfile);
             this.Controls.Add(this.panelEmployee);
             this.Controls.Add(this.panelBooking);
             this.Controls.Add(this.panelArea);
             this.Controls.Add(this.panelMain);
-            this.Controls.Add(this.panelOutlet);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
@@ -1686,7 +1686,7 @@ namespace MartDB
         private System.Windows.Forms.ToolStripMenuItem tradeProfileToolStripMenuItem;
         private System.Windows.Forms.Button btnPanelTradeProfile;
         private System.Windows.Forms.Panel panelOutlet;
-        private System.Windows.Forms.Button btnHandleOutletForm;
+        private System.Windows.Forms.Button btnUpdateOutletForm;
         private System.Windows.Forms.GroupBox outletSortGroupBox;
         private System.Windows.Forms.ListBox outletSortColsListBox;
         private System.Windows.Forms.Button btnOutletSort;

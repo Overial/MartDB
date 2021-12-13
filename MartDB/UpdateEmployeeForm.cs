@@ -13,13 +13,13 @@ namespace MartDB
 {
     public partial class UpdateEmployeeForm : Form
     {
-        string _employeeId = "";
-        string _orgName = "";
-        string _fio = "";
-        string _gender = "";
-        string _position = "";
-        string _phoneNumber = "";
-        string _email = "";
+        private string _employeeId = "";
+        private string _orgName = "";
+        private string _fio = "";
+        private string _gender = "";
+        private string _position = "";
+        private string _phoneNumber = "";
+        private string _email = "";
 
         public UpdateEmployeeForm(string employeeId, string orgName, string fio, string gender, string position, string phoneNumber, string email)
         {
