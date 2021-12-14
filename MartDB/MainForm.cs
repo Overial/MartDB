@@ -1375,5 +1375,52 @@ namespace MartDB
         {
             FillOutletsDGV();
         }
+
+        private void btnDeleteOutlet_Click(object sender, EventArgs e)
+        {
+            if (this.dgvOutlet.SelectedCells.Count > 1)
+            {
+                MessageBox.Show("За раз можно удалить данные только одной торговой точки!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (this.dgvOutlet.SelectedCells.Count == 1)
+            {
+                int rowIndex = this.dgvOutlet.SelectedCells[0].RowIndex;
+
+                // Open DB connection
+                sqlConnection.Open();
+
+                // Initialize params
+                try
+                {
+                    sqlCmdProcDeleteOutlet.Parameters["@outlet_id"].Value = this.dgvOutlet.Rows[rowIndex].Cells[0].Value.ToString();
+
+                    // Call proc
+                    int iAffectedRowsCount = sqlCmdProcDeleteOutlet.ExecuteNonQuery();
+
+                    // Show corresponding information
+                    if (iAffectedRowsCount == 0)
+                    {
+                        MessageBox.Show("Удаление данных завершилось с ошибкой!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Данные успешно удалены!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        FillOutletsDGV();
+                    }
+                }
+                catch (FormatException)
+                {
+                    MessageBox.Show("Введены некорректные значения!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (SqlException)
+                {
+                    MessageBox.Show("Удаление данных завершилось с ошибкой!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                // Close DB connection
+                sqlConnection.Close();
+            }
+        }
     }
 }

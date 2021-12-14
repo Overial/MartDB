@@ -158,7 +158,8 @@ namespace MartDB
             this.sqlCmdProcDeleteEmployee = new System.Data.SqlClient.SqlCommand();
             this.sqlCmdProcDeleteTradeProfile = new System.Data.SqlClient.SqlCommand();
             this.btnAddOutletForm = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnDeleteOutlet = new System.Windows.Forms.Button();
+            this.sqlCmdProcDeleteOutlet = new System.Data.SqlClient.SqlCommand();
             this.panelBooking.SuspendLayout();
             this.bookingSearchDateGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBooking)).BeginInit();
@@ -1079,7 +1080,7 @@ namespace MartDB
             // panelOutlet
             // 
             this.panelOutlet.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelOutlet.Controls.Add(this.button2);
+            this.panelOutlet.Controls.Add(this.btnDeleteOutlet);
             this.panelOutlet.Controls.Add(this.btnAddOutletForm);
             this.panelOutlet.Controls.Add(this.btnUpdateOutletForm);
             this.panelOutlet.Controls.Add(this.outletSortGroupBox);
@@ -1561,14 +1562,23 @@ namespace MartDB
             this.btnAddOutletForm.UseVisualStyleBackColor = true;
             this.btnAddOutletForm.Click += new System.EventHandler(this.btnAddOutletForm_Click);
             // 
-            // button2
+            // btnDeleteOutlet
             // 
-            this.button2.Location = new System.Drawing.Point(776, 384);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(154, 60);
-            this.button2.TabIndex = 26;
-            this.button2.Text = "Обновить торговую точку";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnDeleteOutlet.Location = new System.Drawing.Point(776, 384);
+            this.btnDeleteOutlet.Name = "btnDeleteOutlet";
+            this.btnDeleteOutlet.Size = new System.Drawing.Size(154, 60);
+            this.btnDeleteOutlet.TabIndex = 26;
+            this.btnDeleteOutlet.Text = "Удалить торговую точку";
+            this.btnDeleteOutlet.UseVisualStyleBackColor = true;
+            this.btnDeleteOutlet.Click += new System.EventHandler(this.btnDeleteOutlet_Click);
+            // 
+            // sqlCmdProcDeleteOutlet
+            // 
+            this.sqlCmdProcDeleteOutlet.CommandText = "ProcDeleteOutlet";
+            this.sqlCmdProcDeleteOutlet.CommandType = System.Data.CommandType.StoredProcedure;
+            this.sqlCmdProcDeleteOutlet.Connection = this.sqlConnection;
+            this.sqlCmdProcDeleteOutlet.Parameters.AddRange(new System.Data.SqlClient.SqlParameter[] {
+            new System.Data.SqlClient.SqlParameter("@outlet_id", System.Data.SqlDbType.Int)});
             // 
             // MainForm
             // 
@@ -1769,7 +1779,8 @@ namespace MartDB
         private System.Windows.Forms.Button btnDeleteTradeProfile;
         private System.Windows.Forms.Button btnUpdateTradeProfileForm;
         private System.Data.SqlClient.SqlCommand sqlCmdProcDeleteTradeProfile;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnDeleteOutlet;
         private System.Windows.Forms.Button btnAddOutletForm;
+        private System.Data.SqlClient.SqlCommand sqlCmdProcDeleteOutlet;
     }
 }
