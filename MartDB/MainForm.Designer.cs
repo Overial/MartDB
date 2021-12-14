@@ -63,6 +63,7 @@ namespace MartDB
             this.employeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tradeProfileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.outletToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.orgToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelMainLabel = new System.Windows.Forms.Label();
@@ -70,6 +71,7 @@ namespace MartDB
             this.btnPanelMain = new System.Windows.Forms.Button();
             this.btnPreviousPanel = new System.Windows.Forms.Button();
             this.panelMain = new System.Windows.Forms.Panel();
+            this.btnPanelOrg = new System.Windows.Forms.Button();
             this.btnPanelArea = new System.Windows.Forms.Button();
             this.panelUser = new System.Windows.Forms.Panel();
             this.currentUserNameLabel = new System.Windows.Forms.Label();
@@ -161,7 +163,6 @@ namespace MartDB
             this.sqlCmdProcDeleteTradeProfile = new System.Data.SqlClient.SqlCommand();
             this.sqlCmdProcDeleteOutlet = new System.Data.SqlClient.SqlCommand();
             this.sqlCmdProcUpdateOutletRating = new System.Data.SqlClient.SqlCommand();
-            this.btnPanelOrg = new System.Windows.Forms.Button();
             this.panelOrg = new System.Windows.Forms.Panel();
             this.btnDeleteOrg = new System.Windows.Forms.Button();
             this.btnAddOrgForm = new System.Windows.Forms.Button();
@@ -181,7 +182,6 @@ namespace MartDB
             this.btnOrgSearch = new System.Windows.Forms.Button();
             this.dgvOrg = new System.Windows.Forms.DataGridView();
             this.orgPanelLabel = new System.Windows.Forms.Label();
-            this.orgToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sqlCmdProcDeleteOrg = new System.Data.SqlClient.SqlCommand();
             this.panelBooking.SuspendLayout();
             this.bookingSearchDateGroupBox.SuspendLayout();
@@ -501,7 +501,7 @@ namespace MartDB
             this.menuToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(983, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(983, 28);
             this.menuStrip1.TabIndex = 12;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -516,7 +516,7 @@ namespace MartDB
             this.outletToolStripMenuItem,
             this.orgToolStripMenuItem});
             this.panelsToolStripMenuItem.Name = "panelsToolStripMenuItem";
-            this.panelsToolStripMenuItem.Size = new System.Drawing.Size(93, 26);
+            this.panelsToolStripMenuItem.Size = new System.Drawing.Size(93, 24);
             this.panelsToolStripMenuItem.Text = "Страницы";
             // 
             // mainToolStripMenuItem
@@ -561,18 +561,25 @@ namespace MartDB
             this.outletToolStripMenuItem.Text = "Панель управления \"Торговые точки\"";
             this.outletToolStripMenuItem.Click += new System.EventHandler(this.outletPanelToolStripMenuItem_Click);
             // 
+            // orgToolStripMenuItem
+            // 
+            this.orgToolStripMenuItem.Name = "orgToolStripMenuItem";
+            this.orgToolStripMenuItem.Size = new System.Drawing.Size(410, 26);
+            this.orgToolStripMenuItem.Text = "Панель управления \"Организации\"";
+            this.orgToolStripMenuItem.Click += new System.EventHandler(this.orgToolStripMenuItem_Click);
+            // 
             // menuToolStripMenuItem
             // 
             this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aboutToolStripMenuItem});
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
-            this.menuToolStripMenuItem.Size = new System.Drawing.Size(65, 26);
+            this.menuToolStripMenuItem.Size = new System.Drawing.Size(65, 24);
             this.menuToolStripMenuItem.Text = "Меню";
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(187, 26);
             this.aboutToolStripMenuItem.Text = "О программе";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -634,6 +641,16 @@ namespace MartDB
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(948, 560);
             this.panelMain.TabIndex = 13;
+            // 
+            // btnPanelOrg
+            // 
+            this.btnPanelOrg.Location = new System.Drawing.Point(256, 484);
+            this.btnPanelOrg.Name = "btnPanelOrg";
+            this.btnPanelOrg.Size = new System.Drawing.Size(412, 60);
+            this.btnPanelOrg.TabIndex = 22;
+            this.btnPanelOrg.Text = "Панель управления: \"Организации\"";
+            this.btnPanelOrg.UseVisualStyleBackColor = true;
+            this.btnPanelOrg.Click += new System.EventHandler(this.btnPanelOrganisation_Click);
             // 
             // btnPanelArea
             // 
@@ -1603,7 +1620,7 @@ namespace MartDB
             this.sqlCmdProcDeleteTradeProfile.CommandType = System.Data.CommandType.StoredProcedure;
             this.sqlCmdProcDeleteTradeProfile.Connection = this.sqlConnection;
             this.sqlCmdProcDeleteTradeProfile.Parameters.AddRange(new System.Data.SqlClient.SqlParameter[] {
-            new System.Data.SqlClient.SqlParameter("@trade_profile_name", System.Data.SqlDbType.VarChar, 50)});
+            new System.Data.SqlClient.SqlParameter("@trade_profile_id", System.Data.SqlDbType.Int)});
             // 
             // sqlCmdProcDeleteOutlet
             // 
@@ -1620,16 +1637,6 @@ namespace MartDB
             this.sqlCmdProcUpdateOutletRating.Connection = this.sqlConnection;
             this.sqlCmdProcUpdateOutletRating.Parameters.AddRange(new System.Data.SqlClient.SqlParameter[] {
             new System.Data.SqlClient.SqlParameter("@outlet_name", System.Data.SqlDbType.VarChar, 50)});
-            // 
-            // btnPanelOrg
-            // 
-            this.btnPanelOrg.Location = new System.Drawing.Point(256, 484);
-            this.btnPanelOrg.Name = "btnPanelOrg";
-            this.btnPanelOrg.Size = new System.Drawing.Size(412, 60);
-            this.btnPanelOrg.TabIndex = 22;
-            this.btnPanelOrg.Text = "Панель управления: \"Организации\"";
-            this.btnPanelOrg.UseVisualStyleBackColor = true;
-            this.btnPanelOrg.Click += new System.EventHandler(this.btnPanelOrganisation_Click);
             // 
             // panelOrg
             // 
@@ -1850,13 +1857,6 @@ namespace MartDB
             this.orgPanelLabel.Size = new System.Drawing.Size(353, 28);
             this.orgPanelLabel.TabIndex = 29;
             this.orgPanelLabel.Text = "Панель управления: \"Организации\"";
-            // 
-            // orgToolStripMenuItem
-            // 
-            this.orgToolStripMenuItem.Name = "orgToolStripMenuItem";
-            this.orgToolStripMenuItem.Size = new System.Drawing.Size(410, 26);
-            this.orgToolStripMenuItem.Text = "Панель управления \"Организации\"";
-            this.orgToolStripMenuItem.Click += new System.EventHandler(this.orgToolStripMenuItem_Click);
             // 
             // sqlCmdProcDeleteOrg
             // 

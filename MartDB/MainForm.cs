@@ -1236,7 +1236,7 @@ namespace MartDB
                 // Initialize params
                 try
                 {
-                    sqlCmdProcDeleteTradeProfile.Parameters["@trade_profile_name"].Value = this.dgvTradeProfile.Rows[rowIndex].Cells[1].Value.ToString();
+                    sqlCmdProcDeleteTradeProfile.Parameters["@trade_profile_id"].Value = this.dgvTradeProfile.Rows[rowIndex].Cells[0].Value.ToString();
 
                     // Call proc
                     int iAffectedRowsCount = sqlCmdProcDeleteTradeProfile.ExecuteNonQuery();
@@ -1244,7 +1244,7 @@ namespace MartDB
                     // Show corresponding information
                     if (iAffectedRowsCount == 0)
                     {
-                        MessageBox.Show("Удаление данных завершилось с ошибкой!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Удаление данных завершилось с ошибкой!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {
@@ -1255,11 +1255,22 @@ namespace MartDB
                 }
                 catch (FormatException)
                 {
-                    MessageBox.Show("Введены некорректные значения!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Введены некорректные значения!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 catch (SqlException)
                 {
-                    MessageBox.Show("Удаление данных завершилось с ошибкой!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Удаление данных завершилось с ошибкой!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    //StringBuilder errorMessages = new StringBuilder();
+                    //for (int i = 0; i < ex.Errors.Count; i++)
+                    //{
+                    //    errorMessages.Append("Index #" + i + "\n" +
+                    //        "Message: " + ex.Errors[i].Message + "\n" +
+                    //        "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+                    //        "Source: " + ex.Errors[i].Source + "\n" +
+                    //        "Procedure: " + ex.Errors[i].Procedure + "\n");
+                    //}
+                    //MessageBox.Show(errorMessages.ToString(), "Error");
                 }
 
                 // Close DB connection
@@ -1484,6 +1495,7 @@ namespace MartDB
                     {
                         MessageBox.Show("Данные успешно удалены!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                        UpdateAllOutletsRatings();
                         FillOutletsDGV();
                     }
                 }
@@ -1491,9 +1503,20 @@ namespace MartDB
                 {
                     MessageBox.Show("Введены некорректные значения!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                catch (SqlException)
+                catch (SqlException ex)
                 {
                     MessageBox.Show("Удаление данных завершилось с ошибкой!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    StringBuilder errorMessages = new StringBuilder();
+                    for (int i = 0; i < ex.Errors.Count; i++)
+                    {
+                        errorMessages.Append("Index #" + i + "\n" +
+                            "Message: " + ex.Errors[i].Message + "\n" +
+                            "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+                            "Source: " + ex.Errors[i].Source + "\n" +
+                            "Procedure: " + ex.Errors[i].Procedure + "\n");
+                    }
+                    MessageBox.Show(errorMessages.ToString(), "Error");
                 }
 
                 // Close DB connection
@@ -1504,7 +1527,10 @@ namespace MartDB
         private void UpdateOutletRating(string outletName)
         {
             // Open DB connection
-            this.sqlConnection.Open();
+            if (this.sqlConnection.State == ConnectionState.Closed)
+            {
+                this.sqlConnection.Open();
+            }
 
             // Call proc
             try
@@ -1518,7 +1544,7 @@ namespace MartDB
                 // Show corresponding information
                 if (iAffectedRowsCount == 0)
                 {
-                    MessageBox.Show("Обновление рейтингов завершилось с ошибкой!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    // MessageBox.Show("Обновление рейтингов завершилось с ошибкой!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
