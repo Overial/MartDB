@@ -1328,6 +1328,14 @@ namespace MartDB
             }
         }
 
+        private void btnAddOutletForm_Click(object sender, EventArgs e)
+        {
+            // Pass data to AddOutletForm
+            Form addOutletForm = new AddOutletForm();
+            addOutletForm.FormClosed += new FormClosedEventHandler(this.handleOutletForms_FormClosed);
+            addOutletForm.Show();
+        }
+
         private void btnUpdateOutletForm_Click(object sender, EventArgs e)
         {
             if (this.dgvOutlet.SelectedCells.Count > 1)

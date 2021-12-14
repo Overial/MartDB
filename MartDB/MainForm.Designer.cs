@@ -157,6 +157,8 @@ namespace MartDB
             this.sqlConnection = new System.Data.SqlClient.SqlConnection();
             this.sqlCmdProcDeleteEmployee = new System.Data.SqlClient.SqlCommand();
             this.sqlCmdProcDeleteTradeProfile = new System.Data.SqlClient.SqlCommand();
+            this.btnAddOutletForm = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.panelBooking.SuspendLayout();
             this.bookingSearchDateGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBooking)).BeginInit();
@@ -471,7 +473,7 @@ namespace MartDB
             this.menuToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(983, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(983, 30);
             this.menuStrip1.TabIndex = 12;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -485,7 +487,7 @@ namespace MartDB
             this.tradeProfileToolStripMenuItem,
             this.outletToolStripMenuItem});
             this.panelsToolStripMenuItem.Name = "panelsToolStripMenuItem";
-            this.panelsToolStripMenuItem.Size = new System.Drawing.Size(93, 24);
+            this.panelsToolStripMenuItem.Size = new System.Drawing.Size(93, 26);
             this.panelsToolStripMenuItem.Text = "Страницы";
             // 
             // mainToolStripMenuItem
@@ -535,7 +537,7 @@ namespace MartDB
             this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aboutToolStripMenuItem});
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
-            this.menuToolStripMenuItem.Size = new System.Drawing.Size(65, 24);
+            this.menuToolStripMenuItem.Size = new System.Drawing.Size(65, 26);
             this.menuToolStripMenuItem.Text = "Меню";
             // 
             // aboutToolStripMenuItem
@@ -549,7 +551,7 @@ namespace MartDB
             // 
             this.panelMainLabel.AutoSize = true;
             this.panelMainLabel.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.panelMainLabel.Location = new System.Drawing.Point(384, 101);
+            this.panelMainLabel.Location = new System.Drawing.Point(384, 78);
             this.panelMainLabel.Name = "panelMainLabel";
             this.panelMainLabel.Size = new System.Drawing.Size(149, 46);
             this.panelMainLabel.TabIndex = 0;
@@ -605,9 +607,9 @@ namespace MartDB
             // 
             // btnPanelArea
             // 
-            this.btnPanelArea.Location = new System.Drawing.Point(104, 256);
+            this.btnPanelArea.Location = new System.Drawing.Point(319, 173);
             this.btnPanelArea.Name = "btnPanelArea";
-            this.btnPanelArea.Size = new System.Drawing.Size(193, 83);
+            this.btnPanelArea.Size = new System.Drawing.Size(273, 46);
             this.btnPanelArea.TabIndex = 21;
             this.btnPanelArea.Text = "Панель управления: \"Доступные помещения\"";
             this.btnPanelArea.UseVisualStyleBackColor = true;
@@ -621,13 +623,13 @@ namespace MartDB
             this.panelUser.Controls.Add(this.currentUserRoleLabel);
             this.panelUser.Location = new System.Drawing.Point(-1, -1);
             this.panelUser.Name = "panelUser";
-            this.panelUser.Size = new System.Drawing.Size(324, 131);
+            this.panelUser.Size = new System.Drawing.Size(306, 125);
             this.panelUser.TabIndex = 20;
             // 
             // currentUserNameLabel
             // 
             this.currentUserNameLabel.AutoSize = true;
-            this.currentUserNameLabel.Location = new System.Drawing.Point(18, 21);
+            this.currentUserNameLabel.Location = new System.Drawing.Point(10, 9);
             this.currentUserNameLabel.Name = "currentUserNameLabel";
             this.currentUserNameLabel.Size = new System.Drawing.Size(165, 17);
             this.currentUserNameLabel.TabIndex = 17;
@@ -635,7 +637,7 @@ namespace MartDB
             // 
             // btnChangeUser
             // 
-            this.btnChangeUser.Location = new System.Drawing.Point(87, 72);
+            this.btnChangeUser.Location = new System.Drawing.Point(89, 66);
             this.btnChangeUser.Name = "btnChangeUser";
             this.btnChangeUser.Size = new System.Drawing.Size(124, 45);
             this.btnChangeUser.TabIndex = 19;
@@ -646,7 +648,7 @@ namespace MartDB
             // currentUserRoleLabel
             // 
             this.currentUserRoleLabel.AutoSize = true;
-            this.currentUserRoleLabel.Location = new System.Drawing.Point(18, 48);
+            this.currentUserRoleLabel.Location = new System.Drawing.Point(10, 36);
             this.currentUserRoleLabel.Name = "currentUserRoleLabel";
             this.currentUserRoleLabel.Size = new System.Drawing.Size(105, 17);
             this.currentUserRoleLabel.TabIndex = 18;
@@ -654,9 +656,9 @@ namespace MartDB
             // 
             // btnPanelBooking
             // 
-            this.btnPanelBooking.Location = new System.Drawing.Point(367, 167);
+            this.btnPanelBooking.Location = new System.Drawing.Point(319, 227);
             this.btnPanelBooking.Name = "btnPanelBooking";
-            this.btnPanelBooking.Size = new System.Drawing.Size(193, 83);
+            this.btnPanelBooking.Size = new System.Drawing.Size(273, 47);
             this.btnPanelBooking.TabIndex = 14;
             this.btnPanelBooking.Text = "Панель управления \"Аренда\"";
             this.btnPanelBooking.UseVisualStyleBackColor = true;
@@ -664,9 +666,9 @@ namespace MartDB
             // 
             // btnPanelOutlet
             // 
-            this.btnPanelOutlet.Location = new System.Drawing.Point(623, 256);
+            this.btnPanelOutlet.Location = new System.Drawing.Point(318, 386);
             this.btnPanelOutlet.Name = "btnPanelOutlet";
-            this.btnPanelOutlet.Size = new System.Drawing.Size(193, 83);
+            this.btnPanelOutlet.Size = new System.Drawing.Size(274, 46);
             this.btnPanelOutlet.TabIndex = 13;
             this.btnPanelOutlet.Text = "Панель управления \"Торговые точки\"";
             this.btnPanelOutlet.UseVisualStyleBackColor = true;
@@ -674,9 +676,9 @@ namespace MartDB
             // 
             // btnPanelTradeProfile
             // 
-            this.btnPanelTradeProfile.Location = new System.Drawing.Point(367, 345);
+            this.btnPanelTradeProfile.Location = new System.Drawing.Point(319, 332);
             this.btnPanelTradeProfile.Name = "btnPanelTradeProfile";
-            this.btnPanelTradeProfile.Size = new System.Drawing.Size(193, 83);
+            this.btnPanelTradeProfile.Size = new System.Drawing.Size(273, 46);
             this.btnPanelTradeProfile.TabIndex = 12;
             this.btnPanelTradeProfile.Text = "Панель управления \"Торговые профили\"";
             this.btnPanelTradeProfile.UseVisualStyleBackColor = true;
@@ -684,9 +686,9 @@ namespace MartDB
             // 
             // btnPanelEmployee
             // 
-            this.btnPanelEmployee.Location = new System.Drawing.Point(367, 256);
+            this.btnPanelEmployee.Location = new System.Drawing.Point(319, 280);
             this.btnPanelEmployee.Name = "btnPanelEmployee";
-            this.btnPanelEmployee.Size = new System.Drawing.Size(193, 83);
+            this.btnPanelEmployee.Size = new System.Drawing.Size(273, 46);
             this.btnPanelEmployee.TabIndex = 11;
             this.btnPanelEmployee.Text = "Панель управления \"Сотрудники\"";
             this.btnPanelEmployee.UseVisualStyleBackColor = true;
@@ -1077,6 +1079,8 @@ namespace MartDB
             // panelOutlet
             // 
             this.panelOutlet.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelOutlet.Controls.Add(this.button2);
+            this.panelOutlet.Controls.Add(this.btnAddOutletForm);
             this.panelOutlet.Controls.Add(this.btnUpdateOutletForm);
             this.panelOutlet.Controls.Add(this.outletSortGroupBox);
             this.panelOutlet.Controls.Add(this.btnOutletShowAll);
@@ -1090,9 +1094,9 @@ namespace MartDB
             // 
             // btnUpdateOutletForm
             // 
-            this.btnUpdateOutletForm.Location = new System.Drawing.Point(539, 384);
+            this.btnUpdateOutletForm.Location = new System.Drawing.Point(566, 384);
             this.btnUpdateOutletForm.Name = "btnUpdateOutletForm";
-            this.btnUpdateOutletForm.Size = new System.Drawing.Size(208, 60);
+            this.btnUpdateOutletForm.Size = new System.Drawing.Size(154, 60);
             this.btnUpdateOutletForm.TabIndex = 14;
             this.btnUpdateOutletForm.Text = "Обновить торговую точку";
             this.btnUpdateOutletForm.UseVisualStyleBackColor = true;
@@ -1547,17 +1551,36 @@ namespace MartDB
             this.sqlCmdProcDeleteTradeProfile.Parameters.AddRange(new System.Data.SqlClient.SqlParameter[] {
             new System.Data.SqlClient.SqlParameter("@trade_profile_name", System.Data.SqlDbType.VarChar, 50)});
             // 
+            // btnAddOutletForm
+            // 
+            this.btnAddOutletForm.Location = new System.Drawing.Point(352, 384);
+            this.btnAddOutletForm.Name = "btnAddOutletForm";
+            this.btnAddOutletForm.Size = new System.Drawing.Size(154, 60);
+            this.btnAddOutletForm.TabIndex = 25;
+            this.btnAddOutletForm.Text = "Добавить торговую точку";
+            this.btnAddOutletForm.UseVisualStyleBackColor = true;
+            this.btnAddOutletForm.Click += new System.EventHandler(this.btnAddOutletForm_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(776, 384);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(154, 60);
+            this.button2.TabIndex = 26;
+            this.button2.Text = "Обновить торговую точку";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(983, 605);
             this.Controls.Add(this.panelOutlet);
+            this.Controls.Add(this.panelMain);
             this.Controls.Add(this.panelTradeProfile);
             this.Controls.Add(this.panelEmployee);
             this.Controls.Add(this.panelBooking);
             this.Controls.Add(this.panelArea);
-            this.Controls.Add(this.panelMain);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
@@ -1746,5 +1769,7 @@ namespace MartDB
         private System.Windows.Forms.Button btnDeleteTradeProfile;
         private System.Windows.Forms.Button btnUpdateTradeProfileForm;
         private System.Data.SqlClient.SqlCommand sqlCmdProcDeleteTradeProfile;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnAddOutletForm;
     }
 }

@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddOutletForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddOutletForm.Designer.cs">
+      <DependentUpon>AddOutletForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddReviewForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,6 +144,9 @@
       <DependentUpon>UpdateTradeProfileForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UserData.cs" />
+    <EmbeddedResource Include="AddOutletForm.resx">
+      <DependentUpon>AddOutletForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddReviewForm.resx">
       <DependentUpon>AddReviewForm.cs</DependentUpon>
     </EmbeddedResource>

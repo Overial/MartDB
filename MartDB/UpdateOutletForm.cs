@@ -92,6 +92,16 @@ namespace MartDB
                 this.areaIdComboBox.DataSource = dt;
                 this.areaIdComboBox.DisplayMember = "area_id";
                 this.areaIdComboBox.ValueMember = "area_id";
+
+                // Fill combo box with all employees
+                DataTable dtCP = new DataTable();
+                string selectQueryCP = "SELECT Employee.fio FROM Employee";
+                SqlDataAdapter daCP = new SqlDataAdapter(selectQueryCP,
+                                                         this.sqlConnection);
+                daCP.Fill(dtCP);
+                this.contactPersonComboBox.DataSource = dtCP;
+                this.contactPersonComboBox.DisplayMember = "fio";
+                this.contactPersonComboBox.ValueMember = "fio";
             }
 
             sqlConnection.Close();
