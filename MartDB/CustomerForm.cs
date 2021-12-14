@@ -30,6 +30,7 @@ namespace MartDB
             this.currentUserLabel.Text = UserData.UserName + "!";
 
             // Fill outlet data grid view
+            UpdateAllOutletsRatings();
             FillOutletsDGV();
 
             // Fill review data grid view
@@ -80,8 +81,8 @@ namespace MartDB
 
             // Fill DGV
             this.dgvOutlet.DataSource = dataSet.Tables[0];
-            this.dgvOutlet.Columns[2].Width = 50;
-            this.dgvOutlet.Columns[4].Width = 50;
+            this.dgvOutlet.Columns[2].Width = 49;
+            this.dgvOutlet.Columns[4].Width = 49;
         }
 
         // Get info about reviews
@@ -118,7 +119,10 @@ namespace MartDB
         private void UpdateOutletRating(string outletName)
         {
             // Open DB connection
-            this.sqlConnection.Open();
+            if (this.sqlConnection.State == ConnectionState.Closed)
+            {
+                this.sqlConnection.Open();
+            }
 
             // Call proc
             try
@@ -132,7 +136,7 @@ namespace MartDB
                 // Show corresponding information
                 if (iAffectedRowsCount == 0)
                 {
-                    MessageBox.Show("Обновление рейтингов завершилось с ошибкой!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    // MessageBox.Show("Обновление рейтингов завершилось с ошибкой!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
@@ -325,6 +329,9 @@ namespace MartDB
         // Show all outlets
         private void btnOutletShowAll_Click(object sender, EventArgs e)
         {
+            UpdateAllOutletsRatings();
+            FillOutletsDGV();
+
             // Display every row
             foreach (DataGridViewRow row in this.dgvOutlet.Rows)
             {
@@ -465,6 +472,8 @@ namespace MartDB
                             MessageBox.Show("Данные успешно удалены!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                             // Update dgvReview in case of success
+                            UpdateAllOutletsRatings();
+                            FillOutletsDGV();
                             ViewSelectedOutletReviews();
                         }
                     }

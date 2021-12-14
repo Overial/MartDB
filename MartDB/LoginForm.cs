@@ -213,7 +213,7 @@ namespace MartDB
         {
             // Generate random username
             Random random = new Random();
-            int randomNumber = random.Next(0, 1000);
+            int randomNumber = random.Next(0, 100000);
             UserData.UserName = "guest" + randomNumber;
 
             // Set guest role as customer
