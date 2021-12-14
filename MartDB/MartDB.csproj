@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddOrgForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddOrgForm.Designer.cs">
+      <DependentUpon>AddOrgForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddOutletForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +87,12 @@
     </Compile>
     <Compile Include="DeleteTradeProfileForm.Designer.cs">
       <DependentUpon>DeleteTradeProfileForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateOrgForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateOrgForm.Designer.cs">
+      <DependentUpon>UpdateOrgForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UpdateOutletForm.cs">
       <SubType>Form</SubType>
@@ -144,6 +156,9 @@
       <DependentUpon>UpdateTradeProfileForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UserData.cs" />
+    <EmbeddedResource Include="AddOrgForm.resx">
+      <DependentUpon>AddOrgForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddOutletForm.resx">
       <DependentUpon>AddOutletForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -161,6 +176,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DeleteTradeProfileForm.resx">
       <DependentUpon>DeleteTradeProfileForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateOrgForm.resx">
+      <DependentUpon>UpdateOrgForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateOutletForm.resx">
       <DependentUpon>UpdateOutletForm.cs</DependentUpon>

@@ -114,6 +114,8 @@ namespace MartDB
             this.dgvTradeProfile = new System.Windows.Forms.DataGridView();
             this.tradeProfilePanelLabel = new System.Windows.Forms.Label();
             this.panelOutlet = new System.Windows.Forms.Panel();
+            this.btnDeleteOutlet = new System.Windows.Forms.Button();
+            this.btnAddOutletForm = new System.Windows.Forms.Button();
             this.btnUpdateOutletForm = new System.Windows.Forms.Button();
             this.outletSortGroupBox = new System.Windows.Forms.GroupBox();
             this.outletSortColsListBox = new System.Windows.Forms.ListBox();
@@ -157,10 +159,30 @@ namespace MartDB
             this.sqlConnection = new System.Data.SqlClient.SqlConnection();
             this.sqlCmdProcDeleteEmployee = new System.Data.SqlClient.SqlCommand();
             this.sqlCmdProcDeleteTradeProfile = new System.Data.SqlClient.SqlCommand();
-            this.btnAddOutletForm = new System.Windows.Forms.Button();
-            this.btnDeleteOutlet = new System.Windows.Forms.Button();
             this.sqlCmdProcDeleteOutlet = new System.Data.SqlClient.SqlCommand();
             this.sqlCmdProcUpdateOutletRating = new System.Data.SqlClient.SqlCommand();
+            this.btnPanelOrg = new System.Windows.Forms.Button();
+            this.panelOrg = new System.Windows.Forms.Panel();
+            this.btnDeleteOrg = new System.Windows.Forms.Button();
+            this.btnAddOrgForm = new System.Windows.Forms.Button();
+            this.btnUpdateOrgForm = new System.Windows.Forms.Button();
+            this.orgSortGroupBox = new System.Windows.Forms.GroupBox();
+            this.orgSortColsListBox = new System.Windows.Forms.ListBox();
+            this.btnOrgSort = new System.Windows.Forms.Button();
+            this.descOrgRadioButton = new System.Windows.Forms.RadioButton();
+            this.ascOrgRadioButton = new System.Windows.Forms.RadioButton();
+            this.orgSortLabel = new System.Windows.Forms.Label();
+            this.btnOrgShowAll = new System.Windows.Forms.Button();
+            this.orgSearchGroupBox = new System.Windows.Forms.GroupBox();
+            this.orgSearchQueryLabel = new System.Windows.Forms.Label();
+            this.orgSearchColsListBox = new System.Windows.Forms.ListBox();
+            this.orgSearchColsLabel = new System.Windows.Forms.Label();
+            this.orgSearchQueryTextBox = new System.Windows.Forms.TextBox();
+            this.btnOrgSearch = new System.Windows.Forms.Button();
+            this.dgvOrg = new System.Windows.Forms.DataGridView();
+            this.orgPanelLabel = new System.Windows.Forms.Label();
+            this.orgToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sqlCmdProcDeleteOrg = new System.Data.SqlClient.SqlCommand();
             this.panelBooking.SuspendLayout();
             this.bookingSearchDateGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBooking)).BeginInit();
@@ -186,6 +208,10 @@ namespace MartDB
             ((System.ComponentModel.ISupportInitialize)(this.dgvArea)).BeginInit();
             this.areaSearchSquareGroupBox.SuspendLayout();
             this.areaSortGroupBox.SuspendLayout();
+            this.panelOrg.SuspendLayout();
+            this.orgSortGroupBox.SuspendLayout();
+            this.orgSearchGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOrg)).BeginInit();
             this.SuspendLayout();
             // 
             // panelBooking
@@ -487,7 +513,8 @@ namespace MartDB
             this.bookingToolStripMenuItem,
             this.employeeToolStripMenuItem,
             this.tradeProfileToolStripMenuItem,
-            this.outletToolStripMenuItem});
+            this.outletToolStripMenuItem,
+            this.orgToolStripMenuItem});
             this.panelsToolStripMenuItem.Name = "panelsToolStripMenuItem";
             this.panelsToolStripMenuItem.Size = new System.Drawing.Size(93, 26);
             this.panelsToolStripMenuItem.Text = "Страницы";
@@ -545,7 +572,7 @@ namespace MartDB
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(187, 26);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.aboutToolStripMenuItem.Text = "О программе";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -592,6 +619,7 @@ namespace MartDB
             // panelMain
             // 
             this.panelMain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelMain.Controls.Add(this.btnPanelOrg);
             this.panelMain.Controls.Add(this.btnPanelArea);
             this.panelMain.Controls.Add(this.panelUser);
             this.panelMain.Controls.Add(this.btnPanelBooking);
@@ -625,7 +653,7 @@ namespace MartDB
             this.panelUser.Controls.Add(this.currentUserRoleLabel);
             this.panelUser.Location = new System.Drawing.Point(-1, -1);
             this.panelUser.Name = "panelUser";
-            this.panelUser.Size = new System.Drawing.Size(306, 125);
+            this.panelUser.Size = new System.Drawing.Size(352, 125);
             this.panelUser.TabIndex = 20;
             // 
             // currentUserNameLabel
@@ -639,7 +667,7 @@ namespace MartDB
             // 
             // btnChangeUser
             // 
-            this.btnChangeUser.Location = new System.Drawing.Point(89, 66);
+            this.btnChangeUser.Location = new System.Drawing.Point(113, 66);
             this.btnChangeUser.Name = "btnChangeUser";
             this.btnChangeUser.Size = new System.Drawing.Size(124, 45);
             this.btnChangeUser.TabIndex = 19;
@@ -863,6 +891,7 @@ namespace MartDB
             this.employeeSearchColsListBox.Name = "employeeSearchColsListBox";
             this.employeeSearchColsListBox.Size = new System.Drawing.Size(154, 116);
             this.employeeSearchColsListBox.TabIndex = 11;
+            this.employeeSearchColsListBox.SelectedIndexChanged += new System.EventHandler(this.employeeSearchColsListBox_SelectedIndexChanged);
             // 
             // employeeSearchColsLabel
             // 
@@ -882,6 +911,7 @@ namespace MartDB
             // 
             // btnEmployeeSearch
             // 
+            this.btnEmployeeSearch.Enabled = false;
             this.btnEmployeeSearch.Location = new System.Drawing.Point(181, 91);
             this.btnEmployeeSearch.Name = "btnEmployeeSearch";
             this.btnEmployeeSearch.Size = new System.Drawing.Size(119, 42);
@@ -1094,6 +1124,26 @@ namespace MartDB
             this.panelOutlet.Size = new System.Drawing.Size(948, 479);
             this.panelOutlet.TabIndex = 16;
             // 
+            // btnDeleteOutlet
+            // 
+            this.btnDeleteOutlet.Location = new System.Drawing.Point(776, 384);
+            this.btnDeleteOutlet.Name = "btnDeleteOutlet";
+            this.btnDeleteOutlet.Size = new System.Drawing.Size(154, 60);
+            this.btnDeleteOutlet.TabIndex = 26;
+            this.btnDeleteOutlet.Text = "Удалить торговую точку";
+            this.btnDeleteOutlet.UseVisualStyleBackColor = true;
+            this.btnDeleteOutlet.Click += new System.EventHandler(this.btnDeleteOutlet_Click);
+            // 
+            // btnAddOutletForm
+            // 
+            this.btnAddOutletForm.Location = new System.Drawing.Point(352, 384);
+            this.btnAddOutletForm.Name = "btnAddOutletForm";
+            this.btnAddOutletForm.Size = new System.Drawing.Size(154, 60);
+            this.btnAddOutletForm.TabIndex = 25;
+            this.btnAddOutletForm.Text = "Добавить торговую точку";
+            this.btnAddOutletForm.UseVisualStyleBackColor = true;
+            this.btnAddOutletForm.Click += new System.EventHandler(this.btnAddOutletForm_Click);
+            // 
             // btnUpdateOutletForm
             // 
             this.btnUpdateOutletForm.Location = new System.Drawing.Point(566, 384);
@@ -1227,6 +1277,7 @@ namespace MartDB
             this.outletSearchColsListBox.Name = "outletSearchColsListBox";
             this.outletSearchColsListBox.Size = new System.Drawing.Size(154, 116);
             this.outletSearchColsListBox.TabIndex = 11;
+            this.outletSearchColsListBox.SelectedIndexChanged += new System.EventHandler(this.outletSearchColsListBox_SelectedIndexChanged);
             // 
             // outletSearchColsLabel
             // 
@@ -1246,6 +1297,7 @@ namespace MartDB
             // 
             // btnOutletSearch
             // 
+            this.btnOutletSearch.Enabled = false;
             this.btnOutletSearch.Location = new System.Drawing.Point(181, 91);
             this.btnOutletSearch.Name = "btnOutletSearch";
             this.btnOutletSearch.Size = new System.Drawing.Size(119, 42);
@@ -1553,26 +1605,6 @@ namespace MartDB
             this.sqlCmdProcDeleteTradeProfile.Parameters.AddRange(new System.Data.SqlClient.SqlParameter[] {
             new System.Data.SqlClient.SqlParameter("@trade_profile_name", System.Data.SqlDbType.VarChar, 50)});
             // 
-            // btnAddOutletForm
-            // 
-            this.btnAddOutletForm.Location = new System.Drawing.Point(352, 384);
-            this.btnAddOutletForm.Name = "btnAddOutletForm";
-            this.btnAddOutletForm.Size = new System.Drawing.Size(154, 60);
-            this.btnAddOutletForm.TabIndex = 25;
-            this.btnAddOutletForm.Text = "Добавить торговую точку";
-            this.btnAddOutletForm.UseVisualStyleBackColor = true;
-            this.btnAddOutletForm.Click += new System.EventHandler(this.btnAddOutletForm_Click);
-            // 
-            // btnDeleteOutlet
-            // 
-            this.btnDeleteOutlet.Location = new System.Drawing.Point(776, 384);
-            this.btnDeleteOutlet.Name = "btnDeleteOutlet";
-            this.btnDeleteOutlet.Size = new System.Drawing.Size(154, 60);
-            this.btnDeleteOutlet.TabIndex = 26;
-            this.btnDeleteOutlet.Text = "Удалить торговую точку";
-            this.btnDeleteOutlet.UseVisualStyleBackColor = true;
-            this.btnDeleteOutlet.Click += new System.EventHandler(this.btnDeleteOutlet_Click);
-            // 
             // sqlCmdProcDeleteOutlet
             // 
             this.sqlCmdProcDeleteOutlet.CommandText = "ProcDeleteOutlet";
@@ -1589,17 +1621,263 @@ namespace MartDB
             this.sqlCmdProcUpdateOutletRating.Parameters.AddRange(new System.Data.SqlClient.SqlParameter[] {
             new System.Data.SqlClient.SqlParameter("@outlet_name", System.Data.SqlDbType.VarChar, 50)});
             // 
+            // btnPanelOrg
+            // 
+            this.btnPanelOrg.Location = new System.Drawing.Point(256, 484);
+            this.btnPanelOrg.Name = "btnPanelOrg";
+            this.btnPanelOrg.Size = new System.Drawing.Size(412, 60);
+            this.btnPanelOrg.TabIndex = 22;
+            this.btnPanelOrg.Text = "Панель управления: \"Организации\"";
+            this.btnPanelOrg.UseVisualStyleBackColor = true;
+            this.btnPanelOrg.Click += new System.EventHandler(this.btnPanelOrganisation_Click);
+            // 
+            // panelOrg
+            // 
+            this.panelOrg.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelOrg.Controls.Add(this.btnDeleteOrg);
+            this.panelOrg.Controls.Add(this.btnAddOrgForm);
+            this.panelOrg.Controls.Add(this.btnUpdateOrgForm);
+            this.panelOrg.Controls.Add(this.orgSortGroupBox);
+            this.panelOrg.Controls.Add(this.btnOrgShowAll);
+            this.panelOrg.Controls.Add(this.orgSearchGroupBox);
+            this.panelOrg.Controls.Add(this.dgvOrg);
+            this.panelOrg.Controls.Add(this.orgPanelLabel);
+            this.panelOrg.Location = new System.Drawing.Point(12, 33);
+            this.panelOrg.Name = "panelOrg";
+            this.panelOrg.Size = new System.Drawing.Size(948, 479);
+            this.panelOrg.TabIndex = 23;
+            // 
+            // btnDeleteOrg
+            // 
+            this.btnDeleteOrg.Location = new System.Drawing.Point(776, 384);
+            this.btnDeleteOrg.Name = "btnDeleteOrg";
+            this.btnDeleteOrg.Size = new System.Drawing.Size(154, 60);
+            this.btnDeleteOrg.TabIndex = 34;
+            this.btnDeleteOrg.Text = "Удалить организацию";
+            this.btnDeleteOrg.UseVisualStyleBackColor = true;
+            this.btnDeleteOrg.Click += new System.EventHandler(this.btnDeleteOrg_Click);
+            // 
+            // btnAddOrgForm
+            // 
+            this.btnAddOrgForm.Location = new System.Drawing.Point(352, 384);
+            this.btnAddOrgForm.Name = "btnAddOrgForm";
+            this.btnAddOrgForm.Size = new System.Drawing.Size(154, 60);
+            this.btnAddOrgForm.TabIndex = 33;
+            this.btnAddOrgForm.Text = "Добавить организацию";
+            this.btnAddOrgForm.UseVisualStyleBackColor = true;
+            this.btnAddOrgForm.Click += new System.EventHandler(this.btnAddOrgForm_Click);
+            // 
+            // btnUpdateOrgForm
+            // 
+            this.btnUpdateOrgForm.Location = new System.Drawing.Point(566, 384);
+            this.btnUpdateOrgForm.Name = "btnUpdateOrgForm";
+            this.btnUpdateOrgForm.Size = new System.Drawing.Size(154, 60);
+            this.btnUpdateOrgForm.TabIndex = 27;
+            this.btnUpdateOrgForm.Text = "Обновить организацию";
+            this.btnUpdateOrgForm.UseVisualStyleBackColor = true;
+            this.btnUpdateOrgForm.Click += new System.EventHandler(this.btnUpdateOrgForm_Click);
+            // 
+            // orgSortGroupBox
+            // 
+            this.orgSortGroupBox.Controls.Add(this.orgSortColsListBox);
+            this.orgSortGroupBox.Controls.Add(this.btnOrgSort);
+            this.orgSortGroupBox.Controls.Add(this.descOrgRadioButton);
+            this.orgSortGroupBox.Controls.Add(this.ascOrgRadioButton);
+            this.orgSortGroupBox.Controls.Add(this.orgSortLabel);
+            this.orgSortGroupBox.Location = new System.Drawing.Point(14, 266);
+            this.orgSortGroupBox.Name = "orgSortGroupBox";
+            this.orgSortGroupBox.Size = new System.Drawing.Size(317, 188);
+            this.orgSortGroupBox.TabIndex = 32;
+            this.orgSortGroupBox.TabStop = false;
+            this.orgSortGroupBox.Text = "Сортировка";
+            // 
+            // orgSortColsListBox
+            // 
+            this.orgSortColsListBox.FormattingEnabled = true;
+            this.orgSortColsListBox.ItemHeight = 16;
+            this.orgSortColsListBox.Items.AddRange(new object[] {
+            "Организация",
+            "Страна",
+            "Тип оплаты",
+            "Метод доставки",
+            "Контактное лицо"});
+            this.orgSortColsListBox.Location = new System.Drawing.Point(7, 39);
+            this.orgSortColsListBox.Name = "orgSortColsListBox";
+            this.orgSortColsListBox.Size = new System.Drawing.Size(154, 116);
+            this.orgSortColsListBox.TabIndex = 13;
+            this.orgSortColsListBox.SelectedIndexChanged += new System.EventHandler(this.orgSortColsListBox_SelectedIndexChanged);
+            // 
+            // btnOrgSort
+            // 
+            this.btnOrgSort.Enabled = false;
+            this.btnOrgSort.Location = new System.Drawing.Point(174, 93);
+            this.btnOrgSort.Name = "btnOrgSort";
+            this.btnOrgSort.Size = new System.Drawing.Size(119, 42);
+            this.btnOrgSort.TabIndex = 4;
+            this.btnOrgSort.Text = "Сортировать";
+            this.btnOrgSort.UseVisualStyleBackColor = true;
+            this.btnOrgSort.Click += new System.EventHandler(this.btnOrgSort_Click);
+            // 
+            // descOrgRadioButton
+            // 
+            this.descOrgRadioButton.AutoSize = true;
+            this.descOrgRadioButton.Location = new System.Drawing.Point(174, 66);
+            this.descOrgRadioButton.Name = "descOrgRadioButton";
+            this.descOrgRadioButton.Size = new System.Drawing.Size(117, 21);
+            this.descOrgRadioButton.TabIndex = 3;
+            this.descOrgRadioButton.Text = "По убыванию";
+            this.descOrgRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // ascOrgRadioButton
+            // 
+            this.ascOrgRadioButton.AutoSize = true;
+            this.ascOrgRadioButton.Checked = true;
+            this.ascOrgRadioButton.Location = new System.Drawing.Point(174, 39);
+            this.ascOrgRadioButton.Name = "ascOrgRadioButton";
+            this.ascOrgRadioButton.Size = new System.Drawing.Size(137, 21);
+            this.ascOrgRadioButton.TabIndex = 2;
+            this.ascOrgRadioButton.TabStop = true;
+            this.ascOrgRadioButton.Text = "По возрастанию";
+            this.ascOrgRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // orgSortLabel
+            // 
+            this.orgSortLabel.AutoSize = true;
+            this.orgSortLabel.Location = new System.Drawing.Point(6, 18);
+            this.orgSortLabel.Name = "orgSortLabel";
+            this.orgSortLabel.Size = new System.Drawing.Size(154, 17);
+            this.orgSortLabel.TabIndex = 0;
+            this.orgSortLabel.Text = "Поле для сортировки:";
+            // 
+            // btnOrgShowAll
+            // 
+            this.btnOrgShowAll.Location = new System.Drawing.Point(118, 218);
+            this.btnOrgShowAll.Name = "btnOrgShowAll";
+            this.btnOrgShowAll.Size = new System.Drawing.Size(119, 42);
+            this.btnOrgShowAll.TabIndex = 31;
+            this.btnOrgShowAll.Text = "Показать все";
+            this.btnOrgShowAll.UseVisualStyleBackColor = true;
+            this.btnOrgShowAll.Click += new System.EventHandler(this.btnOrgShowAll_Click);
+            // 
+            // orgSearchGroupBox
+            // 
+            this.orgSearchGroupBox.Controls.Add(this.orgSearchQueryLabel);
+            this.orgSearchGroupBox.Controls.Add(this.orgSearchColsListBox);
+            this.orgSearchGroupBox.Controls.Add(this.orgSearchColsLabel);
+            this.orgSearchGroupBox.Controls.Add(this.orgSearchQueryTextBox);
+            this.orgSearchGroupBox.Controls.Add(this.btnOrgSearch);
+            this.orgSearchGroupBox.Location = new System.Drawing.Point(13, 45);
+            this.orgSearchGroupBox.Name = "orgSearchGroupBox";
+            this.orgSearchGroupBox.Size = new System.Drawing.Size(317, 161);
+            this.orgSearchGroupBox.TabIndex = 28;
+            this.orgSearchGroupBox.TabStop = false;
+            this.orgSearchGroupBox.Text = "Поиск";
+            // 
+            // orgSearchQueryLabel
+            // 
+            this.orgSearchQueryLabel.AutoSize = true;
+            this.orgSearchQueryLabel.Location = new System.Drawing.Point(178, 43);
+            this.orgSearchQueryLabel.Name = "orgSearchQueryLabel";
+            this.orgSearchQueryLabel.Size = new System.Drawing.Size(117, 17);
+            this.orgSearchQueryLabel.TabIndex = 12;
+            this.orgSearchQueryLabel.Text = "Введите запрос:";
+            // 
+            // orgSearchColsListBox
+            // 
+            this.orgSearchColsListBox.FormattingEnabled = true;
+            this.orgSearchColsListBox.ItemHeight = 16;
+            this.orgSearchColsListBox.Items.AddRange(new object[] {
+            "Организация",
+            "Страна",
+            "Тип оплаты",
+            "Метод доставки",
+            "Контактное лицо"});
+            this.orgSearchColsListBox.Location = new System.Drawing.Point(7, 38);
+            this.orgSearchColsListBox.Name = "orgSearchColsListBox";
+            this.orgSearchColsListBox.Size = new System.Drawing.Size(154, 116);
+            this.orgSearchColsListBox.TabIndex = 11;
+            this.orgSearchColsListBox.SelectedIndexChanged += new System.EventHandler(this.orgSearchColsListBox_SelectedIndexChanged);
+            // 
+            // orgSearchColsLabel
+            // 
+            this.orgSearchColsLabel.AutoSize = true;
+            this.orgSearchColsLabel.Location = new System.Drawing.Point(6, 18);
+            this.orgSearchColsLabel.Name = "orgSearchColsLabel";
+            this.orgSearchColsLabel.Size = new System.Drawing.Size(164, 17);
+            this.orgSearchColsLabel.TabIndex = 7;
+            this.orgSearchColsLabel.Text = "Выберите поле поиска:";
+            // 
+            // orgSearchQueryTextBox
+            // 
+            this.orgSearchQueryTextBox.Location = new System.Drawing.Point(181, 63);
+            this.orgSearchQueryTextBox.Name = "orgSearchQueryTextBox";
+            this.orgSearchQueryTextBox.Size = new System.Drawing.Size(119, 22);
+            this.orgSearchQueryTextBox.TabIndex = 6;
+            // 
+            // btnOrgSearch
+            // 
+            this.btnOrgSearch.Enabled = false;
+            this.btnOrgSearch.Location = new System.Drawing.Point(181, 91);
+            this.btnOrgSearch.Name = "btnOrgSearch";
+            this.btnOrgSearch.Size = new System.Drawing.Size(119, 42);
+            this.btnOrgSearch.TabIndex = 5;
+            this.btnOrgSearch.Text = "Найти";
+            this.btnOrgSearch.UseVisualStyleBackColor = true;
+            this.btnOrgSearch.Click += new System.EventHandler(this.btnOrgSearch_Click);
+            // 
+            // dgvOrg
+            // 
+            this.dgvOrg.AllowUserToAddRows = false;
+            this.dgvOrg.AllowUserToDeleteRows = false;
+            this.dgvOrg.AllowUserToOrderColumns = true;
+            this.dgvOrg.AllowUserToResizeColumns = false;
+            this.dgvOrg.AllowUserToResizeRows = false;
+            this.dgvOrg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvOrg.Location = new System.Drawing.Point(352, 43);
+            this.dgvOrg.Name = "dgvOrg";
+            this.dgvOrg.ReadOnly = true;
+            this.dgvOrg.RowHeadersWidth = 51;
+            this.dgvOrg.RowTemplate.Height = 24;
+            this.dgvOrg.Size = new System.Drawing.Size(578, 318);
+            this.dgvOrg.TabIndex = 30;
+            // 
+            // orgPanelLabel
+            // 
+            this.orgPanelLabel.AutoSize = true;
+            this.orgPanelLabel.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.orgPanelLabel.Location = new System.Drawing.Point(8, 9);
+            this.orgPanelLabel.Name = "orgPanelLabel";
+            this.orgPanelLabel.Size = new System.Drawing.Size(353, 28);
+            this.orgPanelLabel.TabIndex = 29;
+            this.orgPanelLabel.Text = "Панель управления: \"Организации\"";
+            // 
+            // orgToolStripMenuItem
+            // 
+            this.orgToolStripMenuItem.Name = "orgToolStripMenuItem";
+            this.orgToolStripMenuItem.Size = new System.Drawing.Size(410, 26);
+            this.orgToolStripMenuItem.Text = "Панель управления \"Организации\"";
+            this.orgToolStripMenuItem.Click += new System.EventHandler(this.orgToolStripMenuItem_Click);
+            // 
+            // sqlCmdProcDeleteOrg
+            // 
+            this.sqlCmdProcDeleteOrg.CommandText = "ProcDeleteOrg";
+            this.sqlCmdProcDeleteOrg.CommandType = System.Data.CommandType.StoredProcedure;
+            this.sqlCmdProcDeleteOrg.Connection = this.sqlConnection;
+            this.sqlCmdProcDeleteOrg.Parameters.AddRange(new System.Data.SqlClient.SqlParameter[] {
+            new System.Data.SqlClient.SqlParameter("@org_id", System.Data.SqlDbType.Int)});
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(983, 605);
             this.Controls.Add(this.panelMain);
-            this.Controls.Add(this.panelOutlet);
-            this.Controls.Add(this.panelTradeProfile);
-            this.Controls.Add(this.panelEmployee);
-            this.Controls.Add(this.panelBooking);
             this.Controls.Add(this.panelArea);
+            this.Controls.Add(this.panelBooking);
+            this.Controls.Add(this.panelEmployee);
+            this.Controls.Add(this.panelTradeProfile);
+            this.Controls.Add(this.panelOutlet);
+            this.Controls.Add(this.panelOrg);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
@@ -1654,6 +1932,13 @@ namespace MartDB
             this.areaSearchSquareGroupBox.PerformLayout();
             this.areaSortGroupBox.ResumeLayout(false);
             this.areaSortGroupBox.PerformLayout();
+            this.panelOrg.ResumeLayout(false);
+            this.panelOrg.PerformLayout();
+            this.orgSortGroupBox.ResumeLayout(false);
+            this.orgSortGroupBox.PerformLayout();
+            this.orgSearchGroupBox.ResumeLayout(false);
+            this.orgSearchGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOrg)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1792,5 +2077,27 @@ namespace MartDB
         private System.Windows.Forms.Button btnAddOutletForm;
         private System.Data.SqlClient.SqlCommand sqlCmdProcDeleteOutlet;
         private System.Data.SqlClient.SqlCommand sqlCmdProcUpdateOutletRating;
+        private System.Windows.Forms.Button btnPanelOrg;
+        private System.Windows.Forms.Panel panelOrg;
+        private System.Windows.Forms.Button btnDeleteOrg;
+        private System.Windows.Forms.Button btnAddOrgForm;
+        private System.Windows.Forms.Button btnUpdateOrgForm;
+        private System.Windows.Forms.GroupBox orgSortGroupBox;
+        private System.Windows.Forms.ListBox orgSortColsListBox;
+        private System.Windows.Forms.Button btnOrgSort;
+        private System.Windows.Forms.RadioButton descOrgRadioButton;
+        private System.Windows.Forms.RadioButton ascOrgRadioButton;
+        private System.Windows.Forms.Label orgSortLabel;
+        private System.Windows.Forms.Button btnOrgShowAll;
+        private System.Windows.Forms.GroupBox orgSearchGroupBox;
+        private System.Windows.Forms.Label orgSearchQueryLabel;
+        private System.Windows.Forms.ListBox orgSearchColsListBox;
+        private System.Windows.Forms.Label orgSearchColsLabel;
+        private System.Windows.Forms.TextBox orgSearchQueryTextBox;
+        private System.Windows.Forms.Button btnOrgSearch;
+        private System.Windows.Forms.DataGridView dgvOrg;
+        private System.Windows.Forms.Label orgPanelLabel;
+        private System.Windows.Forms.ToolStripMenuItem orgToolStripMenuItem;
+        private System.Data.SqlClient.SqlCommand sqlCmdProcDeleteOrg;
     }
 }

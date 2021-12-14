@@ -64,6 +64,7 @@ namespace MartDB
             this.listPanel.Add(this.panelEmployee);
             this.listPanel.Add(this.panelTradeProfile);
             this.listPanel.Add(this.panelOutlet);
+            this.listPanel.Add(this.panelOrg);
             
             // Show first panel
             this.listPanel[this.index].BringToFront();
@@ -89,7 +90,11 @@ namespace MartDB
             FillTradeProfilesDGV();
 
             // Fill outlet data grid view
+            UpdateAllOutletsRatings();
             FillOutletsDGV();
+
+            // Fill org data grid view
+            FillOrgsDGV();
 
             // Hide nav buttons
             this.btnPanelMain.Visible = false;
@@ -123,6 +128,11 @@ namespace MartDB
             this.bookingSearchDateComboBox2.ValueMember = "booking_end_date";
 
             this.sqlConnection.Close();
+
+            if (UserData.UserRole == "organisation")
+            {
+                this.btnPanelOrg.Visible = false;
+            }
         }
 
         ////// Nav buttons //////
@@ -156,6 +166,8 @@ namespace MartDB
             // Bring main panel to front
             this.panelMain.BringToFront();
 
+            this.btnPanelOrg.Visible = true;
+
             // Hide nav buttons
             this.btnPanelMain.Visible = false;
             this.btnNextPanel.Visible = false;
@@ -187,6 +199,8 @@ namespace MartDB
             this.btnNextPanel.BringToFront();
             this.btnPreviousPanel.BringToFront();
 
+            this.btnPanelOrg.Visible = false;
+
             // Show nav buttons
             this.btnPanelMain.Visible = true;
             this.btnNextPanel.Visible = true;
@@ -207,6 +221,8 @@ namespace MartDB
             this.btnNextPanel.BringToFront();
             this.btnPreviousPanel.BringToFront();
 
+            this.btnPanelOrg.Visible = false;
+
             // Show nav buttons
             this.btnPanelMain.Visible = true;
             this.btnNextPanel.Visible = true;
@@ -225,6 +241,8 @@ namespace MartDB
             this.btnPanelMain.BringToFront();
             this.btnNextPanel.BringToFront();
             this.btnPreviousPanel.BringToFront();
+
+            this.btnPanelOrg.Visible = false;
 
             // Show nav buttons
             this.btnPanelMain.Visible = true;
@@ -245,6 +263,8 @@ namespace MartDB
             this.btnNextPanel.BringToFront();
             this.btnPreviousPanel.BringToFront();
 
+            this.btnPanelOrg.Visible = false;
+
             // Show nav buttons
             this.btnPanelMain.Visible = true;
             this.btnNextPanel.Visible = true;
@@ -264,6 +284,29 @@ namespace MartDB
             this.btnNextPanel.BringToFront();
             this.btnPreviousPanel.BringToFront();
 
+            this.btnPanelOrg.Visible = false;
+
+            // Show nav buttons
+            this.btnPanelMain.Visible = true;
+            this.btnNextPanel.Visible = true;
+            this.btnPreviousPanel.Visible = true;
+        }
+
+        private void btnPanelOrganisation_Click(object sender, EventArgs e)
+        {
+            // Set panel index
+            this.index = 6;
+
+            // Bring booking handling panel to front
+            this.panelOrg.BringToFront();
+
+            // Bring nav buttons to front
+            this.btnPanelMain.BringToFront();
+            this.btnNextPanel.BringToFront();
+            this.btnPreviousPanel.BringToFront();
+
+            this.btnPanelOrg.Visible = false;
+
             // Show nav buttons
             this.btnPanelMain.Visible = true;
             this.btnNextPanel.Visible = true;
@@ -282,6 +325,8 @@ namespace MartDB
             this.btnNextPanel.BringToFront();
             this.btnPreviousPanel.BringToFront();
 
+            this.btnPanelOrg.Visible = true;
+
             // Hide nav buttons
             this.btnPanelMain.Visible = false;
             this.btnNextPanel.Visible = false;
@@ -297,6 +342,8 @@ namespace MartDB
             this.btnPanelMain.BringToFront();
             this.btnNextPanel.BringToFront();
             this.btnPreviousPanel.BringToFront();
+
+            this.btnPanelOrg.Visible = false;
 
             // Show nav buttons
             this.btnPanelMain.Visible = true;
@@ -314,6 +361,8 @@ namespace MartDB
             this.btnNextPanel.BringToFront();
             this.btnPreviousPanel.BringToFront();
 
+            this.btnPanelOrg.Visible = false;
+
             // Show nav buttons
             this.btnPanelMain.Visible = true;
             this.btnNextPanel.Visible = true;
@@ -329,6 +378,8 @@ namespace MartDB
             this.btnPanelMain.BringToFront();
             this.btnNextPanel.BringToFront();
             this.btnPreviousPanel.BringToFront();
+
+            this.btnPanelOrg.Visible = false;
 
             // Show nav buttons
             this.btnPanelMain.Visible = true;
@@ -346,6 +397,8 @@ namespace MartDB
             this.btnNextPanel.BringToFront();
             this.btnPreviousPanel.BringToFront();
 
+            this.btnPanelOrg.Visible = false;
+
             // Show nav buttons
             this.btnPanelMain.Visible = true;
             this.btnNextPanel.Visible = true;
@@ -361,6 +414,26 @@ namespace MartDB
             this.btnPanelMain.BringToFront();
             this.btnNextPanel.BringToFront();
             this.btnPreviousPanel.BringToFront();
+
+            this.btnPanelOrg.Visible = false;
+
+            // Show nav buttons
+            this.btnPanelMain.Visible = true;
+            this.btnNextPanel.Visible = true;
+            this.btnPreviousPanel.Visible = true;
+        }
+
+        private void orgToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.index = 6;
+            this.panelOrg.BringToFront();
+
+            // Bring nav buttons to front
+            this.btnPanelMain.BringToFront();
+            this.btnNextPanel.BringToFront();
+            this.btnPreviousPanel.BringToFront();
+
+            this.btnPanelOrg.Visible = false;
 
             // Show nav buttons
             this.btnPanelMain.Visible = true;
@@ -871,6 +944,11 @@ namespace MartDB
             }
         }
 
+        private void employeeSearchColsListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.btnEmployeeSearch.Enabled = true;
+        }
+
         // Enable sort button
         private void employeeSortColsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -1196,7 +1274,7 @@ namespace MartDB
 
         ////// Outlet panel //////
 
-        // Get info about employees
+        // Get info about outlets
         private void FillOutletsDGV()
         {
             // Establish connection
@@ -1277,6 +1355,11 @@ namespace MartDB
             {
                 this.dgvOutlet.Rows[row.Index].Visible = true;
             }
+        }
+
+        private void outletSearchColsListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.btnOutletSearch.Enabled = true;
         }
 
         private void outletSortColsListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -1479,6 +1562,220 @@ namespace MartDB
         {
             UpdateAllOutletsRatings();
             FillOutletsDGV();
+        }
+
+        ////// Org panel //////
+
+        // Get info about employees
+        private void FillOrgsDGV()
+        {
+            // Establish connection
+            SqlConnection sqlConnection = new SqlConnection();
+            sqlConnection.ConnectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=MartDB;Integrated Security=True";
+            sqlConnection.Open();
+
+            // Create query
+            string selectQuery = "SELECT " +
+                                     "org_id," +
+                                     "org_name AS [Организация]," +
+                                     "country AS [Страна]," +
+                                     "payment_terms AS [Тип оплаты]," +
+                                     "delivery_method AS [Метод доставки]," +
+                                     "contact_person AS [Контактное лицо] " +
+                                 "FROM Organisation ";
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(selectQuery, sqlConnection);
+
+            // Fill data set
+            DataSet dataSet = new DataSet();
+            sqlDataAdapter.Fill(dataSet);
+
+            // Fill DGV
+            this.dgvOrg.DataSource = dataSet.Tables[0];
+            this.dgvOrg.Columns[0].Visible = false;
+        }
+
+        private void btnOrgSearch_Click(object sender, EventArgs e)
+        {
+            // Field parser
+            string strFieldForSearch = this.orgSearchColsListBox.SelectedItem.ToString();
+            int iColIndex = 0;
+            for (int i = 0; i < this.dgvOrg.Columns.Count; ++i)
+            {
+                if (this.dgvOrg.Columns[i].HeaderText == strFieldForSearch)
+                {
+                    iColIndex = i;
+                }
+            }
+
+            // Start searching only if user has entered query for search
+            if (this.orgSearchQueryTextBox.Text.Length > 0)
+            {
+                string query = "";
+                try
+                {
+                    query = Convert.ToString(this.orgSearchQueryTextBox.Text);
+                }
+                // Prevent invalid user input
+                catch
+                {
+                    MessageBox.Show("Введено некорректное значение запроса для поиска!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                // Filter area square data
+                foreach (DataGridViewRow row in this.dgvOrg.Rows)
+                {
+                    if (row.Cells[iColIndex].Value.ToString().Contains(query))
+                    {
+                        this.dgvOrg.Rows[row.Index].Visible = true;
+                    }
+                    else
+                    {
+                        this.dgvOrg.CurrentCell = null;
+                        this.dgvOrg.Rows[row.Index].Visible = false;
+                    }
+                }
+            }
+        }
+
+        private void btnOrgShowAll_Click(object sender, EventArgs e)
+        {
+            // Display every row
+            foreach (DataGridViewRow row in this.dgvOrg.Rows)
+            {
+                this.dgvOrg.Rows[row.Index].Visible = true;
+            }
+        }
+
+        private void orgSearchColsListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.btnOrgSearch.Enabled = true;
+        }
+
+        private void orgSortColsListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.btnOrgSort.Enabled = true;
+        }
+
+        private void btnOrgSort_Click(object sender, EventArgs e)
+        {
+            // Col to sort
+            DataGridViewColumn col = default;
+
+            // Get selected col to sort
+            switch (this.orgSortColsListBox.SelectedIndex)
+            {
+                case 0:
+                    col = this.dgvOrg.Columns[1];
+                    break;
+                case 1:
+                    col = this.dgvOrg.Columns[2];
+                    break;
+                case 2:
+                    col = this.dgvOrg.Columns[3];
+                    break;
+                case 3:
+                    col = this.dgvOrg.Columns[4];
+                    break;
+                case 4:
+                    col = this.dgvOrg.Columns[5];
+                    break;
+                default:
+                    break;
+            }
+
+            // Get selected choice for sorting
+            if (this.ascOrgRadioButton.Checked)
+            {
+                this.dgvOrg.Sort(col, ListSortDirection.Ascending);
+            }
+            else if (this.descOrgRadioButton.Checked)
+            {
+                this.dgvOrg.Sort(col, ListSortDirection.Descending);
+            }
+        }
+
+        private void btnAddOrgForm_Click(object sender, EventArgs e)
+        {
+            // Pass data to AddOutletForm
+            Form addOrgForm = new AddOrgForm();
+            addOrgForm.FormClosed += new FormClosedEventHandler(this.handleOrgForms_FormClosed);
+            addOrgForm.Show();
+        }
+
+        private void btnUpdateOrgForm_Click(object sender, EventArgs e)
+        {
+            if (this.dgvOrg.SelectedCells.Count > 1)
+            {
+                MessageBox.Show("За раз можно изменить данные только одной организации!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (this.dgvOrg.SelectedCells.Count == 1)
+            {
+                int rowIndex = this.dgvOrg.SelectedCells[0].RowIndex;
+
+                string orgId = this.dgvOrg.Rows[rowIndex].Cells[0].Value.ToString();
+                string orgName = this.dgvOrg.Rows[rowIndex].Cells[1].Value.ToString();
+                string country = this.dgvOrg.Rows[rowIndex].Cells[2].Value.ToString();
+                string payment_terms = this.dgvOrg.Rows[rowIndex].Cells[3].Value.ToString();
+                string delivery_method = this.dgvOrg.Rows[rowIndex].Cells[4].Value.ToString();
+                string contact_person = this.dgvOrg.Rows[rowIndex].Cells[5].Value.ToString();
+
+                // Pass data to UpdateBookingForm
+                Form updateOutletForm = new UpdateOrgForm(orgId, orgName, country, payment_terms, delivery_method, contact_person);
+                updateOutletForm.FormClosed += new FormClosedEventHandler(this.handleOutletForms_FormClosed);
+                updateOutletForm.Show();
+            }
+        }
+
+        private void btnDeleteOrg_Click(object sender, EventArgs e)
+        {
+            if (this.dgvOrg.SelectedCells.Count > 1)
+            {
+                MessageBox.Show("За раз можно удалить данные только одной организации!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (this.dgvOrg.SelectedCells.Count == 1)
+            {
+                int rowIndex = this.dgvOrg.SelectedCells[0].RowIndex;
+
+                // Open DB connection
+                sqlConnection.Open();
+
+                // Initialize params
+                try
+                {
+                    sqlCmdProcDeleteOrg.Parameters["@org_id"].Value = this.dgvOrg.Rows[rowIndex].Cells[0].Value.ToString();
+
+                    // Call proc
+                    int iAffectedRowsCount = sqlCmdProcDeleteOrg.ExecuteNonQuery();
+
+                    // Show corresponding information
+                    if (iAffectedRowsCount == 0)
+                    {
+                        MessageBox.Show("Удаление данных завершилось с ошибкой!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Данные успешно удалены!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        FillOrgsDGV();
+                    }
+                }
+                catch (FormatException)
+                {
+                    MessageBox.Show("Введены некорректные значения!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (SqlException)
+                {
+                    MessageBox.Show("Удаление данных завершилось с ошибкой!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                // Close DB connection
+                sqlConnection.Close();
+            }
+        }
+
+        private void handleOrgForms_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            FillOrgsDGV();
         }
     }
 }
