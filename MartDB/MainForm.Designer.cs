@@ -609,9 +609,9 @@ namespace MartDB
             // 
             // btnPanelArea
             // 
-            this.btnPanelArea.Location = new System.Drawing.Point(319, 173);
+            this.btnPanelArea.Location = new System.Drawing.Point(256, 146);
             this.btnPanelArea.Name = "btnPanelArea";
-            this.btnPanelArea.Size = new System.Drawing.Size(273, 46);
+            this.btnPanelArea.Size = new System.Drawing.Size(412, 60);
             this.btnPanelArea.TabIndex = 21;
             this.btnPanelArea.Text = "Панель управления: \"Доступные помещения\"";
             this.btnPanelArea.UseVisualStyleBackColor = true;
@@ -658,9 +658,9 @@ namespace MartDB
             // 
             // btnPanelBooking
             // 
-            this.btnPanelBooking.Location = new System.Drawing.Point(319, 227);
+            this.btnPanelBooking.Location = new System.Drawing.Point(256, 215);
             this.btnPanelBooking.Name = "btnPanelBooking";
-            this.btnPanelBooking.Size = new System.Drawing.Size(273, 47);
+            this.btnPanelBooking.Size = new System.Drawing.Size(412, 60);
             this.btnPanelBooking.TabIndex = 14;
             this.btnPanelBooking.Text = "Панель управления \"Аренда\"";
             this.btnPanelBooking.UseVisualStyleBackColor = true;
@@ -668,9 +668,9 @@ namespace MartDB
             // 
             // btnPanelOutlet
             // 
-            this.btnPanelOutlet.Location = new System.Drawing.Point(318, 386);
+            this.btnPanelOutlet.Location = new System.Drawing.Point(256, 420);
             this.btnPanelOutlet.Name = "btnPanelOutlet";
-            this.btnPanelOutlet.Size = new System.Drawing.Size(274, 46);
+            this.btnPanelOutlet.Size = new System.Drawing.Size(412, 60);
             this.btnPanelOutlet.TabIndex = 13;
             this.btnPanelOutlet.Text = "Панель управления \"Торговые точки\"";
             this.btnPanelOutlet.UseVisualStyleBackColor = true;
@@ -678,9 +678,9 @@ namespace MartDB
             // 
             // btnPanelTradeProfile
             // 
-            this.btnPanelTradeProfile.Location = new System.Drawing.Point(319, 332);
+            this.btnPanelTradeProfile.Location = new System.Drawing.Point(256, 353);
             this.btnPanelTradeProfile.Name = "btnPanelTradeProfile";
-            this.btnPanelTradeProfile.Size = new System.Drawing.Size(273, 46);
+            this.btnPanelTradeProfile.Size = new System.Drawing.Size(412, 60);
             this.btnPanelTradeProfile.TabIndex = 12;
             this.btnPanelTradeProfile.Text = "Панель управления \"Торговые профили\"";
             this.btnPanelTradeProfile.UseVisualStyleBackColor = true;
@@ -688,9 +688,9 @@ namespace MartDB
             // 
             // btnPanelEmployee
             // 
-            this.btnPanelEmployee.Location = new System.Drawing.Point(319, 280);
+            this.btnPanelEmployee.Location = new System.Drawing.Point(256, 283);
             this.btnPanelEmployee.Name = "btnPanelEmployee";
-            this.btnPanelEmployee.Size = new System.Drawing.Size(273, 46);
+            this.btnPanelEmployee.Size = new System.Drawing.Size(412, 60);
             this.btnPanelEmployee.TabIndex = 11;
             this.btnPanelEmployee.Text = "Панель управления \"Сотрудники\"";
             this.btnPanelEmployee.UseVisualStyleBackColor = true;
@@ -1594,8 +1594,8 @@ namespace MartDB
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(983, 605);
-            this.Controls.Add(this.panelOutlet);
             this.Controls.Add(this.panelMain);
+            this.Controls.Add(this.panelOutlet);
             this.Controls.Add(this.panelTradeProfile);
             this.Controls.Add(this.panelEmployee);
             this.Controls.Add(this.panelBooking);

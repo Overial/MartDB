@@ -15,5 +15,6 @@ namespace MartDB
 
         public static string UserName = "org";
         public static string UserRole = "organisation";
+        public static bool IsCurrentUserAuthenticated = false;
     }
 }

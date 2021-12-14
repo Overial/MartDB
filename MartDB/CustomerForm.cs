@@ -34,6 +34,14 @@ namespace MartDB
 
             // Fill review data grid view
             FillReviewsDGV();
+
+            if (!UserData.IsCurrentUserAuthenticated)
+            {
+                this.btnViewUserReviews.Enabled = false;
+                this.btnAddReview.Enabled = false;
+                this.btnUpdateReview.Enabled = false;
+                this.btnDeleteReview.Enabled = false;
+            }
         }
 
         ////// Menu strip //////

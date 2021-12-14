@@ -134,6 +134,8 @@ namespace MartDB
                         // Open form for customer
                         else if (role == "customer")
                         {
+                            UserData.IsCurrentUserAuthenticated = true;
+
                             this.Visible = false;
                             CustomerForm userForm = new CustomerForm();
                             userForm.ShowDialog();
@@ -205,6 +207,23 @@ namespace MartDB
             // Register form
             Form registerForm = new RegisterForm();
             registerForm.Show();
+        }
+
+        private void btnEnterGuest_Click(object sender, EventArgs e)
+        {
+            // Generate random username
+            Random random = new Random();
+            int randomNumber = random.Next(0, 1000);
+            UserData.UserName = "guest" + randomNumber;
+
+            // Set guest role as customer
+            UserData.UserRole = "customer";
+
+            // Open form for customer
+            this.Visible = false;
+            CustomerForm userForm = new CustomerForm();
+            userForm.ShowDialog();
+            this.Close();
         }
     }
 }

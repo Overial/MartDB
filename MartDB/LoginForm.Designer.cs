@@ -47,6 +47,7 @@ namespace MartDB
             this.btnRegister = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.roleComboBox = new System.Windows.Forms.ComboBox();
+            this.btnEnterGuest = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -105,9 +106,9 @@ namespace MartDB
             // 
             this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLogin.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnLogin.Location = new System.Drawing.Point(501, 305);
+            this.btnLogin.Location = new System.Drawing.Point(391, 305);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(146, 53);
+            this.btnLogin.Size = new System.Drawing.Size(167, 65);
             this.btnLogin.TabIndex = 5;
             this.btnLogin.Text = "Войти";
             this.btnLogin.UseVisualStyleBackColor = true;
@@ -228,12 +229,25 @@ namespace MartDB
             this.roleComboBox.Size = new System.Drawing.Size(204, 24);
             this.roleComboBox.TabIndex = 14;
             // 
+            // btnEnterGuest
+            // 
+            this.btnEnterGuest.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEnterGuest.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnEnterGuest.Location = new System.Drawing.Point(592, 305);
+            this.btnEnterGuest.Name = "btnEnterGuest";
+            this.btnEnterGuest.Size = new System.Drawing.Size(167, 65);
+            this.btnEnterGuest.TabIndex = 15;
+            this.btnEnterGuest.Text = "Войти как гость";
+            this.btnEnterGuest.UseVisualStyleBackColor = true;
+            this.btnEnterGuest.Click += new System.EventHandler(this.btnEnterGuest_Click);
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnEnterGuest);
             this.Controls.Add(this.roleComboBox);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btnRegister);
@@ -280,5 +294,6 @@ namespace MartDB
         private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox roleComboBox;
+        private System.Windows.Forms.Button btnEnterGuest;
     }
 }
