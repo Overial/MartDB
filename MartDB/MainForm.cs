@@ -1371,11 +1371,6 @@ namespace MartDB
             }
         }
 
-        private void handleOutletForms_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            FillOutletsDGV();
-        }
-
         private void btnDeleteOutlet_Click(object sender, EventArgs e)
         {
             if (this.dgvOutlet.SelectedCells.Count > 1)
@@ -1421,6 +1416,69 @@ namespace MartDB
                 // Close DB connection
                 sqlConnection.Close();
             }
+        }
+
+        private void UpdateOutletRating(string outletName)
+        {
+            // Open DB connection
+            this.sqlConnection.Open();
+
+            // Call proc
+            try
+            {
+                // Initialize params
+                this.sqlCmdProcUpdateOutletRating.Parameters["@outlet_name"].Value = outletName;
+
+                // Call proc
+                int iAffectedRowsCount = this.sqlCmdProcUpdateOutletRating.ExecuteNonQuery();
+
+                // Show corresponding information
+                if (iAffectedRowsCount == 0)
+                {
+                    MessageBox.Show("Обновление рейтингов завершилось с ошибкой!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    // MessageBox.Show("Рейтинги успешно обновлены!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Введены некорректные значения!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Обновление рейтингов завершилось с ошибкой!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                //StringBuilder errorMessages = new StringBuilder();
+                //for (int i = 0; i < ex.Errors.Count; i++)
+                //{
+                //    errorMessages.Append("Index #" + i + "\n" +
+                //        "Message: " + ex.Errors[i].Message + "\n" +
+                //        "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+                //        "Source: " + ex.Errors[i].Source + "\n" +
+                //        "Procedure: " + ex.Errors[i].Procedure + "\n");
+                //}
+                //MessageBox.Show(errorMessages.ToString(), "Error");
+            }
+
+            // Close DB connection
+            this.sqlConnection.Close();
+        }
+
+        private void UpdateAllOutletsRatings()
+        {
+            foreach (DataGridViewRow row in this.dgvOutlet.Rows)
+            {
+                string outletName = row.Cells[3].Value.ToString();
+                UpdateOutletRating(outletName);
+            }
+        }
+
+        private void handleOutletForms_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            UpdateAllOutletsRatings();
+            FillOutletsDGV();
         }
     }
 }

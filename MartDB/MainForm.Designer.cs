@@ -160,6 +160,7 @@ namespace MartDB
             this.btnAddOutletForm = new System.Windows.Forms.Button();
             this.btnDeleteOutlet = new System.Windows.Forms.Button();
             this.sqlCmdProcDeleteOutlet = new System.Data.SqlClient.SqlCommand();
+            this.sqlCmdProcUpdateOutletRating = new System.Data.SqlClient.SqlCommand();
             this.panelBooking.SuspendLayout();
             this.bookingSearchDateGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBooking)).BeginInit();
@@ -1580,6 +1581,14 @@ namespace MartDB
             this.sqlCmdProcDeleteOutlet.Parameters.AddRange(new System.Data.SqlClient.SqlParameter[] {
             new System.Data.SqlClient.SqlParameter("@outlet_id", System.Data.SqlDbType.Int)});
             // 
+            // sqlCmdProcUpdateOutletRating
+            // 
+            this.sqlCmdProcUpdateOutletRating.CommandText = "ProcUpdateOutletRating";
+            this.sqlCmdProcUpdateOutletRating.CommandType = System.Data.CommandType.StoredProcedure;
+            this.sqlCmdProcUpdateOutletRating.Connection = this.sqlConnection;
+            this.sqlCmdProcUpdateOutletRating.Parameters.AddRange(new System.Data.SqlClient.SqlParameter[] {
+            new System.Data.SqlClient.SqlParameter("@outlet_name", System.Data.SqlDbType.VarChar, 50)});
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1782,5 +1791,6 @@ namespace MartDB
         private System.Windows.Forms.Button btnDeleteOutlet;
         private System.Windows.Forms.Button btnAddOutletForm;
         private System.Data.SqlClient.SqlCommand sqlCmdProcDeleteOutlet;
+        private System.Data.SqlClient.SqlCommand sqlCmdProcUpdateOutletRating;
     }
 }

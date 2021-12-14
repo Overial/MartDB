@@ -133,7 +133,7 @@ namespace MartDB
             {
                 MessageBox.Show("Введены некорректные значения!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
                 MessageBox.Show("Добавление данных завершилось с ошибкой!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 
