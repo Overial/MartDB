@@ -81,6 +81,7 @@ namespace MartDB
             FillAreaDGV();
 
             // Fill booking data grid view
+            UpdateExistingBookingDates();
             FillBookingDGV();
 
             // Fill employees data grid view
@@ -100,34 +101,6 @@ namespace MartDB
             this.btnPanelMain.Visible = false;
             this.btnNextPanel.Visible = false;
             this.btnPreviousPanel.Visible = false;
-
-            // Set booking data comboboxes
-            this.sqlConnection.Open();
-
-            this.bookingSearchDateComboBox1.BringToFront();
-            this.bookingSearchDateComboBox2.BringToFront();
-                
-            DataTable dtBookingStartDates = new DataTable();
-            SqlDataAdapter daBookingStartDates = new SqlDataAdapter("SELECT DISTINCT booking_start_date FROM Booking",
-                                                                    this.sqlConnection);
-
-            daBookingStartDates.Fill(dtBookingStartDates);
-                
-            this.bookingSearchDateComboBox1.DataSource = dtBookingStartDates;
-            this.bookingSearchDateComboBox1.DisplayMember = "booking_start_date";
-            this.bookingSearchDateComboBox1.ValueMember = "booking_start_date";
-
-            DataTable dtBookingEndDates = new DataTable();
-            SqlDataAdapter daBookingEndDates = new SqlDataAdapter("SELECT DISTINCT booking_end_date FROM Booking",
-                                                                    this.sqlConnection);
-
-            daBookingEndDates.Fill(dtBookingEndDates);
-
-            this.bookingSearchDateComboBox2.DataSource = dtBookingEndDates;
-            this.bookingSearchDateComboBox2.DisplayMember = "booking_end_date";
-            this.bookingSearchDateComboBox2.ValueMember = "booking_end_date";
-
-            this.sqlConnection.Close();
 
             if (UserData.UserRole == "organisation")
             {
@@ -616,12 +589,12 @@ namespace MartDB
                 selectQuery = "SELECT " +
                                   "Booking.booking_id," +
                                   "Organisation.org_name AS [Название организации]," +
+                                  "Booking.booking_start_date AS [Начало периода аренды]," +
+                                  "Booking.booking_end_date AS [Конец периода аренды]," +
+                                  "Booking.cost AS [Стоимость аренды]," +
                                   "Area.area_id AS [Код помещения]," +
                                   "Area.area_square AS [Площадь помещения]," +
-                                  "Area.floor_number AS [Номер этажа]," +
-                                  "Booking.cost AS [Стоимость аренды]," +
-                                  "Booking.booking_start_date AS [Начало периода аренды]," +
-                                  "Booking.booking_end_date AS [Конец периода аренды] " +
+                                  "Area.floor_number AS [Номер этажа] " +
                             "FROM Booking " +
                             "JOIN Organisation ON Booking.org_id = Organisation.org_id " +
                             "JOIN Area ON Booking.area_id = Area.area_id";
@@ -631,12 +604,12 @@ namespace MartDB
                 selectQuery = "SELECT " +
                                   "Booking.booking_id," +
                                   "Organisation.org_name AS [Название организации]," +
+                                  "Booking.booking_start_date AS [Начало периода аренды]," +
+                                  "Booking.booking_end_date AS [Конец периода аренды]," +
+                                  "Booking.cost AS [Стоимость аренды]," +
                                   "Area.area_id AS [Код помещения]," +
                                   "Area.area_square AS [Площадь помещения]," +
-                                  "Area.floor_number AS [Номер этажа]," +
-                                  "Booking.cost AS [Стоимость аренды]," +
-                                  "Booking.booking_start_date AS [Начало периода аренды]," +
-                                  "Booking.booking_end_date AS [Конец периода аренды] " +
+                                  "Area.floor_number AS [Номер этажа] " +
                               "FROM Booking " +
                               "JOIN Organisation ON Booking.org_id = Organisation.org_id " +
                               "JOIN Area ON Booking.area_id = Area.area_id " +
@@ -834,23 +807,55 @@ namespace MartDB
             else if (this.dgvBooking.SelectedCells.Count == 1)
             {
                 // Get selected booking
-                int booking_id = Convert.ToInt32(this.dgvBooking.Rows[rowIndex].Cells[0].Value);
+                string bookingId = Convert.ToString(this.dgvBooking.Rows[rowIndex].Cells[0].Value);
                 string orgName = this.dgvBooking.Rows[rowIndex].Cells[1].Value.ToString();
-                int areaId = Convert.ToInt32(this.dgvBooking.Rows[rowIndex].Cells[2].Value);
-                string bookingStartDate = this.dgvBooking.Rows[rowIndex].Cells[6].Value.ToString();
-                string bookingEndDate = this.dgvBooking.Rows[rowIndex].Cells[7].Value.ToString();
+                string areaId = Convert.ToString(this.dgvBooking.Rows[rowIndex].Cells[5].Value);
+                string bookingStartDate = this.dgvBooking.Rows[rowIndex].Cells[2].Value.ToString();
+                string bookingEndDate = this.dgvBooking.Rows[rowIndex].Cells[3].Value.ToString();
 
                 // Pass data to UpdateBookingForm
-                Form updateBookingForm = new UpdateBookingForm(orgName, areaId, bookingStartDate, bookingEndDate);
+                Form updateBookingForm = new UpdateBookingForm(bookingId, orgName, areaId, bookingStartDate, bookingEndDate);
                 updateBookingForm.FormClosed += new FormClosedEventHandler(this.handleBookingForms_FormClosed);
                 updateBookingForm.Show();
             }
+        }
+
+        void UpdateExistingBookingDates()
+        {
+            // Set booking data comboboxes
+            this.sqlConnection.Open();
+
+            this.bookingSearchDateComboBox1.BringToFront();
+            this.bookingSearchDateComboBox2.BringToFront();
+
+            DataTable dtBookingStartDates = new DataTable();
+            SqlDataAdapter daBookingStartDates = new SqlDataAdapter("SELECT DISTINCT booking_start_date FROM Booking",
+                                                                    this.sqlConnection);
+
+            daBookingStartDates.Fill(dtBookingStartDates);
+
+            this.bookingSearchDateComboBox1.DataSource = dtBookingStartDates;
+            this.bookingSearchDateComboBox1.DisplayMember = "booking_start_date";
+            this.bookingSearchDateComboBox1.ValueMember = "booking_start_date";
+
+            DataTable dtBookingEndDates = new DataTable();
+            SqlDataAdapter daBookingEndDates = new SqlDataAdapter("SELECT DISTINCT booking_end_date FROM Booking",
+                                                                    this.sqlConnection);
+
+            daBookingEndDates.Fill(dtBookingEndDates);
+
+            this.bookingSearchDateComboBox2.DataSource = dtBookingEndDates;
+            this.bookingSearchDateComboBox2.DisplayMember = "booking_end_date";
+            this.bookingSearchDateComboBox2.ValueMember = "booking_end_date";
+
+            this.sqlConnection.Close();
         }
 
         // Refresh booking table after any manipulations with it
         private void handleBookingForms_FormClosed(object sender, FormClosedEventArgs e)
         {
             FillBookingDGV();
+            UpdateExistingBookingDates();
         }
 
         ////// Employee panel //////

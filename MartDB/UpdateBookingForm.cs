@@ -13,15 +13,17 @@ namespace MartDB
 {
     public partial class UpdateBookingForm : Form
     {
+        private string _bookingId = "";
         private string _orgName = "";
-        private int _areaId = 0;
+        private string _areaId = "";
         private string _bookingStartDate = "";
         private string _bookingEndDate = "";
 
-        public UpdateBookingForm(string orgName, int areaId, string bookingStartDate, string bookingEndDate)
+        public UpdateBookingForm(string bookingId, string orgName, string areaId, string bookingStartDate, string bookingEndDate)
         {
             InitializeComponent();
 
+            this._bookingId = bookingId;
             this._orgName = orgName;
             this._areaId = areaId;
             this._bookingStartDate = bookingStartDate;
@@ -37,6 +39,7 @@ namespace MartDB
             if (UserData.UserRole == "admin")
             {
                 this.dtpBookingStartDate.Enabled = true;
+                this.bCostCheckBox.Enabled = true;
             }
 
             this.dtpBookingEndDate.Text = this._bookingEndDate;
@@ -50,45 +53,76 @@ namespace MartDB
             try
             {
                 // Initialize params
-                this.sqlCmdUpdateBooking.Parameters["@org_name"].Value = orgNameComboBox.Text;
-                this.sqlCmdUpdateBooking.Parameters["@area_id"].Value = areaIdComboBox.Text;
+                this.sqlCmdUpdateBooking.Parameters["@org_name"].Value = orgNameComboBox.Text.ToString();
+                this.sqlCmdUpdateBooking.Parameters["@area_id"].Value = Convert.ToInt32(areaIdComboBox.Text);
                 this.sqlCmdUpdateBooking.Parameters["@booking_start_date"].Value = dtpBookingStartDate.Text;
                 this.sqlCmdUpdateBooking.Parameters["@booking_end_date"].Value = dtpBookingEndDate.Text;
 
-                // Call proc
-                int iAffectedRowsCount = this.sqlCmdUpdateBooking.ExecuteNonQuery();
-
-                // Show corresponding information
-                if (iAffectedRowsCount == 0)
+                DateTime.TryParse(this._bookingEndDate, out DateTime oldBookingEndDate);
+                if (UserData.UserRole == "organisation" && dtpBookingEndDate.Value > oldBookingEndDate)
                 {
-                    MessageBox.Show("Изменение данных завершилось с ошибкой!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Невозможно продлить аренду! Обратитесь к администратору.", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    MessageBox.Show("Данные успешно изменены!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (dtpBookingStartDate.Value <= dtpBookingEndDate.Value)
+                    {
+                        int iAffectedRowsCount2 = this.sqlCmdUpdateBooking.ExecuteNonQuery();
 
-                    // Close this form in case of success
-                    this.Close();
+                        // Show corresponding information
+                        if (iAffectedRowsCount2 == 0)
+                        {
+                            MessageBox.Show("Изменение данных завершилось с ошибкой!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else
+                        {
+                            if (this.bCostCheckBox.Checked)
+                            {
+                                this.sqlCmdProcUpdateBookingCost.Parameters["@booking_id"].Value = Convert.ToInt32(this._bookingId);
+                                int iAffectedRowsCount1 = this.sqlCmdProcUpdateBookingCost.ExecuteNonQuery();
+                                if (iAffectedRowsCount1 == 0)
+                                {
+                                    MessageBox.Show("Обновление стоимости завершилось с ошибкой!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Стоимость успешно обновлена!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                    // Close this form in case of success
+                                    this.Close();
+                                }
+                            }
+
+                            MessageBox.Show("Данные успешно изменены!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            // Close this form in case of success
+                            this.Close();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Введены некорректные значения периодов!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
             catch (FormatException)
             {
-                MessageBox.Show("Введены некорректные значения!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Введены некорректные значения!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            catch (SqlException)
+            catch (SqlException ex)
             {
-                //StringBuilder errorMessages = new StringBuilder();
-                //for (int i = 0; i < ex.Errors.Count; i++)
-                //{
-                //    errorMessages.Append("Index #" + i + "\n" +
-                //        "Message: " + ex.Errors[i].Message + "\n" +
-                //        "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
-                //        "Source: " + ex.Errors[i].Source + "\n" +
-                //        "Procedure: " + ex.Errors[i].Procedure + "\n");
-                //}
-                //MessageBox.Show(errorMessages.ToString(), "Error");
-                
-                MessageBox.Show("Изменение данных завершилось с ошибкой!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                StringBuilder errorMessages = new StringBuilder();
+                for (int i = 0; i < ex.Errors.Count; i++)
+                {
+                    errorMessages.Append("Index #" + i + "\n" +
+                        "Message: " + ex.Errors[i].Message + "\n" +
+                        "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+                        "Source: " + ex.Errors[i].Source + "\n" +
+                        "Procedure: " + ex.Errors[i].Procedure + "\n");
+                }
+                MessageBox.Show(errorMessages.ToString(), "Error");
+
+                MessageBox.Show("Изменение данных завершилось с ошибкой!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             // Close DB connection

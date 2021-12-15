@@ -41,6 +41,8 @@ namespace MartDB
             this.label1 = new System.Windows.Forms.Label();
             this.btnUpdateBooking = new System.Windows.Forms.Button();
             this.sqlCmdUpdateBooking = new System.Data.SqlClient.SqlCommand();
+            this.bCostCheckBox = new System.Windows.Forms.CheckBox();
+            this.sqlCmdProcUpdateBookingCost = new System.Data.SqlClient.SqlCommand();
             this.SuspendLayout();
             // 
             // sqlConnection
@@ -129,7 +131,7 @@ namespace MartDB
             // 
             // btnUpdateBooking
             // 
-            this.btnUpdateBooking.Location = new System.Drawing.Point(135, 239);
+            this.btnUpdateBooking.Location = new System.Drawing.Point(150, 291);
             this.btnUpdateBooking.Name = "btnUpdateBooking";
             this.btnUpdateBooking.Size = new System.Drawing.Size(176, 57);
             this.btnUpdateBooking.TabIndex = 37;
@@ -148,11 +150,31 @@ namespace MartDB
             new System.Data.SqlClient.SqlParameter("@booking_start_date", System.Data.SqlDbType.Date, 50),
             new System.Data.SqlClient.SqlParameter("@booking_end_date", System.Data.SqlDbType.Date, 50)});
             // 
+            // bCostCheckBox
+            // 
+            this.bCostCheckBox.AutoSize = true;
+            this.bCostCheckBox.Enabled = false;
+            this.bCostCheckBox.Location = new System.Drawing.Point(150, 244);
+            this.bCostCheckBox.Name = "bCostCheckBox";
+            this.bCostCheckBox.Size = new System.Drawing.Size(166, 21);
+            this.bCostCheckBox.TabIndex = 38;
+            this.bCostCheckBox.Text = "Обновить стоимость";
+            this.bCostCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // sqlCmdProcUpdateBookingCost
+            // 
+            this.sqlCmdProcUpdateBookingCost.CommandText = "ProcUpdateBookingCost";
+            this.sqlCmdProcUpdateBookingCost.CommandType = System.Data.CommandType.StoredProcedure;
+            this.sqlCmdProcUpdateBookingCost.Connection = this.sqlConnection;
+            this.sqlCmdProcUpdateBookingCost.Parameters.AddRange(new System.Data.SqlClient.SqlParameter[] {
+            new System.Data.SqlClient.SqlParameter("@booking_id", System.Data.SqlDbType.Int)});
+            // 
             // UpdateBookingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(499, 311);
+            this.ClientSize = new System.Drawing.Size(499, 377);
+            this.Controls.Add(this.bCostCheckBox);
             this.Controls.Add(this.btnUpdateBooking);
             this.Controls.Add(this.areaIdComboBox);
             this.Controls.Add(this.orgNameComboBox);
@@ -189,5 +211,7 @@ namespace MartDB
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnUpdateBooking;
         private System.Data.SqlClient.SqlCommand sqlCmdUpdateBooking;
+        private System.Windows.Forms.CheckBox bCostCheckBox;
+        private System.Data.SqlClient.SqlCommand sqlCmdProcUpdateBookingCost;
     }
 }

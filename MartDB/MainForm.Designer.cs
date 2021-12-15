@@ -462,12 +462,12 @@ namespace MartDB
             this.bookingSortColsListBox.ItemHeight = 16;
             this.bookingSortColsListBox.Items.AddRange(new object[] {
             "Название организации",
+            "Начало периода аренды",
+            "Конец периода аренды",
+            "Стоимость аренды",
             "Код помещения",
             "Площадь помещения",
-            "Номер этажа",
-            "Стоимость аренды",
-            "Начало периода аренды",
-            "Конец периода аренды"});
+            "Номер этажа"});
             this.bookingSortColsListBox.Location = new System.Drawing.Point(9, 39);
             this.bookingSortColsListBox.Name = "bookingSortColsListBox";
             this.bookingSortColsListBox.Size = new System.Drawing.Size(241, 100);
@@ -501,7 +501,7 @@ namespace MartDB
             this.menuToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(983, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(983, 30);
             this.menuStrip1.TabIndex = 12;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -516,7 +516,7 @@ namespace MartDB
             this.outletToolStripMenuItem,
             this.orgToolStripMenuItem});
             this.panelsToolStripMenuItem.Name = "panelsToolStripMenuItem";
-            this.panelsToolStripMenuItem.Size = new System.Drawing.Size(93, 24);
+            this.panelsToolStripMenuItem.Size = new System.Drawing.Size(93, 26);
             this.panelsToolStripMenuItem.Text = "Страницы";
             // 
             // mainToolStripMenuItem
@@ -573,7 +573,7 @@ namespace MartDB
             this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aboutToolStripMenuItem});
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
-            this.menuToolStripMenuItem.Size = new System.Drawing.Size(65, 24);
+            this.menuToolStripMenuItem.Size = new System.Drawing.Size(65, 26);
             this.menuToolStripMenuItem.Text = "Меню";
             // 
             // aboutToolStripMenuItem
@@ -1871,9 +1871,9 @@ namespace MartDB
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(983, 605);
+            this.Controls.Add(this.panelBooking);
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.panelArea);
-            this.Controls.Add(this.panelBooking);
             this.Controls.Add(this.panelEmployee);
             this.Controls.Add(this.panelTradeProfile);
             this.Controls.Add(this.panelOutlet);
