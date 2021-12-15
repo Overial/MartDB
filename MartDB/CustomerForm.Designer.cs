@@ -52,6 +52,9 @@ namespace MartDB
             this.ascOutletRadioButton = new System.Windows.Forms.RadioButton();
             this.sortColOutletLabel = new System.Windows.Forms.Label();
             this.searchOutletGroupBox = new System.Windows.Forms.GroupBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.searchQueryOutletComboBox = new System.Windows.Forms.ComboBox();
             this.searchQueryOutletGroupBox = new System.Windows.Forms.Label();
             this.searchColsOutletListBox = new System.Windows.Forms.ListBox();
             this.searchOutletLabel = new System.Windows.Forms.Label();
@@ -61,9 +64,6 @@ namespace MartDB
             this.sqlConnection = new System.Data.SqlClient.SqlConnection();
             this.sqlCmdFnGetOutletReviews = new System.Data.SqlClient.SqlCommand();
             this.sqlCmdProcDeleteReview = new System.Data.SqlClient.SqlCommand();
-            this.searchQueryOutletComboBox = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.sqlCmdProcUpdateOutletRating = new System.Data.SqlClient.SqlCommand();
             this.menuStrip1.SuspendLayout();
             this.panelOutlet.SuspendLayout();
@@ -265,7 +265,7 @@ namespace MartDB
             this.sortOutletGroupBox.Size = new System.Drawing.Size(297, 178);
             this.sortOutletGroupBox.TabIndex = 31;
             this.sortOutletGroupBox.TabStop = false;
-            this.sortOutletGroupBox.Text = "Сортировка";
+            this.sortOutletGroupBox.Text = "Сортировка торговых точек";
             // 
             // sortColsOutletListBox
             // 
@@ -341,16 +341,54 @@ namespace MartDB
             this.searchOutletGroupBox.Size = new System.Drawing.Size(297, 194);
             this.searchOutletGroupBox.TabIndex = 27;
             this.searchOutletGroupBox.TabStop = false;
-            this.searchOutletGroupBox.Text = "Поиск";
+            this.searchOutletGroupBox.Text = "Поиск торговых точек";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "5",
+            "4",
+            "3",
+            "2",
+            "1"});
+            this.comboBox2.Location = new System.Drawing.Point(168, 68);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(119, 24);
+            this.comboBox2.TabIndex = 33;
+            this.comboBox2.Visible = false;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "5",
+            "4",
+            "3",
+            "2",
+            "1"});
+            this.comboBox1.Location = new System.Drawing.Point(168, 38);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(119, 24);
+            this.comboBox1.TabIndex = 32;
+            this.comboBox1.Visible = false;
+            // 
+            // searchQueryOutletComboBox
+            // 
+            this.searchQueryOutletComboBox.FormattingEnabled = true;
+            this.searchQueryOutletComboBox.Location = new System.Drawing.Point(168, 38);
+            this.searchQueryOutletComboBox.Name = "searchQueryOutletComboBox";
+            this.searchQueryOutletComboBox.Size = new System.Drawing.Size(119, 24);
+            this.searchQueryOutletComboBox.TabIndex = 31;
             // 
             // searchQueryOutletGroupBox
             // 
             this.searchQueryOutletGroupBox.AutoSize = true;
-            this.searchQueryOutletGroupBox.Location = new System.Drawing.Point(170, 18);
+            this.searchQueryOutletGroupBox.Location = new System.Drawing.Point(198, 18);
             this.searchQueryOutletGroupBox.Name = "searchQueryOutletGroupBox";
-            this.searchQueryOutletGroupBox.Size = new System.Drawing.Size(117, 17);
+            this.searchQueryOutletGroupBox.Size = new System.Drawing.Size(60, 17);
             this.searchQueryOutletGroupBox.TabIndex = 12;
-            this.searchQueryOutletGroupBox.Text = "Введите запрос:";
+            this.searchQueryOutletGroupBox.Text = "Запрос:";
             // 
             // searchColsOutletListBox
             // 
@@ -436,44 +474,6 @@ namespace MartDB
             this.sqlCmdProcDeleteReview.Parameters.AddRange(new System.Data.SqlClient.SqlParameter[] {
             new System.Data.SqlClient.SqlParameter("@review_id", System.Data.SqlDbType.Int),
             new System.Data.SqlClient.SqlParameter("@username", System.Data.SqlDbType.VarChar, 50)});
-            // 
-            // searchQueryOutletComboBox
-            // 
-            this.searchQueryOutletComboBox.FormattingEnabled = true;
-            this.searchQueryOutletComboBox.Location = new System.Drawing.Point(168, 38);
-            this.searchQueryOutletComboBox.Name = "searchQueryOutletComboBox";
-            this.searchQueryOutletComboBox.Size = new System.Drawing.Size(119, 24);
-            this.searchQueryOutletComboBox.TabIndex = 31;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "5",
-            "4",
-            "3",
-            "2",
-            "1"});
-            this.comboBox1.Location = new System.Drawing.Point(168, 38);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(119, 24);
-            this.comboBox1.TabIndex = 32;
-            this.comboBox1.Visible = false;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "5",
-            "4",
-            "3",
-            "2",
-            "1"});
-            this.comboBox2.Location = new System.Drawing.Point(168, 68);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(119, 24);
-            this.comboBox2.TabIndex = 33;
-            this.comboBox2.Visible = false;
             // 
             // sqlCmdProcUpdateOutletRating
             // 

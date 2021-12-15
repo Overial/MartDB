@@ -50,7 +50,7 @@ namespace MartDB
         // Get info about app
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("База данных ТЦ \"Тессеракт\"", "О программе", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("База данных ТЦ \"Тессеракт\". Чувствуйте себя как дома!", "О программе", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         ////// Outlet panel //////
