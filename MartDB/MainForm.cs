@@ -105,6 +105,7 @@ namespace MartDB
             if (UserData.UserRole == "organisation")
             {
                 this.btnPanelOrg.Visible = false;
+                this.orgToolStripMenuItem.Visible = false;
             }
         }
 
@@ -124,9 +125,19 @@ namespace MartDB
         private void btnNextPanel_Click(object sender, EventArgs e)
         {
             // While it's not the end
-            if (this.index < this.listPanel.Count - 1)
+            if (UserData.UserRole == "admin")
             {
-                this.listPanel[++this.index].BringToFront();
+                if (this.index < this.listPanel.Count - 1)
+                {
+                    this.listPanel[++this.index].BringToFront();
+                }
+            }
+            else if (UserData.UserRole == "organisation")
+            {
+                if (this.index < this.listPanel.Count - 2)
+                {
+                    this.listPanel[++this.index].BringToFront();
+                }
             }
         }
 
