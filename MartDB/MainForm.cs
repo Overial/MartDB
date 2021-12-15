@@ -1539,20 +1539,20 @@ namespace MartDB
                     {
                         MessageBox.Show("Введены некорректные значения!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    catch (SqlException ex)
+                    catch (SqlException)
                     {
                         MessageBox.Show("Удаление данных завершилось с ошибкой!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                        StringBuilder errorMessages = new StringBuilder();
-                        for (int i = 0; i < ex.Errors.Count; i++)
-                        {
-                            errorMessages.Append("Index #" + i + "\n" +
-                                "Message: " + ex.Errors[i].Message + "\n" +
-                                "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
-                                "Source: " + ex.Errors[i].Source + "\n" +
-                                "Procedure: " + ex.Errors[i].Procedure + "\n");
-                        }
-                        MessageBox.Show(errorMessages.ToString(), "Error");
+                        //StringBuilder errorMessages = new StringBuilder();
+                        //for (int i = 0; i < ex.Errors.Count; i++)
+                        //{
+                        //    errorMessages.Append("Index #" + i + "\n" +
+                        //        "Message: " + ex.Errors[i].Message + "\n" +
+                        //        "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+                        //        "Source: " + ex.Errors[i].Source + "\n" +
+                        //        "Procedure: " + ex.Errors[i].Procedure + "\n");
+                        //}
+                        //MessageBox.Show(errorMessages.ToString(), "Error");
                     }
 
                     // Close DB connection
