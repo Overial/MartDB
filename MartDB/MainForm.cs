@@ -139,7 +139,10 @@ namespace MartDB
             // Bring main panel to front
             this.panelMain.BringToFront();
 
-            this.btnPanelOrg.Visible = true;
+            if (UserData.UserRole == "admin")
+            {
+                this.btnPanelOrg.Visible = true;
+            }
 
             // Hide nav buttons
             this.btnPanelMain.Visible = false;
@@ -298,7 +301,10 @@ namespace MartDB
             this.btnNextPanel.BringToFront();
             this.btnPreviousPanel.BringToFront();
 
-            this.btnPanelOrg.Visible = true;
+            if (UserData.UserRole == "admin")
+            {
+                this.btnPanelOrg.Visible = true;
+            }
 
             // Hide nav buttons
             this.btnPanelMain.Visible = false;
@@ -530,6 +536,8 @@ namespace MartDB
 
         private void btnAreaShowAll_Click(object sender, EventArgs e)
         {
+            FillAreaDGV();
+
             // Display every row
             foreach (DataGridViewRow row in this.dgvArea.Rows)
             {
@@ -728,6 +736,8 @@ namespace MartDB
             // this.areaBindingSource.Filter = "";
 
             // dgvBookingHandling.Rows[0].Selected = true;
+
+            FillBookingDGV();
 
             // Display every row
             foreach (DataGridViewRow row in this.dgvBooking.Rows)
@@ -942,6 +952,8 @@ namespace MartDB
 
         private void btnEmployeeShowAll_Click(object sender, EventArgs e)
         {
+            FillEmployeesDGV();
+
             // Display every row
             foreach (DataGridViewRow row in this.dgvEmployee.Rows)
             {
@@ -1175,6 +1187,8 @@ namespace MartDB
 
         private void btnTradeProfileShowAll_Click(object sender, EventArgs e)
         {
+            FillTradeProfilesDGV();
+
             // Display every row
             foreach (DataGridViewRow row in this.dgvTradeProfile.Rows)
             {
@@ -1366,6 +1380,8 @@ namespace MartDB
 
         private void btnOutletShowAll_Click(object sender, EventArgs e)
         {
+            FillOutletsDGV();
+
             // Display every row
             foreach (DataGridViewRow row in this.dgvOutlet.Rows)
             {
@@ -1465,7 +1481,7 @@ namespace MartDB
                 }
                 else
                 {
-                    MessageBox.Show("Выбран чужая торговая точка!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Выбрана чужая торговая точка!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -1480,52 +1496,61 @@ namespace MartDB
             {
                 int rowIndex = this.dgvOutlet.SelectedCells[0].RowIndex;
 
-                // Open DB connection
-                sqlConnection.Open();
-
-                // Initialize params
-                try
+                if ((UserData.UserRole == "organisation" &&
+                   this.dgvOutlet.Rows[rowIndex].Cells[1].Value.ToString() == UserData.UserName) ||
+                   UserData.UserRole == "admin")
                 {
-                    sqlCmdProcDeleteOutlet.Parameters["@outlet_id"].Value = this.dgvOutlet.Rows[rowIndex].Cells[0].Value.ToString();
+                    // Open DB connection
+                    sqlConnection.Open();
 
-                    // Call proc
-                    int iAffectedRowsCount = sqlCmdProcDeleteOutlet.ExecuteNonQuery();
+                    // Initialize params
+                    try
+                    {
+                        sqlCmdProcDeleteOutlet.Parameters["@outlet_id"].Value = this.dgvOutlet.Rows[rowIndex].Cells[0].Value.ToString();
 
-                    // Show corresponding information
-                    if (iAffectedRowsCount == 0)
+                        // Call proc
+                        int iAffectedRowsCount = sqlCmdProcDeleteOutlet.ExecuteNonQuery();
+
+                        // Show corresponding information
+                        if (iAffectedRowsCount == 0)
+                        {
+                            MessageBox.Show("Удаление данных завершилось с ошибкой!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Данные успешно удалены!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            UpdateAllOutletsRatings();
+                            FillOutletsDGV();
+                        }
+                    }
+                    catch (FormatException)
+                    {
+                        MessageBox.Show("Введены некорректные значения!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    catch (SqlException ex)
                     {
                         MessageBox.Show("Удаление данных завершилось с ошибкой!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Данные успешно удалены!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        UpdateAllOutletsRatings();
-                        FillOutletsDGV();
+                        StringBuilder errorMessages = new StringBuilder();
+                        for (int i = 0; i < ex.Errors.Count; i++)
+                        {
+                            errorMessages.Append("Index #" + i + "\n" +
+                                "Message: " + ex.Errors[i].Message + "\n" +
+                                "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+                                "Source: " + ex.Errors[i].Source + "\n" +
+                                "Procedure: " + ex.Errors[i].Procedure + "\n");
+                        }
+                        MessageBox.Show(errorMessages.ToString(), "Error");
                     }
+
+                    // Close DB connection
+                    sqlConnection.Close();
                 }
-                catch (FormatException)
+                else
                 {
-                    MessageBox.Show("Введены некорректные значения!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Выбрана чужая торговая точка!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                catch (SqlException ex)
-                {
-                    MessageBox.Show("Удаление данных завершилось с ошибкой!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                    StringBuilder errorMessages = new StringBuilder();
-                    for (int i = 0; i < ex.Errors.Count; i++)
-                    {
-                        errorMessages.Append("Index #" + i + "\n" +
-                            "Message: " + ex.Errors[i].Message + "\n" +
-                            "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
-                            "Source: " + ex.Errors[i].Source + "\n" +
-                            "Procedure: " + ex.Errors[i].Procedure + "\n");
-                    }
-                    MessageBox.Show(errorMessages.ToString(), "Error");
-                }
-
-                // Close DB connection
-                sqlConnection.Close();
             }
         }
 
@@ -1670,6 +1695,8 @@ namespace MartDB
 
         private void btnOrgShowAll_Click(object sender, EventArgs e)
         {
+            FillOrgsDGV();
+
             // Display every row
             foreach (DataGridViewRow row in this.dgvOrg.Rows)
             {
