@@ -14,18 +14,18 @@ namespace MartDB
     public partial class UpdateOrgForm : Form
     {
         private string _orgId = "";
-        private string _orgName = "";
+        private string _oldOrgName = "";
         private string _country = "";
         private string _paymentTerms = "";
         private string _deliveryMethod = "";
         private string _contactPerson = "";
 
-        public UpdateOrgForm(string orgId, string orgName, string country, string paymentTerms, string deliveryMethod, string contactPerson)
+        public UpdateOrgForm(string orgId, string oldOrgName, string country, string paymentTerms, string deliveryMethod, string contactPerson)
         {
             InitializeComponent();
 
             this._orgId = orgId;
-            this._orgName = orgName;
+            this._oldOrgName = oldOrgName;
             this._country = country;
             this._paymentTerms = paymentTerms;
             this._deliveryMethod = deliveryMethod;
@@ -48,7 +48,7 @@ namespace MartDB
 
             sqlConnection.Close();
 
-            this.orgNameTextBox.Text = this._orgName;
+            this.orgNameTextBox.Text = this._oldOrgName;
             this.countryTextBox.Text = this._country;
             this.paymentTermsComboBox.Text = this._paymentTerms;
             this.deliveryMethodComboBox.Text = this._deliveryMethod;
@@ -64,6 +64,7 @@ namespace MartDB
             try
             {
                 sqlCmdProcUpdateOrg.Parameters["@org_id"].Value = Convert.ToInt32(this._orgId);
+                sqlCmdProcUpdateOrg.Parameters["@old_org_name"].Value = this._oldOrgName.ToString();
                 sqlCmdProcUpdateOrg.Parameters["@org_name"].Value = Convert.ToString(orgNameTextBox.Text);
                 sqlCmdProcUpdateOrg.Parameters["@country"].Value = Convert.ToString(countryTextBox.Text);
                 sqlCmdProcUpdateOrg.Parameters["@payment_terms"].Value = Convert.ToString(paymentTermsComboBox.Text);

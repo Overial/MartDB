@@ -187,6 +187,7 @@ namespace MartDB
             this.sqlCmdProcUpdateOrg.Connection = this.sqlConnection;
             this.sqlCmdProcUpdateOrg.Parameters.AddRange(new System.Data.SqlClient.SqlParameter[] {
             new System.Data.SqlClient.SqlParameter("@org_id", System.Data.SqlDbType.Int),
+            new System.Data.SqlClient.SqlParameter("@old_org_name", System.Data.SqlDbType.VarChar, 50),
             new System.Data.SqlClient.SqlParameter("@org_name", System.Data.SqlDbType.VarChar, 50),
             new System.Data.SqlClient.SqlParameter("@country", System.Data.SqlDbType.VarChar, 50),
             new System.Data.SqlClient.SqlParameter("@payment_terms", System.Data.SqlDbType.VarChar, 50),

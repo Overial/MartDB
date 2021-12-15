@@ -1771,14 +1771,14 @@ namespace MartDB
                 int rowIndex = this.dgvOrg.SelectedCells[0].RowIndex;
 
                 string orgId = this.dgvOrg.Rows[rowIndex].Cells[0].Value.ToString();
-                string orgName = this.dgvOrg.Rows[rowIndex].Cells[1].Value.ToString();
+                string oldOrgName = this.dgvOrg.Rows[rowIndex].Cells[1].Value.ToString();
                 string country = this.dgvOrg.Rows[rowIndex].Cells[2].Value.ToString();
                 string payment_terms = this.dgvOrg.Rows[rowIndex].Cells[3].Value.ToString();
                 string delivery_method = this.dgvOrg.Rows[rowIndex].Cells[4].Value.ToString();
                 string contact_person = this.dgvOrg.Rows[rowIndex].Cells[5].Value.ToString();
 
                 // Pass data to UpdateBookingForm
-                Form updateOutletForm = new UpdateOrgForm(orgId, orgName, country, payment_terms, delivery_method, contact_person);
+                Form updateOutletForm = new UpdateOrgForm(orgId, oldOrgName, country, payment_terms, delivery_method, contact_person);
                 updateOutletForm.FormClosed += new FormClosedEventHandler(this.handleOutletForms_FormClosed);
                 updateOutletForm.Show();
             }
