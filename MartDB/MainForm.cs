@@ -449,13 +449,22 @@ namespace MartDB
             sqlConnection.Open();
 
             // Create query
-            string selectQuery = "SELECT " +
+            //string selectQuery = "SELECT " +
+            //                         "Area.area_id," +
+            //                         "Area.area_square," +
+            //                         "Area.floor_number " +
+            //                         "FROM Area " +
+            //                     "LEFT JOIN Booking ON Area.area_id = Booking.area_id " +
+            //                     "WHERE Booking.area_id IS NULL";
+
+            string selectQuery = "SELECT DISTINCT " +
                                      "Area.area_id," +
                                      "Area.area_square," +
                                      "Area.floor_number " +
                                      "FROM Area " +
-                                 "LEFT JOIN Booking ON Area.area_id = Booking.area_id " +
-                                 "WHERE Booking.area_id IS NULL";
+                                 "JOIN Booking ON Area.area_id = Booking.area_id " +
+                                 "WHERE Booking.booking_end_date < GETDATE()";
+
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(selectQuery, sqlConnection);
 
             // Set command builder
@@ -875,6 +884,7 @@ namespace MartDB
         // Refresh booking table after any manipulations with it
         private void handleBookingForms_FormClosed(object sender, FormClosedEventArgs e)
         {
+            FillAreaDGV();
             FillBookingDGV();
             UpdateExistingBookingDates();
         }

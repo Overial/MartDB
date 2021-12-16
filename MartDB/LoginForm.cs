@@ -36,6 +36,11 @@ namespace MartDB
             this.StartPosition = FormStartPosition.CenterScreen;
         }
 
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+            this.roleComboBox.Text = "Посетитель";
+        }
+
         // Moving login window with mouse
         private void menuStrip1_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
         {

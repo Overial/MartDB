@@ -32,16 +32,36 @@ namespace MartDB
 
         private void UpdateBookingForm_Load(object sender, EventArgs e)
         {
-            this.orgNameComboBox.Text = this._orgName;
-            this.areaIdComboBox.Text = this._areaId.ToString();
+            // Fill combo box with org names from Area table
+            DataTable dtOrgNames = new DataTable();
+            SqlDataAdapter daOrgNames = new SqlDataAdapter("SELECT org_name FROM Organisation",
+                                                           this.sqlConnection);
+            daOrgNames.Fill(dtOrgNames);
+            this.orgNameComboBox.DataSource = dtOrgNames;
+            this.orgNameComboBox.DisplayMember = "org_name";
+            this.orgNameComboBox.ValueMember = "org_name";
+
+            // Fill combo box with area ids from Area table
+            DataTable dtFreeAreaIds = new DataTable();
+            string selectQuery = "SELECT Area.area_id FROM Area ";
+            SqlDataAdapter daFreeAreaIds = new SqlDataAdapter(selectQuery,
+                                                              this.sqlConnection);
+            daFreeAreaIds.Fill(dtFreeAreaIds);
+            this.areaIdComboBox.DataSource = dtFreeAreaIds;
+            this.areaIdComboBox.DisplayMember = "area_id";
+            this.areaIdComboBox.ValueMember = "area_id";
 
             this.dtpBookingStartDate.Text = this._bookingStartDate;
             if (UserData.UserRole == "admin")
             {
+                this.orgNameComboBox.Enabled = true;
+                this.areaIdComboBox.Enabled = true;
                 this.dtpBookingStartDate.Enabled = true;
                 this.bCostCheckBox.Enabled = true;
             }
 
+            this.orgNameComboBox.Text = this._orgName;
+            this.areaIdComboBox.Text = this._areaId.ToString();
             this.dtpBookingEndDate.Text = this._bookingEndDate;
         }
 
