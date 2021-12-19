@@ -38,6 +38,7 @@ namespace MartDB
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
+            UserData.IsCurrentUserAuthenticated = false;
             this.roleComboBox.Text = "Посетитель";
         }
 
@@ -128,6 +129,9 @@ namespace MartDB
                     // If found matches
                     if (reader.Read())
                     {
+                        RegisterForm registerForm = new RegisterForm();
+                        registerForm.Close();
+
                         // Open form for admin
                         if (role == "admin" || role == "organisation")
                         {
@@ -210,7 +214,7 @@ namespace MartDB
         private void btnRegister_Click(object sender, EventArgs e)
         {
             // Register form
-            Form registerForm = new RegisterForm();
+            RegisterForm registerForm = new RegisterForm();
             registerForm.Show();
         }
 

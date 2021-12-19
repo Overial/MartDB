@@ -81,8 +81,10 @@ namespace MartDB
 
             // Fill DGV
             this.dgvOutlet.DataSource = dataSet.Tables[0];
-            this.dgvOutlet.Columns[2].Width = 49;
-            this.dgvOutlet.Columns[4].Width = 49;
+            this.dgvOutlet.Columns[1].Width = 100;
+            this.dgvOutlet.Columns[2].Width = 50;
+            this.dgvOutlet.Columns[3].Width = 80;
+            this.dgvOutlet.Columns[4].Width = 50;
         }
 
         // Get info about reviews
@@ -305,14 +307,14 @@ namespace MartDB
             {
                 if (this.comboBox1.Text.Length > 0 && this.comboBox2.Text.Length > 0)
                 {
-                    int leftRatingBound = Convert.ToInt32(this.comboBox1.Text);
-                    int rightRatingBound = Convert.ToInt32(this.comboBox2.Text);
+                    double leftRatingBound = Convert.ToDouble(this.comboBox1.Text);
+                    double rightRatingBound = Convert.ToDouble(this.comboBox2.Text);
 
                     // Filter area square data
                     foreach (DataGridViewRow row in this.dgvOutlet.Rows)
                     {
-                        if (Convert.ToInt32(row.Cells[iColIndex].Value) >= leftRatingBound &&
-                            Convert.ToInt32(row.Cells[iColIndex].Value) <= rightRatingBound)
+                        if (Convert.ToInt32(row.Cells[4].Value) >= leftRatingBound &&
+                            Convert.ToInt32(row.Cells[4].Value) <= rightRatingBound)
                         {
                             this.dgvOutlet.Rows[row.Index].Visible = true;
                         }
@@ -549,7 +551,7 @@ namespace MartDB
             // Filter area square data
             foreach (DataGridViewRow row in this.dgvReview.Rows)
             {
-                if (row.Cells[4].Value.ToString().Contains(UserData.UserName))
+                if (row.Cells[4].Value.ToString() == UserData.UserName)
                 {
                     this.dgvReview.Rows[row.Index].Visible = true;
                 }

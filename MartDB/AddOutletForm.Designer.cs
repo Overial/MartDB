@@ -29,6 +29,7 @@ namespace MartDB
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddOutletForm));
             this.contactPersonComboBox = new System.Windows.Forms.ComboBox();
             this.orgNameComboBox = new System.Windows.Forms.ComboBox();
             this.btnAddOutlet = new System.Windows.Forms.Button();
@@ -205,11 +206,12 @@ namespace MartDB
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AddOutletForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AddOutletForm";
+            this.Text = "Добавление торговых точек";
             this.Load += new System.EventHandler(this.AddOutletForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

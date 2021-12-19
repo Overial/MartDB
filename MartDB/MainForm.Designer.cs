@@ -29,6 +29,7 @@ namespace MartDB
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panelBooking = new System.Windows.Forms.Panel();
             this.btnUpdateBooking = new System.Windows.Forms.Button();
             this.btnAddBookingForm = new System.Windows.Forms.Button();
@@ -183,6 +184,9 @@ namespace MartDB
             this.dgvOrg = new System.Windows.Forms.DataGridView();
             this.orgPanelLabel = new System.Windows.Forms.Label();
             this.sqlCmdProcDeleteOrg = new System.Data.SqlClient.SqlCommand();
+            this.btnFindArea = new System.Windows.Forms.Button();
+            this.bookingSearchAreaComboBox = new System.Windows.Forms.ComboBox();
+            this.bookingSearchAreaLabel = new System.Windows.Forms.Label();
             this.panelBooking.SuspendLayout();
             this.bookingSearchDateGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBooking)).BeginInit();
@@ -217,6 +221,9 @@ namespace MartDB
             // panelBooking
             // 
             this.panelBooking.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelBooking.Controls.Add(this.bookingSearchAreaLabel);
+            this.panelBooking.Controls.Add(this.bookingSearchAreaComboBox);
+            this.panelBooking.Controls.Add(this.btnFindArea);
             this.panelBooking.Controls.Add(this.btnUpdateBooking);
             this.panelBooking.Controls.Add(this.btnAddBookingForm);
             this.panelBooking.Controls.Add(this.bookingSearchDateGroupBox);
@@ -335,9 +342,9 @@ namespace MartDB
             // 
             // btnBookingShowAll
             // 
-            this.btnBookingShowAll.Location = new System.Drawing.Point(158, 276);
+            this.btnBookingShowAll.Location = new System.Drawing.Point(285, 278);
             this.btnBookingShowAll.Name = "btnBookingShowAll";
-            this.btnBookingShowAll.Size = new System.Drawing.Size(119, 42);
+            this.btnBookingShowAll.Size = new System.Drawing.Size(119, 45);
             this.btnBookingShowAll.TabIndex = 8;
             this.btnBookingShowAll.Text = "Показать все";
             this.btnBookingShowAll.UseVisualStyleBackColor = true;
@@ -416,9 +423,9 @@ namespace MartDB
             this.bookingSortGroupBox.Controls.Add(this.ascBookingRadioButton);
             this.bookingSortGroupBox.Controls.Add(this.bookingSortColsListBox);
             this.bookingSortGroupBox.Controls.Add(this.bookingSortLabel);
-            this.bookingSortGroupBox.Location = new System.Drawing.Point(13, 318);
+            this.bookingSortGroupBox.Location = new System.Drawing.Point(13, 325);
             this.bookingSortGroupBox.Name = "bookingSortGroupBox";
-            this.bookingSortGroupBox.Size = new System.Drawing.Size(399, 147);
+            this.bookingSortGroupBox.Size = new System.Drawing.Size(399, 149);
             this.bookingSortGroupBox.TabIndex = 17;
             this.bookingSortGroupBox.TabStop = false;
             this.bookingSortGroupBox.Text = "Сортировка";
@@ -501,7 +508,7 @@ namespace MartDB
             this.menuToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(983, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(983, 28);
             this.menuStrip1.TabIndex = 12;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -516,7 +523,7 @@ namespace MartDB
             this.outletToolStripMenuItem,
             this.orgToolStripMenuItem});
             this.panelsToolStripMenuItem.Name = "panelsToolStripMenuItem";
-            this.panelsToolStripMenuItem.Size = new System.Drawing.Size(93, 26);
+            this.panelsToolStripMenuItem.Size = new System.Drawing.Size(93, 24);
             this.panelsToolStripMenuItem.Text = "Страницы";
             // 
             // mainToolStripMenuItem
@@ -573,7 +580,7 @@ namespace MartDB
             this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aboutToolStripMenuItem});
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
-            this.menuToolStripMenuItem.Size = new System.Drawing.Size(65, 26);
+            this.menuToolStripMenuItem.Size = new System.Drawing.Size(65, 24);
             this.menuToolStripMenuItem.Text = "Меню";
             // 
             // aboutToolStripMenuItem
@@ -1866,20 +1873,48 @@ namespace MartDB
             this.sqlCmdProcDeleteOrg.Parameters.AddRange(new System.Data.SqlClient.SqlParameter[] {
             new System.Data.SqlClient.SqlParameter("@org_id", System.Data.SqlDbType.Int)});
             // 
+            // btnFindArea
+            // 
+            this.btnFindArea.Location = new System.Drawing.Point(153, 278);
+            this.btnFindArea.Name = "btnFindArea";
+            this.btnFindArea.Size = new System.Drawing.Size(119, 45);
+            this.btnFindArea.TabIndex = 14;
+            this.btnFindArea.Text = "Найти помещение";
+            this.btnFindArea.UseVisualStyleBackColor = true;
+            this.btnFindArea.Click += new System.EventHandler(this.btnFindArea_Click);
+            // 
+            // bookingSearchAreaComboBox
+            // 
+            this.bookingSearchAreaComboBox.FormattingEnabled = true;
+            this.bookingSearchAreaComboBox.Location = new System.Drawing.Point(17, 292);
+            this.bookingSearchAreaComboBox.Name = "bookingSearchAreaComboBox";
+            this.bookingSearchAreaComboBox.Size = new System.Drawing.Size(121, 24);
+            this.bookingSearchAreaComboBox.TabIndex = 24;
+            // 
+            // bookingSearchAreaLabel
+            // 
+            this.bookingSearchAreaLabel.AutoSize = true;
+            this.bookingSearchAreaLabel.Location = new System.Drawing.Point(14, 272);
+            this.bookingSearchAreaLabel.Name = "bookingSearchAreaLabel";
+            this.bookingSearchAreaLabel.Size = new System.Drawing.Size(117, 17);
+            this.bookingSearchAreaLabel.TabIndex = 25;
+            this.bookingSearchAreaLabel.Text = "Код помещения:";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(983, 605);
-            this.Controls.Add(this.panelOutlet);
-            this.Controls.Add(this.panelOrg);
             this.Controls.Add(this.panelBooking);
             this.Controls.Add(this.panelMain);
+            this.Controls.Add(this.panelOutlet);
+            this.Controls.Add(this.panelOrg);
             this.Controls.Add(this.panelArea);
             this.Controls.Add(this.panelEmployee);
             this.Controls.Add(this.panelTradeProfile);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -2099,5 +2134,8 @@ namespace MartDB
         private System.Windows.Forms.Label orgPanelLabel;
         private System.Windows.Forms.ToolStripMenuItem orgToolStripMenuItem;
         private System.Data.SqlClient.SqlCommand sqlCmdProcDeleteOrg;
+        private System.Windows.Forms.Label bookingSearchAreaLabel;
+        private System.Windows.Forms.ComboBox bookingSearchAreaComboBox;
+        private System.Windows.Forms.Button btnFindArea;
     }
 }

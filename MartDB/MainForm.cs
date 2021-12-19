@@ -81,6 +81,7 @@ namespace MartDB
             FillAreaDGV();
 
             // Fill booking data grid view
+            FillBookingSearchAreaComboBox();
             UpdateExistingBookingDates();
             FillBookingDGV();
 
@@ -458,9 +459,9 @@ namespace MartDB
             //                     "WHERE Booking.area_id IS NULL";
 
             string selectQuery = "SELECT DISTINCT " +
-                                     "Area.area_id," +
-                                     "Area.area_square," +
-                                     "Area.floor_number " +
+                                     "Area.area_id AS [Код]," +
+                                     "Area.area_square AS [Площадь]," +
+                                     "Area.floor_number AS [Этаж] " +
                                      "FROM Area " +
                                  "JOIN Booking ON Area.area_id = Booking.area_id " +
                                  "WHERE Booking.booking_end_date < GETDATE()";
@@ -729,8 +730,8 @@ namespace MartDB
                     // Filter area square data
                     foreach (DataGridViewRow row in this.dgvBooking.Rows)
                     {
-                        if (DateTime.Parse(row.Cells[6].Value.ToString()).Date >= leftBound.Date &&
-                            DateTime.Parse(row.Cells[7].Value.ToString()).Date <= rightBound.Date)
+                        if (DateTime.Parse(row.Cells[2].Value.ToString()).Date >= leftBound.Date &&
+                            DateTime.Parse(row.Cells[3].Value.ToString()).Date <= rightBound.Date)
                         {
                             this.dgvBooking.Rows[row.Index].Visible = true;
                             // dgvBookingHandling.Rows[row.Index].Selected = true;
@@ -748,6 +749,57 @@ namespace MartDB
                     MessageBox.Show("Введено некорректное значение запроса для поиска!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        // Button for area searching
+        private void btnFindArea_Click(object sender, EventArgs e)
+        {
+            // Get field for search
+            //
+            // HeaderText and Name of the columns are different, so
+            // we need to get actual Name of selected column
+            //
+
+            // Start searching only if user has entered query for search
+            if (this.bookingSearchAreaComboBox.Text.Length > 0)
+            {
+                string query = "";
+                try
+                {
+                    query = Convert.ToString(this.bookingSearchAreaComboBox.Text);
+                }
+                // Prevent invalid user input
+                catch
+                {
+                    MessageBox.Show("Введено некорректное значение запроса для поиска!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                // Filter area square data
+                foreach (DataGridViewRow row in this.dgvBooking.Rows)
+                {
+                    if (row.Cells[5].Value.ToString() == query)
+                    {
+                        this.dgvBooking.Rows[row.Index].Visible = true;
+                    }
+                    else
+                    {
+                        this.dgvBooking.CurrentCell = null;
+                        this.dgvBooking.Rows[row.Index].Visible = false;
+                    }
+                }
+            }
+        }
+
+        private void FillBookingSearchAreaComboBox()
+        {
+            DataTable dtFreeAreaIds = new DataTable();
+            string selectQuery = "SELECT DISTINCT area_id FROM Booking";
+            SqlDataAdapter daFreeAreaIds = new SqlDataAdapter(selectQuery,
+                                                              this.sqlConnection);
+            daFreeAreaIds.Fill(dtFreeAreaIds);
+            this.bookingSearchAreaComboBox.DataSource = dtFreeAreaIds;
+            this.bookingSearchAreaComboBox.DisplayMember = "area_id";
+            this.bookingSearchAreaComboBox.ValueMember = "area_id";
         }
 
         // Button to show all data
@@ -886,6 +938,7 @@ namespace MartDB
         {
             FillAreaDGV();
             FillBookingDGV();
+            FillBookingSearchAreaComboBox();
             UpdateExistingBookingDates();
         }
 

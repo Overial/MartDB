@@ -29,6 +29,7 @@ namespace MartDB
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdateTradeProfileForm));
             this.label2 = new System.Windows.Forms.Label();
             this.btnUpdateTradeProfile = new System.Windows.Forms.Button();
             this.tradeProfileNameTextBox = new System.Windows.Forms.TextBox();
@@ -97,6 +98,7 @@ namespace MartDB
             this.Controls.Add(this.tradeProfileNameTextBox);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "UpdateTradeProfileForm";

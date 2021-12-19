@@ -43,7 +43,9 @@ namespace MartDB
 
             // Fill combo box with area ids from Area table
             DataTable dtFreeAreaIds = new DataTable();
-            string selectQuery = "SELECT Area.area_id FROM Area ";
+            string selectQuery = "SELECT Area.area_id FROM Area " +
+                                 "LEFT JOIN Booking ON Area.area_id = Booking.area_id " +
+                                 "WHERE Booking.area_id IS NULL";
             SqlDataAdapter daFreeAreaIds = new SqlDataAdapter(selectQuery,
                                                               this.sqlConnection);
             daFreeAreaIds.Fill(dtFreeAreaIds);
@@ -63,6 +65,11 @@ namespace MartDB
             this.orgNameComboBox.Text = this._orgName;
             this.areaIdComboBox.Text = this._areaId.ToString();
             this.dtpBookingEndDate.Text = this._bookingEndDate;
+
+            if (UserData.UserRole == "organisation")
+            {
+                this.btnUpdateBooking.Enabled = false;
+            }
         }
 
         private void btnUpdateBooking_Click(object sender, EventArgs e)
@@ -73,10 +80,75 @@ namespace MartDB
             try
             {
                 // Initialize params
+                this.sqlCmdUpdateBooking.Parameters["@booking_id"].Value = this._bookingId;
                 this.sqlCmdUpdateBooking.Parameters["@org_name"].Value = orgNameComboBox.Text.ToString();
                 this.sqlCmdUpdateBooking.Parameters["@area_id"].Value = Convert.ToInt32(areaIdComboBox.Text);
                 this.sqlCmdUpdateBooking.Parameters["@booking_start_date"].Value = dtpBookingStartDate.Text;
                 this.sqlCmdUpdateBooking.Parameters["@booking_end_date"].Value = dtpBookingEndDate.Text;
+
+                int iAffectedRowsCount2 = this.sqlCmdUpdateBooking.ExecuteNonQuery();
+
+                // Show corresponding information
+                if (iAffectedRowsCount2 == 0)
+                {
+                    MessageBox.Show("Изменение данных завершилось с ошибкой!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    if (this.bCostCheckBox.Checked)
+                    {
+                        this.sqlCmdProcUpdateBookingCost.Parameters["@booking_id"].Value = Convert.ToInt32(this._bookingId);
+                        int iAffectedRowsCount1 = this.sqlCmdProcUpdateBookingCost.ExecuteNonQuery();
+                        if (iAffectedRowsCount1 == 0)
+                        {
+                            MessageBox.Show("Обновление стоимости завершилось с ошибкой!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Данные успешно изменены!", "Статус", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            // Close this form in case of success
+                            this.Close();
+                        }
+                    }
+                }
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Введены некорректные значения!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (SqlException ex)
+            {
+                StringBuilder errorMessages = new StringBuilder();
+                for (int i = 0; i < ex.Errors.Count; i++)
+                {
+                    errorMessages.Append("Index #" + i + "\n" +
+                        "Message: " + ex.Errors[i].Message + "\n" +
+                        "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+                        "Source: " + ex.Errors[i].Source + "\n" +
+                        "Procedure: " + ex.Errors[i].Procedure + "\n");
+                }
+                MessageBox.Show(errorMessages.ToString(), "Error");
+
+                MessageBox.Show("Изменение данных завершилось с ошибкой!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            // Close DB connection
+            this.sqlConnection.Close();
+        }
+
+        private void btnUpdateBookingDates_Click(object sender, EventArgs e)
+        {
+            // Open DB connection
+            this.sqlConnection.Open();
+
+            try
+            {
+                // Initialize params
+                this.sqlCmdUpdateBookingDates.Parameters["@org_name"].Value = orgNameComboBox.Text.ToString();
+                this.sqlCmdUpdateBookingDates.Parameters["@area_id"].Value = Convert.ToInt32(areaIdComboBox.Text);
+                this.sqlCmdUpdateBookingDates.Parameters["@booking_start_date"].Value = dtpBookingStartDate.Text;
+                this.sqlCmdUpdateBookingDates.Parameters["@booking_end_date"].Value = dtpBookingEndDate.Text;
 
                 DateTime.TryParse(this._bookingEndDate, out DateTime oldBookingEndDate);
                 if (UserData.UserRole == "organisation" && dtpBookingEndDate.Value > oldBookingEndDate)
@@ -87,7 +159,7 @@ namespace MartDB
                 {
                     if (dtpBookingStartDate.Value <= dtpBookingEndDate.Value)
                     {
-                        int iAffectedRowsCount2 = this.sqlCmdUpdateBooking.ExecuteNonQuery();
+                        int iAffectedRowsCount2 = this.sqlCmdUpdateBookingDates.ExecuteNonQuery();
 
                         // Show corresponding information
                         if (iAffectedRowsCount2 == 0)

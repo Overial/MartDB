@@ -29,6 +29,7 @@ namespace MartDB
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddBookingForm));
             this.btnAddBooking = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -161,11 +162,12 @@ namespace MartDB
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAddBooking);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AddBookingForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Управление арендами";
+            this.Text = "Оформление аренды";
             this.Load += new System.EventHandler(this.HandleBookingForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

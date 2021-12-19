@@ -29,6 +29,7 @@ namespace MartDB
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdateBookingForm));
             this.sqlConnection = new System.Data.SqlClient.SqlConnection();
             this.label6 = new System.Windows.Forms.Label();
             this.areaIdComboBox = new System.Windows.Forms.ComboBox();
@@ -39,10 +40,12 @@ namespace MartDB
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnUpdateBooking = new System.Windows.Forms.Button();
-            this.sqlCmdUpdateBooking = new System.Data.SqlClient.SqlCommand();
+            this.btnUpdateBookingDates = new System.Windows.Forms.Button();
+            this.sqlCmdUpdateBookingDates = new System.Data.SqlClient.SqlCommand();
             this.bCostCheckBox = new System.Windows.Forms.CheckBox();
             this.sqlCmdProcUpdateBookingCost = new System.Data.SqlClient.SqlCommand();
+            this.btnUpdateBooking = new System.Windows.Forms.Button();
+            this.sqlCmdUpdateBooking = new System.Data.SqlClient.SqlCommand();
             this.SuspendLayout();
             // 
             // sqlConnection
@@ -129,22 +132,22 @@ namespace MartDB
             this.label1.TabIndex = 29;
             this.label1.Text = "Название организации:";
             // 
-            // btnUpdateBooking
+            // btnUpdateBookingDates
             // 
-            this.btnUpdateBooking.Location = new System.Drawing.Point(150, 291);
-            this.btnUpdateBooking.Name = "btnUpdateBooking";
-            this.btnUpdateBooking.Size = new System.Drawing.Size(176, 57);
-            this.btnUpdateBooking.TabIndex = 37;
-            this.btnUpdateBooking.Text = "Изменить существующую аренду";
-            this.btnUpdateBooking.UseVisualStyleBackColor = true;
-            this.btnUpdateBooking.Click += new System.EventHandler(this.btnUpdateBooking_Click);
+            this.btnUpdateBookingDates.Location = new System.Drawing.Point(248, 293);
+            this.btnUpdateBookingDates.Name = "btnUpdateBookingDates";
+            this.btnUpdateBookingDates.Size = new System.Drawing.Size(176, 57);
+            this.btnUpdateBookingDates.TabIndex = 37;
+            this.btnUpdateBookingDates.Text = "Обновить даты";
+            this.btnUpdateBookingDates.UseVisualStyleBackColor = true;
+            this.btnUpdateBookingDates.Click += new System.EventHandler(this.btnUpdateBookingDates_Click);
             // 
-            // sqlCmdUpdateBooking
+            // sqlCmdUpdateBookingDates
             // 
-            this.sqlCmdUpdateBooking.CommandText = "ProcUpdateBookingDates";
-            this.sqlCmdUpdateBooking.CommandType = System.Data.CommandType.StoredProcedure;
-            this.sqlCmdUpdateBooking.Connection = this.sqlConnection;
-            this.sqlCmdUpdateBooking.Parameters.AddRange(new System.Data.SqlClient.SqlParameter[] {
+            this.sqlCmdUpdateBookingDates.CommandText = "ProcUpdateBookingDates";
+            this.sqlCmdUpdateBookingDates.CommandType = System.Data.CommandType.StoredProcedure;
+            this.sqlCmdUpdateBookingDates.Connection = this.sqlConnection;
+            this.sqlCmdUpdateBookingDates.Parameters.AddRange(new System.Data.SqlClient.SqlParameter[] {
             new System.Data.SqlClient.SqlParameter("@org_name", System.Data.SqlDbType.VarChar, 50),
             new System.Data.SqlClient.SqlParameter("@area_id", System.Data.SqlDbType.Int),
             new System.Data.SqlClient.SqlParameter("@booking_start_date", System.Data.SqlDbType.Date, 50),
@@ -169,13 +172,36 @@ namespace MartDB
             this.sqlCmdProcUpdateBookingCost.Parameters.AddRange(new System.Data.SqlClient.SqlParameter[] {
             new System.Data.SqlClient.SqlParameter("@booking_id", System.Data.SqlDbType.Int)});
             // 
+            // btnUpdateBooking
+            // 
+            this.btnUpdateBooking.Location = new System.Drawing.Point(45, 293);
+            this.btnUpdateBooking.Name = "btnUpdateBooking";
+            this.btnUpdateBooking.Size = new System.Drawing.Size(176, 57);
+            this.btnUpdateBooking.TabIndex = 39;
+            this.btnUpdateBooking.Text = "Изменить существующую аренду";
+            this.btnUpdateBooking.UseVisualStyleBackColor = true;
+            this.btnUpdateBooking.Click += new System.EventHandler(this.btnUpdateBooking_Click);
+            // 
+            // sqlCmdUpdateBooking
+            // 
+            this.sqlCmdUpdateBooking.CommandText = "ProcUpdateBooking";
+            this.sqlCmdUpdateBooking.CommandType = System.Data.CommandType.StoredProcedure;
+            this.sqlCmdUpdateBooking.Connection = this.sqlConnection;
+            this.sqlCmdUpdateBooking.Parameters.AddRange(new System.Data.SqlClient.SqlParameter[] {
+            new System.Data.SqlClient.SqlParameter("@booking_id", System.Data.SqlDbType.Int),
+            new System.Data.SqlClient.SqlParameter("@org_name", System.Data.SqlDbType.VarChar, 50),
+            new System.Data.SqlClient.SqlParameter("@area_id", System.Data.SqlDbType.Int),
+            new System.Data.SqlClient.SqlParameter("@booking_start_date", System.Data.SqlDbType.Date, 50),
+            new System.Data.SqlClient.SqlParameter("@booking_end_date", System.Data.SqlDbType.Date, 50)});
+            // 
             // UpdateBookingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(499, 377);
-            this.Controls.Add(this.bCostCheckBox);
             this.Controls.Add(this.btnUpdateBooking);
+            this.Controls.Add(this.bCostCheckBox);
+            this.Controls.Add(this.btnUpdateBookingDates);
             this.Controls.Add(this.areaIdComboBox);
             this.Controls.Add(this.orgNameComboBox);
             this.Controls.Add(this.dtpBookingEndDate);
@@ -186,11 +212,12 @@ namespace MartDB
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label6);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "UpdateBookingForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "UpdateBookingForm";
+            this.Text = "Обновление аренды";
             this.Load += new System.EventHandler(this.UpdateBookingForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -209,9 +236,11 @@ namespace MartDB
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnUpdateBooking;
-        private System.Data.SqlClient.SqlCommand sqlCmdUpdateBooking;
+        private System.Windows.Forms.Button btnUpdateBookingDates;
+        private System.Data.SqlClient.SqlCommand sqlCmdUpdateBookingDates;
         private System.Windows.Forms.CheckBox bCostCheckBox;
         private System.Data.SqlClient.SqlCommand sqlCmdProcUpdateBookingCost;
+        private System.Windows.Forms.Button btnUpdateBooking;
+        private System.Data.SqlClient.SqlCommand sqlCmdUpdateBooking;
     }
 }

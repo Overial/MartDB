@@ -29,6 +29,7 @@ namespace MartDB
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdateOutletForm));
             this.sqlConnection = new System.Data.SqlClient.SqlConnection();
             this.sqlCmdProcUpdateOutlet = new System.Data.SqlClient.SqlCommand();
             this.label1 = new System.Windows.Forms.Label();
@@ -240,6 +241,7 @@ namespace MartDB
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "UpdateOutletForm";

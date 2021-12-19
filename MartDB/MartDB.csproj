@@ -32,6 +32,10 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>
+    </ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -81,12 +85,6 @@
     </Compile>
     <Compile Include="AddEmployeeForm.Designer.cs">
       <DependentUpon>AddEmployeeForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DeleteTradeProfileForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DeleteTradeProfileForm.Designer.cs">
-      <DependentUpon>DeleteTradeProfileForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UpdateOrgForm.cs">
       <SubType>Form</SubType>
@@ -174,9 +172,6 @@
     <EmbeddedResource Include="AddEmployeeForm.resx">
       <DependentUpon>AddEmployeeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DeleteTradeProfileForm.resx">
-      <DependentUpon>DeleteTradeProfileForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UpdateOrgForm.resx">
       <DependentUpon>UpdateOrgForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -200,6 +195,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="RegisterForm.resx">
       <DependentUpon>RegisterForm.cs</DependentUpon>
@@ -239,6 +235,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="customer_icon.ico" />
+    <Content Include="main_icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
