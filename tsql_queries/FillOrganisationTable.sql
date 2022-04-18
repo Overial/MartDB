@@ -1,0 +1,204 @@
+--INSERT INTO Organisation VALUES(6, 'Sense', 'Электроника', 'Германия', 'Наличные', 'Контейнеры', 'Иванов Е. М.')
+--INSERT INTO Organisation VALUES(7, 'Play', 'Парикмахерская', 'Китай', 'Безналичные', 'Курьер', 'Михайлов С. П.')
+--INSERT INTO Organisation VALUES(8, 'Pen', 'Электроника', 'Россия', 'Наличные', 'Контейнеры', 'Антонова М. Н.')
+--INSERT INTO Organisation VALUES(9, 'Cows', 'Продукты', 'Китай', 'Безналичные', 'Контейнеры', 'Макаров М. Е.')
+--INSERT INTO Organisation VALUES(10, 'Time', 'Ресторан', 'Китай', 'Наличные', 'Контейнеры', 'Васильев Р. Л.')
+--INSERT INTO Organisation VALUES(11, 'Airplane', 'Бытовая техника', 'Китай', 'Безналичные', 'Почтамат', 'Дементьев Т. М.')
+--INSERT INTO Organisation VALUES(12, 'Effect', 'Парикмахерская', 'Россия', 'Наличные', 'Отсутствует', 'Иванов Н. М.')
+--INSERT INTO Organisation VALUES(13, 'Fairies', 'Книги', 'Япония', 'Наличные', 'Почтамат', 'Новиков М. А.')
+--INSERT INTO Organisation VALUES(14, 'Space', 'Бытовая техника', 'Германия', 'Наличные', 'Отсутствует', 'Ефимов Л. И.')
+--INSERT INTO Organisation VALUES(15, 'Vacation', 'Видеоигры', 'Германия', 'Безналичные', 'Почтамат', 'Киреева М. А.')
+--INSERT INTO Organisation VALUES(16, 'Exchange', 'Продукты', 'Япония', 'Наличные', 'Контейнеры', 'Калинин Н. К.')
+--INSERT INTO Organisation VALUES(17, 'Afterthought', 'Видеоигры', 'Германия', 'Безналичные', 'Курьер', 'Анисимова И. А.')
+--INSERT INTO Organisation VALUES(18, 'Sock', 'Кинотеатр', 'Китай', 'Безналичные', 'Курьер', 'Борисова К. М.')
+--INSERT INTO Organisation VALUES(19, 'Ink', 'Игровая комната', 'Германия', 'Наличные', 'Отсутствует', 'Борисова К. М.')
+--INSERT INTO Organisation VALUES(20, 'Orange', 'Книги', 'Германия', 'Наличные', 'Курьер', 'Маркова Я. К.')
+--INSERT INTO Organisation VALUES(21, 'Degree', 'Видеоигры', 'Германия', 'Безналичные', 'Отсутствует', 'Михайлов С. П.')
+--INSERT INTO Organisation VALUES(22, 'Fire', 'Парикмахерская', 'Россия', 'Безналичные', 'Контейнеры', 'Виноградова М. А.')
+--INSERT INTO Organisation VALUES(23, 'Knot', 'Ресторан', 'США', 'Безналичные', 'Контейнеры', 'Дементьев Т. М.')
+--INSERT INTO Organisation VALUES(24, 'Grandmother', 'Бытовая техника', 'Германия', 'Наличные', 'Отсутствует', 'Покровский М. Г.')
+--INSERT INTO Organisation VALUES(25, 'Stomach', 'Книги', 'США', 'Наличные', 'Курьер', 'Чернова А. А.')
+--INSERT INTO Organisation VALUES(26, 'Page', 'Книги', 'Россия', 'Безналичные', 'Почтамат', 'Сидорова В. Д.')
+--INSERT INTO Organisation VALUES(27, 'Bear', 'Парикмахерская', 'Япония', 'Безналичные', 'Почтамат', 'Королева С. Д.')
+--INSERT INTO Organisation VALUES(28, 'Boundary', 'Бытовая техника', 'США', 'Наличные', 'Курьер', 'Никулина А. Д.')
+--INSERT INTO Organisation VALUES(29, 'Wheel', 'Игровая комната', 'США', 'Наличные', 'Отсутствует', 'Королева С. Д.')
+--INSERT INTO Organisation VALUES(30, 'Waste', 'Кинотеатр', 'Германия', 'Наличные', 'Почтамат', 'Руднева А. М.')
+--INSERT INTO Organisation VALUES(31, 'Donkey', 'Электроника', 'Китай', 'Наличные', 'Отсутствует', 'Ефимов Л. И.')
+--INSERT INTO Organisation VALUES(32, 'Attraction', 'Продукты', 'Китай', 'Наличные', 'Контейнеры', 'Субботин Д. А.')
+--INSERT INTO Organisation VALUES(33, 'Class', 'VR', 'Россия', 'Наличные', 'Почтамат', 'Самсонов А. С.')
+--INSERT INTO Organisation VALUES(34, 'Roof', 'Видеоигры', 'Япония', 'Безналичные', 'Контейнеры', 'Мельников А. С.')
+--INSERT INTO Organisation VALUES(35, 'Lake', 'Ресторан', 'Китай', 'Безналичные', 'Контейнеры', 'Васильев Р. Л.')
+--INSERT INTO Organisation VALUES(36, 'Wood', 'Электроника', 'Япония', 'Безналичные', 'Контейнеры', 'Сальников М. С.')
+--INSERT INTO Organisation VALUES(37, 'Fuel', 'Книги', 'Германия', 'Наличные', 'Курьер', 'Спиридонова М. П.')
+--INSERT INTO Organisation VALUES(38, 'Pollution', 'Кинотеатр', 'Япония', 'Безналичные', 'Почтамат', 'Волкова М. М.')
+--INSERT INTO Organisation VALUES(39, 'Camera', 'Кинотеатр', 'Россия', 'Безналичные', 'Курьер', 'Богомолов А. А.')
+--INSERT INTO Organisation VALUES(40, 'Bath', 'Игровая комната', 'США', 'Наличные', 'Почтамат', 'Смирнов Н. Л.')
+--INSERT INTO Organisation VALUES(41, 'Carpenter', 'Ресторан', 'Япония', 'Безналичные', 'Отсутствует', 'Субботин Д. А.')
+--INSERT INTO Organisation VALUES(42, 'Flavor', 'Игровая комната', 'Китай', 'Наличные', 'Курьер', 'Руднева А. М.')
+--INSERT INTO Organisation VALUES(43, 'Hospital', 'Видеоигры', 'Германия', 'Безналичные', 'Курьер', 'Вишневская К. В.')
+--INSERT INTO Organisation VALUES(44, 'Shelf', 'Игровая комната', 'Россия', 'Наличные', 'Контейнеры', 'Киселева Ю. М.')
+--INSERT INTO Organisation VALUES(45, 'Friction', 'Видеоигры', 'Китай', 'Наличные', 'Курьер', 'Васильева В. С.')
+--INSERT INTO Organisation VALUES(46, 'Addition', 'VR', 'Китай', 'Безналичные', 'Отсутствует', 'Кондратьев М. И.')
+--INSERT INTO Organisation VALUES(47, 'Tray', 'Парикмахерская', 'США', 'Безналичные', 'Курьер', 'Владимиров С. Д.')
+--INSERT INTO Organisation VALUES(48, 'Rainstorm', 'Бытовая техника', 'Япония', 'Безналичные', 'Контейнеры', 'Крылов А. М.')
+--INSERT INTO Organisation VALUES(49, 'Skate', 'Игровая комната', 'Китай', 'Наличные', 'Контейнеры', 'Савельев Я. И.')
+--INSERT INTO Organisation VALUES(50, 'Punishment', 'Продукты', 'США', 'Наличные', 'Курьер', 'Кузнецова Д. М.')
+--INSERT INTO Organisation VALUES(51, 'Songs', 'Ресторан', 'Россия', 'Наличные', 'Курьер', 'Михайлов С. П.')
+--INSERT INTO Organisation VALUES(52, 'Road', 'Ресторан', 'Япония', 'Наличные', 'Отсутствует', 'Токарев Д. Н.')
+--INSERT INTO Organisation VALUES(53, 'Letter', 'Видеоигры', 'Германия', 'Наличные', 'Контейнеры', 'Васильева В. С.')
+--INSERT INTO Organisation VALUES(54, 'Throat', 'VR', 'Россия', 'Безналичные', 'Почтамат', 'Сальников Г. М.')
+--INSERT INTO Organisation VALUES(55, 'Pail', 'Видеоигры', 'Россия', 'Безналичные', 'Отсутствует', 'Цветков М. М.')
+--INSERT INTO Organisation VALUES(56, 'Doctor', 'Ресторан', 'Япония', 'Наличные', 'Контейнеры', 'Цветков М. М.')
+--INSERT INTO Organisation VALUES(57, 'Pull', 'Ресторан', 'Россия', 'Наличные', 'Курьер', 'Ефимов Л. И.')
+--INSERT INTO Organisation VALUES(58, 'Railway', 'VR', 'Россия', 'Наличные', 'Отсутствует', 'Владимиров С. Д.')
+--INSERT INTO Organisation VALUES(59, 'Front', 'Видеоигры', 'Россия', 'Наличные', 'Курьер', 'Васильева С. П.')
+--INSERT INTO Organisation VALUES(60, 'Cabbage', 'Бытовая техника', 'Китай', 'Безналичные', 'Отсутствует', 'Кузнецов Д. М.')
+--INSERT INTO Organisation VALUES(61, 'Guitar', 'Парикмахерская', 'Китай', 'Наличные', 'Отсутствует', 'Михайлов С. П.')
+--INSERT INTO Organisation VALUES(62, 'Snow', 'Электроника', 'США', 'Безналичные', 'Отсутствует', 'Кондратьев Д. Д.')
+--INSERT INTO Organisation VALUES(63, 'Fact', 'Электроника', 'Япония', 'Безналичные', 'Курьер', 'Киселева Ю. М.')
+--INSERT INTO Organisation VALUES(64, 'Rabbits', 'Игровая комната', 'США', 'Наличные', 'Курьер', 'Васильев Р. Л.')
+--INSERT INTO Organisation VALUES(65, 'Poison', 'Парикмахерская', 'Россия', 'Безналичные', 'Почтамат', 'Васильев Р. Л.')
+--INSERT INTO Organisation VALUES(66, 'Toys', 'Парикмахерская', 'Япония', 'Безналичные', 'Почтамат', 'Исаев Л. А.')
+--INSERT INTO Organisation VALUES(67, 'Powder', 'Электроника', 'Германия', 'Безналичные', 'Курьер', 'Волков Я. Н.')
+--INSERT INTO Organisation VALUES(68, 'Glass', 'Игровая комната', 'Китай', 'Наличные', 'Курьер', 'Петров И. Д.')
+--INSERT INTO Organisation VALUES(69, 'Veil', 'Игровая комната', 'Россия', 'Безналичные', 'Курьер', 'Филатов М. В.')
+--INSERT INTO Organisation VALUES(70, 'Hot', 'Парикмахерская', 'Россия', 'Безналичные', 'Курьер', 'Савельев Я. И.')
+--INSERT INTO Organisation VALUES(71, 'Recess', 'Книги', 'Япония', 'Наличные', 'Почтамат', 'Мельников А. С.')
+--INSERT INTO Organisation VALUES(72, 'Town', 'VR', 'США', 'Безналичные', 'Почтамат', 'Никитина А. В.')
+--INSERT INTO Organisation VALUES(73, 'Profit', 'Кинотеатр', 'Китай', 'Безналичные', 'Почтамат', 'Кузнецов Д. М.')
+--INSERT INTO Organisation VALUES(74, 'Flight', 'Книги', 'Япония', 'Наличные', 'Контейнеры', 'Никитина А. В.')
+--INSERT INTO Organisation VALUES(75, 'Feeling', 'Парикмахерская', 'Япония', 'Наличные', 'Курьер', 'Морозов Д. К.')
+--INSERT INTO Organisation VALUES(76, 'Wire', 'Электроника', 'Китай', 'Наличные', 'Почтамат', 'Савельев Я. И.')
+--INSERT INTO Organisation VALUES(77, 'Shade', 'Кинотеатр', 'Россия', 'Наличные', 'Курьер', 'Спиридонова М. П.')
+--INSERT INTO Organisation VALUES(78, 'Money', 'Кинотеатр', 'Китай', 'Безналичные', 'Курьер', 'Мельников А. С.')
+--INSERT INTO Organisation VALUES(79, 'Bikes', 'Электроника', 'Япония', 'Наличные', 'Курьер', 'Золотова А. В.')
+--INSERT INTO Organisation VALUES(80, 'Stove', 'Бытовая техника', 'Япония', 'Безналичные', 'Отсутствует', 'Борисова К. М.')
+--INSERT INTO Organisation VALUES(81, 'Drink', 'Продукты', 'Китай', 'Безналичные', 'Отсутствует', 'Панкратова Т. А.')
+--INSERT INTO Organisation VALUES(82, 'Pear', 'Видеоигры', 'Китай', 'Безналичные', 'Контейнеры', 'Спиридонова М. П.')
+--INSERT INTO Organisation VALUES(83, 'Brother', 'Кинотеатр', 'Китай', 'Безналичные', 'Контейнеры', 'Васильева З. К.')
+--INSERT INTO Organisation VALUES(84, 'Jewel', 'Видеоигры', 'Россия', 'Безналичные', 'Отсутствует', 'Спиридонова М. П.')
+--INSERT INTO Organisation VALUES(85, 'Receipt', 'Книги', 'Китай', 'Наличные', 'Отсутствует', 'Сальников Г. М.')
+--INSERT INTO Organisation VALUES(86, 'Pest', 'Кинотеатр', 'Германия', 'Безналичные', 'Почтамат', 'Кондратьев Д. Д.')
+--INSERT INTO Organisation VALUES(87, 'Calendar', 'Ресторан', 'Германия', 'Наличные', 'Контейнеры', 'Широков А. Д.')
+--INSERT INTO Organisation VALUES(88, 'Oven', 'Электроника', 'Россия', 'Безналичные', 'Курьер', 'Малахова Н. А.')
+--INSERT INTO Organisation VALUES(89, 'Voyage', 'Бытовая техника', 'Китай', 'Безналичные', 'Курьер', 'Еремеев В. Я.')
+--INSERT INTO Organisation VALUES(90, 'Sneeze', 'VR', 'Германия', 'Безналичные', 'Курьер', 'Макаров М. Е.')
+--INSERT INTO Organisation VALUES(91, 'Comparison', 'Бытовая техника', 'Китай', 'Безналичные', 'Курьер', 'Никулина А. Д.')
+--INSERT INTO Organisation VALUES(92, 'Cobweb', 'Бытовая техника', 'Германия', 'Безналичные', 'Контейнеры', 'Соболев Е. М.')
+--INSERT INTO Organisation VALUES(93, 'Toe', 'Кинотеатр', 'Китай', 'Наличные', 'Курьер', 'Ефимов В. Д.')
+--INSERT INTO Organisation VALUES(94, 'Smell', 'Видеоигры', 'Япония', 'Безналичные', 'Курьер', 'Баранов М. И.')
+--INSERT INTO Organisation VALUES(95, 'Butter', 'Игровая комната', 'Китай', 'Безналичные', 'Курьер', 'Круглов К. Я.')
+--INSERT INTO Organisation VALUES(96, 'Toad', 'Парикмахерская', 'Япония', 'Безналичные', 'Отсутствует', 'Михайлов С. П.')
+--INSERT INTO Organisation VALUES(97, 'Crow', 'Электроника', 'США', 'Наличные', 'Отсутствует', 'Широков А. Д.')
+--INSERT INTO Organisation VALUES(98, 'Street', 'Книги', 'США', 'Наличные', 'Отсутствует', 'Волков Я. И.')
+--INSERT INTO Organisation VALUES(99, 'Chin', 'Игровая комната', 'Россия', 'Безналичные', 'Отсутствует', 'Еремеев В. Я.')
+--INSERT INTO Organisation VALUES(100, 'Fish', 'Ресторан', 'Китай', 'Безналичные', 'Отсутствует', 'Кузнецова Д. М.')
+--INSERT INTO Organisation VALUES(101, 'Thunder', 'VR', 'Китай', 'Безналичные', 'Отсутствует', 'Антонова М. Н.')
+--INSERT INTO Organisation VALUES(102, 'Sound', 'Бытовая техника', 'Германия', 'Наличные', 'Отсутствует', 'Баранов М. И.')
+--INSERT INTO Organisation VALUES(103, 'Arithmetic', 'Электроника', 'Япония', 'Безналичные', 'Контейнеры', 'Маркова Я. К.')
+--INSERT INTO Organisation VALUES(104, 'Celery', 'Ресторан', 'Япония', 'Безналичные', 'Почтамат', 'Киреева М. А.')
+--INSERT INTO Organisation VALUES(105, 'Nation', 'Парикмахерская', 'Россия', 'Безналичные', 'Контейнеры', 'Авдеев М. В.')
+
+--EXEC ProcAddOrg 'Sense', 'Россия', 'Безналичные', 'Курьер', 'Спиридонова М. П.', 'XOFmUqFM'
+--EXEC ProcAddOrg 'Play', 'Россия', 'Наличные', 'Отсутствует', 'Иванов Н. М.', 'MYH6Xj7T'
+--EXEC ProcAddOrg 'Pen', 'США', 'Наличные', 'Курьер', 'Токарев Д. Н.', '8579iUyS'
+--EXEC ProcAddOrg 'Cows', 'Китай', 'Наличные', 'Почтамат', 'Кузнецов Д. М.', '45V2p3ai'
+--EXEC ProcAddOrg 'Time', 'Германия', 'Наличные', 'Почтамат', 'Волкова А. В.', 'xkAcBCUm'
+--EXEC ProcAddOrg 'Airplane', 'Россия', 'Наличные', 'Отсутствует', 'Горшков А. Р.', 'XIVoTuRp'
+--EXEC ProcAddOrg 'Effect', 'Китай', 'Наличные', 'Контейнеры', 'Архипова Ю. М.', 'G5rkLRZi'
+--EXEC ProcAddOrg 'Fairies', 'Россия', 'Наличные', 'Отсутствует', 'Сорокина Д. Д.', '15fDoJmp'
+--EXEC ProcAddOrg 'Space', 'Китай', 'Безналичные', 'Отсутствует', 'Кондратьев Д. Д.', 'vZBYrfc9'
+--EXEC ProcAddOrg 'Vacation', 'Япония', 'Наличные', 'Отсутствует', 'Полякова Я. С.', '26nGvzWa'
+--EXEC ProcAddOrg 'Exchange', 'Япония', 'Безналичные', 'Курьер', 'Мельников А. С.', 'LHcoeZAH'
+--EXEC ProcAddOrg 'Afterthought', 'Япония', 'Безналичные', 'Контейнеры', 'Емельянова К. М.', 'f7BFjQC2'
+--EXEC ProcAddOrg 'Sock', 'Китай', 'Наличные', 'Отсутствует', 'Цветков М. М.', '8eLx1awt'
+--EXEC ProcAddOrg 'Ink', 'Китай', 'Безналичные', 'Почтамат', 'Калмыкова Д. О.', 'Yxu5h0H0'
+--EXEC ProcAddOrg 'Orange', 'Китай', 'Безналичные', 'Контейнеры', 'Макаров С. А.', 'ACLPIjG4'
+--EXEC ProcAddOrg 'Degree', 'Япония', 'Безналичные', 'Контейнеры', 'Маркова Я. К.', 'BMoH952Y'
+--EXEC ProcAddOrg 'Fire', 'Китай', 'Безналичные', 'Контейнеры', 'Кузнецова А. Д.', 'Ye6qfVH1'
+--EXEC ProcAddOrg 'Knot', 'Россия', 'Наличные', 'Контейнеры', 'Покровский М. Г.', 'kLQFxizH'
+--EXEC ProcAddOrg 'Grandmother', 'Германия', 'Наличные', 'Курьер', 'Емельянова К. М.', 'BOg14ReH'
+--EXEC ProcAddOrg 'Stomach', 'Россия', 'Наличные', 'Курьер', 'Ильин И. Т.', 'VtFAOdeF'
+--EXEC ProcAddOrg 'Page', 'Россия', 'Наличные', 'Курьер', 'Васильева С. П.', 'BEszrZxa'
+--EXEC ProcAddOrg 'Bear', 'Япония', 'Наличные', 'Контейнеры', 'Панкратова Т. А.', 'mtDSRneI'
+--EXEC ProcAddOrg 'Boundary', 'Германия', 'Наличные', 'Почтамат', 'Петров М. Я.', '0AbsgWqD'
+--EXEC ProcAddOrg 'Wheel', 'Япония', 'Безналичные', 'Контейнеры', 'Петрова М. Я.', 'nsvys68z'
+--EXEC ProcAddOrg 'Waste', 'США', 'Безналичные', 'Почтамат', 'Вишневская К. В.', 'UGh9Op2Q'
+--EXEC ProcAddOrg 'Donkey', 'Япония', 'Наличные', 'Почтамат', 'Сальников М. С.', 'c3hv7aLH'
+--EXEC ProcAddOrg 'Attraction', 'США', 'Безналичные', 'Почтамат', 'Архипова Ю. М.', '3DjQTxga'
+--EXEC ProcAddOrg 'Class', 'Россия', 'Наличные', 'Контейнеры', 'Васильева С. П.', 'pnVgCSJX'
+--EXEC ProcAddOrg 'Roof', 'США', 'Безналичные', 'Почтамат', 'Королева С. Д.', 'bdd2MMcp'
+--EXEC ProcAddOrg 'Lake', 'США', 'Наличные', 'Курьер', 'Васильева З. К.', 'VtryMozP'
+--EXEC ProcAddOrg 'Wood', 'США', 'Наличные', 'Курьер', 'Соболев Е. М.', 'NuqdQT0O'
+--EXEC ProcAddOrg 'Fuel', 'Китай', 'Безналичные', 'Курьер', 'Кузнецов Д. М.', 'SyFLKUGa'
+--EXEC ProcAddOrg 'Pollution', 'Япония', 'Наличные', 'Почтамат', 'Филатов М. В.', 'eN1vR1jh'
+--EXEC ProcAddOrg 'Camera', 'Россия', 'Безналичные', 'Отсутствует', 'Долгов А. М.', 'Cyz6pzMZ'
+--EXEC ProcAddOrg 'Bath', 'Германия', 'Безналичные', 'Почтамат', 'Сомов Р. Д.', 'a8PTJvH1'
+--EXEC ProcAddOrg 'Carpenter', 'Китай', 'Безналичные', 'Отсутствует', 'Киселева Ю. М.', 'Bsu9ZzMP'
+--EXEC ProcAddOrg 'Flavor', 'Япония', 'Наличные', 'Курьер', 'Киселева Ю. М.', 'qNWoXcsx'
+--EXEC ProcAddOrg 'Hospital', 'США', 'Наличные', 'Контейнеры', 'Смирнов Н. Л.', 'vVcJPPeL'
+--EXEC ProcAddOrg 'Shelf', 'Германия', 'Безналичные', 'Контейнеры', 'Волкова М. М.', 'Y9fl3v9S'
+--EXEC ProcAddOrg 'Friction', 'Япония', 'Наличные', 'Почтамат', 'Петров И. Д.', 'TeMa3vTs'
+--EXEC ProcAddOrg 'Addition', 'Германия', 'Безналичные', 'Курьер', 'Иванов Е. М.', 'rPPy6oRg'
+--EXEC ProcAddOrg 'Tray', 'Германия', 'Безналичные', 'Отсутствует', 'Маркова Я. К.', '9F41hLek'
+--EXEC ProcAddOrg 'Rainstorm', 'Россия', 'Наличные', 'Почтамат', 'Фирсова В. Д.', 'AlEcTm1B'
+--EXEC ProcAddOrg 'Skate', 'Япония', 'Наличные', 'Контейнеры', 'Иванов Г. Д.', '0e9kqDoW'
+--EXEC ProcAddOrg 'Punishment', 'Япония', 'Безналичные', 'Курьер', 'Макаров М. Е.', 'ZA6HCjtS'
+--EXEC ProcAddOrg 'Songs', 'Китай', 'Наличные', 'Почтамат', 'Соболев Е. М.', 'DL2fTkmg'
+--EXEC ProcAddOrg 'Road', 'Япония', 'Безналичные', 'Отсутствует', 'Ефимов Л. И.', 'NejVFJdD'
+--EXEC ProcAddOrg 'Letter', 'США', 'Наличные', 'Почтамат', 'Самсонов А. С.', 'z5f7I3GE'
+--EXEC ProcAddOrg 'Throat', 'Китай', 'Безналичные', 'Отсутствует', 'Новиков М. А.', 'ON1zchRM'
+--EXEC ProcAddOrg 'Pail', 'Германия', 'Безналичные', 'Почтамат', 'Виноградова Е. А.', 'FxP5xqPz'
+--EXEC ProcAddOrg 'Doctor', 'Япония', 'Безналичные', 'Отсутствует', 'Волков Я. И.', 'L0LWIrgq'
+--EXEC ProcAddOrg 'Pull', 'Китай', 'Безналичные', 'Почтамат', 'Волкова А. В.', 'XVAIlbaF'
+--EXEC ProcAddOrg 'Railway', 'США', 'Наличные', 'Контейнеры', 'Токарев Д. Н.', 'X6YGSVDH'
+--EXEC ProcAddOrg 'Front', 'Германия', 'Безналичные', 'Отсутствует', 'Волкова М. М.', '53xeQPDf'
+--EXEC ProcAddOrg 'Cabbage', 'Япония', 'Наличные', 'Почтамат', 'Соловьева М. Э.', 'coXrHS7b'
+--EXEC ProcAddOrg 'Guitar', 'Германия', 'Наличные', 'Отсутствует', 'Емельянова К. М.', 'nu91eOSd'
+--EXEC ProcAddOrg 'Snow', 'Япония', 'Наличные', 'Контейнеры', 'Вишневская К. В.', 'dOpzyAUW'
+--EXEC ProcAddOrg 'Fact', 'Россия', 'Безналичные', 'Курьер', 'Вишневская К. В.', 'zL6ExyUu'
+--EXEC ProcAddOrg 'Rabbits', 'США', 'Наличные', 'Почтамат', 'Филатов М. В.', 'DViotge4'
+--EXEC ProcAddOrg 'Poison', 'Россия', 'Безналичные', 'Контейнеры', 'Сальников М. С.', 'NFcRli1b'
+--EXEC ProcAddOrg 'Toys', 'Германия', 'Безналичные', 'Почтамат', 'Емельянова К. М.', 'GRPzAPTX'
+--EXEC ProcAddOrg 'Powder', 'США', 'Безналичные', 'Отсутствует', 'Волков Я. Н.', 'N5bhD9Rd'
+--EXEC ProcAddOrg 'Glass', 'Япония', 'Наличные', 'Контейнеры', 'Морозова У. Ф.', 'UnOLAqJR'
+--EXEC ProcAddOrg 'Veil', 'Япония', 'Наличные', 'Курьер', 'Цветков М. М.', '340Bx5c5'
+--EXEC ProcAddOrg 'Hot', 'Китай', 'Наличные', 'Почтамат', 'Сидорова В. Д.', 'qmqv9GL1'
+--EXEC ProcAddOrg 'Recess', 'Япония', 'Наличные', 'Отсутствует', 'Соловьева М. Э.', 'NgzO80Yj'
+--EXEC ProcAddOrg 'Town', 'Китай', 'Наличные', 'Отсутствует', 'Калмыкова Д. О.', 'PgypjsdR'
+--EXEC ProcAddOrg 'Profit', 'Германия', 'Наличные', 'Отсутствует', 'Баранов М. И.', 'kqc9FLVU'
+--EXEC ProcAddOrg 'Flight', 'Китай', 'Наличные', 'Почтамат', 'Иванов Е. М.', 'P8rko941'
+--EXEC ProcAddOrg 'Feeling', 'Япония', 'Безналичные', 'Почтамат', 'Петрова М. Я.', 'KduZvZGE'
+--EXEC ProcAddOrg 'Wire', 'Германия', 'Наличные', 'Курьер', 'Малахова Н. А.', 'zROboJSI'
+--EXEC ProcAddOrg 'Shade', 'Германия', 'Наличные', 'Контейнеры', 'Петрова М. Я.', 'umeKzqjO'
+--EXEC ProcAddOrg 'Money', 'Россия', 'Безналичные', 'Отсутствует', 'Самсонов А. С.', 'lWmJRw3W'
+--EXEC ProcAddOrg 'Bikes', 'Россия', 'Безналичные', 'Курьер', 'Борисова К. М.', 'uuxfpmIU'
+--EXEC ProcAddOrg 'Stove', 'Россия', 'Безналичные', 'Контейнеры', 'Руднева А. М.', 'L22Pn7MD'
+--EXEC ProcAddOrg 'Drink', 'Япония', 'Наличные', 'Контейнеры', 'Филатов М. В.', '6t09ZM8X'
+--EXEC ProcAddOrg 'Pear', 'Япония', 'Наличные', 'Отсутствует', 'Никулина А. Д.', 'hA0GzMWz'
+--EXEC ProcAddOrg 'Brother', 'Китай', 'Наличные', 'Почтамат', 'Токарев Д. Н.', 'ahq1LAE5'
+--EXEC ProcAddOrg 'Jewel', 'Япония', 'Наличные', 'Почтамат', 'Гусева А. М.', 'i7IZg8HF'
+--EXEC ProcAddOrg 'Receipt', 'Китай', 'Безналичные', 'Отсутствует', 'Цветков М. М.', 'GLoEglNM'
+--EXEC ProcAddOrg 'Pest', 'США', 'Безналичные', 'Курьер', 'Богомолов А. А.', 'zaAoBTRY'
+--EXEC ProcAddOrg 'Calendar', 'Германия', 'Безналичные', 'Почтамат', 'Новиков М. А.', 'iCbs2VjC'
+--EXEC ProcAddOrg 'Oven', 'Китай', 'Безналичные', 'Отсутствует', 'Васильев Р. Л.', 'QaGdfmfc'
+--EXEC ProcAddOrg 'Voyage', 'Россия', 'Наличные', 'Курьер', 'Фомичева С. Е.', 'RtdqEt4d'
+--EXEC ProcAddOrg 'Sneeze', 'Япония', 'Безналичные', 'Почтамат', 'Баранов М. И.', 'u1DZfntV'
+--EXEC ProcAddOrg 'Comparison', 'Россия', 'Безналичные', 'Курьер', 'Никулина А. Д.', 'bGBKTZ74'
+--EXEC ProcAddOrg 'Cobweb', 'Китай', 'Наличные', 'Контейнеры', 'Анисимова И. А.', 'WARuGu6h'
+--EXEC ProcAddOrg 'Toe', 'Германия', 'Безналичные', 'Отсутствует', 'Никитина А. В.', 'fEcdXVPt'
+--EXEC ProcAddOrg 'Smell', 'Россия', 'Безналичные', 'Контейнеры', 'Иванов Н. М.', 'nCpTmX6i'
+--EXEC ProcAddOrg 'Butter', 'Россия', 'Наличные', 'Почтамат', 'Васильев Р. Л.', 'jWEe1DpJ'
+--EXEC ProcAddOrg 'Toad', 'Китай', 'Безналичные', 'Курьер', 'Крылов А. М.', 'vcwBRiJK'
+--EXEC ProcAddOrg 'Crow', 'Германия', 'Безналичные', 'Курьер', 'Волков Я. И.', 'C6utRSkI'
+--EXEC ProcAddOrg 'Street', 'Китай', 'Наличные', 'Отсутствует', 'Васильев Р. Л.', '7jU3bLp6'
+--EXEC ProcAddOrg 'Chin', 'Россия', 'Безналичные', 'Контейнеры', 'Колесов С. Л.', 'jvRaWscw'
+--EXEC ProcAddOrg 'Fish', 'Япония', 'Безналичные', 'Почтамат', 'Петрова М. Я.', 'qAigBQQq'
+--EXEC ProcAddOrg 'Thunder', 'Германия', 'Наличные', 'Почтамат', 'Борисова К. М.', 'M5DuBoTy'
+--EXEC ProcAddOrg 'Sound', 'Германия', 'Наличные', 'Курьер', 'Сомов Р. Д.', 'cpwDeDSw'
+--EXEC ProcAddOrg 'Arithmetic', 'Япония', 'Безналичные', 'Контейнеры', 'Калинин Н. К.', 'hYw0jbgz'
+--EXEC ProcAddOrg 'Celery', 'Япония', 'Безналичные', 'Почтамат', 'Петров И. Д.', 'mQlkfbYc'
+--EXEC ProcAddOrg 'Nation', 'Германия', 'Наличные', 'Курьер', 'Покровский М. Г.', '3aaqTOkY'
+
+SELECT * FROM Organisation
+SELECT * FROM Users
